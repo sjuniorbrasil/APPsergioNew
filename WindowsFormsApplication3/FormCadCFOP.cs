@@ -15,6 +15,7 @@ namespace WindowsFormsApplication3
             InitializeComponent();
         }
         utils u = new utils();
+        DataContext db = new DataContext();
         //Cfop cfop = new Cfop();
         
         private void limpa()
@@ -53,7 +54,6 @@ namespace WindowsFormsApplication3
             txtCodCopf.Enabled = true;
             novo = true;
             txtCodCopf.Focus();
-
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro: Erro ao gravar no banco de dados " + ex.ToString());
+                    u.messageboxErro(ex.ToString());
                     throw;
                 }
                 finally
@@ -119,8 +119,6 @@ namespace WindowsFormsApplication3
                     con.Close();
                 }
                 limpa();
-
-
             }
         }
 
@@ -137,8 +135,7 @@ namespace WindowsFormsApplication3
                 u.messageboxCamposObrigatorio();
             }
             else
-            {
-                
+            {                
                 if (novo)
                 {
                     string inserir = "insert into cfop(cfo_codigo, cfo_descricao) values(@cfo_codigo, @cfo_descricao)";
@@ -156,19 +153,16 @@ namespace WindowsFormsApplication3
                         {
                             u.messageboxSucesso();
                         }
-
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                         throw;
                     }
                     finally
                     {
                         con.Close();
                     }
-
-
                 }
                 else
                 {
@@ -186,11 +180,10 @@ namespace WindowsFormsApplication3
                         {
                             u.messageboxSucesso();
                         }
-
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                         throw;
                     }
                     finally
@@ -227,19 +220,11 @@ namespace WindowsFormsApplication3
             }
 
             cfopDataGridView.DataSource = dv;
-            
-
         }
 
         private void txtCodCopf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -247,36 +232,39 @@ namespace WindowsFormsApplication3
             panelPesquisa.Visible = false;
         }
 
+
+        private void GetDescricaoCfop()
+        {
+            string buscaCfop = "Select cfo_descricao From cfop where cfo_codigo = '" + txtCodCopf.Text.Trim() + "'";
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            SqlCommand sqlCommand = new SqlCommand(buscaCfop, con);
+            con.Open();
+            SqlDataReader dR = sqlCommand.ExecuteReader();
+            if (dR.Read())
+            {
+                novo = false;
+                txtDescricao.Text = dR[0].ToString();
+            }
+            else
+            {
+                txtDescricao.Clear();
+            }
+            con.Close();
+        }
+
         private void txtCodCopf_TextChanged(object sender, EventArgs e)
         {
             if (txtCodCopf.Text == null)
             {
                 txtDescricao.Focus();
-
             }
             else
             {
-                string buscaCfop = "Select cfo_descricao From cfop where cfo_codigo = '" + txtCodCopf.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaCfop, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    novo = false;
-
-                    txtDescricao.Text = dR[0].ToString();
-                }
-                else
-                {
-                    txtDescricao.Clear();
-                }
-
-                con.Close();
+                txtDescricao.Text =  db.GetDescricao("Select cfo_descricao From cfop where cfo_codigo = ", txtCodCopf.Text, txtDescricao.Text);       
+                                                   
+                //GetDescricaoCfop();              
             }
         }
     }

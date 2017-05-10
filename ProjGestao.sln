@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ducaun.dal", "ducaun.dal\du
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Produsys", "Produsys\Produsys.csproj", "{6D78E22E-1605-4EE9-8D97-0B030955158D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoBancario", "BoletoBancario\BoletoBancario.csproj", "{07060114-70BF-4923-8FDA-6601DB0FEE03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{6D78E22E-1605-4EE9-8D97-0B030955158D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D78E22E-1605-4EE9-8D97-0B030955158D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D78E22E-1605-4EE9-8D97-0B030955158D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07060114-70BF-4923-8FDA-6601DB0FEE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07060114-70BF-4923-8FDA-6601DB0FEE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07060114-70BF-4923-8FDA-6601DB0FEE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07060114-70BF-4923-8FDA-6601DB0FEE03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

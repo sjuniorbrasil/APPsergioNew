@@ -20,6 +20,7 @@ namespace WindowsFormsApplication3
         }
 
         utils u = new utils();
+        DataContext db = new DataContext();
         private Boolean EnableSalvar()
         {
 
@@ -141,7 +142,7 @@ namespace WindowsFormsApplication3
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
@@ -200,7 +201,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString(), "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -229,7 +230,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString(), "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -260,10 +261,6 @@ namespace WindowsFormsApplication3
 
             }
         }
-
-
-
-
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
@@ -446,20 +443,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                string query = "Select n_funcionario From funcionarios where cod_funcionario = '" + txtFuncionario.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(query, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNfunc.Text = dR[0].ToString();
-                }
-                con.Close();
+                txtNfunc.Text = db.GetDescricao("Select n_funcionario From funcionarios where cod_funcionario = ", txtFuncionario.Text, txtNfunc.Text);                
             }
         }
 
@@ -468,24 +452,10 @@ namespace WindowsFormsApplication3
             if (txtCliente.Text == null)
             {
                 txtNcliente.Focus();
-
             }
             else
             {
-                string buscaCliente = "Select n_cliente From clientes where cod_cliente = '" + txtCliente.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaCliente, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNcliente.Text = dR[0].ToString();
-                }
-                con.Close();
+                txtNcliente.Text = db.GetDescricao("Select n_cliente From clientes where cod_cliente = ", txtCliente.Text, txtNcliente.Text);
             }
         }
 
@@ -538,28 +508,12 @@ namespace WindowsFormsApplication3
 
         private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtFuncionario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void mskData_TypeValidationCompleted(object sender, TypeValidationEventArgs e)          

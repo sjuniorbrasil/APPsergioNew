@@ -19,6 +19,7 @@ namespace WindowsFormsApplication3
             InitializeComponent();
         }
         utils u = new utils();
+        DataContext db = new DataContext();
        
         private void formCpagar_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -60,37 +61,12 @@ namespace WindowsFormsApplication3
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            if (char.IsLetter(e.KeyChar) ||
-
-          char.IsSymbol(e.KeyChar) ||
-
-          char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) ||
-
-          char.IsSymbol(e.KeyChar) ||
-
-          char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
@@ -139,7 +115,6 @@ namespace WindowsFormsApplication3
                 maskedTextBox1.Enabled = false;
                 cdSituacao.Enabled = false;                           
                 this.MaximizeBox = false;
-
             }
             else
             {
@@ -158,8 +133,7 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
@@ -260,7 +234,6 @@ namespace WindowsFormsApplication3
                 string observacao = txtObs.Text.Trim();
                 if (novo)
                 {
-
                     string inserir = "insert into cpagar(cod_cliente, pag_valor, pag_recebido, pag_dtvenc, pag_dtbaixa, pag_situacao, pag_obs, pag_juros) values(@cod_cliente, @pag_valor, @pag_recebido, @pag_dtvenc, @pag_dtbaixa, @pag_situacao, @pag_obs, @pag_juros)";
 
                     SqlConnection con = new SqlConnection();
@@ -284,7 +257,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -294,7 +267,6 @@ namespace WindowsFormsApplication3
 
                 else
                 {
-
                     string altera = "update cpagar set cod_cliente = @cod_cliente, pag_valor = @pag_valor, pag_recebido = @pag_recebido, pag_dtvenc = @pag_dtvenc, pag_dtbaixa = @pag_dtbaixa, pag_situacao = @pag_situacao, pag_obs = @pag_obs, pag_juros = @pag_juros where pag_codigo = " + txtControle.Text;
 
                     SqlConnection con = new SqlConnection();
@@ -318,7 +290,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -350,8 +322,7 @@ namespace WindowsFormsApplication3
                 txtCCadastro.BackColor = SystemColors.Window;
                 mskDtVenc.BackColor = SystemColors.Window;
             }
-        }
-      
+        }      
 
         private Boolean validaCalculo()
         {
@@ -381,8 +352,7 @@ namespace WindowsFormsApplication3
             if (validaCalculo())
             {
                 btnSalvar.Enabled = true;
-            }
-         
+            }         
         }
 
         private void txtValor_Leave(object sender, EventArgs e)
@@ -390,8 +360,7 @@ namespace WindowsFormsApplication3
             if (validaCalculo())
             {
                 btnSalvar.Enabled = true;
-            }
-      
+            }      
         }
 
         private void cdSituacao_Leave(object sender, EventArgs e)
@@ -399,8 +368,7 @@ namespace WindowsFormsApplication3
             if (validaCalculo())
             {
                 btnSalvar.Enabled = true;
-            }
-      
+            }      
         }
 
         private void txtObs_Leave(object sender, EventArgs e)
@@ -408,8 +376,7 @@ namespace WindowsFormsApplication3
             if (validaCalculo())
             {
                 btnSalvar.Enabled = true;
-            }
-       
+            }       
         }
 
         private void maskedTextBox1_Leave(object sender, EventArgs e)
@@ -417,8 +384,7 @@ namespace WindowsFormsApplication3
             if (validaCalculo())
             {
                 btnSalvar.Enabled = true;
-            }
-       
+            }       
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -456,8 +422,7 @@ namespace WindowsFormsApplication3
             {
                 dv.RowFilter = "razão like '%" + txtpForn.Text + "%'";
             }
-            fornecedoresDataGridView.DataSource = dv;
-            
+            fornecedoresDataGridView.DataSource = dv;            
         }
 
         private void txtCCadastro_TextChanged(object sender, EventArgs e)
@@ -465,25 +430,10 @@ namespace WindowsFormsApplication3
             if (txtCCadastro.Text == null)
             {
                 txtNcadastro.Focus();
-
             }
             else
             {
-                string buscaFornecedor = "Select fantasia From fornecedores where cod_fornecedor = '" + txtCCadastro.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaFornecedor, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNcadastro.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtNcadastro.Text = db.GetDescricao("Select fantasia From fornecedores where cod_fornecedor = ", txtCCadastro.Text, txtNcadastro.Text);
             }
         }
 
@@ -491,20 +441,16 @@ namespace WindowsFormsApplication3
         {
             if (txtpesqConPag.Text == string.Empty)
             {
-
                 string buscacpagar = "select a.pag_codigo as Controle, a.cod_cliente as Código, b.fantasia as Nome, a.pag_valor as Valor, a.pag_dtvenc as Vencimento, a.pag_recebido as Pago, a.pag_dtbaixa as Baixa, a.pag_situacao as Situação, a.pag_obs as Observações, a.pag_juros as Acréscimos from CPAGAR a join fornecedores b on a.cod_cliente = b.cod_fornecedor order by a.pag_dtvenc";
-
 
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = Properties.Settings.Default.Ducaun;
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
                 con.Open();
-
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 DataView dv = new DataView(dt);
-
                 dataGridViewCpagar.DataSource = dv;
                 con.Close();
             }
@@ -512,12 +458,10 @@ namespace WindowsFormsApplication3
             {
                 string buscacpagar = "select a.pag_codigo as Controle, a.cod_cliente as Código, b.fantasia as Nome, a.pag_valor as Valor, a.pag_dtvenc as Vencimento, a.pag_recebido as Pago, a.pag_dtbaixa as Baixa, a.pag_situacao as Situação, a.pag_obs as Observações, a.pag_juros as Acréscimos from CPAGAR a join fornecedores b on a.cod_cliente = b.cod_fornecedor where a.cod_cliente = " + txtpesqConPag.Text;
 
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = Properties.Settings.Default.Ducaun;
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
                 con.Open();
-
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
@@ -525,8 +469,7 @@ namespace WindowsFormsApplication3
 
                 dataGridViewCpagar.DataSource = dv;
                 con.Close();
-            }
-            
+            }            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -543,11 +486,9 @@ namespace WindowsFormsApplication3
             else
             {
                 string buscaFornecedor = "Select fantasia From fornecedores where cod_fornecedor = '" + txtpesqConPag.Text.Trim() + "'";
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = Properties.Settings.Default.Ducaun;
                 SqlCommand sqlCommand = new SqlCommand(buscaFornecedor, con);
-
                 con.Open();
                 SqlDataReader dR = sqlCommand.ExecuteReader();
 
@@ -555,7 +496,6 @@ namespace WindowsFormsApplication3
                 {
                     txtNpesquicon.Text = dR[0].ToString();
                 }
-
                 con.Close();
             }
         }
@@ -566,8 +506,7 @@ namespace WindowsFormsApplication3
         }
 
         private void dataGridViewCpagar_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
+        {           
            if (e.RowIndex >= 0)
              {
                 panelCpagar.Visible = false;
@@ -600,8 +539,7 @@ namespace WindowsFormsApplication3
                 txtJuros.Text = "0,00";
                 txtVlPago.Text = "0,00";               
                 txtNcadastro.Focus();
-            }
-         
+            }         
         }
 
         private void btnsaircPagar_Click(object sender, EventArgs e)
@@ -627,19 +565,7 @@ namespace WindowsFormsApplication3
 
         private void txtCCadastro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) ||
-
-          char.IsSymbol(e.KeyChar) ||
-
-          char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
     }
 }

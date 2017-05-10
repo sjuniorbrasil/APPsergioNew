@@ -23,8 +23,8 @@ namespace WindowsFormsApplication3
         {
             InitializeComponent();
         }
-        utils u = new utils();       
-
+        utils u = new utils();
+        DataContext db = new DataContext();
         private void FormEntProdutos_FormClosed(object sender, FormClosedEventArgs e)
         {
             MeusFormularios.FrmEntProdutos = null;
@@ -149,7 +149,6 @@ namespace WindowsFormsApplication3
 
         private void fornecedoresDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
                 panel1.Visible = false;
@@ -167,22 +166,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                string getFornecedor = "select razão from fornecedores where cod_fornecedor =  '" + txtcodFornecedor.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand cmd = new SqlCommand(getFornecedor, con);
-                
-
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    txtNomeFornecedor.Text = dr[0].ToString();
-
-
-                }
-                con.Close();
+                txtNomeFornecedor.Text = db.GetDescricao("select razão from fornecedores where cod_fornecedor = ", txtcodFornecedor.Text, txtNomeFornecedor.Text);
             }
             if (enableSalvar())
             {
@@ -198,19 +182,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                string getProduto = "select des_produto from produtos where cod_produto = '" + txtCodProduto.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand cmd = new SqlCommand(getProduto, con);
-                
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    txtNomeProduto.Text = dr[0].ToString();
-                }
-                con.Close();
+                txtNomeProduto.Text = db.GetDescricao("select des_produto from produtos where cod_produto = ", txtCodProduto.Text, txtNomeProduto.Text);
             }
             if (enableSalvar())
             {
@@ -220,60 +192,58 @@ namespace WindowsFormsApplication3
 
         private void btnInsProduto_Click(object sender, EventArgs e)
         {
-            
-            
-                kuantidade = Convert.ToDecimal(txtQuantidade.Text.Trim());
-                valProduto = Convert.ToDecimal(txtVTotal.Text.Trim());
-                valUnitario = Convert.ToDecimal(txtValor.Text.Trim());
-                codproduto = Convert.ToInt32(txtCodProduto.Text.Trim());
-                int comcodigo = Convert.ToInt32(txtControle.Text.Trim());
 
-                string insProduto = " insert into compraitem(com_codigo, cod_produto, itp_valor, itp_qtde, itp_total)" +
-                    "values(@com_codigo, @cod_produto, @itp_valor, @itp_qtde, @ipt_total)";
+            kuantidade = Convert.ToDecimal(txtQuantidade.Text.Trim());
+            valProduto = Convert.ToDecimal(txtVTotal.Text.Trim());
+            valUnitario = Convert.ToDecimal(txtValor.Text.Trim());
+            codproduto = Convert.ToInt32(txtCodProduto.Text.Trim());
+            int comcodigo = Convert.ToInt32(txtControle.Text.Trim());
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand cmd = new SqlCommand(insProduto, con);
-                cmd.Parameters.Add("@com_codigo", SqlDbType.Int).Value = comcodigo;
-                cmd.Parameters.Add("@cod_produto", SqlDbType.Int).Value = codproduto;
-                cmd.Parameters.Add("@itp_valor", SqlDbType.Decimal).Value = valUnitario;
-                cmd.Parameters.Add("@itp_qtde", SqlDbType.Decimal).Value = kuantidade;
-                cmd.Parameters.Add("@ipt_total", SqlDbType.Decimal).Value = valProduto;
+            string insProduto = " insert into compraitem(com_codigo, cod_produto, itp_valor, itp_qtde, itp_total)" +
+                "values(@com_codigo, @cod_produto, @itp_valor, @itp_qtde, @ipt_total)";
 
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-                try
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            SqlCommand cmd = new SqlCommand(insProduto, con);
+            cmd.Parameters.Add("@com_codigo", SqlDbType.Int).Value = comcodigo;
+            cmd.Parameters.Add("@cod_produto", SqlDbType.Int).Value = codproduto;
+            cmd.Parameters.Add("@itp_valor", SqlDbType.Decimal).Value = valUnitario;
+            cmd.Parameters.Add("@itp_qtde", SqlDbType.Decimal).Value = kuantidade;
+            cmd.Parameters.Add("@ipt_total", SqlDbType.Decimal).Value = valProduto;
+
+            cmd.CommandType = CommandType.Text;
+            con.Open();
+            try
+            {
+                if (dataGridView1.Rows.Cast<DataGridViewRow>().Any(row => row.Cells[0].Value.Equals(txtCodProduto.Text.Trim())))
                 {
-                    if (dataGridView1.Rows.Cast<DataGridViewRow>().Any(row => row.Cells[0].Value.Equals(txtCodProduto.Text.Trim())))
-                    {
-                        MessageBox.Show("Erro: Produto já inserido ", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        int i = cmd.ExecuteNonQuery();
-
-
-                        if (i > 0)
-                            dataGridView1.Rows.Add(txtCodProduto.Text, txtNomeProduto.Text, txtQuantidade.Text, txtValor.Text, txtDesconto.Text, txtVTotal.Text);
-                        txtVTotal.Text = "";
-                        txtValor.Text = "";
-                        txtQuantidade.Text = "";
-                        txtNomeProduto.Text = "";
-                        txtCodProduto.Text = "";
-
-                        btnInsProduto.Enabled = false;
-
-                    }
+                    MessageBox.Show("Erro: Produto já inserido ", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Erro: ", ex.ToString());
+                    int i = cmd.ExecuteNonQuery();
+
+
+                    if (i > 0)
+                        dataGridView1.Rows.Add(txtCodProduto.Text, txtNomeProduto.Text, txtQuantidade.Text, txtValor.Text, txtDesconto.Text, txtVTotal.Text);
+                    txtVTotal.Text = "";
+                    txtValor.Text = "";
+                    txtQuantidade.Text = "";
+                    txtNomeProduto.Text = "";
+                    txtCodProduto.Text = "";
+
+                    btnInsProduto.Enabled = false;
+
                 }
-                finally
-                {
-                    con.Close();
-                }
-               
+            }
+            catch (Exception ex)
+            {
+                u.messageboxErro(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -331,10 +301,8 @@ namespace WindowsFormsApplication3
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Properties.Settings.Default.Ducaun;
             SqlCommand sqlCommand = new SqlCommand(query, con);
-
             con.Open();
             SqlDataReader dR = sqlCommand.ExecuteReader();
-
             if (dR.Read())
             {
                 txtControle.Text = dR[0].ToString();
@@ -434,9 +402,6 @@ namespace WindowsFormsApplication3
                 cmd.Parameters.Add("@com_obs", SqlDbType.VarChar).Value = pedobs;
                 cmd.Parameters.Add("@com_desconto", SqlDbType.Decimal).Value = desconto;
 
-
-
-
                 //////////////////////////////////////////////////////conta pagar
                 SqlCommand cmd1 = new SqlCommand(financeiro, con);
                 cmd1.Parameters.Add("@com_totalliq", SqlDbType.Decimal).Value = pedtotalliq;
@@ -456,7 +421,7 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString(), "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
@@ -511,8 +476,6 @@ namespace WindowsFormsApplication3
         {
             kuantidade = Convert.ToDecimal(txtQuantidade.Text.Trim());
             valUnitario = Convert.ToDecimal(txtValor.Text.Trim());
-
-
             valProduto = kuantidade * valUnitario;
             txtVTotal.Text = Convert.ToString(valProduto);
         }
@@ -555,7 +518,6 @@ namespace WindowsFormsApplication3
                 maskedTextBox1.Enabled = false;              
                 txtSomaDesconto.Text = "0,00";
                 txtDesconto.Text = "0,00";
-
             }
             else
             {
@@ -571,8 +533,6 @@ namespace WindowsFormsApplication3
                 cmd1.CommandType = CommandType.Text;
                 SqlCommand cmd2 = new SqlCommand(excruipagamento, con);
                 cmd2.CommandType = CommandType.Text;
-
-
                 con.Open();
                 try
                 {
@@ -586,13 +546,12 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
                     con.Close();
                 }
-
             }
         }
 
@@ -623,11 +582,9 @@ namespace WindowsFormsApplication3
             txtsomaTudo.Enabled = false;
             maskedTextBox1.Enabled = false;
 
-
             /////////////////////////////////////////////////////////////////////////////////////////////////
             string excrui = "delete from compra where com_codigo = '" + txtControle.Text.Trim() + "'";
-            string excruiitem = "delete from compraitem where com_codigo = '" + txtControle.Text.Trim() + "'";
-            
+            string excruiitem = "delete from compraitem where com_codigo = '" + txtControle.Text.Trim() + "'";            
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Properties.Settings.Default.Ducaun;
@@ -635,12 +592,9 @@ namespace WindowsFormsApplication3
             cmd.CommandType = CommandType.Text;
             SqlCommand cmd1 = new SqlCommand(excruiitem, con);
             cmd1.CommandType = CommandType.Text;
-            
-
             con.Open();
             try
-            {
-                
+            {                
                 int i = cmd.ExecuteNonQuery();
                 int j = cmd1.ExecuteNonQuery();
                 if ((i > 0) || (j > 0))
@@ -650,7 +604,7 @@ namespace WindowsFormsApplication3
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                u.messageboxErro(ex.ToString());
             }
             finally
             {
@@ -731,74 +685,47 @@ namespace WindowsFormsApplication3
 
         private void txtcodFornecedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtCodProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtDesconto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtVTotal_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtsomaTudo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtSomaDesconto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtCdesconto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void maskedTextBox1_TypeValidationCompleted(object sender, TypeValidationEventArgs e)

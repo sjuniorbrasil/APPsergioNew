@@ -17,7 +17,7 @@ namespace WindowsFormsApplication3
         utils u = new utils();
         Cliente cliente = new Cliente();
         Cidade cidad = new Cidade();
-               
+        DataContext db = new DataContext();                         
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
@@ -43,8 +43,7 @@ namespace WindowsFormsApplication3
             btnSalvar.Enabled = false;
             buttonCancelaCadcliente.Enabled = false;
             btnNovo.Focus();
-            this.MaximizeBox = false;   
-            
+            this.MaximizeBox = false;            
             panelCid.Visible = false;
             rbNomeC.Checked = true;
 
@@ -104,7 +103,6 @@ namespace WindowsFormsApplication3
             DialogResult escolha = MessageBox.Show("Deseja realmente excluir esse registro ?", "Mensagem do Sitema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (escolha == DialogResult.Cancel)
             {
-
                 u.limparTextBoxes(this);
                 u.limparMTextBoxes(this);
                 u.DisableTxt(this);
@@ -120,8 +118,6 @@ namespace WindowsFormsApplication3
             }
             else
             {
-
-
                 string sql = "DELETE FROM CLIENTES WHERE cod_cliente =" + cliente.ID;
 
                 SqlConnection con = new SqlConnection();
@@ -139,7 +135,7 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro: Erro ao gravar no banco de dados " + ex.ToString());
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
@@ -169,9 +165,6 @@ namespace WindowsFormsApplication3
             btnSalvar.Enabled = false;
             buttonCancelaCadcliente.Enabled = false;
             btnNovo.Focus();
-     
-            clientesDataGridView.Refresh();
-
         }
         private void btnChamaPesquisa_Click(object sender, EventArgs e)
         {
@@ -186,11 +179,9 @@ namespace WindowsFormsApplication3
                 txtCodCid.BackColor = Color.Gold;
                 textBoxNomeCliente.BackColor = Color.Gold;
                 u.messageboxCamposObrigatorio();
-
             }
             else
-            {
-                
+            {                
                 cliente.Razao = textBoxNomeCliente.Text;
                 cliente.Endereco = textBoxEndereco.Text;
                 cliente.Bairro = textBoxBairroCliente.Text;
@@ -203,8 +194,6 @@ namespace WindowsFormsApplication3
                 cliente.Email = textBoxEmailCliente.Text;
                 cliente.DataNascimento = maskedTextBoxDatanas.Text;
                 cliente.Numero = textBoxNumero.Text;
-
-
                 if (novo) //novo 
                 {
                     string sql = "INSERT INTO CLIENTEs(n_cliente,endereco,bairro,cidade,telefone,celular,cep,obs,cpf,email,data_nas,numero) " +
@@ -235,7 +224,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -272,7 +261,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -308,9 +297,6 @@ namespace WindowsFormsApplication3
             }
         }
 
-
-
-
         private void btnSaiPesquisa_Click_1(object sender, EventArgs e)
         {
             panelPesquisaClientes.Visible = false;
@@ -328,26 +314,19 @@ namespace WindowsFormsApplication3
                 dv.RowFilter = "n_cliente like'%" + textBox1.Text + "%'";
             }
             clientesDataGridView.DataSource = dv;         
-
         }
-
-
 
         private void clientesDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             panelPesquisaClientes.Visible = false;
         }
 
-
-
         private void clientesDataGridView_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
                 panelPesquisaClientes.Visible = false;
                 DataGridViewRow row = this.clientesDataGridView.Rows[e.RowIndex];
-
                 textBoxCodCliente.Text = row.Cells[0].Value.ToString();
                 textBoxNomeCliente.Text = row.Cells[1].Value.ToString();
                 textBoxEndereco.Text = row.Cells[2].Value.ToString();
@@ -381,8 +360,6 @@ namespace WindowsFormsApplication3
                 btnPcidade.Enabled = true;
                 textBoxNomeCliente.Focus();
             }
-
-
         }
 
         private void buttonCancelaCadcliente_Click(object sender, EventArgs e)
@@ -411,8 +388,7 @@ namespace WindowsFormsApplication3
             u.limparTextBoxes(this);
             u.limparMTextBoxes(this);
             btnNovo.Focus();
-            this.MaximizeBox = false;
-    
+            this.MaximizeBox = false;    
             clientesDataGridView.Refresh();
         }
 
@@ -428,22 +404,7 @@ namespace WindowsFormsApplication3
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (radioButtonCodigo.Checked)
-            {
-                if (char.IsLetter(e.KeyChar) ||
-
-               char.IsSymbol(e.KeyChar) ||
-
-               char.IsWhiteSpace(e.KeyChar))
-
-
-                    e.Handled = true;
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
-            }
+            u.ApenasNumeros();
         }
 
         private void maskedTextBoxCpf_Leave(object sender, EventArgs e)
@@ -453,13 +414,12 @@ namespace WindowsFormsApplication3
                 string valor = maskedTextBoxCpf.Text;
                 if (ValidaCPF.ValidaCPF.Valida(valor))
                 {
-
                     textBoxBairroCliente.Focus();
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("O CPF digitado é inválido", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                u.messageboxErro(ex.ToString());
             }
             finally
             {
@@ -469,18 +429,7 @@ namespace WindowsFormsApplication3
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) ||
-
-          char.IsSymbol(e.KeyChar) ||
-
-          char.IsWhiteSpace(e.KeyChar))
-
-
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
+            u.ApenasNumeros();
         }
 
         private void FormClientes_FormClosed_1(object sender, FormClosedEventArgs e)
@@ -496,7 +445,6 @@ namespace WindowsFormsApplication3
         private void btnSair_Click(object sender, EventArgs e)
         {
             panelCid.Visible = false;
-
         }
 
         private void btnPesq_Click(object sender, EventArgs e)
@@ -510,8 +458,7 @@ namespace WindowsFormsApplication3
             {
                 dv.RowFilter = "cid_nome like '%" + txtcid.Text + "%'";
             }
-            dataGridView1.DataSource = dv;
-            
+            dataGridView1.DataSource = dv;            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -519,25 +466,10 @@ namespace WindowsFormsApplication3
             if (txtCodCid.Text == null)
             {
                 textBoxCidadeCliente.Focus();
-
             }
             else
             {
-                string buscaCidade = "Select cid_nome From cidades where cid_codigo = '" + txtCodCid.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaCidade, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    textBoxCidadeCliente.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtcid.Text = db.GetDescricao("Select cid_nome From cidades where cid_codigo = ", txtCodCid.Text, txtcid.Text);
             }
         }
 

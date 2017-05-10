@@ -34,8 +34,6 @@ namespace WindowsFormsApplication3
             textBoxNomeProcedimento.Enabled = false;
         }
 
-
-
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -50,7 +48,6 @@ namespace WindowsFormsApplication3
             btnSalvar.Enabled = false;
             u.limparTextBoxes(this);
             textBoxNomeProcedimento.Focus();
-
         }
 
         private void FormCadProcedimento_FormClosed(object sender, FormClosedEventArgs e)
@@ -60,7 +57,6 @@ namespace WindowsFormsApplication3
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             DialogResult escolha = MessageBox.Show("Você deseja realmente excluir esse item?", "Excluir", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (escolha == DialogResult.Cancel)
             {
@@ -70,8 +66,6 @@ namespace WindowsFormsApplication3
                 u.limparTextBoxes(this);
                 textBoxNomeProcedimento.Focus();
             }
-
-
             else
             {
                 string excrui = "delete from procedimentos where cod_procedimento = " + txtCodProcedimento.Text;
@@ -88,15 +82,12 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao Gravar no Banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
                     con.Close();
                 }
-
-
             }
             txtCodProcedimento.Enabled = false;
             textBoxNomeProcedimento.Enabled = false;
@@ -106,19 +97,16 @@ namespace WindowsFormsApplication3
             btnNovo.Enabled = true;
             u.limparTextBoxes(this);
             textBoxNomeProcedimento.Enabled = false;
-
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-
             textBoxNomeProcedimento.Enabled = true;
             btnCancelar.Enabled = true;
             btnSalvar.Enabled = true;
             btnExcluir.Enabled = false;
             textBoxNomeProcedimento.Focus();
             novo = true;
-
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -147,7 +135,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -172,14 +160,12 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
                         con.Close();
                     }
-
-
                 }
                 txtCodProcedimento.Enabled = false;
                 textBoxNomeProcedimento.Enabled = false;
@@ -195,8 +181,6 @@ namespace WindowsFormsApplication3
         }
 
         public DialogResult escolha { get; set; }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -261,29 +245,12 @@ namespace WindowsFormsApplication3
                 btnExcluir.Enabled = true;
                 textBoxNomeProcedimento.Focus();
                 btnNovo.Enabled = false;
-
-
             }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (radioButtonCodigo.Checked)
-            {
-                if (char.IsLetter(e.KeyChar) || //Letras
-
-               char.IsSymbol(e.KeyChar) || //Símbolos
-
-               char.IsWhiteSpace(e.KeyChar)) //Espaço
-
-
-                    e.Handled = true; //Não permitir
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
-            }
+            u.ApenasNumeros();
         }
     }
 }

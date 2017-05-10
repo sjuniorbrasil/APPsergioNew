@@ -684,7 +684,9 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(690, 210);
             this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             // 
             // Column1
             // 
@@ -1414,6 +1416,7 @@
             this.tableAdapterManager.agendaTableAdapter = null;
             this.tableAdapterManager.atendimentosTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.cidades1TableAdapter = null;
             this.tableAdapterManager.cidadesTableAdapter = null;
             this.tableAdapterManager.clientesTableAdapter = null;
             this.tableAdapterManager.compraitemTableAdapter = null;

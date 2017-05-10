@@ -21,7 +21,7 @@ namespace WindowsFormsApplication3
             InitializeComponent();
         }
         utils u = new utils();
-
+        DataContext db = new DataContext();
         private Boolean EnableSalvar()
         {
             if (textBoxRazao.Text == string.Empty)
@@ -117,8 +117,7 @@ namespace WindowsFormsApplication3
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (textBoxRazao.Text == string.Empty)
-            {
-                
+            {                
                 textBoxRazao.BackColor = Color.Gold;
                 u.messageboxCamposObrigatorio();
             }
@@ -128,8 +127,6 @@ namespace WindowsFormsApplication3
                 {
                     textBoxCidade.Text = "0";
                 }
-
-
                 string vRazao = textBoxRazao.Text;
                 string fantasia = textBoxFantasia.Text;
                 string endereco = textBoxBairro.Text;
@@ -142,9 +139,6 @@ namespace WindowsFormsApplication3
                 string cnpj = maskedTextBoxCnpj.Text;
                 string numero = textBoxNumero.Text;
                 string email = textBoxEmail.Text;
-
-
-
                 if (novo)
                 {
                     string sql = "insert into fornecedores(razão, fantasia, endereco, bairro,cidade, telefone, celular, cep, obs, cnpj, numero, email) values(@razão, @fantasia, @endereco, @bairro, @cidade, @telefone, @celular, @cep, @obs, @cnpj, @numero, @email )";
@@ -174,7 +168,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -212,7 +206,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -286,7 +280,7 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro: Erro ao gravar no banco de dados " + ex.ToString());
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
@@ -321,14 +315,7 @@ namespace WindowsFormsApplication3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
-            SqlCommand cmd = new SqlCommand("select * from fornecedores", con);
-            con.Open();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            DataView dv = new DataView(dt);
+            DataView dv = new DataView(DataContext.CarregaFornecedores());            
             if (radioButtonCodigo.Checked)
             {
                 dv.RowFilter = "cod_fornecedor =" + textBox2.Text;
@@ -341,15 +328,13 @@ namespace WindowsFormsApplication3
             {
                 dv.RowFilter = "razão like '%" + textBox2.Text + "%'";
             }
-            fornecedoresDataGridView.DataSource = dv;
-            con.Close();
+            fornecedoresDataGridView.DataSource = dv;            
         }
 
         private void textBoxFantasia_Enter(object sender, EventArgs e)
         {
             string razaun;
             string fantasia;
-
             razaun = textBoxRazao.Text;
             fantasia = razaun;
             textBoxFantasia.Text = razaun;
@@ -381,28 +366,12 @@ namespace WindowsFormsApplication3
             {
                 dv.RowFilter = "razão like '%" + textBox2.Text + "%'";
             }
-            fornecedoresDataGridView.DataSource = dv;
-            
+            fornecedoresDataGridView.DataSource = dv;            
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (radioButtonCodigo.Checked)
-            {
-                if (char.IsLetter(e.KeyChar) ||
-
-               char.IsSymbol(e.KeyChar) ||
-
-               char.IsWhiteSpace(e.KeyChar))
-
-
-                    e.Handled = true;
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
-            }
+            u.ApenasNumeros();
         }
 
         private void maskedTextBoxCnpj_Leave(object sender, EventArgs e)
@@ -415,9 +384,9 @@ namespace WindowsFormsApplication3
                     textBoxNumero.Focus();
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("O CNPJ informado não é valido", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                u.messageboxErro(ex.ToString());
             }
             finally
             {
@@ -427,10 +396,7 @@ namespace WindowsFormsApplication3
 
         private void textBoxCidade_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void textBoxCidade_TextChanged(object sender, EventArgs e)
@@ -441,21 +407,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                string buscaCidade = "Select cid_nome From cidades where cid_codigo = '" + textBoxCidade.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaCidade, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNcidade.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtNcidade.Text = db.GetDescricao("Select cid_nome From cidades where cid_codigo = ", txtcid.Text, txtNcidade.Text);
             }
         }
 
@@ -534,7 +486,6 @@ namespace WindowsFormsApplication3
                 txtNcidade.Enabled = true;
                 btnPcidade.Enabled = true;
                 btnExcluir.Enabled = true;
-
             }
         }
 
@@ -547,7 +498,6 @@ namespace WindowsFormsApplication3
         {
             string razaun;
             string fantasia;
-
             razaun = textBoxRazao.Text;
             fantasia = razaun;
             textBoxFantasia.Text = razaun;

@@ -19,64 +19,53 @@ namespace WindowsFormsApplication3
             InitializeComponent();
         }
         utils u = new utils();
+        DataContext db = new DataContext();
+
+        private void Unovo()
+        {
+            u.limparMTextBoxes(this);
+            u.limparTextBoxes(this);
+            u.DisableTxt(this);
+            u.DisableMasked(this); ;
+            u.DisableDataGrid(this);
+            u.DisableCombo(this);
+            btnNovo.Enabled = true;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            buttonCancelareg.Enabled = false;
+            btnNovo.Focus();
+        }
+
+        private void Ualterar()
+        {
+            u.EnableTxt(this);
+            u.EnableMasked(this); ;
+            u.EnableDataGrid(this);
+            u.EnableCombo(this);
+            btnNovo.Enabled = false;
+            btnExcluir.Enabled = true;
+            btnSalvar.Enabled = true;
+            buttonCancelareg.Enabled = true;
+            textBoxCodFuncionario.Enabled = false;
+        }
 
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
-
             this.MaximizeBox = false;
             panelCid.Visible = false;
             rbNomeC.Checked = true;
             panel1.Visible = false;
-            u.limparMTextBoxes(this);
-            u.limparTextBoxes(this);
-            textBoxCodFuncionario.Enabled = false;
-            textBoxBairroFuncionario.Enabled = false;
-            textBoxCidadeFuncionario.Enabled = false;
-            textBoxEndereco.Enabled = false;
-            textBoxNomeFuncionario.Enabled = false;
-            textBoxNumero.Enabled = false;
-            maskedTextBoxCelular.Enabled = false;
-            maskedTextBoxCepFuncionario.Enabled = false;
-            maskedTextBoxCpf.Enabled = false;
-            maskedTextBoxCtps.Enabled = false;
-            maskedTextBoxDatacon.Enabled = false;
-            maskedTextBoxTelefoneFuncionario.Enabled = false;
-            btnPcidade.Enabled = false;            
-            txtNcid.Enabled = false;
-            btnNovo.Enabled = true;
-            btnExcluir.Enabled = false;
-            btnSalvar.Enabled = false;
-            buttonCancelareg.Enabled = false;          
-            btnNovo.Focus();
+            Unovo();           
         }
 
         private void buttonSaiAtendimento_Click(object sender, EventArgs e)
         {
             this.Close();
-        }   
+        }
 
         private void buttonLocalizaCadCliente_Click(object sender, EventArgs e)
         {
-            u.limparMTextBoxes(this);
-            u.limparTextBoxes(this);
-            textBoxCodFuncionario.Enabled = false;
-            textBoxBairroFuncionario.Enabled = false;
-            textBoxCidadeFuncionario.Enabled = false;
-            textBoxEndereco.Enabled = false;
-            textBoxNomeFuncionario.Enabled = false;
-            textBoxNumero.Enabled = false;
-            maskedTextBoxCelular.Enabled = false;
-            maskedTextBoxCepFuncionario.Enabled = false;
-            maskedTextBoxCpf.Enabled = false;
-            maskedTextBoxCtps.Enabled = false;
-            maskedTextBoxDatacon.Enabled = false;
-            maskedTextBoxTelefoneFuncionario.Enabled = false;
-            btnNovo.Enabled = true;
-            btnExcluir.Enabled = false;
-            btnSalvar.Enabled = false;
-            buttonCancelareg.Enabled = false;
-            btnPcidade.Enabled = false;
-            
+            Unovo();
         }
         private void FormFuncionarios_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -92,23 +81,15 @@ namespace WindowsFormsApplication3
         {
             u.limparMTextBoxes(this);
             u.limparTextBoxes(this);
-            textBoxBairroFuncionario.Enabled = true;
-            textBoxCidadeFuncionario.Enabled = true;
-            textBoxEndereco.Enabled = true;
-            textBoxNomeFuncionario.Enabled = true;
-            textBoxNumero.Enabled = true;
-            maskedTextBoxCelular.Enabled = true;
-            maskedTextBoxCepFuncionario.Enabled = true;
-            maskedTextBoxCpf.Enabled = true;
-            maskedTextBoxCtps.Enabled = true;
-            maskedTextBoxDatacon.Enabled = true;
-            maskedTextBoxTelefoneFuncionario.Enabled = true;
+            u.EnableCombo(this);
+            u.EnableDataGrid(this);
+            u.EnableMasked(this);
+            u.EnableTxt(this);
             btnNovo.Enabled = false;
             btnExcluir.Enabled = false;
             btnSalvar.Enabled = true;
             buttonCancelareg.Enabled = true;
-            btnPcidade.Enabled = true;
-            txtNcid.Enabled = true;
+            btnPcidade.Enabled = true;            
             novo = true;
             textBoxNomeFuncionario.Focus();
         }
@@ -122,26 +103,7 @@ namespace WindowsFormsApplication3
         {
             DialogResult escolha = MessageBox.Show("Deseja realmente excluir esse registro? ", "Mensagem do sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (escolha == DialogResult.Cancel)
-            {
-                u.limparMTextBoxes(this);
-                u.limparTextBoxes(this);
-                textBoxCodFuncionario.Enabled = false;
-                textBoxBairroFuncionario.Enabled = false;
-                textBoxCidadeFuncionario.Enabled = false;
-                textBoxEndereco.Enabled = false;
-                textBoxNomeFuncionario.Enabled = false;
-                textBoxNumero.Enabled = false;
-                maskedTextBoxCelular.Enabled = false;
-                maskedTextBoxCepFuncionario.Enabled = false;
-                maskedTextBoxCpf.Enabled = false;
-                maskedTextBoxCtps.Enabled = false;
-                maskedTextBoxDatacon.Enabled = false;
-                maskedTextBoxTelefoneFuncionario.Enabled = false;
-                btnNovo.Enabled = true;
-                btnExcluir.Enabled = false;
-                btnSalvar.Enabled = false;
-                buttonCancelareg.Enabled = false;
-                btnPcidade.Enabled = false;               
+            {                               
 
             }
             else
@@ -163,34 +125,14 @@ namespace WindowsFormsApplication3
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
                     funcionariosDataGridView.Refresh();
                     con.Close();
                 }
-                u.limparMTextBoxes(this);
-                u.limparTextBoxes(this);
-                textBoxBairroFuncionario.Enabled = false;
-                textBoxCidadeFuncionario.Enabled = false;
-                textBoxEndereco.Enabled = false;
-                textBoxNomeFuncionario.Enabled = false;
-                textBoxNumero.Enabled = false;
-                maskedTextBoxCelular.Enabled = false;
-                maskedTextBoxCepFuncionario.Enabled = false;
-                maskedTextBoxCpf.Enabled = false;
-                maskedTextBoxCtps.Enabled = false;
-                maskedTextBoxDatacon.Enabled = false;
-                maskedTextBoxTelefoneFuncionario.Enabled = false;
-                btnNovo.Enabled = true;
-                btnExcluir.Enabled = false;
-                btnSalvar.Enabled = false;
-                buttonCancelareg.Enabled = false;
-                btnLocaliza.Enabled = true;
-                btnPcidade.Enabled = false;
-                txtNcid.Enabled = false;
-               
+                Unovo();               
             }
         }
 
@@ -232,7 +174,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -268,7 +210,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -277,26 +219,7 @@ namespace WindowsFormsApplication3
                     }
 
                 }
-                u.limparMTextBoxes(this);
-                u.limparTextBoxes(this);
-                textBoxCodFuncionario.Enabled = false;
-                textBoxBairroFuncionario.Enabled = false;
-                textBoxCidadeFuncionario.Enabled = false;
-                textBoxEndereco.Enabled = false;
-                textBoxNomeFuncionario.Enabled = false;
-                textBoxNumero.Enabled = false;
-                maskedTextBoxCelular.Enabled = false;
-                maskedTextBoxCepFuncionario.Enabled = false;
-                maskedTextBoxCpf.Enabled = false;
-                maskedTextBoxCtps.Enabled = false;
-                maskedTextBoxDatacon.Enabled = false;
-                maskedTextBoxTelefoneFuncionario.Enabled = false;
-                btnPcidade.Enabled = false;
-                txtNcid.Enabled = false;
-                btnNovo.Enabled = true;
-                btnExcluir.Enabled = false;
-                btnSalvar.Enabled = false;
-                buttonCancelareg.Enabled = false;
+                Unovo();
                 textBoxNomeFuncionario.BackColor = SystemColors.Window;
                 btnNovo.Focus();
                 
@@ -331,22 +254,7 @@ namespace WindowsFormsApplication3
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (radioButtonCodigo.Checked)
-            {
-                if (char.IsLetter(e.KeyChar) ||
-
-               char.IsSymbol(e.KeyChar) ||
-
-               char.IsWhiteSpace(e.KeyChar))
-
-
-                    e.Handled = true;
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
-            }
+            u.ApenasNumeros();
         }
 
         private void funcionariosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -369,25 +277,17 @@ namespace WindowsFormsApplication3
                 maskedTextBoxCtps.Text = row.Cells[10].Value.ToString();
                 maskedTextBoxCpf.Text = row.Cells[12].Value.ToString();
                 textBoxNumero.Text = row.Cells[13].Value.ToString();
-                textBoxBairroFuncionario.Enabled = true;
-                textBoxCidadeFuncionario.Enabled = true;
-                textBoxEndereco.Enabled = true;
-                textBoxNomeFuncionario.Enabled = true;
-                textBoxNumero.Enabled = true;
-                maskedTextBoxCelular.Enabled = true;
-                maskedTextBoxCepFuncionario.Enabled = true;
-                maskedTextBoxCpf.Enabled = true;
-                maskedTextBoxCtps.Enabled = true;
-                maskedTextBoxDatacon.Enabled = true;
-                maskedTextBoxTelefoneFuncionario.Enabled = true;
+                u.EnableCombo(this);
+                u.EnableDataGrid(this);
+                u.EnableMasked(this);
+                u.EnableTxt(this);
                 btnNovo.Enabled = false;
                 btnExcluir.Enabled = true;
                 btnSalvar.Enabled = true;
                 buttonCancelareg.Enabled = true;
                 textBoxNomeFuncionario.Focus();
                 btnPcidade.Enabled = true;
-                txtNcid.Enabled = true;
-                
+                txtNcid.Enabled = true;                
             }
         }
 
@@ -399,7 +299,6 @@ namespace WindowsFormsApplication3
                 if (ValidaCPF.ValidaCPF.Valida(valor))
                 {
                     textBoxBairroFuncionario.Focus();
-
                 }
             }
             catch
@@ -454,33 +353,16 @@ namespace WindowsFormsApplication3
             if (textBoxCidadeFuncionario.Text == null)
             {
                 txtNcid.Focus();
-
             }
             else
             {
-                string buscaCidade = "Select cid_nome From cidades where cid_codigo = '" + textBoxCidadeFuncionario.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaCidade, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNcid.Text = dR[0].ToString();
-                }
-                con.Close();
+                txtNcid.Text = db.GetDescricao("Select cid_nome From cidades where cid_codigo = ", txtcid.Text, txtNcid.Text);
             }
         }
 
         private void textBoxCidadeFuncionario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsWhiteSpace(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros(); ;
         }
 
         private void maskedTextBoxDatacon_TypeValidationCompleted(object sender, TypeValidationEventArgs e)

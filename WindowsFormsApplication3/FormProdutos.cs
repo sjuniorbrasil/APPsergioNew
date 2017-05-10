@@ -21,7 +21,7 @@ namespace WindowsFormsApplication3
         utils u = new utils();
         Produto produtos = new Produto();
         Cfop cfop = new Cfop();
-        DataContext dt = new DataContext();
+        DataContext db = new DataContext();
         
         private void Unovo()
         {
@@ -78,7 +78,7 @@ namespace WindowsFormsApplication3
             //dll.ExcluiIbexpert();
             //string getuser = Environment.GetEnvironmentVariable("USERPROFILE") + @"\" + "AppData";
             //string completa = getuser + @"\Roaming\HK-Software\IBExpert\ibexpert.dir";
-            //File.Delete(completa);
+            //File.Delete(completa);           
             this.MaximizeBox = false;            
             Unovo();            
             //u.SelectIndex(this);                       
@@ -101,54 +101,17 @@ namespace WindowsFormsApplication3
 
         private void textBox1CustoPro_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // if (char.IsLetter(e.KeyChar) ||
-
-           //char.IsSymbol(e.KeyChar) ||
-
-           //char.IsWhiteSpace(e.KeyChar))
-
-
-           //     e.Handled = true;
-           // if (e.KeyChar == ','
-           // && (sender as TextBox).Text.IndexOf(',') > -1)
-           // {
-           //     e.Handled = true;
-           // }
+            u.ApenasNumeros();
         }
 
         private void textBoxMarge_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            if (char.IsLetter(e.KeyChar) ||
-
-            char.IsSymbol(e.KeyChar) ||
-
-            char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void textBoxVlVenda_KeyPress(object sender, KeyPressEventArgs e)
-        {            
-            if (char.IsLetter(e.KeyChar) ||
-
-            char.IsSymbol(e.KeyChar) ||
-
-            char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+        {
+            u.ApenasNumeros();
         }
 
         private void textBoxVlVenda_Enter(object sender, EventArgs e)
@@ -208,13 +171,11 @@ namespace WindowsFormsApplication3
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Erro ao Recuperar Dados");
+                u.messageboxErro(ex.ToString());
             }
             //comboCfop.DataSource = dt.Cfops.ToList();
             //comboCfop.ValueMember = Convert.ToString(cfop.ID);
             //comboCfop.DisplayMember = Convert.ToString(cfop.ID);
-
-
             novo = true;
 
         }
@@ -312,7 +273,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.ApenasNumeros();
                     }
                     finally
                     {
@@ -362,7 +323,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString(), "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -405,7 +366,7 @@ namespace WindowsFormsApplication3
                 catch (Exception ex)
                 {
                     u.messageboxErro(ex.ToString());
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
                 }
                 finally
                 {
@@ -532,19 +493,7 @@ namespace WindowsFormsApplication3
         {
             if (radioButtonCodigo.Checked)
             {
-                if (char.IsLetter(e.KeyChar) ||
-
-               char.IsSymbol(e.KeyChar) ||
-
-               char.IsWhiteSpace(e.KeyChar))
-
-
-                    e.Handled = true;
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
+                u.ApenasNumeros();
             }
 
         }
@@ -554,25 +503,10 @@ namespace WindowsFormsApplication3
             if (txtCfornecedor.Text == null)
             {
                 txtNfornecedor.Focus();
-
             }
             else
             {
-                string buscaFornecedor = "Select fantasia From fornecedores where cod_fornecedor = '" + txtCfornecedor.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaFornecedor, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNfornecedor.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtNfornecedor.Text = db.GetDescricao("Select fantasia From fornecedores where cod_fornecedor = ", txtCfornecedor.Text, txtNfornecedor.Text);
             }
         }
 
@@ -585,21 +519,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                string buscaFornecedor = "Select fantasia From fornecedores where cod_fornecedor = '" + txtCfornecedor.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaFornecedor, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNfornecedor.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtNfornecedor.Text = db.GetDescricao("Select fantasia From fornecedores where cod_fornecedor = ", txtCfornecedor.Text, txtNfornecedor.Text);
             }
         }
 
@@ -612,21 +532,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                string buscaFornecedor = "Select fantasia From fornecedores where cod_fornecedor = '" + txtCfornecedor.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaFornecedor, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNfornecedor.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtNfornecedor.Text = db.GetDescricao("Select fantasia From fornecedores where cod_fornecedor = ", txtCfornecedor.Text, txtNfornecedor.Text);
             }
             if (EnableSalvar())
             {
@@ -670,7 +576,8 @@ namespace WindowsFormsApplication3
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-        }        
+        }
+    
     }
 }
     

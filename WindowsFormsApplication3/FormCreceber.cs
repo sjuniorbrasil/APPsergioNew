@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -20,31 +15,13 @@ namespace WindowsFormsApplication3
             InitializeComponent();
         }
         utils u = new utils();
-
-
+        DataContext db = new DataContext();
 
         private void btnBuscaCadSecundario_Click(object sender, EventArgs e)
         {
             panelPesquisaClientes.Visible = true;
 
-        }
-        public void limparTextBoxes(Control controles)
-        {
-
-            foreach (Control ctrl in controles.Controls)
-            {
-
-                if (ctrl is TextBox)
-                {
-                    ((TextBox)ctrl).Text = String.Empty;
-
-                }
-                else if (ctrl.Controls.Count > 0)
-                {
-                    limparTextBoxes(ctrl);
-                }
-            }
-        }
+        }      
 
         private void btnBClientePrincipal_Click(object sender, EventArgs e)
         {
@@ -92,77 +69,26 @@ namespace WindowsFormsApplication3
             if (txtCCadastro.Text == null)
             {
                 txtNcadastroPrincipal.Focus();
-
             }
             else
             {
-                string buscaCliente = "Select n_cliente From clientes where cod_cliente = '" + txtCCadastro.Text.Trim() + "'";
-
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
-                SqlCommand sqlCommand = new SqlCommand(buscaCliente, con);
-
-                con.Open();
-                SqlDataReader dR = sqlCommand.ExecuteReader();
-
-                if (dR.Read())
-                {
-                    txtNcadastroPrincipal.Text = dR[0].ToString();
-                }
-
-                con.Close();
+                txtNcadastroPrincipal.Text = db.GetDescricao("Select n_cliente From clientes where cod_cliente = ", txtCCadastro.Text, txtNcadastroPrincipal.Text);                
             }
         }
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) ||
-
-       char.IsSymbol(e.KeyChar) ||
-
-       char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtVlRecebido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) ||
-
-       char.IsSymbol(e.KeyChar) ||
-
-       char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtJuros_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) ||
-
-       char.IsSymbol(e.KeyChar) ||
-
-       char.IsWhiteSpace(e.KeyChar))
-
-
-                e.Handled = true;
-            if (e.KeyChar == ','
-            && (sender as TextBox).Text.IndexOf(',') > -1)
-            {
-                e.Handled = true;
-            }
+            u.ApenasNumeros();
         }
 
         private void txtVlRecebido_Leave(object sender, EventArgs e)
@@ -335,7 +261,7 @@ namespace WindowsFormsApplication3
             txtNcadastroPrincipal.Enabled = true;
             txtObs.Enabled = true;
             txtValor.Enabled = true;
-            limparTextBoxes(this);
+            u.limparTextBoxes(this);
             txtVlRecebido.Enabled = true;
             mskDtVenc.Enabled = true;
             maskedTextBox1.Enabled = true;
@@ -389,18 +315,16 @@ namespace WindowsFormsApplication3
                     int i = cmd.ExecuteNonQuery();
                     if
                         (i > 0)
-                        MessageBox.Show("Registro excluído com sucesso !", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        u.messageboxSucesso();
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
                     con.Close();
                 }
-
             }
             cdSituacao.Text = "PENDENTE";
             u.limparTextBoxes(this);
@@ -420,8 +344,7 @@ namespace WindowsFormsApplication3
             txtVlRecebido.Enabled = false;
             mskDtVenc.Enabled = false;
             maskedTextBox1.Enabled = false;
-            cdSituacao.Enabled = false;
-            
+            cdSituacao.Enabled = false;            
             txtVlRecebido.Text = "0,00";
             txtJuros.Text = "0,00";
             panelCreceber.Visible = false;
@@ -436,7 +359,7 @@ namespace WindowsFormsApplication3
                 txtCCadastro.BackColor = Color.Gold;
                 txtValor.BackColor = Color.Gold;
                 mskDtVenc.BackColor = Color.Gold;
-                MessageBox.Show("Os campos marcado em amarelo são obrigatórios !", "Mensagem o Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                u.messageboxCamposObrigatorio();
             }
             else
             {
@@ -470,19 +393,16 @@ namespace WindowsFormsApplication3
                     {
                         int i = cmd.ExecuteNonQuery();
                         if (i > 0)
-                            MessageBox.Show("Operação efetuada com sucesso !", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            u.messageboxSucesso();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
                         con.Close();
                     }
-
-
-
                 }
                 else
                 {
@@ -504,11 +424,13 @@ namespace WindowsFormsApplication3
                     {
                         int i = cmd.ExecuteNonQuery();
                         if (i > 0)
-                            MessageBox.Show("Operação efetuada com sucesso !", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        {
+                            u.messageboxSucesso();
+                        }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -600,8 +522,6 @@ namespace WindowsFormsApplication3
             else
             {
                 string buscacpagar = "select a.rec_codigo as Controle, a.cod_cliente as Código, b.n_cliente as Nome, a.rec_valor as Valor, a.rec_dtvenc as Vencimento, a.rec_valorrec as Recebido, a.rec_dtbaixa as Baixa, a.rec_situacao as Situação, a.rec_obs as Observações, a.rec_vlacrescimo as Acréscimos from Creceber a join clientes b on a.cod_cliente = b.cod_cliente where a.cod_cliente = " + txtpesqConRec.Text;
-
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = Properties.Settings.Default.Ducaun;
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
@@ -626,9 +546,7 @@ namespace WindowsFormsApplication3
             {
                 dv.RowFilter = "n_cliente like'%" + txtpcli.Text + "%'";
             }
-            clientesDataGridView.DataSource = dv;
-
-            
+            clientesDataGridView.DataSource = dv;            
         }
 
         private void txtpesqConRec_TextChanged(object sender, EventArgs e)
@@ -636,19 +554,15 @@ namespace WindowsFormsApplication3
             if (txtpesqConRec.Text == null)
             {
                 btnPesquisaCliSecundario.Focus();
-
             }
             else
             {
                 string buscaCliente = "Select n_cliente From clientes where cod_cliente = '" + txtpesqConRec.Text.Trim() + "'";
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = Properties.Settings.Default.Ducaun;
                 SqlCommand sqlCommand = new SqlCommand(buscaCliente, con);
-
                 con.Open();
                 SqlDataReader dR = sqlCommand.ExecuteReader();
-
                 if (dR.Read())
                 {
                     txtNpesquicon.Text = dR[0].ToString();
@@ -662,7 +576,7 @@ namespace WindowsFormsApplication3
         {
             if (!e.IsValidInput)
             {
-                MessageBox.Show("Data inválida", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                u.messageboxDataInv();
             }
         }
 
@@ -670,7 +584,7 @@ namespace WindowsFormsApplication3
         {
             if (!e.IsValidInput)
             {
-                MessageBox.Show("Data inválida", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                u.messageboxDataInv();
             }
         }
     }

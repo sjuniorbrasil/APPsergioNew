@@ -20,14 +20,10 @@ namespace WindowsFormsApplication3
         utils limpartxt = new utils();
         utils u = new utils();
         Cidade cidade = new Cidade();
-        DataContext db = new DataContext();
-        
-        
-        
+        DataContext db = new DataContext();       
 
         private void FormCidades_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'jarbasDataSet1.cidades' table. You can move, or remove it, as needed.
+        {            
             this.MaximizeBox = false;
             buttonExclui.Enabled = false;
             btnCancela.Enabled = false;
@@ -38,17 +34,9 @@ namespace WindowsFormsApplication3
             txtCidade.Enabled = false;
             txtIbge.Enabled = false;
             comboBoxUf.Enabled = false;
-            radioButtonDescricao.Checked = true;
-           
-            
-
+            radioButtonDescricao.Checked = true;           
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+             
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -68,7 +56,6 @@ namespace WindowsFormsApplication3
             comboBoxUf.Text = "PR";
             txtCidade.Focus();
             novo = true;
-
         }
 
         private void FormCidades_FormClosed(object sender, FormClosedEventArgs e)
@@ -84,15 +71,7 @@ namespace WindowsFormsApplication3
             return true;
         }
         private void button1_Click(object sender, EventArgs e)
-        {
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = Properties.Settings.Default.Ducaun;
-            //SqlCommand cmd = new SqlCommand("select * from cidades", con);
-            //con.Open();
-            //DataTable dt = new DataTable();
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //da.Fill(dt);
-            //var dados = db.Cidades.OrderBy(x => x.Descricao);
+        {            
             DataView dv = new DataView(DataContext.CarregaCidades());            
             if (radioButtonCodigo.Checked)
             {
@@ -105,10 +84,6 @@ namespace WindowsFormsApplication3
                 dv.RowFilter = "cid_nome like'%" + textBox1.Text + "%'";
             }
             cIDADESDataGridView.DataSource = dv;
-
-           
-
-
         }
 
         private void buttonExclui_Click(object sender, EventArgs e)
@@ -146,8 +121,7 @@ namespace WindowsFormsApplication3
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show("Erro ao Gravar no banco de dados" + ex.ToString(), "Mensagem de Erro do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    u.messageboxErro(ex.ToString());
                 }
                 finally
                 {
@@ -178,7 +152,6 @@ namespace WindowsFormsApplication3
             txtCodCidade.Enabled = false;
             txtCidade.Enabled = false;
             txtIbge.Enabled = false;
-
             comboBoxUf.Enabled = false;            
             limpartxt.limparTextBoxes(this);
             comboBoxUf.Text = "PR";
@@ -215,7 +188,6 @@ namespace WindowsFormsApplication3
                 txtCodCidade.Enabled = true;
                 txtCidade.Enabled = true;
                 txtIbge.Enabled = true;
-
                 comboBoxUf.Enabled = true;
                 txtCidade.Focus();
             }
@@ -223,15 +195,9 @@ namespace WindowsFormsApplication3
 
         private void buttonSalva_Click(object sender, EventArgs e)
         {
-            //Arquivotexto arq = new Arquivotexto();
-
-            //Arquivotexto.writeData(txtCodCidade.Text, txtCidade.Text, comboBoxUf.Text);
-
             cidade.Descricao = txtCidade.Text;
             cidade.UF = comboBoxUf.Text;
-            cidade.Ibge = Convert.ToInt32(txtIbge.Text);
-            
-
+            cidade.Ibge = txtIbge.Text;
             if (txtCidade.Text == string.Empty || comboBoxUf.Text == string.Empty)
             {
                 txtCidade.BackColor = Color.Gold;
@@ -257,7 +223,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Erro Ao Gravar no banco de dados " + ex.ToString());
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -282,7 +248,7 @@ namespace WindowsFormsApplication3
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro: Ao gravar no banco de dados" + ex.ToString(), "Mensagem do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {
@@ -302,7 +268,6 @@ namespace WindowsFormsApplication3
                 comboBoxUf.Enabled = false;
                 txtCidade.BackColor = SystemColors.Window;
                 comboBoxUf.BackColor = SystemColors.Window;
-
             }
         }
 
@@ -320,19 +285,7 @@ namespace WindowsFormsApplication3
         {
             if (radioButtonCodigo.Checked)
             {
-                if (char.IsLetter(e.KeyChar) || 
-
-               char.IsSymbol(e.KeyChar) || 
-
-               char.IsWhiteSpace(e.KeyChar)) 
-
-
-                    e.Handled = true; 
-                if (e.KeyChar == ','
-                && (sender as TextBox).Text.IndexOf(',') > -1)
-                {
-                    e.Handled = true;
-                }
+                u.ApenasNumeros();
             }
         }
     }

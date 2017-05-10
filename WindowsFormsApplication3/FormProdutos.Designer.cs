@@ -1479,7 +1479,6 @@
             this.comboCfop.Size = new System.Drawing.Size(63, 21);
             this.comboCfop.TabIndex = 15;
             this.comboCfop.ValueMember = "cfo_codigo";
-
             // 
             // cFOPBindingSource
             // 
@@ -1537,6 +1536,7 @@
             this.Text = "Cadastro de Produto";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormProdutos_FormClosed);
             this.Load += new System.EventHandler(this.FormProdutos_Load);
+            
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).EndInit();

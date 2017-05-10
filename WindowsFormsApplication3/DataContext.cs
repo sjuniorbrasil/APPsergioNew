@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using WindowsFormsApplication3.ClassesEntidades;
-using System.Data.Linq;
-using System.Linq.Expressions;
 using System.Data.Entity;
 
-
-
-
-
 namespace WindowsFormsApplication3
-{
-   
+{   
     public class DataContext: DbContext
     {        
         public DataContext(): base(Properties.Settings.Default.Ducaun)
@@ -29,14 +18,14 @@ namespace WindowsFormsApplication3
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Produto> Produtos { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
-        
-        
+        public virtual DbSet<Estoque> Estoques { get; set; }
+        public virtual DbSet<PedidoProduto> PedidoProdutos { get; set; }
 
+        //pesquisas padrão
         public static DataTable CarregaCidades()
         {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Properties.Settings.Default.Ducaun;
-
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from cidades";
@@ -44,10 +33,8 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();                    
-
             DataTable DT = new DataTable();
             DT.Load(DR);
-
             con.Close();
             return DT;
         }
@@ -63,13 +50,10 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();           
-
             DataTable DT = new DataTable();
             DT.Load(DR);
-
             con.Close();
             return DT;
-
         }
 
         public static DataTable CarregaFornecedores()
@@ -83,10 +67,8 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();
-
             DataTable DT = new DataTable();
             DT.Load(DR);
-
             con.Close();
             return DT;
         }
@@ -102,10 +84,8 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();
-
             DataTable DT = new DataTable();
             DT.Load(DR);
-
             con.Close();
             return DT;
         }
@@ -121,10 +101,8 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();
-
             DataTable DT = new DataTable();
             DT.Load(DR);
-
             con.Close();
             return DT;
         }
@@ -140,12 +118,57 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();
-
             DataTable DT = new DataTable();
             DT.Load(DR);
-
             con.Close();
             return DT;
         }
+
+        public Boolean ClienteInadimplente(int IDcliente)
+        {            
+            string verInadimplencia = "select * from creceber where cod_cliente =" + IDcliente + " and rec_situacao = 'pendente' and rec_vencido = 1";
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            SqlCommand cmd = new SqlCommand(verInadimplencia, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            try
+            {
+                int contador = Convert.ToInt32(dr[0].ToString());
+                if (contador > 0)
+                {
+                    return true;
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }          
+        }
+        public string GetDescricao(string select, string txt1, string txt2)
+        {
+            string busca = select + Convert.ToInt32(txt1);
+            string descricao;
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            SqlCommand sqlCommand = new SqlCommand(busca, con);
+            con.Open();
+            SqlDataReader dR = sqlCommand.ExecuteReader();
+            if (dR.Read())
+            {                
+                txt2 = dR[0].ToString();                
+            }
+            else
+            {
+                txt2 = "";                
+            }
+            descricao = txt2;
+            con.Close();
+            return descricao;            
+        }    
+            
     }
 }

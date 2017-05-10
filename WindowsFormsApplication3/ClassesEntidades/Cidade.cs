@@ -15,10 +15,13 @@ namespace WindowsFormsApplication3.ClassesEntidades
     {
         [Column("cid_codigo")]
         public int ID { get; set; }
+
         [Column("cid_ibge")]
-        public int Ibge { get; set; }
+        public string Ibge { get; set; }
+
         [Column("cid_nome")]
         public string Descricao { get; set; }
+
         [Column("cid_uf")]
         public string UF { get; set; }        
 
