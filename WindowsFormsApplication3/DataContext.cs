@@ -4,14 +4,17 @@ using System.Data;
 using WindowsFormsApplication3.ClassesEntidades;
 using System.Data.Entity;
 
+
+
 namespace WindowsFormsApplication3
 {   
     public class DataContext: DbContext
     {        
-        public DataContext(): base(Properties.Settings.Default.Ducaun)
+        public DataContext(): base(utils.ConexaoDb())
         {
 
         }
+       
 
         public virtual DbSet<Cidade> Cidades { get; set; }
         public virtual DbSet<Cfop> Cfops { get; set; }
@@ -24,8 +27,8 @@ namespace WindowsFormsApplication3
         //pesquisas padrão
         public static DataTable CarregaCidades()
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            SqlConnection con = new SqlConnection();           
+            con.ConnectionString = utils.ConexaoDb();
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from cidades";
@@ -42,7 +45,7 @@ namespace WindowsFormsApplication3
         public static DataTable CarregaClientes()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from clientes";
@@ -59,7 +62,7 @@ namespace WindowsFormsApplication3
         public static DataTable CarregaFornecedores()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from fornecedores";
@@ -76,7 +79,7 @@ namespace WindowsFormsApplication3
         public static DataTable CarregaProdutos()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from produtos";
@@ -93,7 +96,7 @@ namespace WindowsFormsApplication3
         public static DataTable CarregaCfop()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from cfop";
@@ -110,7 +113,7 @@ namespace WindowsFormsApplication3
         public static DataTable CarregaFuncionarios()
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             con.Open();
             SqlCommand Cmm = new SqlCommand();
             Cmm.CommandText = "Select * from funcionarios";
@@ -128,7 +131,7 @@ namespace WindowsFormsApplication3
         {            
             string verInadimplencia = "select * from creceber where cod_cliente =" + IDcliente + " and rec_situacao = 'pendente' and rec_vencido = 1";
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(verInadimplencia, con);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -152,8 +155,8 @@ namespace WindowsFormsApplication3
             string busca = select + Convert.ToInt32(txt1);
             string descricao;
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            SqlConnection con = new SqlConnection();            
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand sqlCommand = new SqlCommand(busca, con);
             con.Open();
             SqlDataReader dR = sqlCommand.ExecuteReader();
@@ -168,7 +171,12 @@ namespace WindowsFormsApplication3
             descricao = txt2;
             con.Close();
             return descricao;            
-        }    
-            
+        }
+        //public partial class ComandoIncluir()
+        //{
+
+        //}
+      
+                   
     }
 }

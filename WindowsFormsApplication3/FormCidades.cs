@@ -108,7 +108,7 @@ namespace WindowsFormsApplication3
                 string sql = "delete from cidades where cid_codigo = " + txtCodCidade.Text;
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -211,7 +211,7 @@ namespace WindowsFormsApplication3
                     string sql = "insert into cidades(cid_nome,cid_uf,cid_ibge) " + "values('" + cidade.Descricao + "','" 
                         + cidade.UF + "','" + cidade.Ibge +  "')";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -236,7 +236,7 @@ namespace WindowsFormsApplication3
                     string sql = "update cidades set cid_nome = '" + cidade.Descricao +
                         "', cid_uf = '" + cidade.UF + "', cid_ibge = '" + cidade.Ibge + "'" + "where cid_codigo = '" + cidade.ID + "'" ;
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();

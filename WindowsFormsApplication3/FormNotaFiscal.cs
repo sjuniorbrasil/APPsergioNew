@@ -87,7 +87,7 @@ namespace WindowsFormsApplication3
 
             string ultimoReg = "Select not_codigo From nota where not_codigo = (Select MAX(not_codigo) From nota)";
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(ultimoReg, con);
             
             
@@ -172,7 +172,7 @@ namespace WindowsFormsApplication3
             string updateNota = "update nota set not_dtemissao = @not_dtemissao, not_numero = @not_numero, not_modelo = @not_modelo, not_serie = not_serie, not_finalidade = @not_finalidade, cadastro = @cadastro, cfo_codigo = @cfo_codigo, not_referenciada = @not_referenciada, not_subtotal = @not_subtotal, not_desconto = @not_desconto, not_nfetotal = @not_nfetotal, not_obs = @not_obs, cod_forncedor = @cad_fornecedor, not_vencimento = @not_vencimento, not_cancelada = @not_cancelada, not_inutilizada = @not_inutilizada, not_peso = @not_peso, not_volume = @not_volume, not_marca = @not_marca, not_icmsbase = @not_icmsbase, not_icmsvalor = @not_icmsvalor, not_icmspercentual = @not_icmspercentual, not_icmsstvalor = @not_icmsstvalor   where not_codigo = " + txtControle.Text;
  
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(updateNota, con);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@not_dtemissao", SqlDbType.NVarChar).Value = dataEmissao;
@@ -220,7 +220,7 @@ namespace WindowsFormsApplication3
                 string filial = "select * from filial where fil_codigo = ";
                 
                 SqlConnection con1 = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd2 = new SqlCommand(ultimoReg, con1);
                 SqlCommand cmd3 = new SqlCommand(filial, con1);
 
@@ -365,7 +365,7 @@ namespace WindowsFormsApplication3
             string updateNota = "update nota set  not_chave = @not_chave, not_protocolo = @not_protocolo, not_recibo = @not_recibo, not_statusnota = @statusnota, not_dthoraprotocolo = @not_dthoraprotocolo   where not_codigo = " + txtControle.Text;
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(updateNota, con);
             cmd.CommandType = CommandType.Text;
             //cmd.Parameters.Add("@not_chave", SqlDbType.NVarChar).Value = chaveNfe;
@@ -471,7 +471,7 @@ namespace WindowsFormsApplication3
                 string buscaCliente = "Select n_cliente From clientes where cod_cliente = '" + txtcodFornecedor.Text.Trim() + "'";
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand sqlCommand = new SqlCommand(buscaCliente, con);
 
                 con.Open();

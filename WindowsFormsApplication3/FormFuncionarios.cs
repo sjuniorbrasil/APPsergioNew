@@ -111,7 +111,7 @@ namespace WindowsFormsApplication3
 
                 string excrui = "delete from funcionarios where cod_funcionario =  " + textBoxCodFuncionario.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excrui, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -161,7 +161,7 @@ namespace WindowsFormsApplication3
                             + maskedTextBoxCpf.Text + "','"
                             + textBoxNumero.Text + "')";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(insere, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -197,7 +197,7 @@ namespace WindowsFormsApplication3
                         "', cpf =  '" + maskedTextBoxCpf.Text +
                         "', email = '" + textBoxNumero.Text + "' where cod_funcionario = '" + textBoxCodFuncionario.Text + "'";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(altera, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();

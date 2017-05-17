@@ -72,7 +72,7 @@ namespace WindowsFormsApplication3
             string deletar = "delete from usuarios where usu_codigo = '" + txtCodigo.Text;
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(deletar, con);
             cmd.CommandType = CommandType.Text;
             con.Open();            

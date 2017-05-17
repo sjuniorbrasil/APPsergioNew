@@ -203,7 +203,7 @@ namespace WindowsFormsApplication3
                 "values(@com_codigo, @cod_produto, @itp_valor, @itp_qtde, @ipt_total)";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(insProduto, con);
             cmd.Parameters.Add("@com_codigo", SqlDbType.Int).Value = comcodigo;
             cmd.Parameters.Add("@cod_produto", SqlDbType.Int).Value = codproduto;
@@ -252,7 +252,7 @@ namespace WindowsFormsApplication3
             string comDtemissao = Convert.ToString(mskDtVenda.Text);
             string nova = "insert into compra(com_data) values(@com_data)";
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(nova, con);
             cmd.Parameters.Add("@com_data", SqlDbType.NChar).Value = comDtemissao;
             cmd.CommandType = CommandType.Text;
@@ -296,10 +296,10 @@ namespace WindowsFormsApplication3
 
         private void mskDtVenda_Leave(object sender, EventArgs e)
         {
-            string query = "Select com_codigo From compra where com_codigo = (Select MAX(com_codigo) From compra)";
+            string query = "Select com_codigo From compra where com_codigo = (Select MAX(com_codigo) From compra)";           
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand sqlCommand = new SqlCommand(query, con);
             con.Open();
             SqlDataReader dR = sqlCommand.ExecuteReader();
@@ -396,7 +396,7 @@ namespace WindowsFormsApplication3
                 string financeiro = "insert into cpagar(pag_valor, pag_dtvenc, cod_cliente, pag_situacao, com_codigo) values(@com_totalliq, @pag_dtvenc, @cod_cliente, 'PENDENTE', @com_codigo)";
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(atualiza, con);
                 cmd.Parameters.Add("@com_totalliq", SqlDbType.Decimal).Value = pedtotalliq;
                 cmd.Parameters.Add("@com_obs", SqlDbType.VarChar).Value = pedobs;
@@ -526,7 +526,7 @@ namespace WindowsFormsApplication3
                 string excruipagamento = "delete from cpagar where com_codigo = '" + txtControle.Text.Trim() + "'";
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excrui, con);
                 cmd.CommandType = CommandType.Text;
                 SqlCommand cmd1 = new SqlCommand(excruiitem, con);
@@ -587,7 +587,7 @@ namespace WindowsFormsApplication3
             string excruiitem = "delete from compraitem where com_codigo = '" + txtControle.Text.Trim() + "'";            
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(excrui, con);
             cmd.CommandType = CommandType.Text;
             SqlCommand cmd1 = new SqlCommand(excruiitem, con);

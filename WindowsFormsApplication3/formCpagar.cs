@@ -120,7 +120,7 @@ namespace WindowsFormsApplication3
             {
                 string excluir = "delete from cpagar where pag_codigo = " + txtControle.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excluir, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -237,7 +237,7 @@ namespace WindowsFormsApplication3
                     string inserir = "insert into cpagar(cod_cliente, pag_valor, pag_recebido, pag_dtvenc, pag_dtbaixa, pag_situacao, pag_obs, pag_juros) values(@cod_cliente, @pag_valor, @pag_recebido, @pag_dtvenc, @pag_dtbaixa, @pag_situacao, @pag_obs, @pag_juros)";
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(inserir, con);
                     cmd.Parameters.Add("@cod_cliente", SqlDbType.Int).Value = codCadastro;
                     cmd.Parameters.Add("@pag_valor", SqlDbType.Decimal).Value = valor;
@@ -270,7 +270,7 @@ namespace WindowsFormsApplication3
                     string altera = "update cpagar set cod_cliente = @cod_cliente, pag_valor = @pag_valor, pag_recebido = @pag_recebido, pag_dtvenc = @pag_dtvenc, pag_dtbaixa = @pag_dtbaixa, pag_situacao = @pag_situacao, pag_obs = @pag_obs, pag_juros = @pag_juros where pag_codigo = " + txtControle.Text;
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(altera, con);
                     cmd.Parameters.Add("@cod_cliente", SqlDbType.Int).Value = codCadastro;
                     cmd.Parameters.Add("@pag_valor", SqlDbType.Decimal).Value = valor;
@@ -444,7 +444,7 @@ namespace WindowsFormsApplication3
                 string buscacpagar = "select a.pag_codigo as Controle, a.cod_cliente as Código, b.fantasia as Nome, a.pag_valor as Valor, a.pag_dtvenc as Vencimento, a.pag_recebido as Pago, a.pag_dtbaixa as Baixa, a.pag_situacao as Situação, a.pag_obs as Observações, a.pag_juros as Acréscimos from CPAGAR a join fornecedores b on a.cod_cliente = b.cod_fornecedor order by a.pag_dtvenc";
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
                 con.Open();
                 DataTable dt = new DataTable();
@@ -459,7 +459,7 @@ namespace WindowsFormsApplication3
                 string buscacpagar = "select a.pag_codigo as Controle, a.cod_cliente as Código, b.fantasia as Nome, a.pag_valor as Valor, a.pag_dtvenc as Vencimento, a.pag_recebido as Pago, a.pag_dtbaixa as Baixa, a.pag_situacao as Situação, a.pag_obs as Observações, a.pag_juros as Acréscimos from CPAGAR a join fornecedores b on a.cod_cliente = b.cod_fornecedor where a.cod_cliente = " + txtpesqConPag.Text;
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
                 con.Open();
                 DataTable dt = new DataTable();
@@ -487,7 +487,7 @@ namespace WindowsFormsApplication3
             {
                 string buscaFornecedor = "Select fantasia From fornecedores where cod_fornecedor = '" + txtpesqConPag.Text.Trim() + "'";
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand sqlCommand = new SqlCommand(buscaFornecedor, con);
                 con.Open();
                 SqlDataReader dR = sqlCommand.ExecuteReader();

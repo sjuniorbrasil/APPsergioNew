@@ -121,7 +121,7 @@ namespace WindowsFormsApplication3
                 string sql = "DELETE FROM CLIENTES WHERE cod_cliente =" + cliente.ID;
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -211,7 +211,7 @@ namespace WindowsFormsApplication3
                         + cliente.Numero + "')";
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -248,7 +248,7 @@ namespace WindowsFormsApplication3
                         "', numero = '" + cliente.Numero + "' where cod_cliente = '" + cliente.ID + "'";
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -469,7 +469,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                txtcid.Text = db.GetDescricao("Select cid_nome From cidades where cid_codigo = ", txtCodCid.Text, txtcid.Text);
+                textBoxCidadeCliente.Text = db.GetDescricao("Select cid_nome From cidades where cid_codigo = ", txtCodCid.Text, txtcid.Text);
             }
         }
 

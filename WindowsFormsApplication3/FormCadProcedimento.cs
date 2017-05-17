@@ -70,7 +70,7 @@ namespace WindowsFormsApplication3
             {
                 string excrui = "delete from procedimentos where cod_procedimento = " + txtCodProcedimento.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excrui, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -123,7 +123,7 @@ namespace WindowsFormsApplication3
                     string inclui = "insert into procedimentos(des_procedimento)" +
                         "values('" + textBoxNomeProcedimento.Text + "')";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(inclui, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -148,7 +148,7 @@ namespace WindowsFormsApplication3
                         + textBoxNomeProcedimento.Text + "' where cod_procedimento = '"
                         + txtCodProcedimento.Text + "'";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(altera, con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
@@ -185,7 +185,7 @@ namespace WindowsFormsApplication3
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand("select * from procedimentos ", con);
             con.Open();
             DataTable dt = new DataTable();

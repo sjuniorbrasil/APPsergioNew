@@ -306,7 +306,7 @@ namespace WindowsFormsApplication3
             {
                 string excluir = "delete from creceber where rec_codigo = " + txtControle.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excluir, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -377,7 +377,7 @@ namespace WindowsFormsApplication3
                 {
                     string inserir = "insert into creceber(cod_cliente, rec_valor, rec_valorrec, rec_dtvenc, rec_dtbaixa, rec_situacao, rec_obs, rec_vlacrescimo) values(@cod_cliente, @rec_valor, @rec_valorrec, @rec_dtvenc, @rec_dtbaixa, @rec_situacao, @rec_obs, @rec_vlacrescimo)";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(inserir, con);
                     cmd.Parameters.Add("@cod_cliente", SqlDbType.Int).Value = codCadastro;
                     cmd.Parameters.Add("@rec_valor", SqlDbType.Decimal).Value = valor;
@@ -408,7 +408,7 @@ namespace WindowsFormsApplication3
                 {
                     string alterar = " update creceber set cod_cliente = @cod_cliente, rec_valor = @rec_valor, rec_valorrec = @rec_valorrec, rec_dtvenc = @rec_dtvenc, rec_dtbaixa = @rec_dtbaixa, rec_situacao =  @rec_situacao, rec_obs = @rec_obs, rec_vlacrescimo = @rec_vlacrescimo where rec_codigo = " + txtControle.Text;
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(alterar, con);
                     cmd.Parameters.Add("@cod_cliente", SqlDbType.Int).Value = codCadastro;
                     cmd.Parameters.Add("@rec_valor", SqlDbType.Decimal).Value = valor;
@@ -509,7 +509,7 @@ namespace WindowsFormsApplication3
             {
                 string buscacpagar = "select a.rec_codigo as Controle, a.cod_cliente as Código, b.n_cliente as Nome, a.rec_valor as Valor, a.rec_dtvenc as Vencimento, a.rec_valorrec as Recebido, a.rec_dtbaixa as Baixa, a.rec_situacao as Situação, a.rec_obs as Observações, a.rec_vlacrescimo as Acréscimos from Creceber a join clientes b on a.cod_cliente = b.cod_cliente order by a.rec_dtvenc";
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
                 con.Open();
                 DataTable dt = new DataTable();
@@ -523,7 +523,7 @@ namespace WindowsFormsApplication3
             {
                 string buscacpagar = "select a.rec_codigo as Controle, a.cod_cliente as Código, b.n_cliente as Nome, a.rec_valor as Valor, a.rec_dtvenc as Vencimento, a.rec_valorrec as Recebido, a.rec_dtbaixa as Baixa, a.rec_situacao as Situação, a.rec_obs as Observações, a.rec_vlacrescimo as Acréscimos from Creceber a join clientes b on a.cod_cliente = b.cod_cliente where a.cod_cliente = " + txtpesqConRec.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(buscacpagar, con);
                 con.Open();
                 DataTable dt = new DataTable();
@@ -559,7 +559,7 @@ namespace WindowsFormsApplication3
             {
                 string buscaCliente = "Select n_cliente From clientes where cod_cliente = '" + txtpesqConRec.Text.Trim() + "'";
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand sqlCommand = new SqlCommand(buscaCliente, con);
                 con.Open();
                 SqlDataReader dR = sqlCommand.ExecuteReader();

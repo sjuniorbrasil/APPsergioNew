@@ -128,7 +128,7 @@ namespace WindowsFormsApplication3
                 string excluir = "delete from agenda where age_codigo = " + txtControle.Text;
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excluir, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -183,7 +183,7 @@ namespace WindowsFormsApplication3
                     string grava = " insert into agenda(age_data, age_hora, age_concluidos, age_descricao, cod_funcionario, cod_cliente)" +
                         "values (@age_data, @age_hora, @age_concluidos, @age_descricao, @cod_funcionario, @cod_cliente)";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(grava, con);
                     cmd.Parameters.Add("@age_data", SqlDbType.Date).Value = agdata;
                     cmd.Parameters.Add("@age_hora", SqlDbType.VarChar).Value = aghora;
@@ -213,7 +213,7 @@ namespace WindowsFormsApplication3
                     string altera = " update agenda set age_data = @age_data, age_hora = @age_hora, age_concluido = @age_concluidos, age_descricao = @age_descricao, cod_funcionario = @cod_funcionario, cod_cliente = @cod_cliente where age_ccodigo = " + txtControle.Text;
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(altera, con);
                     cmd.Parameters.Add("@age_data", SqlDbType.Date).Value = agdata;
                     cmd.Parameters.Add("@age_hora", SqlDbType.VarChar).Value = aghora;
@@ -281,7 +281,7 @@ namespace WindowsFormsApplication3
             {
                 string filtro = "select a.age_data as Data, a.age_hora as Hora,  b.n_cliente as Cliente from agenda a join clientes where n_cliente like '%" + mskFiltData.Text + "%' order by age_data, age_hora ";
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(filtro, con);
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -296,7 +296,7 @@ namespace WindowsFormsApplication3
                 string filtro = "select a.age_data as Data, a.age_hora as Hora,  b.n_cliente as Cliente, a.cod_cliente from agenda a join clientes b on a.cod_cliente = b.cod_cliente  where age_data like '%" + mskFiltData.Text + "%' order by age_data, age_hora ";
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(filtro, con);
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -310,7 +310,7 @@ namespace WindowsFormsApplication3
             string filtro = "select * from agenda where age_data like '%" + mskFiltData.Text + "%' order by age_data, age_hora ";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(filtro, con);
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -464,7 +464,7 @@ namespace WindowsFormsApplication3
             string filtro = "select a.age_data as Data, a.age_hora as Hora,  b.n_cliente as Cliente from agenda a join clientes b on a.cod_cliente = b.cod_cliente  where age_data like '%" + textBox1.Text + "%' order by age_data, age_hora";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(filtro, con);
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);

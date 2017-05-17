@@ -97,7 +97,7 @@ namespace WindowsFormsApplication3
             {
                 string excluir = "delete from CFOP where cfo_codigo = " + cfop.ID;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excluir, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -140,7 +140,7 @@ namespace WindowsFormsApplication3
                 {
                     string inserir = "insert into cfop(cfo_codigo, cfo_descricao) values(@cfo_codigo, @cfo_descricao)";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(inserir, con);
                     cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop.ID;
                     cmd.Parameters.Add("@cfo_descricao", SqlDbType.NVarChar).Value = cfop.Descricao;
@@ -168,7 +168,7 @@ namespace WindowsFormsApplication3
                 {
                     string altera = "update cfop set cfo_descricao = @cfo_descricao where cfo_codigo =" + cfop.ID;
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(altera, con);
                     cmd.Parameters.Add("@cfo_descricao", SqlDbType.NVarChar).Value = cfop.Descricao;
                     cmd.CommandType = CommandType.Text;
@@ -238,7 +238,7 @@ namespace WindowsFormsApplication3
             string buscaCfop = "Select cfo_descricao From cfop where cfo_codigo = '" + txtCodCopf.Text.Trim() + "'";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand sqlCommand = new SqlCommand(buscaCfop, con);
             con.Open();
             SqlDataReader dR = sqlCommand.ExecuteReader();
@@ -262,9 +262,7 @@ namespace WindowsFormsApplication3
             }
             else
             {
-                txtDescricao.Text =  db.GetDescricao("Select cfo_descricao From cfop where cfo_codigo = ", txtCodCopf.Text, txtDescricao.Text);       
-                                                   
-                //GetDescricaoCfop();              
+                txtDescricao.Text =  db.GetDescricao("Select cfo_descricao From cfop where cfo_codigo = ", txtCodCopf.Text, txtDescricao.Text);                      
             }
         }
     }

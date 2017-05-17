@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -244,7 +245,7 @@ namespace WindowsFormsApplication3
             MessageBox.Show("Cliente Inadimplente !", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public string RCE(string text)
+        public string RCE(string text)//retira caracteres especiais
         {
             string retorno;
 
@@ -252,7 +253,7 @@ namespace WindowsFormsApplication3
 
             return retorno;
         }
-        public string RLCE(string text)
+        public string RLCE(string text)// letras e caracteres especiais
         {
             string retorno;
 
@@ -260,6 +261,24 @@ namespace WindowsFormsApplication3
 
             return retorno;
         }
+
+        public static string ConexaoDb()
+        {
+            string Aconexao;
+            StreamReader sr = File.OpenText(@"c:\conexao\conexao.txt");
+            string leitura = null;
+            if ((leitura = sr.ReadLine()) != null)
+            {
+                Aconexao = leitura;                
+            }
+            else
+            {
+                Aconexao = "Data Source=PC-TV;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
+            }
+            return Aconexao;
+
+        }      
+
     }
 }
 

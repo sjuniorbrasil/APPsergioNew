@@ -143,7 +143,7 @@ namespace WindowsFormsApplication3
                 {
                     string sql = "insert into fornecedores(razão, fantasia, endereco, bairro,cidade, telefone, celular, cep, obs, cnpj, numero, email) values(@razão, @fantasia, @endereco, @bairro, @cidade, @telefone, @celular, @cep, @obs, @cnpj, @numero, @email )";
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.Add("@razão", SqlDbType.VarChar).Value = vRazao;
@@ -181,7 +181,7 @@ namespace WindowsFormsApplication3
                     string sql = "update fornecedores set razão = @razão, fantasia = @fantasia, endereco = @endereco, bairro = @bairro, cidade = @cidade, telefone = @telefone, celular = @celular, cep = @cep, obs = @obs, cnpj = @cnpj,  numero = @numero, email = @email where cod_fornecedor = " + textBoxCodFornecedor.Text;
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.Add("@razão", SqlDbType.VarChar).Value = vRazao;
@@ -267,7 +267,7 @@ namespace WindowsFormsApplication3
             {
                 string sql = " delete from fornecedores where cod_fornecedor = " + textBoxCodFornecedor.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();

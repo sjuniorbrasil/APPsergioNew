@@ -234,7 +234,7 @@ namespace WindowsFormsApplication3
 
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.Add("@cfo_codigo",SqlDbType.Int).Value = produtos.CFOP;
                     cmd.Parameters.Add("@cest", SqlDbType.NVarChar).Value = produtos.CEST;
@@ -287,7 +287,7 @@ namespace WindowsFormsApplication3
 
 
                     SqlConnection con = new SqlConnection();
-                    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                    con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = produtos.CFOP;
                     cmd.Parameters.Add("@cest", SqlDbType.NVarChar).Value = produtos.CEST;
@@ -351,7 +351,7 @@ namespace WindowsFormsApplication3
             {
                 string excrui = "delete from produtos where cod_produto = " + textBoxCodPoduto.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(excrui, con);
 
                 cmd.CommandType = CommandType.Text;

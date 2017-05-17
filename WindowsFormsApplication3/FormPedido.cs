@@ -68,7 +68,7 @@ namespace WindowsFormsApplication3
             pedido.DataEmissao = Convert.ToString(mskDtVenda.Text);
             string nova = "insert into pedido(ped_dtemissao) values(@ped_dtemissao)";
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(nova, con);
             cmd.Parameters.Add("@ped_dtemissao", SqlDbType.VarChar).Value = pedido.DataEmissao;
             cmd.CommandType = CommandType.Text;
@@ -313,7 +313,7 @@ namespace WindowsFormsApplication3
                 "values(@ped_codigo, @cod_produto, @itp_valor, @itp_qtde, @ipt_total)";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(insProduto, con);
             cmd.Parameters.Add("@ped_codigo", SqlDbType.Int).Value = pedidoProduto.PedidoID;
             cmd.Parameters.Add("@cod_produto", SqlDbType.Int).Value = pedidoProduto.ProdutoID;
@@ -386,7 +386,7 @@ namespace WindowsFormsApplication3
             string query = "Select ped_codigo From pedido where ped_codigo = (Select MAX(ped_codigo) From pedido)";
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand sqlCommand = new SqlCommand(query, con);
             con.Open();
             SqlDataReader dR = sqlCommand.ExecuteReader();
@@ -415,7 +415,7 @@ namespace WindowsFormsApplication3
                 string deleteItem = "delete from ITEMPEDIDO where ped_codigo = " + txtControle.Text;
                 string deleteEstoque = "delete from estoque where ven_codigo = " + txtControle.Text;
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(delete, con);
                 cmd.CommandType = CommandType.Text;
                 SqlCommand cmd1 = new SqlCommand(deleteItem, con);
@@ -497,7 +497,7 @@ namespace WindowsFormsApplication3
                 string financeiro = "insert into creceber(rec_valor, rec_dtvenc, cod_cliente, rec_situacao ) values(@ped_totalliq, @rec_dtvenc, @cod_cliente, 'PENDENTE')";                
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = Properties.Settings.Default.Ducaun;
+                con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd = new SqlCommand(atualiza, con);
                 cmd.Parameters.Add("@ped_totalliq", SqlDbType.Decimal).Value = pedtotalliq;
                 cmd.Parameters.Add("@cod_funcionario", SqlDbType.Int).Value = codfuncionatio;
@@ -609,7 +609,7 @@ namespace WindowsFormsApplication3
         private void button7_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand("select * from pedido", con);
             con.Open();
             DataTable dt = new DataTable();
@@ -668,7 +668,7 @@ namespace WindowsFormsApplication3
             string getItem = "select a.cod_produto, b.des_produto, a.ITP_QTDE, a.ITP_VALOR, a.ITP_TOTAL from ITEMPEDIDO a join produtos b on a.cod_produto = b.cod_produto where ped_codigo = " + txtControle.Text;
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(getItem, con);
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -852,7 +852,7 @@ namespace WindowsFormsApplication3
             estoque.ProdutoID = Convert.ToInt32(produtosDataGridView.CurrentRow.Cells["cod_produto"].Value.ToString());
             string deleteEstoque = "delete from estoque where pro_codigo = " + estoque.ProdutoID + "and ven_codigo = " + estoque.VendaProdutoID;
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = Properties.Settings.Default.Ducaun;
+            con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(deleteEstoque, con);
             con.Open();
             try

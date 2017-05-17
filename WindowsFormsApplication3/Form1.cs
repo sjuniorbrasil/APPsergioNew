@@ -38,7 +38,7 @@ namespace WindowsFormsApplication3
                 //try
                 //{
                 //    SqlConnection con = new SqlConnection();
-                //    con.ConnectionString = Properties.Settings.Default.Ducaun;
+                //    con.ConnectionString = utils.ConexaoDb();
                 //    con.Open();
                 //    Inicianiza.Show();
                 //    this.Visible = false;
