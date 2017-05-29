@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApplication3.ClassesEntidades;
 
 namespace WindowsFormsApplication3
 {
     public partial class FormPrincipal : Form
     {
+        Usuario user = new Usuario();
         public FormPrincipal()
         {
             InitializeComponent();
@@ -164,8 +166,80 @@ namespace WindowsFormsApplication3
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            
-           
+            if (FormLogin.usuarioLogado != "admin")
+            {
+                //MessageBox.Show(Form1.usuarioLogado);
+
+
+                if (user.AcessoVenda())
+                {
+                    vENDASToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    vENDASToolStripMenuItem.Enabled = false;
+                }
+
+                if (user.AcessoCompra())
+                {
+                    eNTRADADEPRODUTOSToolStripMenuItem .Enabled = true;
+                }
+                else
+                {
+                    eNTRADADEPRODUTOSToolStripMenuItem.Enabled = false;
+                }
+
+                if (user.AcessoPessoa())
+                {
+                    fORNECEDORESToolStripMenuItem.Enabled = true;
+                    cLIENTESToolStripMenuItem.Enabled = true;
+                    fUNCIONÁRIOSToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    fUNCIONÁRIOSToolStripMenuItem.Enabled = false;
+                    fORNECEDORESToolStripMenuItem.Enabled = false;
+                    cLIENTESToolStripMenuItem.Enabled = false;
+                }
+
+                if (user.AcessoFiscal())
+                {
+                    nOTAFISCALELETRÔNICAToolStripMenuItem.Enabled = true;
+                    cFOPToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    nOTAFISCALELETRÔNICAToolStripMenuItem.Enabled = false;
+                    cFOPToolStripMenuItem.Enabled = false;
+                }
+
+                if (user.AcessoProduto())
+                {
+                    pRODUTOSToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    pRODUTOSToolStripMenuItem.Enabled = false;
+                }
+
+                if (user.AcessoUsuario())
+                {
+                    uSUÁRIOSToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    uSUÁRIOSToolStripMenuItem.Enabled = false;
+                }
+
+                if (user.AcessoRelatorio())
+                {
+                    rELATÓRIOSToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    rELATÓRIOSToolStripMenuItem.Enabled = false;
+                }
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -303,6 +377,15 @@ namespace WindowsFormsApplication3
 
             MeusFormularios.FrmNotaFiscal.Show();
             MeusFormularios.FrmNotaFiscal.Focus();
+        }
+
+        private void uSUÁRIOSToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (MeusFormularios.formCadUsuarios == null)
+                MeusFormularios.formCadUsuarios = new frmCadUsuario();
+
+            MeusFormularios.formCadUsuarios.Show();
+            MeusFormularios.formCadUsuarios.Focus();
         }
     }
 }

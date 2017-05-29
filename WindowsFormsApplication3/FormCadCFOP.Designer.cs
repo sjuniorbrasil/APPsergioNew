@@ -49,17 +49,17 @@
             this.txtCodCopf = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataSet1 = new WindowsFormsApplication3.DataSet1();
-            this.cFOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cFOPTableAdapter = new WindowsFormsApplication3.DataSet1TableAdapters.CFOPTableAdapter();
             this.cfocodigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cfodescricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new WindowsFormsApplication3.DataSet1();
+            this.cFOPTableAdapter = new WindowsFormsApplication3.DataSet1TableAdapters.CFOPTableAdapter();
             this.groupBox2.SuspendLayout();
             this.panelPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cfopDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cFOPBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -161,6 +161,7 @@
             this.label4.Size = new System.Drawing.Size(246, 31);
             this.label4.TabIndex = 21;
             this.label4.Text = "Pesquisa de CFOP";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button2
             // 
@@ -193,6 +194,7 @@
             this.radioButtonDescricao.TabStop = true;
             this.radioButtonDescricao.Text = "Descrição";
             this.radioButtonDescricao.UseVisualStyleBackColor = true;
+            this.radioButtonDescricao.CheckedChanged += new System.EventHandler(this.radioButtonDescricao_CheckedChanged);
             // 
             // cfopDataGridView
             // 
@@ -210,6 +212,7 @@
             this.cfopDataGridView.Size = new System.Drawing.Size(498, 105);
             this.cfopDataGridView.TabIndex = 12;
             this.cfopDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cIDADESDataGridView_CellClick);
+            this.cfopDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cfopDataGridView_CellContentClick);
             // 
             // radioButtonCodigo
             // 
@@ -221,6 +224,7 @@
             this.radioButtonCodigo.TabStop = true;
             this.radioButtonCodigo.Text = "Código";
             this.radioButtonCodigo.UseVisualStyleBackColor = true;
+            this.radioButtonCodigo.CheckedChanged += new System.EventHandler(this.radioButtonCodigo_CheckedChanged);
             // 
             // textBox1
             // 
@@ -228,6 +232,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(159, 20);
             this.textBox1.TabIndex = 16;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -278,20 +283,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Descrição";
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cFOPBindingSource
-            // 
-            this.cFOPBindingSource.DataMember = "CFOP";
-            this.cFOPBindingSource.DataSource = this.dataSet1;
-            // 
-            // cFOPTableAdapter
-            // 
-            this.cFOPTableAdapter.ClearBeforeFill = true;
-            // 
             // cfocodigoDataGridViewTextBoxColumn
             // 
             this.cfocodigoDataGridViewTextBoxColumn.DataPropertyName = "cfo_codigo";
@@ -305,6 +296,20 @@
             this.cfodescricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.cfodescricaoDataGridViewTextBoxColumn.Name = "cfodescricaoDataGridViewTextBoxColumn";
             this.cfodescricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cFOPBindingSource
+            // 
+            this.cFOPBindingSource.DataMember = "CFOP";
+            this.cFOPBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cFOPTableAdapter
+            // 
+            this.cFOPTableAdapter.ClearBeforeFill = true;
             // 
             // FormCadCFOP
             // 
@@ -327,8 +332,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cfopDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cFOPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

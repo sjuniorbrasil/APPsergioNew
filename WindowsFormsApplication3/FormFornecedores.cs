@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ducaun.dal;
 using System.Data.SqlClient;
-using validacao;
+
 
 namespace WindowsFormsApplication3
 {
@@ -379,7 +378,7 @@ namespace WindowsFormsApplication3
             try
             {
                 string valor = maskedTextBoxCnpj.Text;
-                if (validacao.ValidaCnpj.IsCnpj(valor))
+                if (ValidaCPF.ValidaCPF.IsCnpj(valor))
                 {
                     textBoxNumero.Focus();
                 }
@@ -401,7 +400,7 @@ namespace WindowsFormsApplication3
 
         private void textBoxCidade_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxCidade.Text == null)
+            if (textBoxCidade.Text == null || textBoxCidade.Text == string.Empty)
             {
                 txtNcidade.Focus();
             }

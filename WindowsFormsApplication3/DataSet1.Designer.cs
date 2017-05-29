@@ -1020,6 +1020,8 @@ namespace WindowsFormsApplication3 {
             
             private global::System.Data.DataColumn columncid_uf;
             
+            private global::System.Data.DataColumn columncid_ibge;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public cidadesDataTable() {
@@ -1079,6 +1081,14 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cid_ibgeColumn {
+                get {
+                    return this.columncid_ibge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1114,12 +1124,13 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public cidadesRow AddcidadesRow(string cid_nome, string cid_uf) {
+            public cidadesRow AddcidadesRow(string cid_nome, string cid_uf, string cid_ibge) {
                 cidadesRow rowcidadesRow = ((cidadesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         cid_nome,
-                        cid_uf};
+                        cid_uf,
+                        cid_ibge};
                 rowcidadesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcidadesRow);
                 return rowcidadesRow;
@@ -1145,6 +1156,7 @@ namespace WindowsFormsApplication3 {
                 this.columncid_codigo = base.Columns["cid_codigo"];
                 this.columncid_nome = base.Columns["cid_nome"];
                 this.columncid_uf = base.Columns["cid_uf"];
+                this.columncid_ibge = base.Columns["cid_ibge"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1156,6 +1168,8 @@ namespace WindowsFormsApplication3 {
                 base.Columns.Add(this.columncid_nome);
                 this.columncid_uf = new global::System.Data.DataColumn("cid_uf", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncid_uf);
+                this.columncid_ibge = new global::System.Data.DataColumn("cid_ibge", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncid_ibge);
                 this.columncid_codigo.AutoIncrement = true;
                 this.columncid_codigo.AutoIncrementSeed = -1;
                 this.columncid_codigo.AutoIncrementStep = -1;
@@ -1163,6 +1177,7 @@ namespace WindowsFormsApplication3 {
                 this.columncid_codigo.ReadOnly = true;
                 this.columncid_nome.MaxLength = 50;
                 this.columncid_uf.MaxLength = 50;
+                this.columncid_ibge.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3820,6 +3835,8 @@ namespace WindowsFormsApplication3 {
             
             private global::System.Data.DataColumn columnven_codigo;
             
+            private global::System.Data.DataColumn columnrec_vencido;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CRECEBERDataTable() {
@@ -3935,6 +3952,14 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn rec_vencidoColumn {
+                get {
+                    return this.columnrec_vencido;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3970,7 +3995,7 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CRECEBERRow AddCRECEBERRow(int cod_cliente, decimal rec_valor, decimal rec_valorRec, string rec_dtVenc, string rec_dtBaixa, string rec_situacao, string rec_obs, decimal rec_vlacrescimo, int ven_codigo) {
+            public CRECEBERRow AddCRECEBERRow(int cod_cliente, decimal rec_valor, decimal rec_valorRec, string rec_dtVenc, string rec_dtBaixa, string rec_situacao, string rec_obs, decimal rec_vlacrescimo, int ven_codigo, int rec_vencido) {
                 CRECEBERRow rowCRECEBERRow = ((CRECEBERRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3982,7 +4007,8 @@ namespace WindowsFormsApplication3 {
                         rec_situacao,
                         rec_obs,
                         rec_vlacrescimo,
-                        ven_codigo};
+                        ven_codigo,
+                        rec_vencido};
                 rowCRECEBERRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCRECEBERRow);
                 return rowCRECEBERRow;
@@ -4022,6 +4048,7 @@ namespace WindowsFormsApplication3 {
                 this.columnrec_obs = base.Columns["rec_obs"];
                 this.columnrec_vlacrescimo = base.Columns["rec_vlacrescimo"];
                 this.columnven_codigo = base.Columns["ven_codigo"];
+                this.columnrec_vencido = base.Columns["rec_vencido"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4047,6 +4074,8 @@ namespace WindowsFormsApplication3 {
                 base.Columns.Add(this.columnrec_vlacrescimo);
                 this.columnven_codigo = new global::System.Data.DataColumn("ven_codigo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnven_codigo);
+                this.columnrec_vencido = new global::System.Data.DataColumn("rec_vencido", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrec_vencido);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnrec_codigo}, true));
                 this.columnrec_codigo.AutoIncrement = true;
@@ -7791,6 +7820,20 @@ namespace WindowsFormsApplication3 {
             
             private global::System.Data.DataColumn columnusu_senha;
             
+            private global::System.Data.DataColumn columnusu_cadCliente;
+            
+            private global::System.Data.DataColumn columnusu_cadFornecedor;
+            
+            private global::System.Data.DataColumn columnusu_cadProduto;
+            
+            private global::System.Data.DataColumn columnusu_cadFiscal;
+            
+            private global::System.Data.DataColumn columnusu_compra;
+            
+            private global::System.Data.DataColumn columnusu_venda;
+            
+            private global::System.Data.DataColumn columnusu_relatorios;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public usuariosDataTable() {
@@ -7850,6 +7893,62 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_cadClienteColumn {
+                get {
+                    return this.columnusu_cadCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_cadFornecedorColumn {
+                get {
+                    return this.columnusu_cadFornecedor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_cadProdutoColumn {
+                get {
+                    return this.columnusu_cadProduto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_cadFiscalColumn {
+                get {
+                    return this.columnusu_cadFiscal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_compraColumn {
+                get {
+                    return this.columnusu_compra;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_vendaColumn {
+                get {
+                    return this.columnusu_venda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usu_relatoriosColumn {
+                get {
+                    return this.columnusu_relatorios;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7885,12 +7984,19 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usuariosRow AddusuariosRow(string usu_nome, string usu_senha) {
+            public usuariosRow AddusuariosRow(string usu_nome, string usu_senha, int usu_cadCliente, int usu_cadFornecedor, int usu_cadProduto, int usu_cadFiscal, int usu_compra, int usu_venda, int usu_relatorios) {
                 usuariosRow rowusuariosRow = ((usuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         usu_nome,
-                        usu_senha};
+                        usu_senha,
+                        usu_cadCliente,
+                        usu_cadFornecedor,
+                        usu_cadProduto,
+                        usu_cadFiscal,
+                        usu_compra,
+                        usu_venda,
+                        usu_relatorios};
                 rowusuariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowusuariosRow);
                 return rowusuariosRow;
@@ -7916,6 +8022,13 @@ namespace WindowsFormsApplication3 {
                 this.columnusu_codigo = base.Columns["usu_codigo"];
                 this.columnusu_nome = base.Columns["usu_nome"];
                 this.columnusu_senha = base.Columns["usu_senha"];
+                this.columnusu_cadCliente = base.Columns["usu_cadCliente"];
+                this.columnusu_cadFornecedor = base.Columns["usu_cadFornecedor"];
+                this.columnusu_cadProduto = base.Columns["usu_cadProduto"];
+                this.columnusu_cadFiscal = base.Columns["usu_cadFiscal"];
+                this.columnusu_compra = base.Columns["usu_compra"];
+                this.columnusu_venda = base.Columns["usu_venda"];
+                this.columnusu_relatorios = base.Columns["usu_relatorios"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7927,6 +8040,20 @@ namespace WindowsFormsApplication3 {
                 base.Columns.Add(this.columnusu_nome);
                 this.columnusu_senha = new global::System.Data.DataColumn("usu_senha", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusu_senha);
+                this.columnusu_cadCliente = new global::System.Data.DataColumn("usu_cadCliente", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_cadCliente);
+                this.columnusu_cadFornecedor = new global::System.Data.DataColumn("usu_cadFornecedor", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_cadFornecedor);
+                this.columnusu_cadProduto = new global::System.Data.DataColumn("usu_cadProduto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_cadProduto);
+                this.columnusu_cadFiscal = new global::System.Data.DataColumn("usu_cadFiscal", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_cadFiscal);
+                this.columnusu_compra = new global::System.Data.DataColumn("usu_compra", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_compra);
+                this.columnusu_venda = new global::System.Data.DataColumn("usu_venda", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_venda);
+                this.columnusu_relatorios = new global::System.Data.DataColumn("usu_relatorios", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusu_relatorios);
                 this.columnusu_codigo.AutoIncrement = true;
                 this.columnusu_codigo.AutoIncrementSeed = -1;
                 this.columnusu_codigo.AutoIncrementStep = -1;
@@ -8959,6 +9086,22 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cid_ibge {
+                get {
+                    try {
+                        return ((string)(this[this.tablecidades.cid_ibgeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cid_ibge\' in table \'cidades\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecidades.cid_ibgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Iscid_nomeNull() {
                 return this.IsNull(this.tablecidades.cid_nomeColumn);
             }
@@ -8979,6 +9122,18 @@ namespace WindowsFormsApplication3 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setcid_ufNull() {
                 this[this.tablecidades.cid_ufColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscid_ibgeNull() {
+                return this.IsNull(this.tablecidades.cid_ibgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcid_ibgeNull() {
+                this[this.tablecidades.cid_ibgeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10660,6 +10815,22 @@ namespace WindowsFormsApplication3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int rec_vencido {
+                get {
+                    try {
+                        return ((int)(this[this.tableCRECEBER.rec_vencidoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'rec_vencido\' in table \'CRECEBER\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCRECEBER.rec_vencidoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Iscod_clienteNull() {
                 return this.IsNull(this.tableCRECEBER.cod_clienteColumn);
             }
@@ -10764,6 +10935,18 @@ namespace WindowsFormsApplication3 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setven_codigoNull() {
                 this[this.tableCRECEBER.ven_codigoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isrec_vencidoNull() {
+                return this.IsNull(this.tableCRECEBER.rec_vencidoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setrec_vencidoNull() {
+                this[this.tableCRECEBER.rec_vencidoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -13790,6 +13973,202 @@ namespace WindowsFormsApplication3 {
                     this[this.tableusuarios.usu_senhaColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_cadCliente {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_cadClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_cadCliente\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_cadClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_cadFornecedor {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_cadFornecedorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_cadFornecedor\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_cadFornecedorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_cadProduto {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_cadProdutoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_cadProduto\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_cadProdutoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_cadFiscal {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_cadFiscalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_cadFiscal\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_cadFiscalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_compra {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_compraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_compra\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_compraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_venda {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_vendaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_venda\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_vendaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int usu_relatorios {
+                get {
+                    try {
+                        return ((int)(this[this.tableusuarios.usu_relatoriosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'usu_relatorios\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.usu_relatoriosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_cadClienteNull() {
+                return this.IsNull(this.tableusuarios.usu_cadClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_cadClienteNull() {
+                this[this.tableusuarios.usu_cadClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_cadFornecedorNull() {
+                return this.IsNull(this.tableusuarios.usu_cadFornecedorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_cadFornecedorNull() {
+                this[this.tableusuarios.usu_cadFornecedorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_cadProdutoNull() {
+                return this.IsNull(this.tableusuarios.usu_cadProdutoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_cadProdutoNull() {
+                this[this.tableusuarios.usu_cadProdutoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_cadFiscalNull() {
+                return this.IsNull(this.tableusuarios.usu_cadFiscalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_cadFiscalNull() {
+                this[this.tableusuarios.usu_cadFiscalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_compraNull() {
+                return this.IsNull(this.tableusuarios.usu_compraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_compraNull() {
+                this[this.tableusuarios.usu_compraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_vendaNull() {
+                return this.IsNull(this.tableusuarios.usu_vendaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_vendaNull() {
+                this[this.tableusuarios.usu_vendaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isusu_relatoriosNull() {
+                return this.IsNull(this.tableusuarios.usu_relatoriosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setusu_relatoriosNull() {
+                this[this.tableusuarios.usu_relatoriosColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -15262,13 +15641,16 @@ namespace WindowsFormsApplication3.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("cid_codigo", "cid_codigo");
             tableMapping.ColumnMappings.Add("cid_nome", "cid_nome");
             tableMapping.ColumnMappings.Add("cid_uf", "cid_uf");
+            tableMapping.ColumnMappings.Add("cid_ibge", "cid_ibge");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[cidades] ([cid_nome], [cid_uf]) VALUES (@cid_nome, @cid_uf)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [cidades] ([cid_nome], [cid_uf], [cid_ibge]) VALUES (@cid_nome, @cid_" +
+                "uf, @cid_ibge)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cid_nome", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cid_nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cid_uf", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cid_uf", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cid_ibge", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cid_ibge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15284,7 +15666,7 @@ namespace WindowsFormsApplication3.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT cid_codigo, cid_nome, cid_uf FROM dbo.cidades";
+            this._commandCollection[0].CommandText = "SELECT cid_codigo, cid_nome, cid_uf, cid_ibge FROM cidades";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15345,7 +15727,7 @@ namespace WindowsFormsApplication3.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string cid_nome, string cid_uf) {
+        public virtual int Insert(string cid_nome, string cid_uf, string cid_ibge) {
             if ((cid_nome == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15357,6 +15739,12 @@ namespace WindowsFormsApplication3.DataSet1TableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(cid_uf));
+            }
+            if ((cid_ibge == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(cid_ibge));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18838,10 +19226,11 @@ SELECT com_codigo, cod_produto, itp_valor, itp_qtde, itp_total, itp_vloriginal F
             tableMapping.ColumnMappings.Add("rec_obs", "rec_obs");
             tableMapping.ColumnMappings.Add("rec_vlacrescimo", "rec_vlacrescimo");
             tableMapping.ColumnMappings.Add("ven_codigo", "ven_codigo");
+            tableMapping.ColumnMappings.Add("rec_vencido", "rec_vencido");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CRECEBER] WHERE (([rec_codigo] = @Original_rec_codigo) AND ((@IsNull_cod_cliente = 1 AND [cod_cliente] IS NULL) OR ([cod_cliente] = @Original_cod_cliente)) AND ((@IsNull_rec_valor = 1 AND [rec_valor] IS NULL) OR ([rec_valor] = @Original_rec_valor)) AND ((@IsNull_rec_valorRec = 1 AND [rec_valorRec] IS NULL) OR ([rec_valorRec] = @Original_rec_valorRec)) AND ((@IsNull_rec_dtVenc = 1 AND [rec_dtVenc] IS NULL) OR ([rec_dtVenc] = @Original_rec_dtVenc)) AND ((@IsNull_rec_dtBaixa = 1 AND [rec_dtBaixa] IS NULL) OR ([rec_dtBaixa] = @Original_rec_dtBaixa)) AND ((@IsNull_rec_situacao = 1 AND [rec_situacao] IS NULL) OR ([rec_situacao] = @Original_rec_situacao)) AND ((@IsNull_rec_obs = 1 AND [rec_obs] IS NULL) OR ([rec_obs] = @Original_rec_obs)) AND ((@IsNull_rec_vlacrescimo = 1 AND [rec_vlacrescimo] IS NULL) OR ([rec_vlacrescimo] = @Original_rec_vlacrescimo)) AND ((@IsNull_ven_codigo = 1 AND [ven_codigo] IS NULL) OR ([ven_codigo] = @Original_ven_codigo)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [CRECEBER] WHERE (([rec_codigo] = @Original_rec_codigo) AND ((@IsNull_cod_cliente = 1 AND [cod_cliente] IS NULL) OR ([cod_cliente] = @Original_cod_cliente)) AND ((@IsNull_rec_valor = 1 AND [rec_valor] IS NULL) OR ([rec_valor] = @Original_rec_valor)) AND ((@IsNull_rec_valorRec = 1 AND [rec_valorRec] IS NULL) OR ([rec_valorRec] = @Original_rec_valorRec)) AND ((@IsNull_rec_dtVenc = 1 AND [rec_dtVenc] IS NULL) OR ([rec_dtVenc] = @Original_rec_dtVenc)) AND ((@IsNull_rec_dtBaixa = 1 AND [rec_dtBaixa] IS NULL) OR ([rec_dtBaixa] = @Original_rec_dtBaixa)) AND ((@IsNull_rec_situacao = 1 AND [rec_situacao] IS NULL) OR ([rec_situacao] = @Original_rec_situacao)) AND ((@IsNull_rec_obs = 1 AND [rec_obs] IS NULL) OR ([rec_obs] = @Original_rec_obs)) AND ((@IsNull_rec_vlacrescimo = 1 AND [rec_vlacrescimo] IS NULL) OR ([rec_vlacrescimo] = @Original_rec_vlacrescimo)) AND ((@IsNull_ven_codigo = 1 AND [ven_codigo] IS NULL) OR ([ven_codigo] = @Original_ven_codigo)) AND ((@IsNull_rec_vencido = 1 AND [rec_vencido] IS NULL) OR ([rec_vencido] = @Original_rec_vencido)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rec_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cod_cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_cliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -18862,10 +19251,12 @@ SELECT com_codigo, cod_produto, itp_valor, itp_qtde, itp_total, itp_vloriginal F
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rec_vlacrescimo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "rec_vlacrescimo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ven_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ven_codigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ven_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ven_codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_rec_vencido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_vencido", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rec_vencido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_vencido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CRECEBER] ([cod_cliente], [rec_valor], [rec_valorRec], [rec_dtVenc], [rec_dtBaixa], [rec_situacao], [rec_obs], [rec_vlacrescimo], [ven_codigo]) VALUES (@cod_cliente, @rec_valor, @rec_valorRec, @rec_dtVenc, @rec_dtBaixa, @rec_situacao, @rec_obs, @rec_vlacrescimo, @ven_codigo);
-SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa, rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo FROM CRECEBER WHERE (rec_codigo = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [CRECEBER] ([cod_cliente], [rec_valor], [rec_valorRec], [rec_dtVenc], [rec_dtBaixa], [rec_situacao], [rec_obs], [rec_vlacrescimo], [ven_codigo], [rec_vencido]) VALUES (@cod_cliente, @rec_valor, @rec_valorRec, @rec_dtVenc, @rec_dtBaixa, @rec_situacao, @rec_obs, @rec_vlacrescimo, @ven_codigo, @rec_vencido);
+SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa, rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo, rec_vencido FROM CRECEBER WHERE (rec_codigo = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cod_cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_valor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "rec_valor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18876,10 +19267,29 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_obs", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_obs", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_vlacrescimo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "rec_vlacrescimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ven_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ven_codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_vencido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_vencido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CRECEBER] SET [cod_cliente] = @cod_cliente, [rec_valor] = @rec_valor, [rec_valorRec] = @rec_valorRec, [rec_dtVenc] = @rec_dtVenc, [rec_dtBaixa] = @rec_dtBaixa, [rec_situacao] = @rec_situacao, [rec_obs] = @rec_obs, [rec_vlacrescimo] = @rec_vlacrescimo, [ven_codigo] = @ven_codigo WHERE (([rec_codigo] = @Original_rec_codigo) AND ((@IsNull_cod_cliente = 1 AND [cod_cliente] IS NULL) OR ([cod_cliente] = @Original_cod_cliente)) AND ((@IsNull_rec_valor = 1 AND [rec_valor] IS NULL) OR ([rec_valor] = @Original_rec_valor)) AND ((@IsNull_rec_valorRec = 1 AND [rec_valorRec] IS NULL) OR ([rec_valorRec] = @Original_rec_valorRec)) AND ((@IsNull_rec_dtVenc = 1 AND [rec_dtVenc] IS NULL) OR ([rec_dtVenc] = @Original_rec_dtVenc)) AND ((@IsNull_rec_dtBaixa = 1 AND [rec_dtBaixa] IS NULL) OR ([rec_dtBaixa] = @Original_rec_dtBaixa)) AND ((@IsNull_rec_situacao = 1 AND [rec_situacao] IS NULL) OR ([rec_situacao] = @Original_rec_situacao)) AND ((@IsNull_rec_obs = 1 AND [rec_obs] IS NULL) OR ([rec_obs] = @Original_rec_obs)) AND ((@IsNull_rec_vlacrescimo = 1 AND [rec_vlacrescimo] IS NULL) OR ([rec_vlacrescimo] = @Original_rec_vlacrescimo)) AND ((@IsNull_ven_codigo = 1 AND [ven_codigo] IS NULL) OR ([ven_codigo] = @Original_ven_codigo)));
-SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa, rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo FROM CRECEBER WHERE (rec_codigo = @rec_codigo)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [CRECEBER] SET [cod_cliente] = @cod_cliente, [rec_valor] = @rec_valor, [re" +
+                "c_valorRec] = @rec_valorRec, [rec_dtVenc] = @rec_dtVenc, [rec_dtBaixa] = @rec_dt" +
+                "Baixa, [rec_situacao] = @rec_situacao, [rec_obs] = @rec_obs, [rec_vlacrescimo] =" +
+                " @rec_vlacrescimo, [ven_codigo] = @ven_codigo, [rec_vencido] = @rec_vencido WHER" +
+                "E (([rec_codigo] = @Original_rec_codigo) AND ((@IsNull_cod_cliente = 1 AND [cod_" +
+                "cliente] IS NULL) OR ([cod_cliente] = @Original_cod_cliente)) AND ((@IsNull_rec_" +
+                "valor = 1 AND [rec_valor] IS NULL) OR ([rec_valor] = @Original_rec_valor)) AND (" +
+                "(@IsNull_rec_valorRec = 1 AND [rec_valorRec] IS NULL) OR ([rec_valorRec] = @Orig" +
+                "inal_rec_valorRec)) AND ((@IsNull_rec_dtVenc = 1 AND [rec_dtVenc] IS NULL) OR ([" +
+                "rec_dtVenc] = @Original_rec_dtVenc)) AND ((@IsNull_rec_dtBaixa = 1 AND [rec_dtBa" +
+                "ixa] IS NULL) OR ([rec_dtBaixa] = @Original_rec_dtBaixa)) AND ((@IsNull_rec_situ" +
+                "acao = 1 AND [rec_situacao] IS NULL) OR ([rec_situacao] = @Original_rec_situacao" +
+                ")) AND ((@IsNull_rec_obs = 1 AND [rec_obs] IS NULL) OR ([rec_obs] = @Original_re" +
+                "c_obs)) AND ((@IsNull_rec_vlacrescimo = 1 AND [rec_vlacrescimo] IS NULL) OR ([re" +
+                "c_vlacrescimo] = @Original_rec_vlacrescimo)) AND ((@IsNull_ven_codigo = 1 AND [v" +
+                "en_codigo] IS NULL) OR ([ven_codigo] = @Original_ven_codigo)) AND ((@IsNull_rec_" +
+                "vencido = 1 AND [rec_vencido] IS NULL) OR ([rec_vencido] = @Original_rec_vencido" +
+                ")));\r\nSELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_d" +
+                "tBaixa, rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo, rec_vencido FROM CRE" +
+                "CEBER WHERE (rec_codigo = @rec_codigo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cod_cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_valor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "rec_valor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18890,6 +19300,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_obs", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_obs", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_vlacrescimo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "rec_vlacrescimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ven_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ven_codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_vencido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_vencido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rec_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cod_cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_cliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cod_cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cod_cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -18909,6 +19320,8 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rec_vlacrescimo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "rec_vlacrescimo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ven_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ven_codigo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ven_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ven_codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_rec_vencido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_vencido", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rec_vencido", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rec_vencido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rec_codigo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "rec_codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -18926,7 +19339,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa," +
-                " rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo FROM dbo.CRECEBER";
+                " rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo, rec_vencido FROM CRECEBER";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18987,7 +19400,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_rec_codigo, global::System.Nullable<int> Original_cod_cliente, global::System.Nullable<decimal> Original_rec_valor, global::System.Nullable<decimal> Original_rec_valorRec, string Original_rec_dtVenc, string Original_rec_dtBaixa, string Original_rec_situacao, string Original_rec_obs, global::System.Nullable<decimal> Original_rec_vlacrescimo, global::System.Nullable<int> Original_ven_codigo) {
+        public virtual int Delete(int Original_rec_codigo, global::System.Nullable<int> Original_cod_cliente, global::System.Nullable<decimal> Original_rec_valor, global::System.Nullable<decimal> Original_rec_valorRec, string Original_rec_dtVenc, string Original_rec_dtBaixa, string Original_rec_situacao, string Original_rec_obs, global::System.Nullable<decimal> Original_rec_vlacrescimo, global::System.Nullable<int> Original_ven_codigo, global::System.Nullable<int> Original_rec_vencido) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_rec_codigo));
             if ((Original_cod_cliente.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -19061,6 +19474,14 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
+            if ((Original_rec_vencido.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_rec_vencido.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -19081,7 +19502,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> cod_cliente, global::System.Nullable<decimal> rec_valor, global::System.Nullable<decimal> rec_valorRec, string rec_dtVenc, string rec_dtBaixa, string rec_situacao, string rec_obs, global::System.Nullable<decimal> rec_vlacrescimo, global::System.Nullable<int> ven_codigo) {
+        public virtual int Insert(global::System.Nullable<int> cod_cliente, global::System.Nullable<decimal> rec_valor, global::System.Nullable<decimal> rec_valorRec, string rec_dtVenc, string rec_dtBaixa, string rec_situacao, string rec_obs, global::System.Nullable<decimal> rec_vlacrescimo, global::System.Nullable<int> ven_codigo, global::System.Nullable<int> rec_vencido) {
             if ((cod_cliente.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(cod_cliente.Value));
             }
@@ -19136,6 +19557,12 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((rec_vencido.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(rec_vencido.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -19166,6 +19593,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
                     string rec_obs, 
                     global::System.Nullable<decimal> rec_vlacrescimo, 
                     global::System.Nullable<int> ven_codigo, 
+                    global::System.Nullable<int> rec_vencido, 
                     int Original_rec_codigo, 
                     global::System.Nullable<int> Original_cod_cliente, 
                     global::System.Nullable<decimal> Original_rec_valor, 
@@ -19176,6 +19604,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
                     string Original_rec_obs, 
                     global::System.Nullable<decimal> Original_rec_vlacrescimo, 
                     global::System.Nullable<int> Original_ven_codigo, 
+                    global::System.Nullable<int> Original_rec_vencido, 
                     int rec_codigo) {
             if ((cod_cliente.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(cod_cliente.Value));
@@ -19231,80 +19660,94 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_rec_codigo));
-            if ((Original_cod_cliente.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_cod_cliente.Value));
+            if ((rec_vencido.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(rec_vencido.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_rec_codigo));
+            if ((Original_cod_cliente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_cod_cliente.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_rec_valor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_rec_valor.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_rec_valor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_rec_valorRec.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_rec_valorRec.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_rec_valorRec.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_rec_dtVenc == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_rec_dtVenc));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_rec_dtVenc));
             }
             if ((Original_rec_dtBaixa == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_rec_dtBaixa));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_rec_dtBaixa));
             }
             if ((Original_rec_situacao == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_rec_situacao));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_rec_situacao));
             }
             if ((Original_rec_obs == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_rec_obs));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_rec_obs));
             }
             if ((Original_rec_vlacrescimo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_rec_vlacrescimo.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(Original_rec_vlacrescimo.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_ven_codigo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_ven_codigo.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_ven_codigo.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(rec_codigo));
+            if ((Original_rec_vencido.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_rec_vencido.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(rec_codigo));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -19335,6 +19778,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
                     string rec_obs, 
                     global::System.Nullable<decimal> rec_vlacrescimo, 
                     global::System.Nullable<int> ven_codigo, 
+                    global::System.Nullable<int> rec_vencido, 
                     int Original_rec_codigo, 
                     global::System.Nullable<int> Original_cod_cliente, 
                     global::System.Nullable<decimal> Original_rec_valor, 
@@ -19344,8 +19788,9 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
                     string Original_rec_situacao, 
                     string Original_rec_obs, 
                     global::System.Nullable<decimal> Original_rec_vlacrescimo, 
-                    global::System.Nullable<int> Original_ven_codigo) {
-            return this.Update(cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa, rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo, Original_rec_codigo, Original_cod_cliente, Original_rec_valor, Original_rec_valorRec, Original_rec_dtVenc, Original_rec_dtBaixa, Original_rec_situacao, Original_rec_obs, Original_rec_vlacrescimo, Original_ven_codigo, Original_rec_codigo);
+                    global::System.Nullable<int> Original_ven_codigo, 
+                    global::System.Nullable<int> Original_rec_vencido) {
+            return this.Update(cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa, rec_situacao, rec_obs, rec_vlacrescimo, ven_codigo, rec_vencido, Original_rec_codigo, Original_cod_cliente, Original_rec_valor, Original_rec_valorRec, Original_rec_dtVenc, Original_rec_dtBaixa, Original_rec_situacao, Original_rec_obs, Original_rec_vlacrescimo, Original_ven_codigo, Original_rec_vencido, Original_rec_codigo);
         }
     }
     
@@ -25710,14 +26155,27 @@ SELECT cod_produto, des_produto, ean, cod_fornecedor, vl_produto, est_produto, u
             tableMapping.ColumnMappings.Add("usu_codigo", "usu_codigo");
             tableMapping.ColumnMappings.Add("usu_nome", "usu_nome");
             tableMapping.ColumnMappings.Add("usu_senha", "usu_senha");
+            tableMapping.ColumnMappings.Add("usu_cadCliente", "usu_cadCliente");
+            tableMapping.ColumnMappings.Add("usu_cadFornecedor", "usu_cadFornecedor");
+            tableMapping.ColumnMappings.Add("usu_cadProduto", "usu_cadProduto");
+            tableMapping.ColumnMappings.Add("usu_cadFiscal", "usu_cadFiscal");
+            tableMapping.ColumnMappings.Add("usu_compra", "usu_compra");
+            tableMapping.ColumnMappings.Add("usu_venda", "usu_venda");
+            tableMapping.ColumnMappings.Add("usu_relatorios", "usu_relatorios");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[usuarios] ([usu_nome], [usu_senha]) VALUES (@usu_nome, @usu_se" +
-                "nha)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [usuarios] ([usu_nome], [usu_senha], [usu_cadCliente], [usu_cadFiscal], [usu_cadFornecedor], [usu_cadProduto], [usu_compra], [usu_relatorios], [usu_venda]) VALUES (@usu_nome, @usu_senha, @usu_cadCliente, @usu_cadFiscal, @usu_cadFornecedor, @usu_cadProduto, @usu_compra, @usu_relatorios, @usu_venda)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_nome", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_senha", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_senha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_cadCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_cadCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_cadFiscal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_cadFiscal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_cadFornecedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_cadFornecedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_cadProduto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_cadProduto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_compra", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_relatorios", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_relatorios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usu_venda", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "usu_venda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25733,7 +26191,8 @@ SELECT cod_produto, des_produto, ean, cod_fornecedor, vl_produto, est_produto, u
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT usu_codigo, usu_nome, usu_senha FROM dbo.usuarios";
+            this._commandCollection[0].CommandText = "SELECT usu_codigo, usu_nome, usu_senha, usu_cadCliente, usu_cadFiscal, usu_cadFor" +
+                "necedor, usu_cadProduto, usu_compra, usu_relatorios, usu_venda FROM usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -25794,7 +26253,7 @@ SELECT cod_produto, des_produto, ean, cod_fornecedor, vl_produto, est_produto, u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string usu_nome, string usu_senha) {
+        public virtual int Insert(string usu_nome, string usu_senha, global::System.Nullable<int> usu_cadCliente, global::System.Nullable<int> usu_cadFiscal, global::System.Nullable<int> usu_cadFornecedor, global::System.Nullable<int> usu_cadProduto, global::System.Nullable<int> usu_compra, global::System.Nullable<int> usu_relatorios, global::System.Nullable<int> usu_venda) {
             if ((usu_nome == null)) {
                 throw new global::System.ArgumentNullException("usu_nome");
             }
@@ -25806,6 +26265,48 @@ SELECT cod_produto, des_produto, ean, cod_fornecedor, vl_produto, est_produto, u
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(usu_senha));
+            }
+            if ((usu_cadCliente.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(usu_cadCliente.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((usu_cadFiscal.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(usu_cadFiscal.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((usu_cadFornecedor.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(usu_cadFornecedor.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((usu_cadProduto.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(usu_cadProduto.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((usu_compra.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(usu_compra.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((usu_relatorios.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(usu_relatorios.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((usu_venda.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(usu_venda.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

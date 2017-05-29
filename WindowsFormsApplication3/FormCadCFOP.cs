@@ -85,7 +85,7 @@ namespace WindowsFormsApplication3
 
         private void buttonExclui_Click(object sender, EventArgs e)
         {
-            Cfop cfop = new Cfop(/*int.Parse(txtCodCopf.Text), txtDescricao.Text*/);
+            Cfop cfop = new Cfop();
             cfop.ID = Convert.ToInt32(txtCodCopf.Text);
 
             DialogResult escolha = MessageBox.Show("Deseja realmente excluir esse registro ?", "Mensagem do Sitema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -127,7 +127,6 @@ namespace WindowsFormsApplication3
             Cfop cfop = new Cfop(/*int.Parse(txtCodCopf.Text), txtDescricao.Text*/);
             cfop.Descricao = txtDescricao.Text;
             cfop.ID = Convert.ToInt32(txtCodCopf.Text);
-
             if (txtCodCopf.Text == string.Empty || txtDescricao.Text == string.Empty)
             {
                 txtCodCopf.BackColor = Color.Gold;
@@ -234,9 +233,8 @@ namespace WindowsFormsApplication3
 
 
         private void GetDescricaoCfop()
-        {
-            string buscaCfop = "Select cfo_descricao From cfop where cfo_codigo = '" + txtCodCopf.Text.Trim() + "'";
-
+        {            
+            string buscaCfop = "Select cfo_descricao From cfop where cfo_codigo = '" + utils.RCE(txtCodCopf.Text.Trim()) + "'";
             SqlConnection con = new SqlConnection();
             con.ConnectionString = utils.ConexaoDb();
             SqlCommand sqlCommand = new SqlCommand(buscaCfop, con);
@@ -255,15 +253,40 @@ namespace WindowsFormsApplication3
         }
 
         private void txtCodCopf_TextChanged(object sender, EventArgs e)
-        {
-            if (txtCodCopf.Text == null)
+        {            
+            if (txtCodCopf.Text == null || txtCodCopf.Text == string.Empty)
             {
                 txtDescricao.Focus();
             }
             else
-            {
-                txtDescricao.Text =  db.GetDescricao("Select cfo_descricao From cfop where cfo_codigo = ", txtCodCopf.Text, txtDescricao.Text);                      
+            {                
+                GetDescricaoCfop();
             }
+        }
+
+        private void cfopDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void radioButtonCodigo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonDescricao_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

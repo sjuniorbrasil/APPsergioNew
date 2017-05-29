@@ -48,6 +48,7 @@
             this.cONTASÀPAGARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cONTASÀRECEBERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cONTASÀPAGARToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nOTAFISCALELETRÔNICAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rELATÓRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eSTOQUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.nOTAFISCALELETRÔNICAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uSUÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -92,7 +93,8 @@
             this.cIDADESToolStripMenuItem,
             this.pROCEDIMENTOSToolStripMenuItem,
             this.fUNCIONÁRIOSToolStripMenuItem,
-            this.cFOPToolStripMenuItem});
+            this.cFOPToolStripMenuItem,
+            this.uSUÁRIOSToolStripMenuItem});
             this.cADASTROToolStripMenuItem.Name = "cADASTROToolStripMenuItem";
             this.cADASTROToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.cADASTROToolStripMenuItem.Text = "CADASTRO";
@@ -218,6 +220,13 @@
             this.cONTASÀPAGARToolStripMenuItem1.Text = "CONTAS À PAGAR";
             this.cONTASÀPAGARToolStripMenuItem1.Click += new System.EventHandler(this.cONTASÀPAGARToolStripMenuItem1_Click);
             // 
+            // nOTAFISCALELETRÔNICAToolStripMenuItem
+            // 
+            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Name = "nOTAFISCALELETRÔNICAToolStripMenuItem";
+            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Text = "NOTA FISCAL ELETRÔNICA";
+            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Click += new System.EventHandler(this.nOTAFISCALELETRÔNICAToolStripMenuItem_Click);
+            // 
             // rELATÓRIOSToolStripMenuItem
             // 
             this.rELATÓRIOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -312,7 +321,7 @@
             this.panel1.Controls.Add(this.statusStrip1);
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(948, 373);
+            this.panel1.Size = new System.Drawing.Size(948, 374);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -324,7 +333,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 351);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 352);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(253, 22);
             this.statusStrip1.TabIndex = 0;
@@ -347,12 +356,12 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // nOTAFISCALELETRÔNICAToolStripMenuItem
+            // uSUÁRIOSToolStripMenuItem
             // 
-            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Name = "nOTAFISCALELETRÔNICAToolStripMenuItem";
-            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Text = "NOTA FISCAL ELETRÔNICA";
-            this.nOTAFISCALELETRÔNICAToolStripMenuItem.Click += new System.EventHandler(this.nOTAFISCALELETRÔNICAToolStripMenuItem_Click);
+            this.uSUÁRIOSToolStripMenuItem.Name = "uSUÁRIOSToolStripMenuItem";
+            this.uSUÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.uSUÁRIOSToolStripMenuItem.Text = "USUÁRIOS";
+            this.uSUÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.uSUÁRIOSToolStripMenuItem_Click_1);
             // 
             // FormPrincipal
             // 
@@ -418,5 +427,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem cFOPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nOTAFISCALELETRÔNICAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uSUÁRIOSToolStripMenuItem;
     }
 }

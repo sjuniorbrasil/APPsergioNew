@@ -437,7 +437,7 @@ namespace WindowsFormsApplication3
 
         private void txtFuncionario_TextChanged(object sender, EventArgs e)
         {
-            if (txtFuncionario.Text == null)
+            if (txtFuncionario.Text == null || txtFuncionario.Text == string.Empty)
             {
                 txtNfunc.Focus();
             }
@@ -449,7 +449,7 @@ namespace WindowsFormsApplication3
 
         private void txtCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtCliente.Text == null)
+            if (txtCliente.Text == null || txtCliente.Text == string.Empty)
             {
                 txtNcliente.Focus();
             }

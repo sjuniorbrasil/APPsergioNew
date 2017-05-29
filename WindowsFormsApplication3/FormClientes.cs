@@ -463,7 +463,7 @@ namespace WindowsFormsApplication3
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (txtCodCid.Text == null)
+            if (txtCodCid.Text == null || txtCodCid.Text == string.Empty)
             {
                 textBoxCidadeCliente.Focus();
             }

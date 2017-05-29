@@ -9,7 +9,7 @@ namespace WindowsFormsApplication3
     public class MeusFormularios
     {
         public static FormClientes FrmClientes { get; set; }
-        public static Form1 Frm1 { get; set; }
+        public static FormLogin Frm1 { get; set; }
         public static FormAgenda FrmAgenda { get; set; }
         public static FormCadProcedimento FrmCadProcedimento { get; set; }
         public static FormCidades FrmCidades { get; set; }

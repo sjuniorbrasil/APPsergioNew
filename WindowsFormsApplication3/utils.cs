@@ -8,6 +8,51 @@ namespace WindowsFormsApplication3
 {
     public class utils
     {
+        public void CheckBoxUnchecked(Control controles)
+        {
+            foreach (Control ctrl in controles.Controls)
+            {
+                if (ctrl is CheckBox)
+                {
+                    ((CheckBox)ctrl).Checked = false;
+                }
+                else if (ctrl.Controls.Count > 0)
+                {
+                    CheckBoxUnchecked(ctrl);
+                }
+            }
+        }
+
+        public void EnableCheck(Control controles)
+        {
+            foreach (Control ctrl in controles.Controls)
+            {
+                if (ctrl is CheckBox)
+                {
+                    ((CheckBox)ctrl).Enabled = true;
+                }
+                else if (ctrl.Controls.Count > 0)
+                {
+                    EnableCheck(ctrl);
+                }
+            }
+        }
+
+        public void DisableCheck(Control controles)
+        {
+            foreach (Control ctrl in controles.Controls)
+            {
+                if (ctrl is CheckBox)
+                {
+                    ((CheckBox)ctrl).Enabled = false;
+                }
+                else if (ctrl.Controls.Count > 0)
+                {
+                    DisableCheck(ctrl);
+                }
+            }
+        }
+
         //ControlesTextBox
         public void LimparTxt(Control controles)
         {
@@ -245,22 +290,24 @@ namespace WindowsFormsApplication3
             MessageBox.Show("Cliente Inadimplente !", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public string RCE(string text)//retira caracteres especiais
+        public static string RCE(string texto)//retira caracteres especiais e letras
         {
             string retorno;
 
-             retorno = System.Text.RegularExpressions.Regex.Replace(text, @"[^0-9a-zA-ZéúíóáÉÚÍÓÁèùìòàÈÙÌÒÀõãñÕÃÑêûîôâÊÛÎÔÂëÿüïöäËYÜÏÖÄçÇ]+?", string.Empty);
+             retorno = System.Text.RegularExpressions.Regex.Replace(texto, @"[^a-zA-ZéúíóáÉÚÍÓÁèùìòàÈÙÌÒÀõãñÕÃÑêûîôâÊÛÎÔÂëÿüïöäËYÜÏÖÄçÇ]+?", string.Empty);
 
             return retorno;
         }
-        public string RLCE(string text)// letras e caracteres especiais
+        public string RCEs(string text)// caracteres especiais
         {
             string retorno;
 
-            retorno = System.Text.RegularExpressions.Regex.Replace(text, @"[^a-zA-ZéúíóáÉÚÍÓÁèùìòàÈÙÌÒÀõãñÕÃÑêûîôâÊÛÎÔÂëÿüïöäËYÜÏÖÄçÇ]+?", string.Empty);
+            retorno = System.Text.RegularExpressions.Regex.Replace(text, @"[^éúíóáÉÚÍÓÁèùìòàÈÙÌÒÀõãñÕÃÑêûîôâÊÛÎÔÂëÿüïöäËYÜÏÖÄçÇ]+?", string.Empty);
 
             return retorno;
         }
+      
+
 
         public static string ConexaoDb()
         {
@@ -277,7 +324,7 @@ namespace WindowsFormsApplication3
             }
             return Aconexao;
 
-        }      
+        }
 
     }
 }

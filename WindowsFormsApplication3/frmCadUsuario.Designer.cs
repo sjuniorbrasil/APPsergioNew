@@ -28,24 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panelPesquisa = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.UserDataGridView = new System.Windows.Forms.DataGridView();
+            this.usuariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new WindowsFormsApplication3.DataSet1();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkFiscal = new System.Windows.Forms.CheckBox();
+            this.checkCompra = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.checkProduto = new System.Windows.Forms.CheckBox();
+            this.checkRelatório = new System.Windows.Forms.CheckBox();
+            this.checkVenda = new System.Windows.Forms.CheckBox();
+            this.checkUsuario = new System.Windows.Forms.CheckBox();
+            this.checkPessoa = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnChamaPesquisa = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -53,29 +58,39 @@
             this.buttonSaiCadClientes = new System.Windows.Forms.Button();
             this.buttonCancelaCadcliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuariosTableAdapter = new WindowsFormsApplication3.DataSet1TableAdapters.usuariosTableAdapter();
+            this.usucodigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usunomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ususenhaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usucadClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usucadFornecedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usucadProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usucadFiscalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usucompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuvendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usurelatoriosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            this.panelPesquisa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panelPesquisa);
+            this.groupBox1.Controls.Add(this.checkFiscal);
+            this.groupBox1.Controls.Add(this.checkCompra);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Controls.Add(this.checkBox13);
-            this.groupBox1.Controls.Add(this.checkBox12);
-            this.groupBox1.Controls.Add(this.checkBox11);
-            this.groupBox1.Controls.Add(this.checkBox10);
-            this.groupBox1.Controls.Add(this.checkBox9);
-            this.groupBox1.Controls.Add(this.checkBox8);
-            this.groupBox1.Controls.Add(this.checkBox7);
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.checkProduto);
+            this.groupBox1.Controls.Add(this.checkRelatório);
+            this.groupBox1.Controls.Add(this.checkVenda);
+            this.groupBox1.Controls.Add(this.checkUsuario);
+            this.groupBox1.Controls.Add(this.checkPessoa);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -86,21 +101,185 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // textBox1
+            // panelPesquisa
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 20);
-            this.textBox1.TabIndex = 0;
+            this.panelPesquisa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelPesquisa.Controls.Add(this.label4);
+            this.panelPesquisa.Controls.Add(this.button2);
+            this.panelPesquisa.Controls.Add(this.button1);
+            this.panelPesquisa.Controls.Add(this.UserDataGridView);
+            this.panelPesquisa.Controls.Add(this.textBox3);
+            this.panelPesquisa.Location = new System.Drawing.Point(76, 61);
+            this.panelPesquisa.Name = "panelPesquisa";
+            this.panelPesquisa.Size = new System.Drawing.Size(476, 212);
+            this.panelPesquisa.TabIndex = 21;
+            this.panelPesquisa.Visible = false;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuário";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(139, 31);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "USUÁRIO";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(405, 176);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(68, 31);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Sair";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(334, 176);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 31);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // UserDataGridView
+            // 
+            this.UserDataGridView.AllowUserToAddRows = false;
+            this.UserDataGridView.AllowUserToDeleteRows = false;
+            this.UserDataGridView.AutoGenerateColumns = false;
+            this.UserDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UserDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.usucodigoDataGridViewTextBoxColumn,
+            this.usunomeDataGridViewTextBoxColumn,
+            this.ususenhaDataGridViewTextBoxColumn,
+            this.usucadClienteDataGridViewTextBoxColumn,
+            this.usucadFornecedorDataGridViewTextBoxColumn,
+            this.usucadProdutoDataGridViewTextBoxColumn,
+            this.usucadFiscalDataGridViewTextBoxColumn,
+            this.usucompraDataGridViewTextBoxColumn,
+            this.usuvendaDataGridViewTextBoxColumn,
+            this.usurelatoriosDataGridViewTextBoxColumn});
+            this.UserDataGridView.DataSource = this.usuariosBindingSource1;
+            this.UserDataGridView.Location = new System.Drawing.Point(3, 34);
+            this.UserDataGridView.Name = "UserDataGridView";
+            this.UserDataGridView.ReadOnly = true;
+            this.UserDataGridView.Size = new System.Drawing.Size(470, 129);
+            this.UserDataGridView.TabIndex = 22;
+            this.UserDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cfopDataGridView_CellClick);
+            // 
+            // usuariosBindingSource1
+            // 
+            this.usuariosBindingSource1.DataMember = "usuarios";
+            this.usuariosBindingSource1.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(9, 182);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(314, 20);
+            this.textBox3.TabIndex = 23;
+            // 
+            // checkFiscal
+            // 
+            this.checkFiscal.AutoSize = true;
+            this.checkFiscal.Location = new System.Drawing.Point(6, 190);
+            this.checkFiscal.Name = "checkFiscal";
+            this.checkFiscal.Size = new System.Drawing.Size(91, 17);
+            this.checkFiscal.TabIndex = 20;
+            this.checkFiscal.Text = "Módulo Fiscal";
+            this.checkFiscal.UseVisualStyleBackColor = true;
+            // 
+            // checkCompra
+            // 
+            this.checkCompra.AutoSize = true;
+            this.checkCompra.Location = new System.Drawing.Point(8, 121);
+            this.checkCompra.Name = "checkCompra";
+            this.checkCompra.Size = new System.Drawing.Size(67, 17);
+            this.checkCompra.TabIndex = 19;
+            this.checkCompra.Text = "Compras";
+            this.checkCompra.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Controle";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(61, 13);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(44, 20);
+            this.txtCodigo.TabIndex = 17;
+            // 
+            // checkProduto
+            // 
+            this.checkProduto.AutoSize = true;
+            this.checkProduto.Location = new System.Drawing.Point(8, 75);
+            this.checkProduto.Name = "checkProduto";
+            this.checkProduto.Size = new System.Drawing.Size(128, 17);
+            this.checkProduto.TabIndex = 15;
+            this.checkProduto.Text = "Cadastro de Produtos";
+            this.checkProduto.UseVisualStyleBackColor = true;
+            // 
+            // checkRelatório
+            // 
+            this.checkRelatório.AutoSize = true;
+            this.checkRelatório.Location = new System.Drawing.Point(8, 144);
+            this.checkRelatório.Name = "checkRelatório";
+            this.checkRelatório.Size = new System.Drawing.Size(73, 17);
+            this.checkRelatório.TabIndex = 13;
+            this.checkRelatório.Text = "Relatórios";
+            this.checkRelatório.UseVisualStyleBackColor = true;
+            // 
+            // checkVenda
+            // 
+            this.checkVenda.AutoSize = true;
+            this.checkVenda.Location = new System.Drawing.Point(8, 98);
+            this.checkVenda.Name = "checkVenda";
+            this.checkVenda.Size = new System.Drawing.Size(62, 17);
+            this.checkVenda.TabIndex = 11;
+            this.checkVenda.Text = "Vendas";
+            this.checkVenda.UseVisualStyleBackColor = true;
+            // 
+            // checkUsuario
+            // 
+            this.checkUsuario.AutoSize = true;
+            this.checkUsuario.Location = new System.Drawing.Point(7, 167);
+            this.checkUsuario.Name = "checkUsuario";
+            this.checkUsuario.Size = new System.Drawing.Size(127, 17);
+            this.checkUsuario.TabIndex = 5;
+            this.checkUsuario.Text = "Cadastro de Usuários";
+            this.checkUsuario.UseVisualStyleBackColor = true;
+            // 
+            // checkPessoa
+            // 
+            this.checkPessoa.AutoSize = true;
+            this.checkPessoa.Location = new System.Drawing.Point(8, 52);
+            this.checkPessoa.Name = "checkPessoa";
+            this.checkPessoa.Size = new System.Drawing.Size(126, 17);
+            this.checkPessoa.TabIndex = 4;
+            this.checkPessoa.Text = "Cadastro de Pessoas";
+            this.checkPessoa.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(404, 13);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '#';
+            this.textBox2.Size = new System.Drawing.Size(173, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
@@ -111,142 +290,21 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Senha";
             // 
-            // textBox2
+            // label1
             // 
-            this.textBox2.Location = new System.Drawing.Point(404, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 20);
-            this.textBox2.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(109, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Usuário";
             // 
-            // checkBox1
+            // textBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 52);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(123, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Cadastro de Clientes";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(9, 259);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(127, 17);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Cadastro de Usuários";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(251, 75);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(122, 17);
-            this.checkBox3.TabIndex = 6;
-            this.checkBox3.Text = "Relatório de Vendas";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(251, 98);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(180, 17);
-            this.checkBox4.TabIndex = 7;
-            this.checkBox4.Text = "Relaório de Cadastro de Clientes";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(9, 144);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(156, 17);
-            this.checkBox5.TabIndex = 8;
-            this.checkBox5.Text = "Cadastro de Procedimentos";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(9, 236);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(63, 17);
-            this.checkBox6.TabIndex = 9;
-            this.checkBox6.Text = "Agenda";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(9, 213);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(90, 17);
-            this.checkBox7.TabIndex = 10;
-            this.checkBox7.Text = "Atendimentos";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(9, 190);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(62, 17);
-            this.checkBox8.TabIndex = 11;
-            this.checkBox8.Text = "Vendas";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(9, 167);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(59, 17);
-            this.checkBox9.TabIndex = 12;
-            this.checkBox9.Text = "Pedido";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(251, 52);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(210, 17);
-            this.checkBox10.TabIndex = 13;
-            this.checkBox10.Text = "Relatório de cadastro de Fornecedores";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(9, 121);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(141, 17);
-            this.checkBox11.TabIndex = 14;
-            this.checkBox11.Text = "Cadastro de Funcionário";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(9, 98);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(128, 17);
-            this.checkBox12.TabIndex = 15;
-            this.checkBox12.Text = "Cadastro de Produtos";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(9, 75);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(151, 17);
-            this.checkBox13.TabIndex = 16;
-            this.checkBox13.Text = "Cadastro de Fornecedores";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(152, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(205, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // btnChamaPesquisa
             // 
@@ -256,6 +314,7 @@
             this.btnChamaPesquisa.TabIndex = 58;
             this.btnChamaPesquisa.Text = "Localizar";
             this.btnChamaPesquisa.UseVisualStyleBackColor = true;
+            this.btnChamaPesquisa.Click += new System.EventHandler(this.btnChamaPesquisa_Click);
             // 
             // btnExcluir
             // 
@@ -275,6 +334,7 @@
             this.btnSalvar.TabIndex = 56;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnNovo
             // 
@@ -322,21 +382,94 @@
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             // 
-            // txtCodigo
+            // usuariosBindingSource
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(61, 13);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(44, 20);
-            this.txtCodigo.TabIndex = 17;
+            this.usuariosBindingSource.DataMember = "usuarios";
+            this.usuariosBindingSource.DataSource = this.dataSet1;
             // 
-            // label3
+            // usuariosTableAdapter
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Controle";
+            this.usuariosTableAdapter.ClearBeforeFill = true;
+            // 
+            // usucodigoDataGridViewTextBoxColumn
+            // 
+            this.usucodigoDataGridViewTextBoxColumn.DataPropertyName = "usu_codigo";
+            this.usucodigoDataGridViewTextBoxColumn.HeaderText = "usu_codigo";
+            this.usucodigoDataGridViewTextBoxColumn.Name = "usucodigoDataGridViewTextBoxColumn";
+            this.usucodigoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usucodigoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usunomeDataGridViewTextBoxColumn
+            // 
+            this.usunomeDataGridViewTextBoxColumn.DataPropertyName = "usu_nome";
+            this.usunomeDataGridViewTextBoxColumn.HeaderText = "NOME";
+            this.usunomeDataGridViewTextBoxColumn.Name = "usunomeDataGridViewTextBoxColumn";
+            this.usunomeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usunomeDataGridViewTextBoxColumn.Width = 420;
+            // 
+            // ususenhaDataGridViewTextBoxColumn
+            // 
+            this.ususenhaDataGridViewTextBoxColumn.DataPropertyName = "usu_senha";
+            this.ususenhaDataGridViewTextBoxColumn.HeaderText = "usu_senha";
+            this.ususenhaDataGridViewTextBoxColumn.Name = "ususenhaDataGridViewTextBoxColumn";
+            this.ususenhaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ususenhaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usucadClienteDataGridViewTextBoxColumn
+            // 
+            this.usucadClienteDataGridViewTextBoxColumn.DataPropertyName = "usu_cadCliente";
+            this.usucadClienteDataGridViewTextBoxColumn.HeaderText = "usu_cadCliente";
+            this.usucadClienteDataGridViewTextBoxColumn.Name = "usucadClienteDataGridViewTextBoxColumn";
+            this.usucadClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usucadClienteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usucadFornecedorDataGridViewTextBoxColumn
+            // 
+            this.usucadFornecedorDataGridViewTextBoxColumn.DataPropertyName = "usu_cadFornecedor";
+            this.usucadFornecedorDataGridViewTextBoxColumn.HeaderText = "usu_cadFornecedor";
+            this.usucadFornecedorDataGridViewTextBoxColumn.Name = "usucadFornecedorDataGridViewTextBoxColumn";
+            this.usucadFornecedorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usucadFornecedorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usucadProdutoDataGridViewTextBoxColumn
+            // 
+            this.usucadProdutoDataGridViewTextBoxColumn.DataPropertyName = "usu_cadProduto";
+            this.usucadProdutoDataGridViewTextBoxColumn.HeaderText = "usu_cadProduto";
+            this.usucadProdutoDataGridViewTextBoxColumn.Name = "usucadProdutoDataGridViewTextBoxColumn";
+            this.usucadProdutoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usucadProdutoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usucadFiscalDataGridViewTextBoxColumn
+            // 
+            this.usucadFiscalDataGridViewTextBoxColumn.DataPropertyName = "usu_cadFiscal";
+            this.usucadFiscalDataGridViewTextBoxColumn.HeaderText = "usu_cadFiscal";
+            this.usucadFiscalDataGridViewTextBoxColumn.Name = "usucadFiscalDataGridViewTextBoxColumn";
+            this.usucadFiscalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usucadFiscalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usucompraDataGridViewTextBoxColumn
+            // 
+            this.usucompraDataGridViewTextBoxColumn.DataPropertyName = "usu_compra";
+            this.usucompraDataGridViewTextBoxColumn.HeaderText = "usu_compra";
+            this.usucompraDataGridViewTextBoxColumn.Name = "usucompraDataGridViewTextBoxColumn";
+            this.usucompraDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usucompraDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usuvendaDataGridViewTextBoxColumn
+            // 
+            this.usuvendaDataGridViewTextBoxColumn.DataPropertyName = "usu_venda";
+            this.usuvendaDataGridViewTextBoxColumn.HeaderText = "usu_venda";
+            this.usuvendaDataGridViewTextBoxColumn.Name = "usuvendaDataGridViewTextBoxColumn";
+            this.usuvendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usuvendaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usurelatoriosDataGridViewTextBoxColumn
+            // 
+            this.usurelatoriosDataGridViewTextBoxColumn.DataPropertyName = "usu_relatorios";
+            this.usurelatoriosDataGridViewTextBoxColumn.HeaderText = "usu_relatorios";
+            this.usurelatoriosDataGridViewTextBoxColumn.Name = "usurelatoriosDataGridViewTextBoxColumn";
+            this.usurelatoriosDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usurelatoriosDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmCadUsuario
             // 
@@ -351,7 +484,13 @@
             this.Load += new System.EventHandler(this.frmCadUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelPesquisa.ResumeLayout(false);
+            this.panelPesquisa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,19 +498,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkRelatório;
+        private System.Windows.Forms.CheckBox checkVenda;
+        private System.Windows.Forms.CheckBox checkUsuario;
+        private System.Windows.Forms.CheckBox checkPessoa;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -385,5 +515,28 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.CheckBox checkCompra;
+        private System.Windows.Forms.CheckBox checkProduto;
+        private System.Windows.Forms.CheckBox checkFiscal;
+        private System.Windows.Forms.Panel panelPesquisa;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox3;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource usuariosBindingSource;
+        private DataSet1TableAdapters.usuariosTableAdapter usuariosTableAdapter;
+        private System.Windows.Forms.DataGridView UserDataGridView;
+        private System.Windows.Forms.BindingSource usuariosBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usucodigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usunomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ususenhaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usucadClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usucadFornecedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usucadProdutoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usucadFiscalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usucompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuvendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usurelatoriosDataGridViewTextBoxColumn;
     }
 }

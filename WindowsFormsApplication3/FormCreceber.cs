@@ -66,7 +66,7 @@ namespace WindowsFormsApplication3
 
         private void txtCCadastro_TextChanged(object sender, EventArgs e)
         {
-            if (txtCCadastro.Text == null)
+            if (txtCCadastro.Text == null || txtCCadastro.Text == string.Empty)
             {
                 txtNcadastroPrincipal.Focus();
             }

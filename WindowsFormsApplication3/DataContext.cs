@@ -5,7 +5,6 @@ using WindowsFormsApplication3.ClassesEntidades;
 using System.Data.Entity;
 
 
-
 namespace WindowsFormsApplication3
 {   
     public class DataContext: DbContext
@@ -13,9 +12,7 @@ namespace WindowsFormsApplication3
         public DataContext(): base(utils.ConexaoDb())
         {
 
-        }
-       
-
+        }        
         public virtual DbSet<Cidade> Cidades { get; set; }
         public virtual DbSet<Cfop> Cfops { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
@@ -23,6 +20,7 @@ namespace WindowsFormsApplication3
         public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Estoque> Estoques { get; set; }
         public virtual DbSet<PedidoProduto> PedidoProdutos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
 
         //pesquisas padrão
         public static DataTable CarregaCidades()
@@ -36,6 +34,23 @@ namespace WindowsFormsApplication3
             Cmm.Connection = con;
             SqlDataReader DR;
             DR = Cmm.ExecuteReader();                    
+            DataTable DT = new DataTable();
+            DT.Load(DR);
+            con.Close();
+            return DT;
+        }
+
+        public static DataTable CarregaUsuarios()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = utils.ConexaoDb();
+            con.Open();
+            SqlCommand Cmm = new SqlCommand();
+            Cmm.CommandText = "Select * from usuarios";
+            Cmm.CommandType = CommandType.Text;
+            Cmm.Connection = con;
+            SqlDataReader DR;
+            DR = Cmm.ExecuteReader();
             DataTable DT = new DataTable();
             DT.Load(DR);
             con.Close();
@@ -152,6 +167,9 @@ namespace WindowsFormsApplication3
         }
         public string GetDescricao(string select, string txt1, string txt2)
         {
+            utils u = new utils();
+            utils.RCE(txt1);
+
             string busca = select + Convert.ToInt32(txt1);
             string descricao;
 
@@ -171,12 +189,6 @@ namespace WindowsFormsApplication3
             descricao = txt2;
             con.Close();
             return descricao;            
-        }
-        //public partial class ComandoIncluir()
-        //{
-
-        //}
-      
-                   
+        }                   
     }
 }

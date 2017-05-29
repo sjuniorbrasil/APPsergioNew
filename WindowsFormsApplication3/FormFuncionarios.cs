@@ -350,7 +350,7 @@ namespace WindowsFormsApplication3
 
         private void textBoxCidadeFuncionario_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxCidadeFuncionario.Text == null)
+            if (textBoxCidadeFuncionario.Text == null || textBoxCidadeFuncionario.Text == string.Empty)
             {
                 txtNcid.Focus();
             }

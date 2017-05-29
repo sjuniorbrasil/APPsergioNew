@@ -695,7 +695,7 @@ namespace WindowsFormsApplication3
 
         private void txtcodVendedor_TextChanged(object sender, EventArgs e)
         {
-            if (txtcodVendedor.Text == null)
+            if (txtcodVendedor.Text == null || txtcodVendedor.Text == string.Empty)
             {
                 txtNomeVendedor.Focus();
             }
@@ -707,7 +707,7 @@ namespace WindowsFormsApplication3
 
         private void txtcodCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtcodCliente.Text == null)
+            if (txtcodCliente.Text == null || txtcodCliente.Text == string.Empty)
             {
                 txtNomeCliente.Focus();
             }

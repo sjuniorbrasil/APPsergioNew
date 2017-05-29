@@ -35,6 +35,16 @@ namespace WindowsFormsApplication3.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045")]
+        public string Ducaun {
+            get {
+                return ((string)(this["Ducaun"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERGIO\\sqlexpress;Initial Catalog=MMARIO;Integrated Security=True")]
         public string MMARIOConnectionString {
             get {
@@ -60,16 +70,6 @@ namespace WindowsFormsApplication3.Properties {
         public string ducaunConnectionString1 {
             get {
                 return ((string)(this["ducaunConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045")]
-        public string Ducaun {
-            get {
-                return ((string)(this["Ducaun"]));
             }
         }
     }

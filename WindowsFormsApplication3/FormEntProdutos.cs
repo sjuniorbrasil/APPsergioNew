@@ -160,7 +160,7 @@ namespace WindowsFormsApplication3
 
         private void txtcodFornecedor_Leave(object sender, EventArgs e)
         {
-            if (txtcodFornecedor == null)
+            if (txtcodFornecedor == null || txtcodFornecedor.Text == string.Empty)
             {
                 txtNomeFornecedor.Focus();
             }
@@ -176,7 +176,7 @@ namespace WindowsFormsApplication3
 
         private void txtCodProduto_Leave(object sender, EventArgs e)
         {
-            if (txtCodProduto.Text == null)
+            if (txtCodProduto.Text == null || txtCodProduto.Text == string.Empty)
             {
                 txtNomeProduto.Focus();
             }

@@ -50,8 +50,7 @@ namespace WindowsFormsApplication3
             btnNovo.Focus();
         }
         private void Ualterar()
-        {
-            
+        {            
             u.EnableTxt(this);
             u.EnableCombo(this);
             textBoxCodPoduto.Enabled = false;
@@ -63,12 +62,10 @@ namespace WindowsFormsApplication3
 
         private Boolean EnableSalvar()
         {
-
             if (textBoxDescricao.Text == string.Empty)
             {
                 return false;
-            }
-            
+            }            
             return true;
         }
 
@@ -128,7 +125,6 @@ namespace WindowsFormsApplication3
                 textBoxVlVenda.Text = "";
                 MessageBox.Show("Algum valor informado é invalido.", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
         }
 
         private void textBoxDesRed_Enter(object sender, EventArgs e)
@@ -202,9 +198,9 @@ namespace WindowsFormsApplication3
                 produtos.CFOP = Convert.ToInt32(comboCfop.Text);
                 produtos.CEST = txtCest.Text;
                 produtos.NCM = txtNcm.Text;
-                //string origem = comboOrigem.SelectedIndex.ToString();
+                string origem = comboOrigem.SelectedIndex.ToString();
                 produtos.OrigemDoProduto = Convert.ToInt32(comboOrigem.SelectedIndex.ToString());
-                //int situacao = Convert.ToInt32(comboSituacao.SelectedIndex.ToString());
+                int situacao = Convert.ToInt32(comboSituacao.SelectedIndex.ToString());
                 produtos.Situacao = Convert.ToInt32(comboSituacao.SelectedIndex.ToString());
                 produtos.AliqInter = comboAliqINter.SelectedIndex.ToString();
                 produtos.AliqIcms = txtAliqIcms.Text;
@@ -229,10 +225,7 @@ namespace WindowsFormsApplication3
 
                 if (novo)
                 {
-
                     string sql = "insert into produtos(des_produto,ean, cod_fornecedor, est_produto,un_medida,desc_reduzida,vl_produto,custo,margem,cfo_codigo,cest,ncm,origem,situacao,aliqinter,aliqicms,aliqipi,aliqpis,aliqcofins,csticms,cstipi,cstpis,cstcofins) Values(@des_produto,@ean, @cod_fornecedor, @est_produto,@un_medida,@desc_reduzida,@vl_produto,@custo,@margem,@cfo_codigo,@cest,@ncm,@origem,@situacao,@aliqinter,@aliqicms,@aliqipi,@aliqpis,@aliqcofins,@csticms,@cstipi,@cstpis,@cstcofins)";
-
-
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = utils.ConexaoDb();
                     SqlCommand cmd = new SqlCommand(sql, con);
@@ -267,7 +260,6 @@ namespace WindowsFormsApplication3
                         int i = cmd.ExecuteNonQuery();
                         if (i > 0)
                         {
-
                             u.messageboxSucesso();
                         }
                     }
@@ -434,8 +426,8 @@ namespace WindowsFormsApplication3
                 comboCfop.Text = row.Cells[10].Value.ToString();
                 txtCest.Text = row.Cells[11].Value.ToString();
                 txtNcm.Text = row.Cells[12].Value.ToString();
-                comboOrigem.SelectedIndex = Convert.ToInt32(row.Cells[22].Value.ToString());
-                comboSituacao.SelectedIndex = Convert.ToInt32(row.Cells[23].Value.ToString());
+                //comboOrigem.SelectedIndex = Convert.ToInt32(row.Cells[22].Value.ToString());
+                //comboSituacao.SelectedIndex = Convert.ToInt32(row.Cells[23].Value.ToString());
                 comboAliqINter.Text = row.Cells[17].Value.ToString();
                 txtAliqIcms.Text = row.Cells[18].Value.ToString();
                 txtAliqIpi.Text = row.Cells[19].Value.ToString();
@@ -500,7 +492,7 @@ namespace WindowsFormsApplication3
 
         private void txtCfornecedor_TextChanged(object sender, EventArgs e)
         {
-            if (txtCfornecedor.Text == null)
+            if (txtCfornecedor.Text == null || txtCfornecedor.Text == string.Empty)
             {
                 txtNfornecedor.Focus();
             }
@@ -512,10 +504,9 @@ namespace WindowsFormsApplication3
 
         private void txtCfornecedor_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtCfornecedor.Text == null)
+            if (txtCfornecedor.Text == null || txtCfornecedor.Text == string.Empty)
             {
                 txtNfornecedor.Focus();
-
             }
             else
             {
@@ -525,10 +516,9 @@ namespace WindowsFormsApplication3
 
         private void txtCfornecedor_Leave(object sender, EventArgs e)
         {
-            if (txtCfornecedor.Text == null)
+            if (txtCfornecedor.Text == null || txtCfornecedor.Text == string.Empty)
             {
                 txtNfornecedor.Focus();
-
             }
             else
             {
