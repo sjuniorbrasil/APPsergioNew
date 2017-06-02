@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FrmRelEstoque
     {
@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.relDataSet = new WindowsFormsApplication3.relDataSet();
+            this.relDataSet = new Aplicativo.relDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.produtosTableAdapter = new WindowsFormsApplication3.relDataSetTableAdapters.produtosTableAdapter();
+            this.produtosTableAdapter = new Aplicativo.relDataSetTableAdapters.produtosTableAdapter();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -60,7 +60,7 @@
             reportDataSource1.Name = "DataSetEstProduto";
             reportDataSource1.Value = this.produtosBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.RelEstProduto.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.RelEstProduto.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(8, 68);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(750, 557);

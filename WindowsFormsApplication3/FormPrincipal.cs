@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication3.ClassesEntidades;
+using Aplicativo.ClassesEntidades;
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FormPrincipal : Form
     {
@@ -19,158 +19,96 @@ namespace WindowsFormsApplication3
             InitializeComponent();
 
         }
-       
-        private void eNTRADADEPRODUTOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaClientes = new FormClientes();
-            //ChamaClientes.ShowDialog();
             if (MeusFormularios.FrmClientes == null)
+            {
                 MeusFormularios.FrmClientes = new FormClientes();
-
+            }
             MeusFormularios.FrmClientes.Show();
             MeusFormularios.FrmClientes.Focus();
-
-
         }
 
         private void fORNECEDORESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // Form ChamaFornecedores = new FormFornecedores();
-            //ChamaFornecedores.ShowDialog();
             if (MeusFormularios.FrmFornecedores == null)
                 MeusFormularios.FrmFornecedores = new FormFornecedores();
 
             MeusFormularios.FrmFornecedores.Show();
             MeusFormularios.FrmFornecedores.Focus();
-
         }
 
         private void pRODUTOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // Form ChamaProdutos = new FormProdutos();
-            //ChamaProdutos.ShowDialog();
             if (MeusFormularios.FrmProdutos == null)
                 MeusFormularios.FrmProdutos = new FormProdutos();
 
             MeusFormularios.FrmProdutos.Show();
             MeusFormularios.FrmProdutos.Focus();
-
         }
 
         private void cIDADESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaCidade = new FormCidades();
-            //ChamaCidade.ShowDialog();
             if (MeusFormularios.FrmCidades == null)
                 MeusFormularios.FrmCidades = new FormCidades();
 
             MeusFormularios.FrmCidades.Show();
-            MeusFormularios.FrmCidades.Focus();
-                
+            MeusFormularios.FrmCidades.Focus();                
         }
 
         private void vENDASToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaPedido = new FormPedido();
-            //ChamaPedido.ShowDialog();
             if (MeusFormularios.FrmPedido == null)
                 MeusFormularios.FrmPedido = new FormPedido();
 
            MeusFormularios.FrmPedido.Show();
            MeusFormularios.FrmPedido.Focus();
-
         }
-
-        private void vENDASToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
+        
         private void eNTRADADEPRODUTOSToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Form ChamaEntrada = new FormEntProdutos();
-            //ChamaEntrada.ShowDialog();
             if (MeusFormularios.FrmEntProdutos == null)
                 MeusFormularios.FrmEntProdutos = new FormEntProdutos();
 
             MeusFormularios.FrmEntProdutos.Show();
             MeusFormularios.FrmEntProdutos.Focus();
-
-
         }
 
         private void sAIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-             
+            Application.Exit();             
         }
-
-       
+               
         private void fechaForm(object sender, FormClosingEventArgs e)
         {
             DialogResult escolha = MessageBox.Show("Tem certeza que deseja sair?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (escolha == DialogResult.No)
                 e.Cancel = true;
         }
-
-        private void tÉCNICOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void cOLABORADORESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaFuncionarios = new FormFuncionarios();
-            //ChamaFuncionarios.ShowDialog();
             if (MeusFormularios.FrmFuncionarios == null)
                 MeusFormularios.FrmFuncionarios = new FormFuncionarios();
 
             MeusFormularios.FrmFuncionarios.Show();
             MeusFormularios.FrmFuncionarios.Focus();
-
         }
 
         private void pROCEDIMENTOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaProcedimentos = new FormCadProcedimento();
-            //ChamaProcedimentos.ShowDialog();
             if (MeusFormularios.FrmCadProcedimento == null)
                 MeusFormularios.FrmCadProcedimento = new FormCadProcedimento();
 
             MeusFormularios.FrmCadProcedimento.Show();
             MeusFormularios.FrmCadProcedimento.Focus();
-
         }
-
-        private void pROCEDIMENTOSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
+        
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             if (FormLogin.usuarioLogado != "admin")
             {
-                //MessageBox.Show(Form1.usuarioLogado);
-
-
                 if (user.AcessoVenda())
                 {
                     vENDASToolStripMenuItem.Enabled = true;
@@ -241,28 +179,18 @@ namespace WindowsFormsApplication3
                 }
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void aGENDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaAgenda = new FormAgenda();
-            //ChamaAgenda.ShowDialog();
             if (MeusFormularios.FrmAgenda == null)
                 MeusFormularios.FrmAgenda = new FormAgenda();
 
             MeusFormularios.FrmAgenda.Show();
             MeusFormularios.FrmAgenda.Focus();
-
         }
 
         private void fUNCIONÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form ChamaFuncionarios = new FormFuncionarios();
-            //ChamaFuncionarios.ShowDialog();
             if (MeusFormularios.FrmFuncionarios == null)
                 MeusFormularios.FrmFuncionarios = new FormFuncionarios();
 
@@ -280,7 +208,6 @@ namespace WindowsFormsApplication3
         {
             Form ChamarelCli = new FrmRelCadCli();
             ChamarelCli.ShowDialog();
-
         }
 
         private void lUCRATIVIDADEToolStripMenuItem_Click(object sender, EventArgs e)

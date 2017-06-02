@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormFornecedores
     {
@@ -32,14 +32,14 @@
             this.buttoncancel = new System.Windows.Forms.Button();
             this.buttonSaiAtendimento = new System.Windows.Forms.Button();
             this.fornecedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnLocaliza = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.fornecedoresTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.fornecedoresTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.fornecedoresTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.fornecedoresTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPcidade = new System.Windows.Forms.Button();
             this.txtNcidade = new System.Windows.Forms.TextBox();
@@ -218,7 +218,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = null;
             this.tableAdapterManager.produtosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = null;
             // 

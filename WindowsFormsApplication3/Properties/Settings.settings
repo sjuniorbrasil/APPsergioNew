@@ -17,26 +17,26 @@
     <Setting Name="MMARIOConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=SERGIO\sqlexpress;Initial Catalog=MMARIO;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=SERGIO\sqlexpress;Initial Catalog=MMARIO;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045</Value>
     </Setting>
     <Setting Name="ducaunConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=(LocalDB)\v11.0;AttachDbFilename=c:\temp\ducaun.mdf;Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=(LocalDB)\v11.0;AttachDbFilename=c:\temp\ducaun.mdf;Integrated Security=True;Connect Timeout=30</Value>
+      <Value Profile="(Default)">Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045</Value>
     </Setting>
     <Setting Name="ducaunConnectionString1" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=sergio\sqlexpress;Initial Catalog=ducaun;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=sergio\sqlexpress;Initial Catalog=ducaun;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045</Value>
     </Setting>
   </Settings>
 </SettingsFile>

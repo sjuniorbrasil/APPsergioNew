@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class frmCadUsuario
     {
@@ -36,7 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.UserDataGridView = new System.Windows.Forms.DataGridView();
             this.usuariosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new WindowsFormsApplication3.DataSet1();
+            this.dataSet1 = new Aplicativo.DataSet1();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.checkFiscal = new System.Windows.Forms.CheckBox();
             this.checkCompra = new System.Windows.Forms.CheckBox();
@@ -59,7 +59,7 @@
             this.buttonCancelaCadcliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuariosTableAdapter = new WindowsFormsApplication3.DataSet1TableAdapters.usuariosTableAdapter();
+            this.usuariosTableAdapter = new Aplicativo.DataSet1TableAdapters.usuariosTableAdapter();
             this.usucodigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usunomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ususenhaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();

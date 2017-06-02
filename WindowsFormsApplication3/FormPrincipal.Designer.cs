@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormPrincipal
     {
@@ -176,7 +176,7 @@
             this.eNTRADADEPRODUTOSToolStripMenuItem.Name = "eNTRADADEPRODUTOSToolStripMenuItem";
             this.eNTRADADEPRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.eNTRADADEPRODUTOSToolStripMenuItem.Text = "-----------------------------";
-            this.eNTRADADEPRODUTOSToolStripMenuItem.Click += new System.EventHandler(this.eNTRADADEPRODUTOSToolStripMenuItem_Click);
+            
             // 
             // eNTRADADEPRODUTOSToolStripMenuItem1
             // 
@@ -190,7 +190,7 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
             this.toolStripMenuItem2.Text = "-----------------------------";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            
             // 
             // aGENDAToolStripMenuItem
             // 
@@ -323,7 +323,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(948, 374);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // statusStrip1
             // 

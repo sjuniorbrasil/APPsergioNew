@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using WindowsFormsApplication3.ClassesEntidades;
+using Aplicativo.ClassesEntidades;
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class frmCadUsuario : Form
 

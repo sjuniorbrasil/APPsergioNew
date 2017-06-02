@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FrmRelCpagar
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.CPAGARBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.relDataSet = new WindowsFormsApplication3.relDataSet();
+            this.relDataSet = new Aplicativo.relDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.CPAGARTableAdapter = new WindowsFormsApplication3.relDataSetTableAdapters.CPAGARTableAdapter();
+            this.CPAGARTableAdapter = new Aplicativo.relDataSetTableAdapters.CPAGARTableAdapter();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.CPAGARBindingSource)).BeginInit();
@@ -64,7 +64,7 @@
             reportDataSource1.Name = "DataSetRelCpagar";
             reportDataSource1.Value = this.CPAGARBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.RelCpagar.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.RelCpagar.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 78);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(801, 460);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FrmRelCadCli : Form
     {
@@ -43,7 +43,7 @@ namespace WindowsFormsApplication3
             }
             else if (textBox1.Text == string.Empty)
             {
-                this.clientesTableAdapter.FillByTudoRelCli(this.jarbasDataSet.clientes);
+                this.clientesTableAdapter.FillByTudoRelCli(this.jarbasDataSet.clientes, 1015);
 
                 this.reportViewer1.RefreshReport();
             }

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormCadProcedimento
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.procedimentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.buttonSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -38,8 +38,8 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.procedimentosTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.procedimentosTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.procedimentosTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.procedimentosTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
             this.procedimentosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -169,7 +169,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = this.procedimentosTableAdapter;
             this.tableAdapterManager.produtosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = null;
             // 

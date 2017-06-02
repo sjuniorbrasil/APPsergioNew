@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 
-namespace WindowsFormsApplication3.ClassesEntidades
+namespace Aplicativo.ClassesEntidades
 {
     [Table("usuarios")]
     public class Usuario

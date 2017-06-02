@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WindowsFormsApplication3.ClassesEntidades
+namespace Aplicativo.ClassesEntidades
 {
     [Table("Cidades")]
     public class Cidade

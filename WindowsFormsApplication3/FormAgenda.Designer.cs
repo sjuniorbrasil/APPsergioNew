@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormAgenda
     {
@@ -77,12 +77,12 @@
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.btnCancela = new System.Windows.Forms.Button();
             this.agendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.agendaTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.agendaTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.agendaTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.agendaTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rbData = new System.Windows.Forms.RadioButton();
             this.rbCliente = new System.Windows.Forms.RadioButton();
@@ -120,8 +120,8 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.clientesTableAdapter();
-            this.funcionariosTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.funcionariosTableAdapter();
+            this.clientesTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.clientesTableAdapter();
+            this.funcionariosTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.funcionariosTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnfilagendadia = new System.Windows.Forms.Button();
@@ -673,7 +673,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = null;
             this.tableAdapterManager.produtosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = null;
             // 

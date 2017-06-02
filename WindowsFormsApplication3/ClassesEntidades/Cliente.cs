@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace WindowsFormsApplication3.ClassesEntidades
+namespace Aplicativo.ClassesEntidades
 {
     [Table("Clientes")]
     public class Cliente

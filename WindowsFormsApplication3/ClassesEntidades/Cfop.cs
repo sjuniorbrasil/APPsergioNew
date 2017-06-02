@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WindowsFormsApplication3.ClassesEntidades
+namespace Aplicativo.ClassesEntidades
 {
     [Table("Cfop")]
     public class Cfop

@@ -3,9 +3,9 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using WindowsFormsApplication3.ClassesEntidades;
+using Aplicativo.ClassesEntidades;
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FormCadCFOP : Form
     {
@@ -262,31 +262,6 @@ namespace WindowsFormsApplication3
             {                
                 GetDescricaoCfop();
             }
-        }
-
-        private void cfopDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void radioButtonCodigo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButtonDescricao_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

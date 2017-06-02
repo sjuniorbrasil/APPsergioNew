@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication3", "WindowsFormsApplication3\WindowsFormsApplication3.csproj", "{98FF83B0-FEAC-49DB-9A56-31EC7E3C0CB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplicativo", "WindowsFormsApplication3\Aplicativo.csproj", "{98FF83B0-FEAC-49DB-9A56-31EC7E3C0CB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidaCPF", "WindowsFormsApplication3\ValidaCPF\ValidaCPF.csproj", "{24308F25-CB17-47D2-95A9-44A1E652979E}"
 EndProject

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication3.Properties {
+namespace Aplicativo.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -45,7 +45,7 @@ namespace WindowsFormsApplication3.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERGIO\\sqlexpress;Initial Catalog=MMARIO;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045")]
         public string MMARIOConnectionString {
             get {
                 return ((string)(this["MMARIOConnectionString"]));
@@ -55,8 +55,7 @@ namespace WindowsFormsApplication3.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=c:\\temp\\ducaun.mdf;Integrated Securi" +
-            "ty=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045")]
         public string ducaunConnectionString {
             get {
                 return ((string)(this["ducaunConnectionString"]));
@@ -66,7 +65,7 @@ namespace WindowsFormsApplication3.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sergio\\sqlexpress;Initial Catalog=ducaun;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045")]
         public string ducaunConnectionString1 {
             get {
                 return ((string)(this["ducaunConnectionString1"]));

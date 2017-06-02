@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormCidades
     {
@@ -40,7 +40,7 @@
             this.cidufDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cid_ibge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidadesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet1 = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet1 = new Aplicativo.jarbasDataSet();
             this.radioButtonDescricao = new System.Windows.Forms.RadioButton();
             this.radioButtonCodigo = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtIbge = new System.Windows.Forms.TextBox();
             this.cidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodCidade = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cidadesTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.cidadesTableAdapter();
+            this.cidadesTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.cidadesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.cIDADESDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cidadesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jarbasDataSet1)).BeginInit();

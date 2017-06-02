@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public class utils
     {
@@ -316,11 +316,19 @@ namespace WindowsFormsApplication3
             string leitura = null;
             if ((leitura = sr.ReadLine()) != null)
             {
-                Aconexao = leitura;                
+                try
+                {
+                    Aconexao = leitura;
+                }
+                catch (Exception)
+                {
+                    Aconexao = "Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
+                }
+                            
             }
             else
             {
-                Aconexao = "Data Source=PC-TV;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
+                Aconexao = "Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
             }
             return Aconexao;
 

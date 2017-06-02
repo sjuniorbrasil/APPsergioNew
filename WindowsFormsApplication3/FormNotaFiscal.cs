@@ -7,7 +7,7 @@ using NFeEletronica.NotaFiscal;
 using NFeEletronica.Certificado;
 
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FormNotaFiscal : Form
     {

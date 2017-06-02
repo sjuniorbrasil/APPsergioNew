@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
 
 
@@ -7,7 +7,7 @@
     }
 }
 
-namespace WindowsFormsApplication3.relDataSetTableAdapters
+namespace Aplicativo.relDataSetTableAdapters
 {
     partial class produtosTableAdapter
     {
@@ -17,6 +17,7 @@ namespace WindowsFormsApplication3.relDataSetTableAdapters
     {
     }
 
-    public partial class fornecedoresTableAdapter {
+    public partial class fornecedoresTableAdapter
+    {
     }
 }

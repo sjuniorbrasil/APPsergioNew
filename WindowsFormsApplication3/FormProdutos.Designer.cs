@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormProdutos
     {
@@ -41,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDesRed = new System.Windows.Forms.TextBox();
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.textBoxDescricao = new System.Windows.Forms.TextBox();
             this.textBoxCodPoduto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.textBoxBarras = new System.Windows.Forms.TextBox();
             this.fornecedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produtosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet1 = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet1 = new Aplicativo.jarbasDataSet();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxMarge = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@
             this.origem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produtosBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new WindowsFormsApplication3.DataSet1();
+            this.dataSet1 = new Aplicativo.DataSet1();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -94,9 +94,9 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonCancela = new System.Windows.Forms.Button();
-            this.produtosTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.produtosTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
-            this.fornecedoresTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.fornecedoresTableAdapter();
+            this.produtosTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.produtosTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.fornecedoresTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.fornecedoresTableAdapter();
             this.panelPesquisa = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.btnSaiPesquisa = new System.Windows.Forms.Button();
@@ -156,8 +156,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.produtosBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.cFOPTableAdapter = new WindowsFormsApplication3.DataSet1TableAdapters.CFOPTableAdapter();
-            this.produtosTableAdapter1 = new WindowsFormsApplication3.DataSet1TableAdapters.produtosTableAdapter();
+            this.cFOPTableAdapter = new Aplicativo.DataSet1TableAdapters.CFOPTableAdapter();
+            this.produtosTableAdapter1 = new Aplicativo.DataSet1TableAdapters.produtosTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produtosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jarbasDataSet)).BeginInit();
@@ -806,7 +806,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = null;
             this.tableAdapterManager.produtosTableAdapter = this.produtosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = null;
             // 

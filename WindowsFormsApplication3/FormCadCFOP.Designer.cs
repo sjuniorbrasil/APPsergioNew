@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormCadCFOP
     {
@@ -52,8 +52,8 @@
             this.cfocodigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cfodescricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cFOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new WindowsFormsApplication3.DataSet1();
-            this.cFOPTableAdapter = new WindowsFormsApplication3.DataSet1TableAdapters.CFOPTableAdapter();
+            this.dataSet1 = new Aplicativo.DataSet1();
+            this.cFOPTableAdapter = new Aplicativo.DataSet1TableAdapters.CFOPTableAdapter();
             this.groupBox2.SuspendLayout();
             this.panelPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cfopDataGridView)).BeginInit();
@@ -161,7 +161,7 @@
             this.label4.Size = new System.Drawing.Size(246, 31);
             this.label4.TabIndex = 21;
             this.label4.Text = "Pesquisa de CFOP";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // button2
             // 
@@ -194,7 +194,7 @@
             this.radioButtonDescricao.TabStop = true;
             this.radioButtonDescricao.Text = "Descrição";
             this.radioButtonDescricao.UseVisualStyleBackColor = true;
-            this.radioButtonDescricao.CheckedChanged += new System.EventHandler(this.radioButtonDescricao_CheckedChanged);
+            
             // 
             // cfopDataGridView
             // 
@@ -212,7 +212,7 @@
             this.cfopDataGridView.Size = new System.Drawing.Size(498, 105);
             this.cfopDataGridView.TabIndex = 12;
             this.cfopDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cIDADESDataGridView_CellClick);
-            this.cfopDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cfopDataGridView_CellContentClick);
+            
             // 
             // radioButtonCodigo
             // 
@@ -224,7 +224,6 @@
             this.radioButtonCodigo.TabStop = true;
             this.radioButtonCodigo.Text = "Código";
             this.radioButtonCodigo.UseVisualStyleBackColor = true;
-            this.radioButtonCodigo.CheckedChanged += new System.EventHandler(this.radioButtonCodigo_CheckedChanged);
             // 
             // textBox1
             // 
@@ -232,7 +231,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(159, 20);
             this.textBox1.TabIndex = 16;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 

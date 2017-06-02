@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WindowsFormsApplication3.ClassesEntidades
+namespace Aplicativo.ClassesEntidades
 {
     [Table("ItemPedido")]
     public class PedidoProduto

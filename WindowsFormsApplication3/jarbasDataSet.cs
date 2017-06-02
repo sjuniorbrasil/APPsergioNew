@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
 
 
@@ -7,7 +7,7 @@
     }
 }
 
-namespace WindowsFormsApplication3.jarbasDataSetTableAdapters {
+namespace Aplicativo.jarbasDataSetTableAdapters {
     partial class vendasTableAdapter
     {
     }

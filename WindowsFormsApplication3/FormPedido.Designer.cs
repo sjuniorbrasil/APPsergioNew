@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormPedido
     {
@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -155,20 +155,20 @@
             this.pedidoCodigoToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.pedidoCodigoToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.fillByimprimeobaguiToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.dataTable1TableAdapter1 = new WindowsFormsApplication3.jarbasDataSetTableAdapters.DataTable1TableAdapter();
-            this.vendasTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.vendasTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
-            this.itensTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.itensTableAdapter();
+            this.dataTable1TableAdapter1 = new Aplicativo.jarbasDataSetTableAdapters.DataTable1TableAdapter();
+            this.vendasTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.vendasTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.itensTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.itensTableAdapter();
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.produtosTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.produtosTableAdapter();
-            this.pEDIDOTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.PEDIDOTableAdapter();
+            this.produtosTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.produtosTableAdapter();
+            this.pEDIDOTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.PEDIDOTableAdapter();
             this.iTEMPEDIDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iTEMPEDIDOTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.ITEMPEDIDOTableAdapter();
-            this.DataTable1TableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.vendasTableAdapter();
+            this.iTEMPEDIDOTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.ITEMPEDIDOTableAdapter();
+            this.DataTable1TableAdapter = new Aplicativo.jarbasDataSetTableAdapters.vendasTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.relDataSet = new WindowsFormsApplication3.relDataSet();
+            this.relDataSet = new Aplicativo.relDataSet();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.clientesTableAdapter();
+            this.clientesTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.clientesTableAdapter();
             this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jarbasDataSet)).BeginInit();
@@ -1430,7 +1430,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = null;
             this.tableAdapterManager.produtosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = this.vendasTableAdapter;
             // 
@@ -1470,7 +1470,7 @@
             reportDataSource1.Name = "DataSetNovo";
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.repPedidoCerto.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.repPedidoCerto.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(5, 2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(714, 475);

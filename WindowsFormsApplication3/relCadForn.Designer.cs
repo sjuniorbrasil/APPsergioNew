@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class relCadForn
     {
@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.fornecedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.relDataSet = new WindowsFormsApplication3.relDataSet();
+            this.relDataSet = new Aplicativo.relDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.fornecedoresTableAdapter = new WindowsFormsApplication3.relDataSetTableAdapters.fornecedoresTableAdapter();
+            this.fornecedoresTableAdapter = new Aplicativo.relDataSetTableAdapters.fornecedoresTableAdapter();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -59,7 +59,7 @@
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.fornecedoresBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.RelCadForncedores.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.RelCadForncedores.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(1, 55);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(700, 446);

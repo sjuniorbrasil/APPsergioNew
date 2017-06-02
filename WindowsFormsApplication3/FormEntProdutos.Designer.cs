@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormEntProdutos
     {
@@ -86,7 +86,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itensBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.txtControle = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -106,13 +106,13 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButtonrRazao = new System.Windows.Forms.RadioButton();
             this.pEDIDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pEDIDOTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.PEDIDOTableAdapter();
-            this.iTEMPEDIDOTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.ITEMPEDIDOTableAdapter();
-            this.produtosTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.produtosTableAdapter();
+            this.pEDIDOTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.PEDIDOTableAdapter();
+            this.iTEMPEDIDOTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.ITEMPEDIDOTableAdapter();
+            this.produtosTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.produtosTableAdapter();
             this.produtosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itensTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.itensTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
-            this.vendasTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.vendasTableAdapter();
+            this.itensTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.itensTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.vendasTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.vendasTableAdapter();
             this.iTEMPEDIDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.produtosDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -917,7 +917,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = null;
             this.tableAdapterManager.produtosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = this.vendasTableAdapter;
             // 

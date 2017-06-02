@@ -4,11 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using WindowsFormsApplication3.ClassesEntidades;
+using Aplicativo.ClassesEntidades;
 
 
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FormPedido : Form
 
@@ -41,7 +41,8 @@ namespace WindowsFormsApplication3
             btnSair.Enabled = true;
             btnSalvar.Enabled = false;            
             btnInsProduto.Enabled = false;
-            btnPProduto.Enabled = false;            
+            btnPProduto.Enabled = false;
+            dataGridView1.Rows.Clear();
         }
         
         private void FormPedido_Load(object sender, EventArgs e)
@@ -137,6 +138,7 @@ namespace WindowsFormsApplication3
                 btnInsProduto.Enabled = true;
             }
         }
+        
         private Boolean enableSalvar()
         {
             if (txtcodCliente.Text == string.Empty)
@@ -321,6 +323,13 @@ namespace WindowsFormsApplication3
             cmd.Parameters.Add("@itp_qtde", SqlDbType.Decimal).Value = pedidoProduto.Quantidade;
             cmd.Parameters.Add("@ipt_total", SqlDbType.Decimal).Value = pedidoProduto.ValorTotal;
             cmd.CommandType = CommandType.Text;
+            estoque.ProdutoID = Convert.ToInt32(produtosDataGridView.CurrentRow.Cells["cod_produto"].Value.ToString());
+            string estoques = "insert into estoque(est_qtde,ven_codigo, est_data, pro_codigo) values(@est_qtde, @ven_codigo, @est_data, @pro_codigo)";
+            SqlCommand cmd2 = new SqlCommand(estoques, con);
+            cmd2.Parameters.Add("@est_qtde", SqlDbType.Decimal).Value = pedidoProduto.Quantidade * -1;
+            cmd2.Parameters.Add("@ven_codigo", SqlDbType.Int).Value = pedidoProduto.PedidoID;
+            cmd2.Parameters.Add("@est_data", SqlDbType.DateTime).Value = DateTime.Now.ToShortDateString();
+            cmd2.Parameters.Add("@pro_codigo", SqlDbType.Int).Value = estoque.ProdutoID;
             con.Open();
             try
             {
@@ -331,7 +340,9 @@ namespace WindowsFormsApplication3
                 else
                 {
                     int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
+                    int j = cmd2.ExecuteNonQuery();
+                    
+                        if ((i > 0) && (j > 0))
                     {
                         dataGridView1.Rows.Add(txtCodProduto.Text, txtNomeProduto.Text, txtQuantidade.Text, txtValor.Text, txtDesconto.Text, txtVTotal.Text);
                         txtVTotal.Text = "";
@@ -351,34 +362,7 @@ namespace WindowsFormsApplication3
             {
                 con.Close();
             }
-            //grava estoque
-            
-            SqlConnection con2 = new SqlConnection();
-            con2.ConnectionString = Properties.Settings.Default.Ducaun;            
-            estoque.ProdutoID = Convert.ToInt32(produtosDataGridView.CurrentRow.Cells["cod_produto"].Value.ToString());
-            string estoques = "insert into estoque(est_qtde,ven_codigo, est_data, pro_codigo) values(@est_qtde, @ven_codigo, @est_data, @pro_codigo)";
-            SqlCommand cmd2 = new SqlCommand(estoques, con2);
-            cmd2.Parameters.Add("@est_qtde", SqlDbType.Decimal).Value = pedidoProduto.Quantidade * -1;
-            cmd2.Parameters.Add("@ven_codigo", SqlDbType.Int).Value = pedidoProduto.PedidoID;
-            cmd2.Parameters.Add("@est_data", SqlDbType.DateTime).Value = DateTime.Now.ToShortDateString();
-            cmd2.Parameters.Add("@pro_codigo", SqlDbType.Int).Value = estoque.ProdutoID;
-            con2.Open();
-            try
-            {
-                int j = cmd2.ExecuteNonQuery();
-                if (j > 0)
-                {
-                    btnInsProduto.Enabled = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                u.messageboxErro(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
+           
         }
 
         private void mskDtVenda_Leave(object sender, EventArgs e)
@@ -542,10 +526,7 @@ namespace WindowsFormsApplication3
                 finally
                 {
                     con.Close();
-                }
-                dataGridView1.Rows.Clear();
-                dataGridView1.Refresh();
-                Unovo(); 
+                }                               
                 txtCdesconto.BackColor = SystemColors.Window;
                 txtcodCliente.BackColor = SystemColors.Window;
                 txtCodProduto.BackColor = SystemColors.Window;
@@ -555,6 +536,7 @@ namespace WindowsFormsApplication3
                 mskDtVenda.BackColor = SystemColors.Window;
                 maskedTextBox1.BackColor = SystemColors.Window;
                 dataGridView1.Refresh();
+                Unovo();
             }
         }
 
@@ -847,29 +829,34 @@ namespace WindowsFormsApplication3
         }    
            
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {            
-            estoque.VendaProdutoID = Convert.ToInt32(txtControle.Text.Trim());
-            estoque.ProdutoID = Convert.ToInt32(produtosDataGridView.CurrentRow.Cells["cod_produto"].Value.ToString());
-            string deleteEstoque = "delete from estoque where pro_codigo = " + estoque.ProdutoID + "and ven_codigo = " + estoque.VendaProdutoID;
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = utils.ConexaoDb();
-            SqlCommand cmd = new SqlCommand(deleteEstoque, con);
-            con.Open();
-            try
+        {
+            if (txtControle.Text != string.Empty || txtControle.Text == null)
             {
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
+
+                estoque.VendaProdutoID = Convert.ToInt32(txtControle.Text.Trim());
+
+                estoque.ProdutoID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["cod_produto"].Value.ToString());
+                string deleteEstoque = "delete from estoque where pro_codigo = " + estoque.ProdutoID + "and ven_codigo = " + estoque.VendaProdutoID;
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = utils.ConexaoDb();
+                SqlCommand cmd = new SqlCommand(deleteEstoque, con);
+                con.Open();
+                try
                 {
-                    u.messageboxSucesso();
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        u.messageboxSucesso();
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                u.messageboxErro(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
+                catch (Exception ex)
+                {
+                    u.messageboxErro(ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
 
@@ -880,6 +867,3 @@ namespace WindowsFormsApplication3
         }
     }
 }
-
-
-

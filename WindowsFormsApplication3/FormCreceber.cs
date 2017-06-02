@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FormCreceber : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FrmRelCadCli
     {
@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.clientesTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.clientesTableAdapter();
+            this.clientesTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.clientesTableAdapter();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.clientesBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.RelCadCli.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.RelCadCli.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(6, 66);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(651, 524);

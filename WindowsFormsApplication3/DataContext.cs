@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using WindowsFormsApplication3.ClassesEntidades;
+using Aplicativo.ClassesEntidades;
 using System.Data.Entity;
 
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {   
     public class DataContext: DbContext
     {        
@@ -22,7 +22,7 @@ namespace WindowsFormsApplication3
         public virtual DbSet<PedidoProduto> PedidoProdutos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
 
-        //pesquisas padrão
+        //pesquisas padrão        
         public static DataTable CarregaCidades()
         {
             SqlConnection con = new SqlConnection();           
@@ -54,7 +54,7 @@ namespace WindowsFormsApplication3
             DataTable DT = new DataTable();
             DT.Load(DR);
             con.Close();
-            return DT;
+            return DT;            
         }
 
         public static DataTable CarregaClientes()

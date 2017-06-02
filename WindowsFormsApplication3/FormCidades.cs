@@ -3,10 +3,10 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using WindowsFormsApplication3.ClassesEntidades;
+using Aplicativo.ClassesEntidades;
 
 
-namespace WindowsFormsApplication3
+namespace Aplicativo
 {
     public partial class FormCidades : Form
     {

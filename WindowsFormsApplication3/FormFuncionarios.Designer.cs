@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FormFuncionarios
     {
@@ -34,7 +34,7 @@
             this.textBoxObs = new System.Windows.Forms.TextBox();
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jarbasDataSet = new WindowsFormsApplication3.jarbasDataSet();
+            this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonCancelareg = new System.Windows.Forms.Button();
             this.buttonSaiAtendimento = new System.Windows.Forms.Button();
@@ -69,8 +69,8 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.funcionariosTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.funcionariosTableAdapter();
-            this.tableAdapterManager = new WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager();
+            this.funcionariosTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.funcionariosTableAdapter();
+            this.tableAdapterManager = new Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager();
             this.funcionariosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,7 +105,7 @@
             this.cidnomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidufDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cidadesTableAdapter = new WindowsFormsApplication3.jarbasDataSetTableAdapters.cidadesTableAdapter();
+            this.cidadesTableAdapter = new Aplicativo.jarbasDataSetTableAdapters.cidadesTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPageClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
@@ -566,7 +566,7 @@
             this.tableAdapterManager.PEDIDOTableAdapter = null;
             this.tableAdapterManager.procedimentosTableAdapter = null;
             this.tableAdapterManager.produtosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = WindowsFormsApplication3.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Aplicativo.jarbasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuariosTableAdapter = null;
             this.tableAdapterManager.vendasTableAdapter = null;
             // 

@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace WindowsFormsApplication3 {
+namespace Aplicativo {
     
     
     /// <summary>
@@ -12864,7 +12864,7 @@ namespace WindowsFormsApplication3 {
         }
     }
 }
-namespace WindowsFormsApplication3.jarbasDataSetTableAdapters {
+namespace Aplicativo.jarbasDataSetTableAdapters {
     
     
     /// <summary>
@@ -13048,7 +13048,7 @@ SELECT cod_atendimento, data_atendimento, cod_cliente, cod_funcionario, observac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13579,7 +13579,7 @@ SELECT cod_cliente, n_cliente, endereco, bairro, cidade, telefone, celular, cep,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.ducaunConnectionString1;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.ducaunConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13593,21 +13593,21 @@ SELECT cod_cliente, n_cliente, endereco, bairro, cidade, telefone, celular, cep,
                 "nte = null";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection(global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun);
+            this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection(global::Aplicativo.Properties.Settings.Default.Ducaun);
             this._commandCollection[1].CommandText = "SELECT bairro, celular, cep, cidade, cod_cliente, cpf, data_nas, email, endereco," +
                 " n_cliente, numero, obs, telefone FROM clientes WHERE (n_cliente LIKE \'%\' + @n_c" +
                 "liente + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@n_cliente", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "n_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = new global::System.Data.SqlClient.SqlConnection(global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun);
+            this._commandCollection[2].Connection = new global::System.Data.SqlClient.SqlConnection(global::Aplicativo.Properties.Settings.Default.Ducaun);
             this._commandCollection[2].CommandText = "SELECT bairro, celular, cep, cidade, cod_cliente, cpf, data_nas, email, endereco," +
                 " n_cliente, numero, obs, telefone FROM clientes WHERE (cod_cliente = @cod_client" +
                 "e)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cod_cliente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "cod_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = new global::System.Data.SqlClient.SqlConnection(global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun);
+            this._commandCollection[3].Connection = new global::System.Data.SqlClient.SqlConnection(global::Aplicativo.Properties.Settings.Default.Ducaun);
             this._commandCollection[3].CommandText = "SELECT bairro, celular, cep, cidade, cod_cliente, cpf, data_nas, email, endereco," +
                 " n_cliente, numero, obs, telefone FROM clientes WHERE (n_cliente LIKE \'%\' + @n_c" +
                 "liente + \'%\')";
@@ -13669,7 +13669,7 @@ SELECT cod_cliente, n_cliente, endereco, bairro, cidade, telefone, celular, cep,
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCodClienteRel(jarbasDataSet.clientesDataTable dataTable, int cod_cliente) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(cod_cliente));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(cod_cliente));                      
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -13730,7 +13730,7 @@ SELECT cod_cliente, n_cliente, endereco, bairro, cidade, telefone, celular, cep,
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByTudoRelCli(jarbasDataSet.clientesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[4];            
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -14470,7 +14470,7 @@ SELECT cod_fornecedor, razão, fantasia, endereco, bairro, cidade, telefone, cel
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15300,7 +15300,7 @@ SELECT cod_funcionario, n_funcionario, endereco, bairro, cidade, telefone, celul
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16044,7 +16044,7 @@ SELECT cod_procedimento, des_procedimento FROM procedimentos WHERE (cod_procedim
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16448,7 +16448,7 @@ SELECT cod_produto, des_produto, ean, cod_fornecedor, vl_produto, est_produto, u
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17069,7 +17069,7 @@ SELECT cod_venda, dtvenda, cod_cliente FROM vendas WHERE (cod_venda = @cod_venda
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17428,7 +17428,7 @@ SELECT cod_venda, nritem, cod_produto, qtvenda, vlproduto FROM itens WHERE (cod_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17723,7 +17723,7 @@ SELECT cod_venda, nritem, cod_produto, qtvenda, vlproduto FROM itens WHERE (cod_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17964,7 +17964,7 @@ SELECT cod_venda, nritem, cod_produto, qtvenda, vlproduto FROM itens WHERE (cod_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18342,7 +18342,7 @@ SELECT age_codigo, age_data, age_hora, age_concluidos, age_todos, age_descricao,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18848,7 +18848,7 @@ SELECT PED_CODIGO, cod_produto, ITP_VALOR, ITP_QTDE, ITP_TOTAL, ITP_VLORIGINAL F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19310,7 +19310,7 @@ SELECT PED_CODIGO, PED_DTEMISSAO, PED_TOTALBRUTO, PED_PERCDESC, PED_DESCONTO, PE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19863,7 +19863,7 @@ SELECT PED_CODIGO, PED_DTEMISSAO, PED_TOTALBRUTO, PED_PERCDESC, PED_DESCONTO, PE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20215,7 +20215,7 @@ SELECT rec_codigo, cod_cliente, rec_valor, rec_valorRec, rec_dtVenc, rec_dtBaixa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20844,7 +20844,7 @@ SELECT com_codigo, com_data, com_totalbruto, com_percdesconto, com_desconto, com
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21379,7 +21379,7 @@ SELECT com_codigo, cod_produto, itp_valor, itp_qtde, itp_total, itp_vloriginal F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21785,7 +21785,7 @@ SELECT com_codigo, cod_produto, itp_valor, itp_qtde, itp_total, itp_vloriginal F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.Ducaun;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21997,7 +21997,7 @@ WHERE        (a.PED_CODIGO = @pedidoCodigo)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WindowsFormsApplication3.Properties.Settings.Default.ducaunConnectionString1;
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.ducaunConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

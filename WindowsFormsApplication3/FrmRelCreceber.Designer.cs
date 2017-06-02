@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FrmRelCreceber
     {
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.CRECEBERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.relDataSet = new WindowsFormsApplication3.relDataSet();
+            this.relDataSet = new Aplicativo.relDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -41,7 +41,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.CRECEBERTableAdapter = new WindowsFormsApplication3.relDataSetTableAdapters.CRECEBERTableAdapter();
+            this.CRECEBERTableAdapter = new Aplicativo.relDataSetTableAdapters.CRECEBERTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.CRECEBERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relDataSet)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             reportDataSource1.Name = "Creceber";
             reportDataSource1.Value = this.CRECEBERBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.Creceber.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.Creceber.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 71);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(768, 447);

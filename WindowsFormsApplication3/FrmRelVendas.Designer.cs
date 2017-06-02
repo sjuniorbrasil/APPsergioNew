@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace Aplicativo
 {
     partial class FrmRelVendas
     {
@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.PEDIDOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.relDataSet = new WindowsFormsApplication3.relDataSet();
+            this.relDataSet = new Aplicativo.relDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.PEDIDOTableAdapter = new WindowsFormsApplication3.relDataSetTableAdapters.PEDIDOTableAdapter();
+            this.PEDIDOTableAdapter = new Aplicativo.relDataSetTableAdapters.PEDIDOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PEDIDOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relDataSet)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +61,7 @@
             reportDataSource1.Name = "DataSetVendas";
             reportDataSource1.Value = this.PEDIDOBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication3.relVendas.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.relVendas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 71);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(654, 535);
