@@ -43,7 +43,7 @@ namespace Aplicativo
             }
             else if (textBox1.Text == string.Empty)
             {
-                this.clientesTableAdapter.FillByTudoRelCli(this.jarbasDataSet.clientes, 1015);
+                this.clientesTableAdapter.FillByTudoRelCli(this.jarbasDataSet.clientes);
 
                 this.reportViewer1.RefreshReport();
             }

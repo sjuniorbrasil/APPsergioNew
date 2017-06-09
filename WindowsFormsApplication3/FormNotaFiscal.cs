@@ -170,35 +170,35 @@ namespace Aplicativo
             decimal ipiValor;
 
             string updateNota = "update nota set not_dtemissao = @not_dtemissao, not_numero = @not_numero, not_modelo = @not_modelo, not_serie = not_serie, not_finalidade = @not_finalidade, cadastro = @cadastro, cfo_codigo = @cfo_codigo, not_referenciada = @not_referenciada, not_subtotal = @not_subtotal, not_desconto = @not_desconto, not_nfetotal = @not_nfetotal, not_obs = @not_obs, cod_forncedor = @cad_fornecedor, not_vencimento = @not_vencimento, not_cancelada = @not_cancelada, not_inutilizada = @not_inutilizada, not_peso = @not_peso, not_volume = @not_volume, not_marca = @not_marca, not_icmsbase = @not_icmsbase, not_icmsvalor = @not_icmsvalor, not_icmspercentual = @not_icmspercentual, not_icmsstvalor = @not_icmsstvalor   where not_codigo = " + txtControle.Text;
- 
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(updateNota, con);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@not_dtemissao", SqlDbType.NVarChar).Value = dataEmissao;
-            cmd.Parameters.Add("@not_numero", SqlDbType.Int).Value = numeroNota;
-            cmd.Parameters.Add("@not_modelo", SqlDbType.NVarChar).Value = modeloNota;
-            cmd.Parameters.Add("@not_serie", SqlDbType.NVarChar).Value = serie;
-            cmd.Parameters.Add("@not_finalidade", SqlDbType.NVarChar).Value = finalidadeNota;
-            cmd.Parameters.Add("@cadastro", SqlDbType.Int).Value = cadastro;
-            cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop;
-            cmd.Parameters.Add("@not_referenciada", SqlDbType.NVarChar).Value = nfeReferenciada;
-            cmd.Parameters.Add("@not_subtotal", SqlDbType.Decimal).Value = subtotal;
-            cmd.Parameters.Add("@not_desconto", SqlDbType.Decimal).Value = desconto;
-            cmd.Parameters.Add("@not_nfetotal", SqlDbType.Decimal).Value = totaldaNotacomdesconto;
-            cmd.Parameters.Add("@not_obs", SqlDbType.NVarChar).Value = obsNota;
-            cmd.Parameters.Add("@cad_fornecedor", SqlDbType.Int).Value = transportador;
-            cmd.Parameters.Add("@not_vencimento", SqlDbType.NVarChar).Value = vencimento;
-            cmd.Parameters.Add("@not_cancelada", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@not_inutilizada", SqlDbType.Int).Value = 0;            
-            cmd.Parameters.Add("@not_peso", SqlDbType.NVarChar).Value = 1;
-            cmd.Parameters.Add("@not_volume", SqlDbType.NVarChar).Value = 1;
-            cmd.Parameters.Add("@not_marca", SqlDbType.NVarChar).Value = "marca";
-            cmd.Parameters.Add("@not_icmsbase", SqlDbType.Decimal).Value = 0;
-            cmd.Parameters.Add("@not_icmsvalor", SqlDbType.Decimal).Value = 0;
-            cmd.Parameters.Add("@not_icmspercentual", SqlDbType.Decimal).Value = 0;
-            cmd.Parameters.Add("@not_icmsstvalor", SqlDbType.Decimal).Value = 0;
- 
+            //cmd.Parameters.Add("@not_dtemissao", SqlDbType.NVarChar).Value = dataEmissao;
+            //cmd.Parameters.Add("@not_numero", SqlDbType.Int).Value = numeroNota;
+            //cmd.Parameters.Add("@not_modelo", SqlDbType.NVarChar).Value = modeloNota;
+            //cmd.Parameters.Add("@not_serie", SqlDbType.NVarChar).Value = serie;
+            //cmd.Parameters.Add("@not_finalidade", SqlDbType.NVarChar).Value = finalidadeNota;
+            //cmd.Parameters.Add("@cadastro", SqlDbType.Int).Value = cadastro;
+            //cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop;
+            //cmd.Parameters.Add("@not_referenciada", SqlDbType.NVarChar).Value = nfeReferenciada;
+            //cmd.Parameters.Add("@not_subtotal", SqlDbType.Decimal).Value = subtotal;
+            //cmd.Parameters.Add("@not_desconto", SqlDbType.Decimal).Value = desconto;
+            //cmd.Parameters.Add("@not_nfetotal", SqlDbType.Decimal).Value = totaldaNotacomdesconto;
+            //cmd.Parameters.Add("@not_obs", SqlDbType.NVarChar).Value = obsNota;
+            //cmd.Parameters.Add("@cad_fornecedor", SqlDbType.Int).Value = transportador;
+            //cmd.Parameters.Add("@not_vencimento", SqlDbType.NVarChar).Value = vencimento;
+            //cmd.Parameters.Add("@not_cancelada", SqlDbType.Int).Value = 0;
+            //cmd.Parameters.Add("@not_inutilizada", SqlDbType.Int).Value = 0;            
+            //cmd.Parameters.Add("@not_peso", SqlDbType.NVarChar).Value = 1;
+            //cmd.Parameters.Add("@not_volume", SqlDbType.NVarChar).Value = 1;
+            //cmd.Parameters.Add("@not_marca", SqlDbType.NVarChar).Value = "marca";
+            //cmd.Parameters.Add("@not_icmsbase", SqlDbType.Decimal).Value = 0;
+            //cmd.Parameters.Add("@not_icmsvalor", SqlDbType.Decimal).Value = 0;
+            //cmd.Parameters.Add("@not_icmspercentual", SqlDbType.Decimal).Value = 0;
+            //cmd.Parameters.Add("@not_icmsstvalor", SqlDbType.Decimal).Value = 0;
+
 
             con.Open();
             try
