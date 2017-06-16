@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -290,6 +289,10 @@ namespace Aplicativo
             MessageBox.Show("Cliente Inadimplente !", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public void UserSenhaInvalida()
+        {
+            MessageBox.Show("Usuário ou Senha Inválidos", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         public static string RCE(string texto)//retira caracteres especiais e letras
         {
             string retorno;

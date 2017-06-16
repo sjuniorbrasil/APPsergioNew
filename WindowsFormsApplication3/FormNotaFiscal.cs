@@ -408,7 +408,7 @@ namespace Aplicativo
             DataView dv = new DataView(DataContext.CarregaClientes());
             if (radioButton1.Checked)
             {
-                dv.RowFilter = "cod_cliente =" + textBox1.Text;
+                dv.RowFilter = "cod_cliente =" + textBox1.Text;                
             }
             if (radioButtonFantasia.Checked)
             {
