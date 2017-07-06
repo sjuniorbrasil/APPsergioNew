@@ -21,6 +21,8 @@ namespace Aplicativo
         public virtual DbSet<Estoque> Estoques { get; set; }
         public virtual DbSet<PedidoProduto> PedidoProdutos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Filial> Filiais { get; set; }
+
 
         //pesquisas padrão        
         public static DataTable CarregaCidades()
@@ -189,6 +191,7 @@ namespace Aplicativo
             descricao = txt2;
             con.Close();
             return descricao;            
-        }                   
+        }      
+        public static int fil_codigo { get; set; }             
     }
 }

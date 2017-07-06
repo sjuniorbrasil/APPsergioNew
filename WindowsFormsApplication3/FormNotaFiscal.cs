@@ -128,7 +128,11 @@ namespace Aplicativo
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            
+            decimal totalIpi = 0;
+            decimal totalICms = 0;
+            decimal totalpis = 0;
+            decimal totalCofins = 0;
+
             string dataEmissao = mskDtVenda.Text.Trim();
             int numeroNota = Convert.ToInt32(txtNunNota.Text.Trim());
             string modeloNota = "55";
@@ -150,24 +154,7 @@ namespace Aplicativo
             {
                 transportador = txtCodTransp.Text.Trim();
             }
-            string vencimento = txtVenc.Text;
-            string chaveNfe;
-            string protocolo;
-            string recibo;
-            string statusNota;
-            string dataHoraProtocolo;
-            int notcancelada;
-            int notInutilizada;
-            string motivoCancel;
-            string peso;
-            string volumes;
-            string marca;            
-            decimal icmsBase;
-            decimal icmsValor;
-            decimal icmsPercentual;
-            decimal icmsStValor;
-            string nfeXml;
-            decimal ipiValor;
+            string vencimento = txtVenc.Text;      
 
             string updateNota = "update nota set not_dtemissao = @not_dtemissao, not_numero = @not_numero, not_modelo = @not_modelo, not_serie = not_serie, not_finalidade = @not_finalidade, cadastro = @cadastro, cfo_codigo = @cfo_codigo, not_referenciada = @not_referenciada, not_subtotal = @not_subtotal, not_desconto = @not_desconto, not_nfetotal = @not_nfetotal, not_obs = @not_obs, cod_forncedor = @cad_fornecedor, not_vencimento = @not_vencimento, not_cancelada = @not_cancelada, not_inutilizada = @not_inutilizada, not_peso = @not_peso, not_volume = @not_volume, not_marca = @not_marca, not_icmsbase = @not_icmsbase, not_icmsvalor = @not_icmsvalor, not_icmspercentual = @not_icmspercentual, not_icmsstvalor = @not_icmsstvalor   where not_codigo = " + txtControle.Text;
 
@@ -215,17 +202,16 @@ namespace Aplicativo
                 nota.ide.indPag = "0";
                 nota.ide.mod = "55";
                 nota.ide.serie = txtSerie.Text;
-                //"select a.cod_produto, b.des_produto, a.ITP_QTDE, a.ITP_VALOR, a.ITP_TOTAL from ITEMPEDIDO a join produtos b on a.cod_produto = b.cod_produto where ped_codigo
-                string ultimoReg = "Select not_codigo From nota where not_codigo = (Select MAX(not_numero) From nota)";
-                string filial = "select * from filial where fil_codigo = ";
+                
+                string ultimoReg = "Select not_codigo From nota where not_codigo = (Select MAX(not_numero) From nota)";               
                 
                 SqlConnection con1 = new SqlConnection();
                 con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd2 = new SqlCommand(ultimoReg, con1);
-                SqlCommand cmd3 = new SqlCommand(filial, con1);
+                
                 con.Open();
                 SqlDataReader dR = cmd2.ExecuteReader();
-                SqlDataReader dr1 = cmd3.ExecuteReader();
+                
                 if (dR.Read())
                 {
                     txtNunNota.Text = 1 + dR[0].ToString();
@@ -244,31 +230,33 @@ namespace Aplicativo
                 nota.ide.tpAmb = "2";
                 nota.ide.finNFe = finalidadeNota;
                 nota.ide.procEmi = "3";// soft utilizado
-                
-                if (dr1.Read())
-                {
-                    nota.emit.CNPJ = dr1[9].ToString();
-                    nota.emit.xNome = dr1[1].ToString();
-                    nota.emit.xLgr = dr1[3].ToString();
-                    nota.emit.nro = dr1[10].ToString();
-                    nota.emit.xBairro = dr1[4].ToString();
-                    nota.emit.cMun = dr1[13].ToString();
-                    nota.emit.xMun = "Maringá";
-                    nota.emit.UF = "PR";
-                    nota.emit.CEP = "87070300";
-                    nota.emit.cPais = "1058";
-                    nota.emit.xPais = "Brasil";
-                    nota.emit.fone = "449988316578";
-                    nota.emit.IE = dr1[12].ToString();
-                    nota.emit.CRT = "1";
-                                        
-                }
+                //
+                DataContext db = new DataContext();
+                var filial = db.Filiais.Find(DataContext.fil_codigo);
+                nota.emit.CNPJ = filial.CpfCnpj;
+                nota.emit.xNome = filial.Razao;
+                nota.emit.xLgr = filial.Endereco;
+                nota.emit.nro = filial.Numero;
+                nota.emit.xBairro = filial.Bairro;
+
+                var cidade = db.Cidades.Find(filial.CidadeCodigo);
+                nota.emit.cMun = cidade.Ibge;
+                nota.emit.xMun = cidade.Descricao;
+                nota.emit.UF = cidade.UF;
+                nota.emit.CEP = filial.Cep;
+                nota.emit.cPais = "1058";
+                nota.emit.xPais = "Brasil";
+                nota.emit.fone = filial.Telefone;
+                nota.emit.IE = filial.IE;
+                nota.emit.CRT = "1";
+
                 //financeiro
                 var dup = new NFeEletronica.NotaFiscal.DUP();
                 dup.nDup = "123";
                 dup.dVenc = "2014-03-21";
                 dup.vDup = "23.33";
                 nota.cobr.dup.Add(dup);
+
                 //transportadora
                 nota.transp.modFrete = "1";
                 nota.transp.xNome = "O Mesmo";
@@ -285,22 +273,21 @@ namespace Aplicativo
                     var notaProduto = new DET();
                         notaProduto.cProd = row.Cells["Código"].Value.ToString();
                         DataView dv = new DataView(DataContext.CarregaProdutos());
-                        Produto produto = new Produto();
-                        DataContext db = new DataContext();
+                        Produto produto = new Produto();                        
                         var produtoIncluir = db.Produtos.Find(notaProduto.cProd);
 
-                        notaProduto.cEAN = row.Cells["EAN"].Value.ToString(); 
-                        notaProduto.xProd = row.Cells["DESCRIÇÃO"].Value.ToString(); 
-                        notaProduto.NCM = row.Cells["NCM"].Value.ToString(); 
-                        notaProduto.CFOP = row.Cells["CFOP"].Value.ToString(); 
-                        notaProduto.uCom = row.Cells["UNIDADE"].Value.ToString(); 
+                        notaProduto.cEAN = produtoIncluir.EAN; 
+                        notaProduto.xProd = produtoIncluir.Descricao; 
+                        notaProduto.NCM = produtoIncluir.NCM; 
+                        notaProduto.CFOP = Convert.ToString(produtoIncluir.CFOP); 
+                        notaProduto.uCom = produtoIncluir.UnidadeMedida; 
                         notaProduto.qCom = row.Cells["QUANTIDADE"].Value.ToString(); 
                         notaProduto.vUnCom = row.Cells["VALOR UN"].Value.ToString(); 
                         notaProduto.vProd = row.Cells["TOTAL"].Value.ToString(); 
-                        notaProduto.cEANTrib = row.Cells["Código"].Value.ToString();
-                        notaProduto.uTrib = row.Cells["UNIDADE"].Value.ToString();
-                        notaProduto.qTrib = row.Cells["QUANTIDADE"].Value.ToString();
-                        notaProduto.vUnTrib = row.Cells["VALOR UN"].Value.ToString();
+                        notaProduto.cEANTrib = produtoIncluir.EAN;
+                        notaProduto.uTrib = produtoIncluir.UnidadeMedida;
+                        notaProduto.qTrib = notaProduto.qCom;
+                        notaProduto.vUnTrib = notaProduto.vUnCom;
                         notaProduto.indTot = "1";
                         
                         switch (produtoIncluir.CstICMS)
@@ -362,10 +349,7 @@ namespace Aplicativo
                             default:
                                 notaProduto.icms = ICMS.ICMS00;
                                 break;
-                        }
-
-
-                        
+                        }                        
                         notaProduto.icms_orig = Convert.ToString(produtoIncluir.OrigemDoProduto);
                         if (nota.emit.CRT == "1")
                         {
@@ -385,6 +369,7 @@ namespace Aplicativo
                         notaProduto.pis_vBC = "0";
                         notaProduto.pis_pPIS = "0";
                         notaProduto.pis_vPIS = "0";
+                        
 
                         notaProduto.cofins = COFINS.CST01_02;
                         notaProduto.cofins_CST = "01";
@@ -394,11 +379,21 @@ namespace Aplicativo
 
                         nota.AddDet(notaProduto);
                     }
+                    
                 }
                 
-                //fim de um produto
+                
 
-                nota.total.vBC = "0.00";
+                //fim de um produto
+                if (nota.emit.CRT == "1")
+                {
+                    nota.total.vBC = "0.00";
+                }
+                else
+                {
+                    nota.total.vBC = Convert.ToString(totaldaNotacomdesconto);
+                }
+                    
                 nota.total.vICMS = "0.00";
                 nota.total.vICMSDeson = "0.00";
                 nota.total.vBCST = "0.00";

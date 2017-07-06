@@ -157,6 +157,7 @@
     <Compile Include="ClassesEntidades\Cidade.cs" />
     <Compile Include="ClassesEntidades\Cliente.cs" />
     <Compile Include="ClassesEntidades\Estoque.cs" />
+    <Compile Include="ClassesEntidades\Filial.cs" />
     <Compile Include="ClassesEntidades\Pedido.cs" />
     <Compile Include="ClassesEntidades\PedidoProduto.cs" />
     <Compile Include="ClassesEntidades\Produto.cs" />

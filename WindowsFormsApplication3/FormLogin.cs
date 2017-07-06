@@ -56,6 +56,7 @@ namespace Aplicativo
                 }
                 con.Close();
             }
+            DataContext.fil_codigo = 1;
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
