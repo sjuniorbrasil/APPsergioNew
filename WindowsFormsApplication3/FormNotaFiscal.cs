@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using NFeEletronica.Contexto;
 using NFeEletronica.NotaFiscal;
 using NFeEletronica.Certificado;
-
+using Aplicativo.ClassesEntidades;
 
 namespace Aplicativo
 {
@@ -175,29 +175,29 @@ namespace Aplicativo
             con.ConnectionString = utils.ConexaoDb();
             SqlCommand cmd = new SqlCommand(updateNota, con);
             cmd.CommandType = CommandType.Text;
-            //cmd.Parameters.Add("@not_dtemissao", SqlDbType.NVarChar).Value = dataEmissao;
-            //cmd.Parameters.Add("@not_numero", SqlDbType.Int).Value = numeroNota;
-            //cmd.Parameters.Add("@not_modelo", SqlDbType.NVarChar).Value = modeloNota;
-            //cmd.Parameters.Add("@not_serie", SqlDbType.NVarChar).Value = serie;
-            //cmd.Parameters.Add("@not_finalidade", SqlDbType.NVarChar).Value = finalidadeNota;
-            //cmd.Parameters.Add("@cadastro", SqlDbType.Int).Value = cadastro;
-            //cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop;
-            //cmd.Parameters.Add("@not_referenciada", SqlDbType.NVarChar).Value = nfeReferenciada;
-            //cmd.Parameters.Add("@not_subtotal", SqlDbType.Decimal).Value = subtotal;
-            //cmd.Parameters.Add("@not_desconto", SqlDbType.Decimal).Value = desconto;
-            //cmd.Parameters.Add("@not_nfetotal", SqlDbType.Decimal).Value = totaldaNotacomdesconto;
-            //cmd.Parameters.Add("@not_obs", SqlDbType.NVarChar).Value = obsNota;
-            //cmd.Parameters.Add("@cad_fornecedor", SqlDbType.Int).Value = transportador;
-            //cmd.Parameters.Add("@not_vencimento", SqlDbType.NVarChar).Value = vencimento;
-            //cmd.Parameters.Add("@not_cancelada", SqlDbType.Int).Value = 0;
-            //cmd.Parameters.Add("@not_inutilizada", SqlDbType.Int).Value = 0;            
-            //cmd.Parameters.Add("@not_peso", SqlDbType.NVarChar).Value = 1;
-            //cmd.Parameters.Add("@not_volume", SqlDbType.NVarChar).Value = 1;
-            //cmd.Parameters.Add("@not_marca", SqlDbType.NVarChar).Value = "marca";
-            //cmd.Parameters.Add("@not_icmsbase", SqlDbType.Decimal).Value = 0;
-            //cmd.Parameters.Add("@not_icmsvalor", SqlDbType.Decimal).Value = 0;
-            //cmd.Parameters.Add("@not_icmspercentual", SqlDbType.Decimal).Value = 0;
-            //cmd.Parameters.Add("@not_icmsstvalor", SqlDbType.Decimal).Value = 0;
+            cmd.Parameters.Add("@not_dtemissao", SqlDbType.NVarChar).Value = dataEmissao;
+            cmd.Parameters.Add("@not_numero", SqlDbType.Int).Value = numeroNota;
+            cmd.Parameters.Add("@not_modelo", SqlDbType.NVarChar).Value = modeloNota;
+            cmd.Parameters.Add("@not_serie", SqlDbType.NVarChar).Value = serie;
+            cmd.Parameters.Add("@not_finalidade", SqlDbType.NVarChar).Value = finalidadeNota;
+            cmd.Parameters.Add("@cadastro", SqlDbType.Int).Value = cadastro;
+            cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop;
+            cmd.Parameters.Add("@not_referenciada", SqlDbType.NVarChar).Value = nfeReferenciada;
+            cmd.Parameters.Add("@not_subtotal", SqlDbType.Decimal).Value = subtotal;
+            cmd.Parameters.Add("@not_desconto", SqlDbType.Decimal).Value = desconto;
+            cmd.Parameters.Add("@not_nfetotal", SqlDbType.Decimal).Value = totaldaNotacomdesconto;
+            cmd.Parameters.Add("@not_obs", SqlDbType.NVarChar).Value = obsNota;
+            cmd.Parameters.Add("@cad_fornecedor", SqlDbType.Int).Value = transportador;
+            cmd.Parameters.Add("@not_vencimento", SqlDbType.NVarChar).Value = vencimento;
+            cmd.Parameters.Add("@not_cancelada", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@not_inutilizada", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@not_peso", SqlDbType.NVarChar).Value = 1;
+            cmd.Parameters.Add("@not_volume", SqlDbType.NVarChar).Value = 1;
+            cmd.Parameters.Add("@not_marca", SqlDbType.NVarChar).Value = "marca";
+            cmd.Parameters.Add("@not_icmsbase", SqlDbType.Decimal).Value = 0;
+            cmd.Parameters.Add("@not_icmsvalor", SqlDbType.Decimal).Value = 0;
+            cmd.Parameters.Add("@not_icmspercentual", SqlDbType.Decimal).Value = 0;
+            cmd.Parameters.Add("@not_icmsstvalor", SqlDbType.Decimal).Value = 0;
 
 
             con.Open();
@@ -210,7 +210,7 @@ namespace Aplicativo
                 }
                 var nfeContexto = new NFeContexto(false, NFeEletronica.Versao.NFeVersao.VERSAO_3_1_0, new GerenciadorDeCertificado());
                 var nota = new Nota(nfeContexto);
-                // nota.ide.cUF = txtci continuar daqui, colocar campo oculto na tela pra salvar o estado da  nota fiscalzr
+                nota.ide.cUF = "41";
                 nota.ide.natOp = txtDescCfop.Text;
                 nota.ide.indPag = "0";
                 nota.ide.mod = "55";
@@ -223,13 +223,9 @@ namespace Aplicativo
                 con.ConnectionString = utils.ConexaoDb();
                 SqlCommand cmd2 = new SqlCommand(ultimoReg, con1);
                 SqlCommand cmd3 = new SqlCommand(filial, con1);
-
-
                 con.Open();
                 SqlDataReader dR = cmd2.ExecuteReader();
                 SqlDataReader dr1 = cmd3.ExecuteReader();
-
-
                 if (dR.Read())
                 {
                     txtNunNota.Text = 1 + dR[0].ToString();
@@ -245,7 +241,7 @@ namespace Aplicativo
                 nota.ide.idDest = "1";
                 nota.ide.indFinal = "0";
                 nota.ide.indPres = "0";
-                //nota.ide.tpAmb = "2";
+                nota.ide.tpAmb = "2";
                 nota.ide.finNFe = finalidadeNota;
                 nota.ide.procEmi = "3";// soft utilizado
                 
@@ -285,31 +281,100 @@ namespace Aplicativo
                 {
                     foreach (DataGridViewColumn column in dataGridView1.Columns)
                     {
-                        
-                        
-
 
                     var notaProduto = new DET();
                         notaProduto.cProd = row.Cells["Código"].Value.ToString();
                         DataView dv = new DataView(DataContext.CarregaProdutos());
+                        Produto produto = new Produto();
+                        DataContext db = new DataContext();
+                        var produtoIncluir = db.Produtos.Find(notaProduto.cProd);
 
-                        notaProduto.cEAN = "7896090701049";
-                        notaProduto.xProd = "Produto de teste";
-                        notaProduto.NCM = "22071090";
-                        notaProduto.CFOP = "5401";
-                        notaProduto.uCom = "CX";
-                        notaProduto.qCom = "1.0000";
-                        notaProduto.vUnCom = "1.00000000";
-                        notaProduto.vProd = "1.00";
-                        notaProduto.cEANTrib = "7896090701049";
-                        notaProduto.uTrib = "CX";
-                        notaProduto.qTrib = "1.0000";
-                        notaProduto.vUnTrib = "1.00000000";
+                        notaProduto.cEAN = row.Cells["EAN"].Value.ToString(); 
+                        notaProduto.xProd = row.Cells["DESCRIÇÃO"].Value.ToString(); 
+                        notaProduto.NCM = row.Cells["NCM"].Value.ToString(); 
+                        notaProduto.CFOP = row.Cells["CFOP"].Value.ToString(); 
+                        notaProduto.uCom = row.Cells["UNIDADE"].Value.ToString(); 
+                        notaProduto.qCom = row.Cells["QUANTIDADE"].Value.ToString(); 
+                        notaProduto.vUnCom = row.Cells["VALOR UN"].Value.ToString(); 
+                        notaProduto.vProd = row.Cells["TOTAL"].Value.ToString(); 
+                        notaProduto.cEANTrib = row.Cells["Código"].Value.ToString();
+                        notaProduto.uTrib = row.Cells["UNIDADE"].Value.ToString();
+                        notaProduto.qTrib = row.Cells["QUANTIDADE"].Value.ToString();
+                        notaProduto.vUnTrib = row.Cells["VALOR UN"].Value.ToString();
                         notaProduto.indTot = "1";
+                        
+                        switch (produtoIncluir.CstICMS)
+                        {
+                            case "00":
+                                notaProduto.icms = ICMS.ICMS00;
+                                break;
+                            case "10":
+                                notaProduto.icms = ICMS.ICMS10;
+                                break;
+                            case "20":
+                                notaProduto.icms = ICMS.ICMS20;
+                                break;
+                            case "30":
+                                notaProduto.icms = ICMS.ICMS30;
+                                break;
+                            case "40":
+                                notaProduto.icms = ICMS.ICMS40_50;
+                                break;
+                            case "41":
+                                notaProduto.icms = ICMS.ICMS40_50;
+                                break;
+                            case "50":
+                                notaProduto.icms = ICMS.ICMS40_50;
+                                break;
+                            case "51":
+                                notaProduto.icms = ICMS.ICMS51;
+                                break;
+                            case "60":
+                                notaProduto.icms = ICMS.ICMS60;
+                                break;
+                            case "70":
+                                notaProduto.icms = ICMS.ICMS70;
+                                break;
+                            case "90":
+                                notaProduto.icms = ICMS.ICMS90;
+                                break;
+                            case "101":
+                                notaProduto.icms = ICMS.ICMS101;
+                                break;
+                            case "102":
+                                notaProduto.icms = ICMS.ICMS102_400;
+                                break;                                
+                            case "103":
+                                notaProduto.icms = ICMS.ICMS102_400;
+                                break;
+                            case "201":
+                                notaProduto.icms = ICMS.ICMS201;
+                                break;
+                            case "202":
+                                notaProduto.icms = ICMS.ICMS202;
+                                break; 
+                            case "500":
+                                notaProduto.icms = ICMS.ICMS500;
+                                break;
+                            case "900":
+                                notaProduto.icms = ICMS.ICMS900;
+                                break;
+                            default:
+                                notaProduto.icms = ICMS.ICMS00;
+                                break;
+                        }
 
-                        notaProduto.icms = ICMS.ICMS102_400;
-                        notaProduto.icms_orig = "0";
-                        notaProduto.icms_CSOSN = "102";
+
+                        
+                        notaProduto.icms_orig = Convert.ToString(produtoIncluir.OrigemDoProduto);
+                        if (nota.emit.CRT == "1")
+                        {
+                            notaProduto.icms_CSOSN = produtoIncluir.CstICMS;
+                        }
+                        else
+                        {
+                            notaProduto.icms_CST = produtoIncluir.CstICMS;
+                        }                       
 
                         notaProduto.ipi = IPI.IPI00_49_50_99;
                         notaProduto.ipi_CST = "99";
