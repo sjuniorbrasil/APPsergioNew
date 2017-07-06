@@ -44,9 +44,6 @@ namespace Aplicativo
             txtAliqIpi.Text = "0,00";
             txtAliqPis.Text = "0,00";
             buttonCancela.Enabled = false;
-            
-
-
             btnNovo.Focus();
         }
         private void Ualterar()
@@ -365,8 +362,7 @@ namespace Aplicativo
                     con.Close();
                 }
                 Unovo();
-                btnNovo.Focus();
-                
+                btnNovo.Focus();                
             }
         }
 
@@ -402,8 +398,7 @@ namespace Aplicativo
             {
                 dv.RowFilter = "des_produto like '%" + textBox1.Text + "%'";
             }
-            produtosDataGridView.DataSource = dv;
-            
+            produtosDataGridView.DataSource = dv;            
         }
 
         private void produtosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -436,8 +431,7 @@ namespace Aplicativo
                 comboCstIcms.Text = row.Cells[13].Value.ToString();
                 comboCstIpi.Text = row.Cells[14].Value.ToString();
                 comboCstPis.Text = row.Cells[15].Value.ToString();
-                comboCstCofins.Text = row.Cells[16].Value.ToString();
-                
+                comboCstCofins.Text = row.Cells[16].Value.ToString();                
                 Ualterar();
                 textBoxDescricao.Focus();
             }
@@ -468,14 +462,12 @@ namespace Aplicativo
             {
                 dv.RowFilter = "razão like '%" + txtCfornecedor.Text + "%'";
             }
-            fornecedoresDataGridView.DataSource = dv;
-            
+            fornecedoresDataGridView.DataSource = dv;            
         }
 
         private void fornecedoresDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             panel1.Visible = false;
-
             DataGridViewRow row = this.fornecedoresDataGridView.Rows[e.RowIndex];
             txtCfornecedor.Text = row.Cells[0].Value.ToString();
             txtNfornecedor.Text = row.Cells[1].Value.ToString();
@@ -487,7 +479,6 @@ namespace Aplicativo
             {
                 u.ApenasNumeros();
             }
-
         }
 
         private void txtCfornecedor_TextChanged(object sender, EventArgs e)
@@ -570,7 +561,3 @@ namespace Aplicativo
     
     }
 }
-    
-
-
-

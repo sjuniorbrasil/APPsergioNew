@@ -252,6 +252,7 @@ namespace Aplicativo.ClassesEntidades
             {
                 return true;
             }
-        }
+        }        
+        
     }
 }

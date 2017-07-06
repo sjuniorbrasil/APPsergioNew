@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Aplicativo.ClassesEntidades
 {
@@ -31,6 +33,7 @@ namespace Aplicativo.ClassesEntidades
 
         [Column("cod_cliente")]
         public int ClienteID { get; set; }
+        
 
         public Pedido()
         {

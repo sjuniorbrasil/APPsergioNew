@@ -281,43 +281,56 @@ namespace Aplicativo
                 nota.transp.xMun = "São Lucas";
                 nota.transp.UF = "RO";
                 //produstos
-                var notaProduto = new DET();
-                notaProduto.cProd = "123";
-                notaProduto.cEAN = "7896090701049";
-                notaProduto.xProd = "Produto de teste";
-                notaProduto.NCM = "22071090";
-                notaProduto.CFOP = "5401";
-                notaProduto.uCom = "CX";
-                notaProduto.qCom = "1.0000";
-                notaProduto.vUnCom = "1.00000000";
-                notaProduto.vProd = "1.00";
-                notaProduto.cEANTrib = "7896090701049";
-                notaProduto.uTrib = "CX";
-                notaProduto.qTrib = "1.0000";
-                notaProduto.vUnTrib = "1.00000000";
-                notaProduto.indTot = "1";
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    {
+                        
+                        
 
-                notaProduto.icms = ICMS.ICMS102_400;
-                notaProduto.icms_orig = "0";
-                notaProduto.icms_CSOSN = "102";
 
-                notaProduto.ipi = IPI.IPI00_49_50_99;
-                notaProduto.ipi_CST = "99";
-                notaProduto.ipi_vIPI = "0";
+                    var notaProduto = new DET();
+                        notaProduto.cProd = row.Cells["Código"].Value.ToString();
+                        DataView dv = new DataView(DataContext.CarregaProdutos());
 
-                notaProduto.pis = PIS.PIS01_02;
-                notaProduto.pis_CST = "01";
-                notaProduto.pis_vBC = "0";
-                notaProduto.pis_pPIS = "0";
-                notaProduto.pis_vPIS = "0";
+                        notaProduto.cEAN = "7896090701049";
+                        notaProduto.xProd = "Produto de teste";
+                        notaProduto.NCM = "22071090";
+                        notaProduto.CFOP = "5401";
+                        notaProduto.uCom = "CX";
+                        notaProduto.qCom = "1.0000";
+                        notaProduto.vUnCom = "1.00000000";
+                        notaProduto.vProd = "1.00";
+                        notaProduto.cEANTrib = "7896090701049";
+                        notaProduto.uTrib = "CX";
+                        notaProduto.qTrib = "1.0000";
+                        notaProduto.vUnTrib = "1.00000000";
+                        notaProduto.indTot = "1";
 
-                notaProduto.cofins = COFINS.CST01_02;
-                notaProduto.cofins_CST = "01";
-                notaProduto.cofins_vBC = "0";
-                notaProduto.cofins_pCOFINS = "0";
-                notaProduto.cofins_vCOFINS = "0";
+                        notaProduto.icms = ICMS.ICMS102_400;
+                        notaProduto.icms_orig = "0";
+                        notaProduto.icms_CSOSN = "102";
 
-                nota.AddDet(notaProduto);
+                        notaProduto.ipi = IPI.IPI00_49_50_99;
+                        notaProduto.ipi_CST = "99";
+                        notaProduto.ipi_vIPI = "0";
+
+                        notaProduto.pis = PIS.PIS01_02;
+                        notaProduto.pis_CST = "01";
+                        notaProduto.pis_vBC = "0";
+                        notaProduto.pis_pPIS = "0";
+                        notaProduto.pis_vPIS = "0";
+
+                        notaProduto.cofins = COFINS.CST01_02;
+                        notaProduto.cofins_CST = "01";
+                        notaProduto.cofins_vBC = "0";
+                        notaProduto.cofins_pCOFINS = "0";
+                        notaProduto.cofins_vCOFINS = "0";
+
+                        nota.AddDet(notaProduto);
+                    }
+                }
+                
                 //fim de um produto
 
                 nota.total.vBC = "0.00";
