@@ -199,11 +199,11 @@ namespace Aplicativo
                 produtos.OrigemDoProduto = Convert.ToInt32(comboOrigem.SelectedIndex.ToString());
                 int situacao = Convert.ToInt32(comboSituacao.SelectedIndex.ToString());
                 produtos.Situacao = Convert.ToInt32(comboSituacao.SelectedIndex.ToString());
-                produtos.AliqInter = comboAliqINter.SelectedIndex.ToString();
-                produtos.AliqIcms = txtAliqIcms.Text;
-                produtos.AliqIpi = txtAliqIpi.Text;
-                produtos.AliqPis = txtAliqPis.Text;
-                produtos.AliqCofins = txtAliqCofins.Text;
+                produtos.AliqInter = Convert.ToDecimal(comboAliqINter.SelectedIndex.ToString());
+                produtos.AliqIcms = Convert.ToDecimal(txtAliqIcms.Text);
+                produtos.AliqIpi = Convert.ToDecimal(txtAliqIpi.Text);
+                produtos.AliqPis = Convert.ToDecimal(txtAliqPis.Text);
+                produtos.AliqCofins = Convert.ToDecimal(txtAliqCofins.Text);
                 produtos.CstICMS = comboCstIcms.Text;
                 produtos.CstIPI = comboCstIpi.Text;
                 produtos.CstPIS = comboCstPis.Text;

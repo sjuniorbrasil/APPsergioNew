@@ -15,7 +15,7 @@ namespace Aplicativo.ClassesEntidades
         [Column("n_cliente")]
         public string Razao { get; set; }
 
-        public string Fantasia { get; set; }
+        //public string Fantasia { get; set; }
 
         [Column("Endereco")]
         public string Endereco { get; set; }

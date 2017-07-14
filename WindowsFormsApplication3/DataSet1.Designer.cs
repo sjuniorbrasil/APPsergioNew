@@ -66,6 +66,8 @@ namespace Aplicativo {
         
         private filialDataTable tablefilial;
         
+        private NOTAPRODUTODataTable tableNOTAPRODUTO;
+        
         private global::System.Data.DataRelation relationFK_agenda_clientes;
         
         private global::System.Data.DataRelation relationFK_agenda_funcionarios;
@@ -176,6 +178,9 @@ namespace Aplicativo {
                 }
                 if ((ds.Tables["filial"] != null)) {
                     base.Tables.Add(new filialDataTable(ds.Tables["filial"]));
+                }
+                if ((ds.Tables["NOTAPRODUTO"] != null)) {
+                    base.Tables.Add(new NOTAPRODUTODataTable(ds.Tables["NOTAPRODUTO"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -407,6 +412,16 @@ namespace Aplicativo {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public NOTAPRODUTODataTable NOTAPRODUTO {
+            get {
+                return this.tableNOTAPRODUTO;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -534,6 +549,9 @@ namespace Aplicativo {
                 }
                 if ((ds.Tables["filial"] != null)) {
                     base.Tables.Add(new filialDataTable(ds.Tables["filial"]));
+                }
+                if ((ds.Tables["NOTAPRODUTO"] != null)) {
+                    base.Tables.Add(new NOTAPRODUTODataTable(ds.Tables["NOTAPRODUTO"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -694,6 +712,12 @@ namespace Aplicativo {
                     this.tablefilial.InitVars();
                 }
             }
+            this.tableNOTAPRODUTO = ((NOTAPRODUTODataTable)(base.Tables["NOTAPRODUTO"]));
+            if ((initTable == true)) {
+                if ((this.tableNOTAPRODUTO != null)) {
+                    this.tableNOTAPRODUTO.InitVars();
+                }
+            }
             this.relationFK_agenda_clientes = this.Relations["FK_agenda_clientes"];
             this.relationFK_agenda_funcionarios = this.Relations["FK_agenda_funcionarios"];
             this.relationFK_atendimentos_procedimento = this.Relations["FK_atendimentos_procedimento"];
@@ -756,6 +780,8 @@ namespace Aplicativo {
             base.Tables.Add(this.tableESTOQUE);
             this.tablefilial = new filialDataTable();
             base.Tables.Add(this.tablefilial);
+            this.tableNOTAPRODUTO = new NOTAPRODUTODataTable();
+            base.Tables.Add(this.tableNOTAPRODUTO);
             this.relationFK_agenda_clientes = new global::System.Data.DataRelation("FK_agenda_clientes", new global::System.Data.DataColumn[] {
                         this.tableclientes.cod_clienteColumn}, new global::System.Data.DataColumn[] {
                         this.tableagenda.cod_clienteColumn}, false);
@@ -926,6 +952,12 @@ namespace Aplicativo {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeNOTAPRODUTO() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1041,6 +1073,9 @@ namespace Aplicativo {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void filialRowChangeEventHandler(object sender, filialRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void NOTAPRODUTORowChangeEventHandler(object sender, NOTAPRODUTORowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9570,6 +9605,993 @@ namespace Aplicativo {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class NOTAPRODUTODataTable : global::System.Data.TypedTableBase<NOTAPRODUTORow> {
+            
+            private global::System.Data.DataColumn columnNOT_CODIGO;
+            
+            private global::System.Data.DataColumn columnNOP_CODIGO;
+            
+            private global::System.Data.DataColumn columnNOP_TIPO;
+            
+            private global::System.Data.DataColumn columnPRO_CODIGO;
+            
+            private global::System.Data.DataColumn columnNOP_DESCRICAO;
+            
+            private global::System.Data.DataColumn columnNOP_QTDE;
+            
+            private global::System.Data.DataColumn columnNOP_VALOR;
+            
+            private global::System.Data.DataColumn columnNOP_TOTAL;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSBASE;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSALIQ;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSVALOR;
+            
+            private global::System.Data.DataColumn columnNOP_PERCDESC;
+            
+            private global::System.Data.DataColumn columnNOP_CANCELADO;
+            
+            private global::System.Data.DataColumn columnCFO_CODIGO;
+            
+            private global::System.Data.DataColumn columnNOP_IIBASE;
+            
+            private global::System.Data.DataColumn columnNOP_IIVALOR;
+            
+            private global::System.Data.DataColumn columnNOP_IIIOF;
+            
+            private global::System.Data.DataColumn columnNOP_IIDESPADUAN;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSCST;
+            
+            private global::System.Data.DataColumn columnNOP_SUBTOTAL;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSSTBASE;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSSTALIQ;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSSTMVA;
+            
+            private global::System.Data.DataColumn columnNOP_ICMSSTVALOR;
+            
+            private global::System.Data.DataColumn columnNOP_PISCST;
+            
+            private global::System.Data.DataColumn columnNOP_PISBASE;
+            
+            private global::System.Data.DataColumn columnNOP_PISALIQ;
+            
+            private global::System.Data.DataColumn columnNOP_PISVALOR;
+            
+            private global::System.Data.DataColumn columnNOP_COFINSCST;
+            
+            private global::System.Data.DataColumn columnNOP_COFINSBASE;
+            
+            private global::System.Data.DataColumn columnNOP_COFINSALIQ;
+            
+            private global::System.Data.DataColumn columnNOP_COFINSVALOR;
+            
+            private global::System.Data.DataColumn columnNOP_CSOSN;
+            
+            private global::System.Data.DataColumn columnNOP_IPIBASE;
+            
+            private global::System.Data.DataColumn columnNOP_IPIALIQ;
+            
+            private global::System.Data.DataColumn columnNOP_IPIVALOR;
+            
+            private global::System.Data.DataColumn columnNOP_AVULSO;
+            
+            private global::System.Data.DataColumn columnFIL_CODIGO;
+            
+            private global::System.Data.DataColumn columnNOP_DATA;
+            
+            private global::System.Data.DataColumn columnNOP_IPICST;
+            
+            private global::System.Data.DataColumn columnNOP_TOTIMPOSTO;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_VBCUFDEST;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_PFCPUFDEST;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_PICMSUFDEST;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_PICMSINTER;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_PICMSINTERPART;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_VFCPUFDEST;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_VICMSUFDEST;
+            
+            private global::System.Data.DataColumn columnNOP_DIFAL_VICMSUFREMET;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTODataTable() {
+                this.TableName = "NOTAPRODUTO";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal NOTAPRODUTODataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected NOTAPRODUTODataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOT_CODIGOColumn {
+                get {
+                    return this.columnNOT_CODIGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_CODIGOColumn {
+                get {
+                    return this.columnNOP_CODIGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_TIPOColumn {
+                get {
+                    return this.columnNOP_TIPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PRO_CODIGOColumn {
+                get {
+                    return this.columnPRO_CODIGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DESCRICAOColumn {
+                get {
+                    return this.columnNOP_DESCRICAO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_QTDEColumn {
+                get {
+                    return this.columnNOP_QTDE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_VALORColumn {
+                get {
+                    return this.columnNOP_VALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_TOTALColumn {
+                get {
+                    return this.columnNOP_TOTAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSBASEColumn {
+                get {
+                    return this.columnNOP_ICMSBASE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSALIQColumn {
+                get {
+                    return this.columnNOP_ICMSALIQ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSVALORColumn {
+                get {
+                    return this.columnNOP_ICMSVALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_PERCDESCColumn {
+                get {
+                    return this.columnNOP_PERCDESC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_CANCELADOColumn {
+                get {
+                    return this.columnNOP_CANCELADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CFO_CODIGOColumn {
+                get {
+                    return this.columnCFO_CODIGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IIBASEColumn {
+                get {
+                    return this.columnNOP_IIBASE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IIVALORColumn {
+                get {
+                    return this.columnNOP_IIVALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IIIOFColumn {
+                get {
+                    return this.columnNOP_IIIOF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IIDESPADUANColumn {
+                get {
+                    return this.columnNOP_IIDESPADUAN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSCSTColumn {
+                get {
+                    return this.columnNOP_ICMSCST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_SUBTOTALColumn {
+                get {
+                    return this.columnNOP_SUBTOTAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSSTBASEColumn {
+                get {
+                    return this.columnNOP_ICMSSTBASE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSSTALIQColumn {
+                get {
+                    return this.columnNOP_ICMSSTALIQ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSSTMVAColumn {
+                get {
+                    return this.columnNOP_ICMSSTMVA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_ICMSSTVALORColumn {
+                get {
+                    return this.columnNOP_ICMSSTVALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_PISCSTColumn {
+                get {
+                    return this.columnNOP_PISCST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_PISBASEColumn {
+                get {
+                    return this.columnNOP_PISBASE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_PISALIQColumn {
+                get {
+                    return this.columnNOP_PISALIQ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_PISVALORColumn {
+                get {
+                    return this.columnNOP_PISVALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_COFINSCSTColumn {
+                get {
+                    return this.columnNOP_COFINSCST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_COFINSBASEColumn {
+                get {
+                    return this.columnNOP_COFINSBASE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_COFINSALIQColumn {
+                get {
+                    return this.columnNOP_COFINSALIQ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_COFINSVALORColumn {
+                get {
+                    return this.columnNOP_COFINSVALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_CSOSNColumn {
+                get {
+                    return this.columnNOP_CSOSN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IPIBASEColumn {
+                get {
+                    return this.columnNOP_IPIBASE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IPIALIQColumn {
+                get {
+                    return this.columnNOP_IPIALIQ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IPIVALORColumn {
+                get {
+                    return this.columnNOP_IPIVALOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_AVULSOColumn {
+                get {
+                    return this.columnNOP_AVULSO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FIL_CODIGOColumn {
+                get {
+                    return this.columnFIL_CODIGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DATAColumn {
+                get {
+                    return this.columnNOP_DATA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_IPICSTColumn {
+                get {
+                    return this.columnNOP_IPICST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_TOTIMPOSTOColumn {
+                get {
+                    return this.columnNOP_TOTIMPOSTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_VBCUFDESTColumn {
+                get {
+                    return this.columnNOP_DIFAL_VBCUFDEST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_PFCPUFDESTColumn {
+                get {
+                    return this.columnNOP_DIFAL_PFCPUFDEST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_PICMSUFDESTColumn {
+                get {
+                    return this.columnNOP_DIFAL_PICMSUFDEST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_PICMSINTERColumn {
+                get {
+                    return this.columnNOP_DIFAL_PICMSINTER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_PICMSINTERPARTColumn {
+                get {
+                    return this.columnNOP_DIFAL_PICMSINTERPART;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_VFCPUFDESTColumn {
+                get {
+                    return this.columnNOP_DIFAL_VFCPUFDEST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_VICMSUFDESTColumn {
+                get {
+                    return this.columnNOP_DIFAL_VICMSUFDEST;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOP_DIFAL_VICMSUFREMETColumn {
+                get {
+                    return this.columnNOP_DIFAL_VICMSUFREMET;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTORow this[int index] {
+                get {
+                    return ((NOTAPRODUTORow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event NOTAPRODUTORowChangeEventHandler NOTAPRODUTORowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event NOTAPRODUTORowChangeEventHandler NOTAPRODUTORowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event NOTAPRODUTORowChangeEventHandler NOTAPRODUTORowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event NOTAPRODUTORowChangeEventHandler NOTAPRODUTORowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddNOTAPRODUTORow(NOTAPRODUTORow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTORow AddNOTAPRODUTORow(
+                        int NOT_CODIGO, 
+                        int NOP_CODIGO, 
+                        short NOP_TIPO, 
+                        int PRO_CODIGO, 
+                        string NOP_DESCRICAO, 
+                        decimal NOP_QTDE, 
+                        decimal NOP_VALOR, 
+                        decimal NOP_TOTAL, 
+                        decimal NOP_ICMSBASE, 
+                        decimal NOP_ICMSALIQ, 
+                        decimal NOP_ICMSVALOR, 
+                        decimal NOP_PERCDESC, 
+                        short NOP_CANCELADO, 
+                        int CFO_CODIGO, 
+                        decimal NOP_IIBASE, 
+                        decimal NOP_IIVALOR, 
+                        decimal NOP_IIIOF, 
+                        decimal NOP_IIDESPADUAN, 
+                        string NOP_ICMSCST, 
+                        decimal NOP_SUBTOTAL, 
+                        decimal NOP_ICMSSTBASE, 
+                        decimal NOP_ICMSSTALIQ, 
+                        decimal NOP_ICMSSTMVA, 
+                        decimal NOP_ICMSSTVALOR, 
+                        string NOP_PISCST, 
+                        decimal NOP_PISBASE, 
+                        decimal NOP_PISALIQ, 
+                        decimal NOP_PISVALOR, 
+                        string NOP_COFINSCST, 
+                        decimal NOP_COFINSBASE, 
+                        decimal NOP_COFINSALIQ, 
+                        decimal NOP_COFINSVALOR, 
+                        string NOP_CSOSN, 
+                        decimal NOP_IPIBASE, 
+                        decimal NOP_IPIALIQ, 
+                        decimal NOP_IPIVALOR, 
+                        short NOP_AVULSO, 
+                        int FIL_CODIGO, 
+                        System.DateTime NOP_DATA, 
+                        string NOP_IPICST, 
+                        decimal NOP_TOTIMPOSTO, 
+                        decimal NOP_DIFAL_VBCUFDEST, 
+                        decimal NOP_DIFAL_PFCPUFDEST, 
+                        decimal NOP_DIFAL_PICMSUFDEST, 
+                        decimal NOP_DIFAL_PICMSINTER, 
+                        decimal NOP_DIFAL_PICMSINTERPART, 
+                        decimal NOP_DIFAL_VFCPUFDEST, 
+                        decimal NOP_DIFAL_VICMSUFDEST, 
+                        decimal NOP_DIFAL_VICMSUFREMET) {
+                NOTAPRODUTORow rowNOTAPRODUTORow = ((NOTAPRODUTORow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        NOT_CODIGO,
+                        NOP_CODIGO,
+                        NOP_TIPO,
+                        PRO_CODIGO,
+                        NOP_DESCRICAO,
+                        NOP_QTDE,
+                        NOP_VALOR,
+                        NOP_TOTAL,
+                        NOP_ICMSBASE,
+                        NOP_ICMSALIQ,
+                        NOP_ICMSVALOR,
+                        NOP_PERCDESC,
+                        NOP_CANCELADO,
+                        CFO_CODIGO,
+                        NOP_IIBASE,
+                        NOP_IIVALOR,
+                        NOP_IIIOF,
+                        NOP_IIDESPADUAN,
+                        NOP_ICMSCST,
+                        NOP_SUBTOTAL,
+                        NOP_ICMSSTBASE,
+                        NOP_ICMSSTALIQ,
+                        NOP_ICMSSTMVA,
+                        NOP_ICMSSTVALOR,
+                        NOP_PISCST,
+                        NOP_PISBASE,
+                        NOP_PISALIQ,
+                        NOP_PISVALOR,
+                        NOP_COFINSCST,
+                        NOP_COFINSBASE,
+                        NOP_COFINSALIQ,
+                        NOP_COFINSVALOR,
+                        NOP_CSOSN,
+                        NOP_IPIBASE,
+                        NOP_IPIALIQ,
+                        NOP_IPIVALOR,
+                        NOP_AVULSO,
+                        FIL_CODIGO,
+                        NOP_DATA,
+                        NOP_IPICST,
+                        NOP_TOTIMPOSTO,
+                        NOP_DIFAL_VBCUFDEST,
+                        NOP_DIFAL_PFCPUFDEST,
+                        NOP_DIFAL_PICMSUFDEST,
+                        NOP_DIFAL_PICMSINTER,
+                        NOP_DIFAL_PICMSINTERPART,
+                        NOP_DIFAL_VFCPUFDEST,
+                        NOP_DIFAL_VICMSUFDEST,
+                        NOP_DIFAL_VICMSUFREMET};
+                rowNOTAPRODUTORow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowNOTAPRODUTORow);
+                return rowNOTAPRODUTORow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTORow FindByNOT_CODIGONOP_CODIGO(int NOT_CODIGO, int NOP_CODIGO) {
+                return ((NOTAPRODUTORow)(this.Rows.Find(new object[] {
+                            NOT_CODIGO,
+                            NOP_CODIGO})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                NOTAPRODUTODataTable cln = ((NOTAPRODUTODataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new NOTAPRODUTODataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnNOT_CODIGO = base.Columns["NOT_CODIGO"];
+                this.columnNOP_CODIGO = base.Columns["NOP_CODIGO"];
+                this.columnNOP_TIPO = base.Columns["NOP_TIPO"];
+                this.columnPRO_CODIGO = base.Columns["PRO_CODIGO"];
+                this.columnNOP_DESCRICAO = base.Columns["NOP_DESCRICAO"];
+                this.columnNOP_QTDE = base.Columns["NOP_QTDE"];
+                this.columnNOP_VALOR = base.Columns["NOP_VALOR"];
+                this.columnNOP_TOTAL = base.Columns["NOP_TOTAL"];
+                this.columnNOP_ICMSBASE = base.Columns["NOP_ICMSBASE"];
+                this.columnNOP_ICMSALIQ = base.Columns["NOP_ICMSALIQ"];
+                this.columnNOP_ICMSVALOR = base.Columns["NOP_ICMSVALOR"];
+                this.columnNOP_PERCDESC = base.Columns["NOP_PERCDESC"];
+                this.columnNOP_CANCELADO = base.Columns["NOP_CANCELADO"];
+                this.columnCFO_CODIGO = base.Columns["CFO_CODIGO"];
+                this.columnNOP_IIBASE = base.Columns["NOP_IIBASE"];
+                this.columnNOP_IIVALOR = base.Columns["NOP_IIVALOR"];
+                this.columnNOP_IIIOF = base.Columns["NOP_IIIOF"];
+                this.columnNOP_IIDESPADUAN = base.Columns["NOP_IIDESPADUAN"];
+                this.columnNOP_ICMSCST = base.Columns["NOP_ICMSCST"];
+                this.columnNOP_SUBTOTAL = base.Columns["NOP_SUBTOTAL"];
+                this.columnNOP_ICMSSTBASE = base.Columns["NOP_ICMSSTBASE"];
+                this.columnNOP_ICMSSTALIQ = base.Columns["NOP_ICMSSTALIQ"];
+                this.columnNOP_ICMSSTMVA = base.Columns["NOP_ICMSSTMVA"];
+                this.columnNOP_ICMSSTVALOR = base.Columns["NOP_ICMSSTVALOR"];
+                this.columnNOP_PISCST = base.Columns["NOP_PISCST"];
+                this.columnNOP_PISBASE = base.Columns["NOP_PISBASE"];
+                this.columnNOP_PISALIQ = base.Columns["NOP_PISALIQ"];
+                this.columnNOP_PISVALOR = base.Columns["NOP_PISVALOR"];
+                this.columnNOP_COFINSCST = base.Columns["NOP_COFINSCST"];
+                this.columnNOP_COFINSBASE = base.Columns["NOP_COFINSBASE"];
+                this.columnNOP_COFINSALIQ = base.Columns["NOP_COFINSALIQ"];
+                this.columnNOP_COFINSVALOR = base.Columns["NOP_COFINSVALOR"];
+                this.columnNOP_CSOSN = base.Columns["NOP_CSOSN"];
+                this.columnNOP_IPIBASE = base.Columns["NOP_IPIBASE"];
+                this.columnNOP_IPIALIQ = base.Columns["NOP_IPIALIQ"];
+                this.columnNOP_IPIVALOR = base.Columns["NOP_IPIVALOR"];
+                this.columnNOP_AVULSO = base.Columns["NOP_AVULSO"];
+                this.columnFIL_CODIGO = base.Columns["FIL_CODIGO"];
+                this.columnNOP_DATA = base.Columns["NOP_DATA"];
+                this.columnNOP_IPICST = base.Columns["NOP_IPICST"];
+                this.columnNOP_TOTIMPOSTO = base.Columns["NOP_TOTIMPOSTO"];
+                this.columnNOP_DIFAL_VBCUFDEST = base.Columns["NOP_DIFAL_VBCUFDEST"];
+                this.columnNOP_DIFAL_PFCPUFDEST = base.Columns["NOP_DIFAL_PFCPUFDEST"];
+                this.columnNOP_DIFAL_PICMSUFDEST = base.Columns["NOP_DIFAL_PICMSUFDEST"];
+                this.columnNOP_DIFAL_PICMSINTER = base.Columns["NOP_DIFAL_PICMSINTER"];
+                this.columnNOP_DIFAL_PICMSINTERPART = base.Columns["NOP_DIFAL_PICMSINTERPART"];
+                this.columnNOP_DIFAL_VFCPUFDEST = base.Columns["NOP_DIFAL_VFCPUFDEST"];
+                this.columnNOP_DIFAL_VICMSUFDEST = base.Columns["NOP_DIFAL_VICMSUFDEST"];
+                this.columnNOP_DIFAL_VICMSUFREMET = base.Columns["NOP_DIFAL_VICMSUFREMET"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnNOT_CODIGO = new global::System.Data.DataColumn("NOT_CODIGO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOT_CODIGO);
+                this.columnNOP_CODIGO = new global::System.Data.DataColumn("NOP_CODIGO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_CODIGO);
+                this.columnNOP_TIPO = new global::System.Data.DataColumn("NOP_TIPO", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_TIPO);
+                this.columnPRO_CODIGO = new global::System.Data.DataColumn("PRO_CODIGO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPRO_CODIGO);
+                this.columnNOP_DESCRICAO = new global::System.Data.DataColumn("NOP_DESCRICAO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DESCRICAO);
+                this.columnNOP_QTDE = new global::System.Data.DataColumn("NOP_QTDE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_QTDE);
+                this.columnNOP_VALOR = new global::System.Data.DataColumn("NOP_VALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_VALOR);
+                this.columnNOP_TOTAL = new global::System.Data.DataColumn("NOP_TOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_TOTAL);
+                this.columnNOP_ICMSBASE = new global::System.Data.DataColumn("NOP_ICMSBASE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSBASE);
+                this.columnNOP_ICMSALIQ = new global::System.Data.DataColumn("NOP_ICMSALIQ", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSALIQ);
+                this.columnNOP_ICMSVALOR = new global::System.Data.DataColumn("NOP_ICMSVALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSVALOR);
+                this.columnNOP_PERCDESC = new global::System.Data.DataColumn("NOP_PERCDESC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_PERCDESC);
+                this.columnNOP_CANCELADO = new global::System.Data.DataColumn("NOP_CANCELADO", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_CANCELADO);
+                this.columnCFO_CODIGO = new global::System.Data.DataColumn("CFO_CODIGO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCFO_CODIGO);
+                this.columnNOP_IIBASE = new global::System.Data.DataColumn("NOP_IIBASE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IIBASE);
+                this.columnNOP_IIVALOR = new global::System.Data.DataColumn("NOP_IIVALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IIVALOR);
+                this.columnNOP_IIIOF = new global::System.Data.DataColumn("NOP_IIIOF", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IIIOF);
+                this.columnNOP_IIDESPADUAN = new global::System.Data.DataColumn("NOP_IIDESPADUAN", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IIDESPADUAN);
+                this.columnNOP_ICMSCST = new global::System.Data.DataColumn("NOP_ICMSCST", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSCST);
+                this.columnNOP_SUBTOTAL = new global::System.Data.DataColumn("NOP_SUBTOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_SUBTOTAL);
+                this.columnNOP_ICMSSTBASE = new global::System.Data.DataColumn("NOP_ICMSSTBASE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSSTBASE);
+                this.columnNOP_ICMSSTALIQ = new global::System.Data.DataColumn("NOP_ICMSSTALIQ", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSSTALIQ);
+                this.columnNOP_ICMSSTMVA = new global::System.Data.DataColumn("NOP_ICMSSTMVA", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSSTMVA);
+                this.columnNOP_ICMSSTVALOR = new global::System.Data.DataColumn("NOP_ICMSSTVALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_ICMSSTVALOR);
+                this.columnNOP_PISCST = new global::System.Data.DataColumn("NOP_PISCST", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_PISCST);
+                this.columnNOP_PISBASE = new global::System.Data.DataColumn("NOP_PISBASE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_PISBASE);
+                this.columnNOP_PISALIQ = new global::System.Data.DataColumn("NOP_PISALIQ", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_PISALIQ);
+                this.columnNOP_PISVALOR = new global::System.Data.DataColumn("NOP_PISVALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_PISVALOR);
+                this.columnNOP_COFINSCST = new global::System.Data.DataColumn("NOP_COFINSCST", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_COFINSCST);
+                this.columnNOP_COFINSBASE = new global::System.Data.DataColumn("NOP_COFINSBASE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_COFINSBASE);
+                this.columnNOP_COFINSALIQ = new global::System.Data.DataColumn("NOP_COFINSALIQ", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_COFINSALIQ);
+                this.columnNOP_COFINSVALOR = new global::System.Data.DataColumn("NOP_COFINSVALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_COFINSVALOR);
+                this.columnNOP_CSOSN = new global::System.Data.DataColumn("NOP_CSOSN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_CSOSN);
+                this.columnNOP_IPIBASE = new global::System.Data.DataColumn("NOP_IPIBASE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IPIBASE);
+                this.columnNOP_IPIALIQ = new global::System.Data.DataColumn("NOP_IPIALIQ", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IPIALIQ);
+                this.columnNOP_IPIVALOR = new global::System.Data.DataColumn("NOP_IPIVALOR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IPIVALOR);
+                this.columnNOP_AVULSO = new global::System.Data.DataColumn("NOP_AVULSO", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_AVULSO);
+                this.columnFIL_CODIGO = new global::System.Data.DataColumn("FIL_CODIGO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFIL_CODIGO);
+                this.columnNOP_DATA = new global::System.Data.DataColumn("NOP_DATA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DATA);
+                this.columnNOP_IPICST = new global::System.Data.DataColumn("NOP_IPICST", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_IPICST);
+                this.columnNOP_TOTIMPOSTO = new global::System.Data.DataColumn("NOP_TOTIMPOSTO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_TOTIMPOSTO);
+                this.columnNOP_DIFAL_VBCUFDEST = new global::System.Data.DataColumn("NOP_DIFAL_VBCUFDEST", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_VBCUFDEST);
+                this.columnNOP_DIFAL_PFCPUFDEST = new global::System.Data.DataColumn("NOP_DIFAL_PFCPUFDEST", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_PFCPUFDEST);
+                this.columnNOP_DIFAL_PICMSUFDEST = new global::System.Data.DataColumn("NOP_DIFAL_PICMSUFDEST", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_PICMSUFDEST);
+                this.columnNOP_DIFAL_PICMSINTER = new global::System.Data.DataColumn("NOP_DIFAL_PICMSINTER", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_PICMSINTER);
+                this.columnNOP_DIFAL_PICMSINTERPART = new global::System.Data.DataColumn("NOP_DIFAL_PICMSINTERPART", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_PICMSINTERPART);
+                this.columnNOP_DIFAL_VFCPUFDEST = new global::System.Data.DataColumn("NOP_DIFAL_VFCPUFDEST", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_VFCPUFDEST);
+                this.columnNOP_DIFAL_VICMSUFDEST = new global::System.Data.DataColumn("NOP_DIFAL_VICMSUFDEST", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_VICMSUFDEST);
+                this.columnNOP_DIFAL_VICMSUFREMET = new global::System.Data.DataColumn("NOP_DIFAL_VICMSUFREMET", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOP_DIFAL_VICMSUFREMET);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnNOT_CODIGO,
+                                this.columnNOP_CODIGO}, true));
+                this.columnNOT_CODIGO.AllowDBNull = false;
+                this.columnNOP_CODIGO.AllowDBNull = false;
+                this.columnNOP_DESCRICAO.MaxLength = 100;
+                this.columnNOP_ICMSCST.MaxLength = 10;
+                this.columnNOP_PISCST.MaxLength = 10;
+                this.columnNOP_COFINSCST.MaxLength = 10;
+                this.columnNOP_CSOSN.MaxLength = 10;
+                this.columnNOP_IPICST.MaxLength = 10;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTORow NewNOTAPRODUTORow() {
+                return ((NOTAPRODUTORow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new NOTAPRODUTORow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(NOTAPRODUTORow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.NOTAPRODUTORowChanged != null)) {
+                    this.NOTAPRODUTORowChanged(this, new NOTAPRODUTORowChangeEvent(((NOTAPRODUTORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.NOTAPRODUTORowChanging != null)) {
+                    this.NOTAPRODUTORowChanging(this, new NOTAPRODUTORowChangeEvent(((NOTAPRODUTORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.NOTAPRODUTORowDeleted != null)) {
+                    this.NOTAPRODUTORowDeleted(this, new NOTAPRODUTORowChangeEvent(((NOTAPRODUTORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.NOTAPRODUTORowDeleting != null)) {
+                    this.NOTAPRODUTORowDeleting(this, new NOTAPRODUTORowChangeEvent(((NOTAPRODUTORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveNOTAPRODUTORow(NOTAPRODUTORow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "NOTAPRODUTODataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class cidadesRow : global::System.Data.DataRow {
@@ -15850,6 +16872,1360 @@ namespace Aplicativo {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class NOTAPRODUTORow : global::System.Data.DataRow {
+            
+            private NOTAPRODUTODataTable tableNOTAPRODUTO;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal NOTAPRODUTORow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableNOTAPRODUTO = ((NOTAPRODUTODataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int NOT_CODIGO {
+                get {
+                    return ((int)(this[this.tableNOTAPRODUTO.NOT_CODIGOColumn]));
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOT_CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int NOP_CODIGO {
+                get {
+                    return ((int)(this[this.tableNOTAPRODUTO.NOP_CODIGOColumn]));
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short NOP_TIPO {
+                get {
+                    try {
+                        return ((short)(this[this.tableNOTAPRODUTO.NOP_TIPOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_TIPO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_TIPOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PRO_CODIGO {
+                get {
+                    try {
+                        return ((int)(this[this.tableNOTAPRODUTO.PRO_CODIGOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PRO_CODIGO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.PRO_CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOP_DESCRICAO {
+                get {
+                    try {
+                        return ((string)(this[this.tableNOTAPRODUTO.NOP_DESCRICAOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DESCRICAO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DESCRICAOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_QTDE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_QTDEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_QTDE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_QTDEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_VALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_VALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_VALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_VALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_TOTAL {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_TOTALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_TOTAL\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_TOTALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSBASE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSBASEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSBASE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSBASEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSALIQ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSALIQColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSALIQ\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSALIQColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSVALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSVALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSVALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSVALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_PERCDESC {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_PERCDESCColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_PERCDESC\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_PERCDESCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short NOP_CANCELADO {
+                get {
+                    try {
+                        return ((short)(this[this.tableNOTAPRODUTO.NOP_CANCELADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_CANCELADO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_CANCELADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CFO_CODIGO {
+                get {
+                    try {
+                        return ((int)(this[this.tableNOTAPRODUTO.CFO_CODIGOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CFO_CODIGO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.CFO_CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IIBASE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IIBASEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IIBASE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IIBASEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IIVALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IIVALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IIVALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IIVALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IIIOF {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IIIOFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IIIOF\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IIIOFColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IIDESPADUAN {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IIDESPADUANColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IIDESPADUAN\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IIDESPADUANColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOP_ICMSCST {
+                get {
+                    try {
+                        return ((string)(this[this.tableNOTAPRODUTO.NOP_ICMSCSTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSCST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSCSTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_SUBTOTAL {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_SUBTOTALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_SUBTOTAL\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_SUBTOTALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSSTBASE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSSTBASEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSSTBASE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSSTBASEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSSTALIQ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSSTALIQColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSSTALIQ\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSSTALIQColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSSTMVA {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSSTMVAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSSTMVA\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSSTMVAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_ICMSSTVALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_ICMSSTVALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_ICMSSTVALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_ICMSSTVALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOP_PISCST {
+                get {
+                    try {
+                        return ((string)(this[this.tableNOTAPRODUTO.NOP_PISCSTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_PISCST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_PISCSTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_PISBASE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_PISBASEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_PISBASE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_PISBASEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_PISALIQ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_PISALIQColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_PISALIQ\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_PISALIQColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_PISVALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_PISVALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_PISVALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_PISVALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOP_COFINSCST {
+                get {
+                    try {
+                        return ((string)(this[this.tableNOTAPRODUTO.NOP_COFINSCSTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_COFINSCST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_COFINSCSTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_COFINSBASE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_COFINSBASEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_COFINSBASE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_COFINSBASEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_COFINSALIQ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_COFINSALIQColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_COFINSALIQ\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_COFINSALIQColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_COFINSVALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_COFINSVALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_COFINSVALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_COFINSVALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOP_CSOSN {
+                get {
+                    try {
+                        return ((string)(this[this.tableNOTAPRODUTO.NOP_CSOSNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_CSOSN\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_CSOSNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IPIBASE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IPIBASEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IPIBASE\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IPIBASEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IPIALIQ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IPIALIQColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IPIALIQ\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IPIALIQColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_IPIVALOR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_IPIVALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IPIVALOR\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IPIVALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short NOP_AVULSO {
+                get {
+                    try {
+                        return ((short)(this[this.tableNOTAPRODUTO.NOP_AVULSOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_AVULSO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_AVULSOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int FIL_CODIGO {
+                get {
+                    try {
+                        return ((int)(this[this.tableNOTAPRODUTO.FIL_CODIGOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FIL_CODIGO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.FIL_CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime NOP_DATA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableNOTAPRODUTO.NOP_DATAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DATA\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DATAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOP_IPICST {
+                get {
+                    try {
+                        return ((string)(this[this.tableNOTAPRODUTO.NOP_IPICSTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_IPICST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_IPICSTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_TOTIMPOSTO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_TOTIMPOSTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_TOTIMPOSTO\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_TOTIMPOSTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_VBCUFDEST {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_VBCUFDESTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_VBCUFDEST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_VBCUFDESTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_PFCPUFDEST {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_PFCPUFDESTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_PFCPUFDEST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_PFCPUFDESTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_PICMSUFDEST {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSUFDESTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_PICMSUFDEST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSUFDESTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_PICMSINTER {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_PICMSINTER\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_PICMSINTERPART {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERPARTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_PICMSINTERPART\' in table \'NOTAPRODUTO\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERPARTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_VFCPUFDEST {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_VFCPUFDESTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_VFCPUFDEST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_VFCPUFDESTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_VICMSUFDEST {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFDESTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_VICMSUFDEST\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFDESTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NOP_DIFAL_VICMSUFREMET {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFREMETColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOP_DIFAL_VICMSUFREMET\' in table \'NOTAPRODUTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFREMETColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_TIPONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_TIPOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_TIPONull() {
+                this[this.tableNOTAPRODUTO.NOP_TIPOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPRO_CODIGONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.PRO_CODIGOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPRO_CODIGONull() {
+                this[this.tableNOTAPRODUTO.PRO_CODIGOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DESCRICAONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DESCRICAOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DESCRICAONull() {
+                this[this.tableNOTAPRODUTO.NOP_DESCRICAOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_QTDENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_QTDEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_QTDENull() {
+                this[this.tableNOTAPRODUTO.NOP_QTDEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_VALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_VALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_VALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_VALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_TOTALNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_TOTALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_TOTALNull() {
+                this[this.tableNOTAPRODUTO.NOP_TOTALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSBASENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSBASEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSBASENull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSBASEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSALIQNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSALIQColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSALIQNull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSALIQColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSVALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSVALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSVALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSVALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_PERCDESCNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_PERCDESCColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_PERCDESCNull() {
+                this[this.tableNOTAPRODUTO.NOP_PERCDESCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_CANCELADONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_CANCELADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_CANCELADONull() {
+                this[this.tableNOTAPRODUTO.NOP_CANCELADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCFO_CODIGONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.CFO_CODIGOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCFO_CODIGONull() {
+                this[this.tableNOTAPRODUTO.CFO_CODIGOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IIBASENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IIBASEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IIBASENull() {
+                this[this.tableNOTAPRODUTO.NOP_IIBASEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IIVALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IIVALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IIVALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_IIVALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IIIOFNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IIIOFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IIIOFNull() {
+                this[this.tableNOTAPRODUTO.NOP_IIIOFColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IIDESPADUANNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IIDESPADUANColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IIDESPADUANNull() {
+                this[this.tableNOTAPRODUTO.NOP_IIDESPADUANColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSCSTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSCSTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSCSTNull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSCSTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_SUBTOTALNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_SUBTOTALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_SUBTOTALNull() {
+                this[this.tableNOTAPRODUTO.NOP_SUBTOTALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSSTBASENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSSTBASEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSSTBASENull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSSTBASEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSSTALIQNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSSTALIQColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSSTALIQNull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSSTALIQColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSSTMVANull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSSTMVAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSSTMVANull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSSTMVAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_ICMSSTVALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_ICMSSTVALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_ICMSSTVALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_ICMSSTVALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_PISCSTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_PISCSTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_PISCSTNull() {
+                this[this.tableNOTAPRODUTO.NOP_PISCSTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_PISBASENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_PISBASEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_PISBASENull() {
+                this[this.tableNOTAPRODUTO.NOP_PISBASEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_PISALIQNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_PISALIQColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_PISALIQNull() {
+                this[this.tableNOTAPRODUTO.NOP_PISALIQColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_PISVALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_PISVALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_PISVALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_PISVALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_COFINSCSTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_COFINSCSTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_COFINSCSTNull() {
+                this[this.tableNOTAPRODUTO.NOP_COFINSCSTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_COFINSBASENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_COFINSBASEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_COFINSBASENull() {
+                this[this.tableNOTAPRODUTO.NOP_COFINSBASEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_COFINSALIQNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_COFINSALIQColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_COFINSALIQNull() {
+                this[this.tableNOTAPRODUTO.NOP_COFINSALIQColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_COFINSVALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_COFINSVALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_COFINSVALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_COFINSVALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_CSOSNNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_CSOSNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_CSOSNNull() {
+                this[this.tableNOTAPRODUTO.NOP_CSOSNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IPIBASENull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IPIBASEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IPIBASENull() {
+                this[this.tableNOTAPRODUTO.NOP_IPIBASEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IPIALIQNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IPIALIQColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IPIALIQNull() {
+                this[this.tableNOTAPRODUTO.NOP_IPIALIQColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IPIVALORNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IPIVALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IPIVALORNull() {
+                this[this.tableNOTAPRODUTO.NOP_IPIVALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_AVULSONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_AVULSOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_AVULSONull() {
+                this[this.tableNOTAPRODUTO.NOP_AVULSOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFIL_CODIGONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.FIL_CODIGOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFIL_CODIGONull() {
+                this[this.tableNOTAPRODUTO.FIL_CODIGOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DATANull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DATAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DATANull() {
+                this[this.tableNOTAPRODUTO.NOP_DATAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_IPICSTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_IPICSTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_IPICSTNull() {
+                this[this.tableNOTAPRODUTO.NOP_IPICSTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_TOTIMPOSTONull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_TOTIMPOSTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_TOTIMPOSTONull() {
+                this[this.tableNOTAPRODUTO.NOP_TOTIMPOSTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_VBCUFDESTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_VBCUFDESTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_VBCUFDESTNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_VBCUFDESTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_PFCPUFDESTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_PFCPUFDESTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_PFCPUFDESTNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_PFCPUFDESTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_PICMSUFDESTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_PICMSUFDESTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_PICMSUFDESTNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSUFDESTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_PICMSINTERNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_PICMSINTERNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_PICMSINTERPARTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERPARTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_PICMSINTERPARTNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_PICMSINTERPARTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_VFCPUFDESTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_VFCPUFDESTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_VFCPUFDESTNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_VFCPUFDESTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_VICMSUFDESTNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFDESTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_VICMSUFDESTNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFDESTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOP_DIFAL_VICMSUFREMETNull() {
+                return this.IsNull(this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFREMETColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOP_DIFAL_VICMSUFREMETNull() {
+                this[this.tableNOTAPRODUTO.NOP_DIFAL_VICMSUFREMETColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -16549,6 +18925,40 @@ namespace Aplicativo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public filialRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class NOTAPRODUTORowChangeEvent : global::System.EventArgs {
+            
+            private NOTAPRODUTORow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTORowChangeEvent(NOTAPRODUTORow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public NOTAPRODUTORow Row {
                 get {
                     return this.eventRow;
                 }
@@ -29231,6 +31641,2430 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class NOTAPRODUTOTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public NOTAPRODUTOTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "NOTAPRODUTO";
+            tableMapping.ColumnMappings.Add("NOT_CODIGO", "NOT_CODIGO");
+            tableMapping.ColumnMappings.Add("NOP_CODIGO", "NOP_CODIGO");
+            tableMapping.ColumnMappings.Add("NOP_TIPO", "NOP_TIPO");
+            tableMapping.ColumnMappings.Add("PRO_CODIGO", "PRO_CODIGO");
+            tableMapping.ColumnMappings.Add("NOP_DESCRICAO", "NOP_DESCRICAO");
+            tableMapping.ColumnMappings.Add("NOP_QTDE", "NOP_QTDE");
+            tableMapping.ColumnMappings.Add("NOP_VALOR", "NOP_VALOR");
+            tableMapping.ColumnMappings.Add("NOP_TOTAL", "NOP_TOTAL");
+            tableMapping.ColumnMappings.Add("NOP_ICMSBASE", "NOP_ICMSBASE");
+            tableMapping.ColumnMappings.Add("NOP_ICMSALIQ", "NOP_ICMSALIQ");
+            tableMapping.ColumnMappings.Add("NOP_ICMSVALOR", "NOP_ICMSVALOR");
+            tableMapping.ColumnMappings.Add("NOP_PERCDESC", "NOP_PERCDESC");
+            tableMapping.ColumnMappings.Add("NOP_CANCELADO", "NOP_CANCELADO");
+            tableMapping.ColumnMappings.Add("CFO_CODIGO", "CFO_CODIGO");
+            tableMapping.ColumnMappings.Add("NOP_IIBASE", "NOP_IIBASE");
+            tableMapping.ColumnMappings.Add("NOP_IIVALOR", "NOP_IIVALOR");
+            tableMapping.ColumnMappings.Add("NOP_IIIOF", "NOP_IIIOF");
+            tableMapping.ColumnMappings.Add("NOP_IIDESPADUAN", "NOP_IIDESPADUAN");
+            tableMapping.ColumnMappings.Add("NOP_ICMSCST", "NOP_ICMSCST");
+            tableMapping.ColumnMappings.Add("NOP_SUBTOTAL", "NOP_SUBTOTAL");
+            tableMapping.ColumnMappings.Add("NOP_ICMSSTBASE", "NOP_ICMSSTBASE");
+            tableMapping.ColumnMappings.Add("NOP_ICMSSTALIQ", "NOP_ICMSSTALIQ");
+            tableMapping.ColumnMappings.Add("NOP_ICMSSTMVA", "NOP_ICMSSTMVA");
+            tableMapping.ColumnMappings.Add("NOP_ICMSSTVALOR", "NOP_ICMSSTVALOR");
+            tableMapping.ColumnMappings.Add("NOP_PISCST", "NOP_PISCST");
+            tableMapping.ColumnMappings.Add("NOP_PISBASE", "NOP_PISBASE");
+            tableMapping.ColumnMappings.Add("NOP_PISALIQ", "NOP_PISALIQ");
+            tableMapping.ColumnMappings.Add("NOP_PISVALOR", "NOP_PISVALOR");
+            tableMapping.ColumnMappings.Add("NOP_COFINSCST", "NOP_COFINSCST");
+            tableMapping.ColumnMappings.Add("NOP_COFINSBASE", "NOP_COFINSBASE");
+            tableMapping.ColumnMappings.Add("NOP_COFINSALIQ", "NOP_COFINSALIQ");
+            tableMapping.ColumnMappings.Add("NOP_COFINSVALOR", "NOP_COFINSVALOR");
+            tableMapping.ColumnMappings.Add("NOP_CSOSN", "NOP_CSOSN");
+            tableMapping.ColumnMappings.Add("NOP_IPIBASE", "NOP_IPIBASE");
+            tableMapping.ColumnMappings.Add("NOP_IPIALIQ", "NOP_IPIALIQ");
+            tableMapping.ColumnMappings.Add("NOP_IPIVALOR", "NOP_IPIVALOR");
+            tableMapping.ColumnMappings.Add("NOP_AVULSO", "NOP_AVULSO");
+            tableMapping.ColumnMappings.Add("FIL_CODIGO", "FIL_CODIGO");
+            tableMapping.ColumnMappings.Add("NOP_DATA", "NOP_DATA");
+            tableMapping.ColumnMappings.Add("NOP_IPICST", "NOP_IPICST");
+            tableMapping.ColumnMappings.Add("NOP_TOTIMPOSTO", "NOP_TOTIMPOSTO");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_VBCUFDEST", "NOP_DIFAL_VBCUFDEST");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_PFCPUFDEST", "NOP_DIFAL_PFCPUFDEST");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_PICMSUFDEST", "NOP_DIFAL_PICMSUFDEST");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_PICMSINTER", "NOP_DIFAL_PICMSINTER");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_PICMSINTERPART", "NOP_DIFAL_PICMSINTERPART");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_VFCPUFDEST", "NOP_DIFAL_VFCPUFDEST");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_VICMSUFDEST", "NOP_DIFAL_VICMSUFDEST");
+            tableMapping.ColumnMappings.Add("NOP_DIFAL_VICMSUFREMET", "NOP_DIFAL_VICMSUFREMET");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[NOTAPRODUTO] WHERE (([NOT_CODIGO] = @Original_NOT_CODIGO) AND " +
+                "([NOP_CODIGO] = @Original_NOP_CODIGO) AND ((@IsNull_NOP_TIPO = 1 AND [NOP_TIPO] " +
+                "IS NULL) OR ([NOP_TIPO] = @Original_NOP_TIPO)) AND ((@IsNull_PRO_CODIGO = 1 AND " +
+                "[PRO_CODIGO] IS NULL) OR ([PRO_CODIGO] = @Original_PRO_CODIGO)) AND ((@IsNull_NO" +
+                "P_DESCRICAO = 1 AND [NOP_DESCRICAO] IS NULL) OR ([NOP_DESCRICAO] = @Original_NOP" +
+                "_DESCRICAO)) AND ((@IsNull_NOP_QTDE = 1 AND [NOP_QTDE] IS NULL) OR ([NOP_QTDE] =" +
+                " @Original_NOP_QTDE)) AND ((@IsNull_NOP_VALOR = 1 AND [NOP_VALOR] IS NULL) OR ([" +
+                "NOP_VALOR] = @Original_NOP_VALOR)) AND ((@IsNull_NOP_TOTAL = 1 AND [NOP_TOTAL] I" +
+                "S NULL) OR ([NOP_TOTAL] = @Original_NOP_TOTAL)) AND ((@IsNull_NOP_ICMSBASE = 1 A" +
+                "ND [NOP_ICMSBASE] IS NULL) OR ([NOP_ICMSBASE] = @Original_NOP_ICMSBASE)) AND ((@" +
+                "IsNull_NOP_ICMSALIQ = 1 AND [NOP_ICMSALIQ] IS NULL) OR ([NOP_ICMSALIQ] = @Origin" +
+                "al_NOP_ICMSALIQ)) AND ((@IsNull_NOP_ICMSVALOR = 1 AND [NOP_ICMSVALOR] IS NULL) O" +
+                "R ([NOP_ICMSVALOR] = @Original_NOP_ICMSVALOR)) AND ((@IsNull_NOP_PERCDESC = 1 AN" +
+                "D [NOP_PERCDESC] IS NULL) OR ([NOP_PERCDESC] = @Original_NOP_PERCDESC)) AND ((@I" +
+                "sNull_NOP_CANCELADO = 1 AND [NOP_CANCELADO] IS NULL) OR ([NOP_CANCELADO] = @Orig" +
+                "inal_NOP_CANCELADO)) AND ((@IsNull_CFO_CODIGO = 1 AND [CFO_CODIGO] IS NULL) OR (" +
+                "[CFO_CODIGO] = @Original_CFO_CODIGO)) AND ((@IsNull_NOP_IIBASE = 1 AND [NOP_IIBA" +
+                "SE] IS NULL) OR ([NOP_IIBASE] = @Original_NOP_IIBASE)) AND ((@IsNull_NOP_IIVALOR" +
+                " = 1 AND [NOP_IIVALOR] IS NULL) OR ([NOP_IIVALOR] = @Original_NOP_IIVALOR)) AND " +
+                "((@IsNull_NOP_IIIOF = 1 AND [NOP_IIIOF] IS NULL) OR ([NOP_IIIOF] = @Original_NOP" +
+                "_IIIOF)) AND ((@IsNull_NOP_IIDESPADUAN = 1 AND [NOP_IIDESPADUAN] IS NULL) OR ([N" +
+                "OP_IIDESPADUAN] = @Original_NOP_IIDESPADUAN)) AND ((@IsNull_NOP_ICMSCST = 1 AND " +
+                "[NOP_ICMSCST] IS NULL) OR ([NOP_ICMSCST] = @Original_NOP_ICMSCST)) AND ((@IsNull" +
+                "_NOP_SUBTOTAL = 1 AND [NOP_SUBTOTAL] IS NULL) OR ([NOP_SUBTOTAL] = @Original_NOP" +
+                "_SUBTOTAL)) AND ((@IsNull_NOP_ICMSSTBASE = 1 AND [NOP_ICMSSTBASE] IS NULL) OR ([" +
+                "NOP_ICMSSTBASE] = @Original_NOP_ICMSSTBASE)) AND ((@IsNull_NOP_ICMSSTALIQ = 1 AN" +
+                "D [NOP_ICMSSTALIQ] IS NULL) OR ([NOP_ICMSSTALIQ] = @Original_NOP_ICMSSTALIQ)) AN" +
+                "D ((@IsNull_NOP_ICMSSTMVA = 1 AND [NOP_ICMSSTMVA] IS NULL) OR ([NOP_ICMSSTMVA] =" +
+                " @Original_NOP_ICMSSTMVA)) AND ((@IsNull_NOP_ICMSSTVALOR = 1 AND [NOP_ICMSSTVALO" +
+                "R] IS NULL) OR ([NOP_ICMSSTVALOR] = @Original_NOP_ICMSSTVALOR)) AND ((@IsNull_NO" +
+                "P_PISCST = 1 AND [NOP_PISCST] IS NULL) OR ([NOP_PISCST] = @Original_NOP_PISCST))" +
+                " AND ((@IsNull_NOP_PISBASE = 1 AND [NOP_PISBASE] IS NULL) OR ([NOP_PISBASE] = @O" +
+                "riginal_NOP_PISBASE)) AND ((@IsNull_NOP_PISALIQ = 1 AND [NOP_PISALIQ] IS NULL) O" +
+                "R ([NOP_PISALIQ] = @Original_NOP_PISALIQ)) AND ((@IsNull_NOP_PISVALOR = 1 AND [N" +
+                "OP_PISVALOR] IS NULL) OR ([NOP_PISVALOR] = @Original_NOP_PISVALOR)) AND ((@IsNul" +
+                "l_NOP_COFINSCST = 1 AND [NOP_COFINSCST] IS NULL) OR ([NOP_COFINSCST] = @Original" +
+                "_NOP_COFINSCST)) AND ((@IsNull_NOP_COFINSBASE = 1 AND [NOP_COFINSBASE] IS NULL) " +
+                "OR ([NOP_COFINSBASE] = @Original_NOP_COFINSBASE)) AND ((@IsNull_NOP_COFINSALIQ =" +
+                " 1 AND [NOP_COFINSALIQ] IS NULL) OR ([NOP_COFINSALIQ] = @Original_NOP_COFINSALIQ" +
+                ")) AND ((@IsNull_NOP_COFINSVALOR = 1 AND [NOP_COFINSVALOR] IS NULL) OR ([NOP_COF" +
+                "INSVALOR] = @Original_NOP_COFINSVALOR)) AND ((@IsNull_NOP_CSOSN = 1 AND [NOP_CSO" +
+                "SN] IS NULL) OR ([NOP_CSOSN] = @Original_NOP_CSOSN)) AND ((@IsNull_NOP_IPIBASE =" +
+                " 1 AND [NOP_IPIBASE] IS NULL) OR ([NOP_IPIBASE] = @Original_NOP_IPIBASE)) AND ((" +
+                "@IsNull_NOP_IPIALIQ = 1 AND [NOP_IPIALIQ] IS NULL) OR ([NOP_IPIALIQ] = @Original" +
+                "_NOP_IPIALIQ)) AND ((@IsNull_NOP_IPIVALOR = 1 AND [NOP_IPIVALOR] IS NULL) OR ([N" +
+                "OP_IPIVALOR] = @Original_NOP_IPIVALOR)) AND ((@IsNull_NOP_AVULSO = 1 AND [NOP_AV" +
+                "ULSO] IS NULL) OR ([NOP_AVULSO] = @Original_NOP_AVULSO)) AND ((@IsNull_FIL_CODIG" +
+                "O = 1 AND [FIL_CODIGO] IS NULL) OR ([FIL_CODIGO] = @Original_FIL_CODIGO)) AND ((" +
+                "@IsNull_NOP_DATA = 1 AND [NOP_DATA] IS NULL) OR ([NOP_DATA] = @Original_NOP_DATA" +
+                ")) AND ((@IsNull_NOP_IPICST = 1 AND [NOP_IPICST] IS NULL) OR ([NOP_IPICST] = @Or" +
+                "iginal_NOP_IPICST)) AND ((@IsNull_NOP_TOTIMPOSTO = 1 AND [NOP_TOTIMPOSTO] IS NUL" +
+                "L) OR ([NOP_TOTIMPOSTO] = @Original_NOP_TOTIMPOSTO)) AND ((@IsNull_NOP_DIFAL_VBC" +
+                "UFDEST = 1 AND [NOP_DIFAL_VBCUFDEST] IS NULL) OR ([NOP_DIFAL_VBCUFDEST] = @Origi" +
+                "nal_NOP_DIFAL_VBCUFDEST)) AND ((@IsNull_NOP_DIFAL_PFCPUFDEST = 1 AND [NOP_DIFAL_" +
+                "PFCPUFDEST] IS NULL) OR ([NOP_DIFAL_PFCPUFDEST] = @Original_NOP_DIFAL_PFCPUFDEST" +
+                ")) AND ((@IsNull_NOP_DIFAL_PICMSUFDEST = 1 AND [NOP_DIFAL_PICMSUFDEST] IS NULL) " +
+                "OR ([NOP_DIFAL_PICMSUFDEST] = @Original_NOP_DIFAL_PICMSUFDEST)) AND ((@IsNull_NO" +
+                "P_DIFAL_PICMSINTER = 1 AND [NOP_DIFAL_PICMSINTER] IS NULL) OR ([NOP_DIFAL_PICMSI" +
+                "NTER] = @Original_NOP_DIFAL_PICMSINTER)) AND ((@IsNull_NOP_DIFAL_PICMSINTERPART " +
+                "= 1 AND [NOP_DIFAL_PICMSINTERPART] IS NULL) OR ([NOP_DIFAL_PICMSINTERPART] = @Or" +
+                "iginal_NOP_DIFAL_PICMSINTERPART)) AND ((@IsNull_NOP_DIFAL_VFCPUFDEST = 1 AND [NO" +
+                "P_DIFAL_VFCPUFDEST] IS NULL) OR ([NOP_DIFAL_VFCPUFDEST] = @Original_NOP_DIFAL_VF" +
+                "CPUFDEST)) AND ((@IsNull_NOP_DIFAL_VICMSUFDEST = 1 AND [NOP_DIFAL_VICMSUFDEST] I" +
+                "S NULL) OR ([NOP_DIFAL_VICMSUFDEST] = @Original_NOP_DIFAL_VICMSUFDEST)) AND ((@I" +
+                "sNull_NOP_DIFAL_VICMSUFREMET = 1 AND [NOP_DIFAL_VICMSUFREMET] IS NULL) OR ([NOP_" +
+                "DIFAL_VICMSUFREMET] = @Original_NOP_DIFAL_VICMSUFREMET)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOT_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOT_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_TIPO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TIPO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_TIPO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TIPO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PRO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRO_CODIGO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PRO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRO_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DESCRICAO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DESCRICAO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DESCRICAO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DESCRICAO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_QTDE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_QTDE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_QTDE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_QTDE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_VALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_VALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_VALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_VALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_TOTAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TOTAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_TOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PERCDESC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PERCDESC", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PERCDESC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_PERCDESC", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_CANCELADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CANCELADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_CANCELADO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CANCELADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CFO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CFO_CODIGO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CFO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CFO_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIIOF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIIOF", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIIOF", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIIOF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIDESPADUAN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIDESPADUAN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIDESPADUAN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIDESPADUAN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSCST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSCST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSCST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_SUBTOTAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_SUBTOTAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_SUBTOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_SUBTOTAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTMVA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTMVA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTMVA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTMVA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISCST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISCST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISCST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSCST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSCST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSCST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_CSOSN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CSOSN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_CSOSN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CSOSN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPIBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPIBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPIALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPIALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPIALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPIVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPIVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_AVULSO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_AVULSO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_AVULSO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_AVULSO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FIL_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIL_CODIGO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FIL_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIL_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DATA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DATA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DATA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DATA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPICST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPICST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPICST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPICST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_TOTIMPOSTO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TOTIMPOSTO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_TOTIMPOSTO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTIMPOSTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VBCUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VBCUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VBCUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VBCUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PFCPUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PFCPUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PFCPUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PICMSUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PICMSUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PICMSINTER", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PICMSINTER", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PICMSINTER", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PICMSINTERPART", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PICMSINTERPART", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PICMSINTERPART", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTERPART", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VFCPUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VFCPUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VFCPUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VICMSUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VICMSUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VICMSUFREMET", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VICMSUFREMET", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VICMSUFREMET", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFREMET", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[NOTAPRODUTO] ([NOT_CODIGO], [NOP_CODIGO], [NOP_TIPO], [PRO_COD" +
+                "IGO], [NOP_DESCRICAO], [NOP_QTDE], [NOP_VALOR], [NOP_TOTAL], [NOP_ICMSBASE], [NO" +
+                "P_ICMSALIQ], [NOP_ICMSVALOR], [NOP_PERCDESC], [NOP_CANCELADO], [CFO_CODIGO], [NO" +
+                "P_IIBASE], [NOP_IIVALOR], [NOP_IIIOF], [NOP_IIDESPADUAN], [NOP_ICMSCST], [NOP_SU" +
+                "BTOTAL], [NOP_ICMSSTBASE], [NOP_ICMSSTALIQ], [NOP_ICMSSTMVA], [NOP_ICMSSTVALOR]," +
+                " [NOP_PISCST], [NOP_PISBASE], [NOP_PISALIQ], [NOP_PISVALOR], [NOP_COFINSCST], [N" +
+                "OP_COFINSBASE], [NOP_COFINSALIQ], [NOP_COFINSVALOR], [NOP_CSOSN], [NOP_IPIBASE]," +
+                " [NOP_IPIALIQ], [NOP_IPIVALOR], [NOP_AVULSO], [FIL_CODIGO], [NOP_DATA], [NOP_IPI" +
+                "CST], [NOP_TOTIMPOSTO], [NOP_DIFAL_VBCUFDEST], [NOP_DIFAL_PFCPUFDEST], [NOP_DIFA" +
+                "L_PICMSUFDEST], [NOP_DIFAL_PICMSINTER], [NOP_DIFAL_PICMSINTERPART], [NOP_DIFAL_V" +
+                "FCPUFDEST], [NOP_DIFAL_VICMSUFDEST], [NOP_DIFAL_VICMSUFREMET]) VALUES (@NOT_CODI" +
+                "GO, @NOP_CODIGO, @NOP_TIPO, @PRO_CODIGO, @NOP_DESCRICAO, @NOP_QTDE, @NOP_VALOR, " +
+                "@NOP_TOTAL, @NOP_ICMSBASE, @NOP_ICMSALIQ, @NOP_ICMSVALOR, @NOP_PERCDESC, @NOP_CA" +
+                "NCELADO, @CFO_CODIGO, @NOP_IIBASE, @NOP_IIVALOR, @NOP_IIIOF, @NOP_IIDESPADUAN, @" +
+                "NOP_ICMSCST, @NOP_SUBTOTAL, @NOP_ICMSSTBASE, @NOP_ICMSSTALIQ, @NOP_ICMSSTMVA, @N" +
+                "OP_ICMSSTVALOR, @NOP_PISCST, @NOP_PISBASE, @NOP_PISALIQ, @NOP_PISVALOR, @NOP_COF" +
+                "INSCST, @NOP_COFINSBASE, @NOP_COFINSALIQ, @NOP_COFINSVALOR, @NOP_CSOSN, @NOP_IPI" +
+                "BASE, @NOP_IPIALIQ, @NOP_IPIVALOR, @NOP_AVULSO, @FIL_CODIGO, @NOP_DATA, @NOP_IPI" +
+                "CST, @NOP_TOTIMPOSTO, @NOP_DIFAL_VBCUFDEST, @NOP_DIFAL_PFCPUFDEST, @NOP_DIFAL_PI" +
+                "CMSUFDEST, @NOP_DIFAL_PICMSINTER, @NOP_DIFAL_PICMSINTERPART, @NOP_DIFAL_VFCPUFDE" +
+                "ST, @NOP_DIFAL_VICMSUFDEST, @NOP_DIFAL_VICMSUFREMET);\r\nSELECT NOT_CODIGO, NOP_CO" +
+                "DIGO, NOP_TIPO, PRO_CODIGO, NOP_DESCRICAO, NOP_QTDE, NOP_VALOR, NOP_TOTAL, NOP_I" +
+                "CMSBASE, NOP_ICMSALIQ, NOP_ICMSVALOR, NOP_PERCDESC, NOP_CANCELADO, CFO_CODIGO, N" +
+                "OP_IIBASE, NOP_IIVALOR, NOP_IIIOF, NOP_IIDESPADUAN, NOP_ICMSCST, NOP_SUBTOTAL, N" +
+                "OP_ICMSSTBASE, NOP_ICMSSTALIQ, NOP_ICMSSTMVA, NOP_ICMSSTVALOR, NOP_PISCST, NOP_P" +
+                "ISBASE, NOP_PISALIQ, NOP_PISVALOR, NOP_COFINSCST, NOP_COFINSBASE, NOP_COFINSALIQ" +
+                ", NOP_COFINSVALOR, NOP_CSOSN, NOP_IPIBASE, NOP_IPIALIQ, NOP_IPIVALOR, NOP_AVULSO" +
+                ", FIL_CODIGO, NOP_DATA, NOP_IPICST, NOP_TOTIMPOSTO, NOP_DIFAL_VBCUFDEST, NOP_DIF" +
+                "AL_PFCPUFDEST, NOP_DIFAL_PICMSUFDEST, NOP_DIFAL_PICMSINTER, NOP_DIFAL_PICMSINTER" +
+                "PART, NOP_DIFAL_VFCPUFDEST, NOP_DIFAL_VICMSUFDEST, NOP_DIFAL_VICMSUFREMET FROM N" +
+                "OTAPRODUTO WHERE (NOP_CODIGO = @NOP_CODIGO) AND (NOT_CODIGO = @NOT_CODIGO)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOT_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOT_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_TIPO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TIPO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PRO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRO_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DESCRICAO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DESCRICAO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_QTDE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_QTDE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_VALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_VALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_TOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PERCDESC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_PERCDESC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_CANCELADO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CANCELADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CFO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CFO_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIIOF", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIIOF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIDESPADUAN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIDESPADUAN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSCST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_SUBTOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_SUBTOTAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTMVA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTMVA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISCST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSCST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_CSOSN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CSOSN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPIALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_AVULSO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_AVULSO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FIL_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIL_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DATA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DATA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPICST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPICST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_TOTIMPOSTO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTIMPOSTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VBCUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VBCUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PFCPUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PICMSINTER", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PICMSINTERPART", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTERPART", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VFCPUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VICMSUFREMET", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFREMET", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[NOTAPRODUTO] SET [NOT_CODIGO] = @NOT_CODIGO, [NOP_CODIGO] = @NOP_CO" +
+                "DIGO, [NOP_TIPO] = @NOP_TIPO, [PRO_CODIGO] = @PRO_CODIGO, [NOP_DESCRICAO] = @NOP" +
+                "_DESCRICAO, [NOP_QTDE] = @NOP_QTDE, [NOP_VALOR] = @NOP_VALOR, [NOP_TOTAL] = @NOP" +
+                "_TOTAL, [NOP_ICMSBASE] = @NOP_ICMSBASE, [NOP_ICMSALIQ] = @NOP_ICMSALIQ, [NOP_ICM" +
+                "SVALOR] = @NOP_ICMSVALOR, [NOP_PERCDESC] = @NOP_PERCDESC, [NOP_CANCELADO] = @NOP" +
+                "_CANCELADO, [CFO_CODIGO] = @CFO_CODIGO, [NOP_IIBASE] = @NOP_IIBASE, [NOP_IIVALOR" +
+                "] = @NOP_IIVALOR, [NOP_IIIOF] = @NOP_IIIOF, [NOP_IIDESPADUAN] = @NOP_IIDESPADUAN" +
+                ", [NOP_ICMSCST] = @NOP_ICMSCST, [NOP_SUBTOTAL] = @NOP_SUBTOTAL, [NOP_ICMSSTBASE]" +
+                " = @NOP_ICMSSTBASE, [NOP_ICMSSTALIQ] = @NOP_ICMSSTALIQ, [NOP_ICMSSTMVA] = @NOP_I" +
+                "CMSSTMVA, [NOP_ICMSSTVALOR] = @NOP_ICMSSTVALOR, [NOP_PISCST] = @NOP_PISCST, [NOP" +
+                "_PISBASE] = @NOP_PISBASE, [NOP_PISALIQ] = @NOP_PISALIQ, [NOP_PISVALOR] = @NOP_PI" +
+                "SVALOR, [NOP_COFINSCST] = @NOP_COFINSCST, [NOP_COFINSBASE] = @NOP_COFINSBASE, [N" +
+                "OP_COFINSALIQ] = @NOP_COFINSALIQ, [NOP_COFINSVALOR] = @NOP_COFINSVALOR, [NOP_CSO" +
+                "SN] = @NOP_CSOSN, [NOP_IPIBASE] = @NOP_IPIBASE, [NOP_IPIALIQ] = @NOP_IPIALIQ, [N" +
+                "OP_IPIVALOR] = @NOP_IPIVALOR, [NOP_AVULSO] = @NOP_AVULSO, [FIL_CODIGO] = @FIL_CO" +
+                "DIGO, [NOP_DATA] = @NOP_DATA, [NOP_IPICST] = @NOP_IPICST, [NOP_TOTIMPOSTO] = @NO" +
+                "P_TOTIMPOSTO, [NOP_DIFAL_VBCUFDEST] = @NOP_DIFAL_VBCUFDEST, [NOP_DIFAL_PFCPUFDES" +
+                "T] = @NOP_DIFAL_PFCPUFDEST, [NOP_DIFAL_PICMSUFDEST] = @NOP_DIFAL_PICMSUFDEST, [N" +
+                "OP_DIFAL_PICMSINTER] = @NOP_DIFAL_PICMSINTER, [NOP_DIFAL_PICMSINTERPART] = @NOP_" +
+                "DIFAL_PICMSINTERPART, [NOP_DIFAL_VFCPUFDEST] = @NOP_DIFAL_VFCPUFDEST, [NOP_DIFAL" +
+                "_VICMSUFDEST] = @NOP_DIFAL_VICMSUFDEST, [NOP_DIFAL_VICMSUFREMET] = @NOP_DIFAL_VI" +
+                "CMSUFREMET WHERE (([NOT_CODIGO] = @Original_NOT_CODIGO) AND ([NOP_CODIGO] = @Ori" +
+                "ginal_NOP_CODIGO) AND ((@IsNull_NOP_TIPO = 1 AND [NOP_TIPO] IS NULL) OR ([NOP_TI" +
+                "PO] = @Original_NOP_TIPO)) AND ((@IsNull_PRO_CODIGO = 1 AND [PRO_CODIGO] IS NULL" +
+                ") OR ([PRO_CODIGO] = @Original_PRO_CODIGO)) AND ((@IsNull_NOP_DESCRICAO = 1 AND " +
+                "[NOP_DESCRICAO] IS NULL) OR ([NOP_DESCRICAO] = @Original_NOP_DESCRICAO)) AND ((@" +
+                "IsNull_NOP_QTDE = 1 AND [NOP_QTDE] IS NULL) OR ([NOP_QTDE] = @Original_NOP_QTDE)" +
+                ") AND ((@IsNull_NOP_VALOR = 1 AND [NOP_VALOR] IS NULL) OR ([NOP_VALOR] = @Origin" +
+                "al_NOP_VALOR)) AND ((@IsNull_NOP_TOTAL = 1 AND [NOP_TOTAL] IS NULL) OR ([NOP_TOT" +
+                "AL] = @Original_NOP_TOTAL)) AND ((@IsNull_NOP_ICMSBASE = 1 AND [NOP_ICMSBASE] IS" +
+                " NULL) OR ([NOP_ICMSBASE] = @Original_NOP_ICMSBASE)) AND ((@IsNull_NOP_ICMSALIQ " +
+                "= 1 AND [NOP_ICMSALIQ] IS NULL) OR ([NOP_ICMSALIQ] = @Original_NOP_ICMSALIQ)) AN" +
+                "D ((@IsNull_NOP_ICMSVALOR = 1 AND [NOP_ICMSVALOR] IS NULL) OR ([NOP_ICMSVALOR] =" +
+                " @Original_NOP_ICMSVALOR)) AND ((@IsNull_NOP_PERCDESC = 1 AND [NOP_PERCDESC] IS " +
+                "NULL) OR ([NOP_PERCDESC] = @Original_NOP_PERCDESC)) AND ((@IsNull_NOP_CANCELADO " +
+                "= 1 AND [NOP_CANCELADO] IS NULL) OR ([NOP_CANCELADO] = @Original_NOP_CANCELADO))" +
+                " AND ((@IsNull_CFO_CODIGO = 1 AND [CFO_CODIGO] IS NULL) OR ([CFO_CODIGO] = @Orig" +
+                "inal_CFO_CODIGO)) AND ((@IsNull_NOP_IIBASE = 1 AND [NOP_IIBASE] IS NULL) OR ([NO" +
+                "P_IIBASE] = @Original_NOP_IIBASE)) AND ((@IsNull_NOP_IIVALOR = 1 AND [NOP_IIVALO" +
+                "R] IS NULL) OR ([NOP_IIVALOR] = @Original_NOP_IIVALOR)) AND ((@IsNull_NOP_IIIOF " +
+                "= 1 AND [NOP_IIIOF] IS NULL) OR ([NOP_IIIOF] = @Original_NOP_IIIOF)) AND ((@IsNu" +
+                "ll_NOP_IIDESPADUAN = 1 AND [NOP_IIDESPADUAN] IS NULL) OR ([NOP_IIDESPADUAN] = @O" +
+                "riginal_NOP_IIDESPADUAN)) AND ((@IsNull_NOP_ICMSCST = 1 AND [NOP_ICMSCST] IS NUL" +
+                "L) OR ([NOP_ICMSCST] = @Original_NOP_ICMSCST)) AND ((@IsNull_NOP_SUBTOTAL = 1 AN" +
+                "D [NOP_SUBTOTAL] IS NULL) OR ([NOP_SUBTOTAL] = @Original_NOP_SUBTOTAL)) AND ((@I" +
+                "sNull_NOP_ICMSSTBASE = 1 AND [NOP_ICMSSTBASE] IS NULL) OR ([NOP_ICMSSTBASE] = @O" +
+                "riginal_NOP_ICMSSTBASE)) AND ((@IsNull_NOP_ICMSSTALIQ = 1 AND [NOP_ICMSSTALIQ] I" +
+                "S NULL) OR ([NOP_ICMSSTALIQ] = @Original_NOP_ICMSSTALIQ)) AND ((@IsNull_NOP_ICMS" +
+                "STMVA = 1 AND [NOP_ICMSSTMVA] IS NULL) OR ([NOP_ICMSSTMVA] = @Original_NOP_ICMSS" +
+                "TMVA)) AND ((@IsNull_NOP_ICMSSTVALOR = 1 AND [NOP_ICMSSTVALOR] IS NULL) OR ([NOP" +
+                "_ICMSSTVALOR] = @Original_NOP_ICMSSTVALOR)) AND ((@IsNull_NOP_PISCST = 1 AND [NO" +
+                "P_PISCST] IS NULL) OR ([NOP_PISCST] = @Original_NOP_PISCST)) AND ((@IsNull_NOP_P" +
+                "ISBASE = 1 AND [NOP_PISBASE] IS NULL) OR ([NOP_PISBASE] = @Original_NOP_PISBASE)" +
+                ") AND ((@IsNull_NOP_PISALIQ = 1 AND [NOP_PISALIQ] IS NULL) OR ([NOP_PISALIQ] = @" +
+                "Original_NOP_PISALIQ)) AND ((@IsNull_NOP_PISVALOR = 1 AND [NOP_PISVALOR] IS NULL" +
+                ") OR ([NOP_PISVALOR] = @Original_NOP_PISVALOR)) AND ((@IsNull_NOP_COFINSCST = 1 " +
+                "AND [NOP_COFINSCST] IS NULL) OR ([NOP_COFINSCST] = @Original_NOP_COFINSCST)) AND" +
+                " ((@IsNull_NOP_COFINSBASE = 1 AND [NOP_COFINSBASE] IS NULL) OR ([NOP_COFINSBASE]" +
+                " = @Original_NOP_COFINSBASE)) AND ((@IsNull_NOP_COFINSALIQ = 1 AND [NOP_COFINSAL" +
+                "IQ] IS NULL) OR ([NOP_COFINSALIQ] = @Original_NOP_COFINSALIQ)) AND ((@IsNull_NOP" +
+                "_COFINSVALOR = 1 AND [NOP_COFINSVALOR] IS NULL) OR ([NOP_COFINSVALOR] = @Origina" +
+                "l_NOP_COFINSVALOR)) AND ((@IsNull_NOP_CSOSN = 1 AND [NOP_CSOSN] IS NULL) OR ([NO" +
+                "P_CSOSN] = @Original_NOP_CSOSN)) AND ((@IsNull_NOP_IPIBASE = 1 AND [NOP_IPIBASE]" +
+                " IS NULL) OR ([NOP_IPIBASE] = @Original_NOP_IPIBASE)) AND ((@IsNull_NOP_IPIALIQ " +
+                "= 1 AND [NOP_IPIALIQ] IS NULL) OR ([NOP_IPIALIQ] = @Original_NOP_IPIALIQ)) AND (" +
+                "(@IsNull_NOP_IPIVALOR = 1 AND [NOP_IPIVALOR] IS NULL) OR ([NOP_IPIVALOR] = @Orig" +
+                "inal_NOP_IPIVALOR)) AND ((@IsNull_NOP_AVULSO = 1 AND [NOP_AVULSO] IS NULL) OR ([" +
+                "NOP_AVULSO] = @Original_NOP_AVULSO)) AND ((@IsNull_FIL_CODIGO = 1 AND [FIL_CODIG" +
+                "O] IS NULL) OR ([FIL_CODIGO] = @Original_FIL_CODIGO)) AND ((@IsNull_NOP_DATA = 1" +
+                " AND [NOP_DATA] IS NULL) OR ([NOP_DATA] = @Original_NOP_DATA)) AND ((@IsNull_NOP" +
+                "_IPICST = 1 AND [NOP_IPICST] IS NULL) OR ([NOP_IPICST] = @Original_NOP_IPICST)) " +
+                "AND ((@IsNull_NOP_TOTIMPOSTO = 1 AND [NOP_TOTIMPOSTO] IS NULL) OR ([NOP_TOTIMPOS" +
+                "TO] = @Original_NOP_TOTIMPOSTO)) AND ((@IsNull_NOP_DIFAL_VBCUFDEST = 1 AND [NOP_" +
+                "DIFAL_VBCUFDEST] IS NULL) OR ([NOP_DIFAL_VBCUFDEST] = @Original_NOP_DIFAL_VBCUFD" +
+                "EST)) AND ((@IsNull_NOP_DIFAL_PFCPUFDEST = 1 AND [NOP_DIFAL_PFCPUFDEST] IS NULL)" +
+                " OR ([NOP_DIFAL_PFCPUFDEST] = @Original_NOP_DIFAL_PFCPUFDEST)) AND ((@IsNull_NOP" +
+                "_DIFAL_PICMSUFDEST = 1 AND [NOP_DIFAL_PICMSUFDEST] IS NULL) OR ([NOP_DIFAL_PICMS" +
+                "UFDEST] = @Original_NOP_DIFAL_PICMSUFDEST)) AND ((@IsNull_NOP_DIFAL_PICMSINTER =" +
+                " 1 AND [NOP_DIFAL_PICMSINTER] IS NULL) OR ([NOP_DIFAL_PICMSINTER] = @Original_NO" +
+                "P_DIFAL_PICMSINTER)) AND ((@IsNull_NOP_DIFAL_PICMSINTERPART = 1 AND [NOP_DIFAL_P" +
+                "ICMSINTERPART] IS NULL) OR ([NOP_DIFAL_PICMSINTERPART] = @Original_NOP_DIFAL_PIC" +
+                "MSINTERPART)) AND ((@IsNull_NOP_DIFAL_VFCPUFDEST = 1 AND [NOP_DIFAL_VFCPUFDEST] " +
+                "IS NULL) OR ([NOP_DIFAL_VFCPUFDEST] = @Original_NOP_DIFAL_VFCPUFDEST)) AND ((@Is" +
+                "Null_NOP_DIFAL_VICMSUFDEST = 1 AND [NOP_DIFAL_VICMSUFDEST] IS NULL) OR ([NOP_DIF" +
+                "AL_VICMSUFDEST] = @Original_NOP_DIFAL_VICMSUFDEST)) AND ((@IsNull_NOP_DIFAL_VICM" +
+                "SUFREMET = 1 AND [NOP_DIFAL_VICMSUFREMET] IS NULL) OR ([NOP_DIFAL_VICMSUFREMET] " +
+                "= @Original_NOP_DIFAL_VICMSUFREMET)));\r\nSELECT NOT_CODIGO, NOP_CODIGO, NOP_TIPO," +
+                " PRO_CODIGO, NOP_DESCRICAO, NOP_QTDE, NOP_VALOR, NOP_TOTAL, NOP_ICMSBASE, NOP_IC" +
+                "MSALIQ, NOP_ICMSVALOR, NOP_PERCDESC, NOP_CANCELADO, CFO_CODIGO, NOP_IIBASE, NOP_" +
+                "IIVALOR, NOP_IIIOF, NOP_IIDESPADUAN, NOP_ICMSCST, NOP_SUBTOTAL, NOP_ICMSSTBASE, " +
+                "NOP_ICMSSTALIQ, NOP_ICMSSTMVA, NOP_ICMSSTVALOR, NOP_PISCST, NOP_PISBASE, NOP_PIS" +
+                "ALIQ, NOP_PISVALOR, NOP_COFINSCST, NOP_COFINSBASE, NOP_COFINSALIQ, NOP_COFINSVAL" +
+                "OR, NOP_CSOSN, NOP_IPIBASE, NOP_IPIALIQ, NOP_IPIVALOR, NOP_AVULSO, FIL_CODIGO, N" +
+                "OP_DATA, NOP_IPICST, NOP_TOTIMPOSTO, NOP_DIFAL_VBCUFDEST, NOP_DIFAL_PFCPUFDEST, " +
+                "NOP_DIFAL_PICMSUFDEST, NOP_DIFAL_PICMSINTER, NOP_DIFAL_PICMSINTERPART, NOP_DIFAL" +
+                "_VFCPUFDEST, NOP_DIFAL_VICMSUFDEST, NOP_DIFAL_VICMSUFREMET FROM NOTAPRODUTO WHER" +
+                "E (NOP_CODIGO = @NOP_CODIGO) AND (NOT_CODIGO = @NOT_CODIGO)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOT_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOT_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_TIPO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TIPO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PRO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRO_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DESCRICAO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DESCRICAO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_QTDE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_QTDE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_VALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_VALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_TOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PERCDESC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_PERCDESC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_CANCELADO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CANCELADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CFO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CFO_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIIOF", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIIOF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IIDESPADUAN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIDESPADUAN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSCST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_SUBTOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_SUBTOTAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTMVA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTMVA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_ICMSSTVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISCST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_PISVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSCST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_COFINSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_CSOSN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CSOSN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIBASE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPIALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIALIQ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIVALOR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_AVULSO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_AVULSO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FIL_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIL_CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DATA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DATA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_IPICST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPICST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_TOTIMPOSTO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTIMPOSTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VBCUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VBCUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PFCPUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PICMSINTER", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_PICMSINTERPART", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTERPART", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VFCPUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFDEST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOP_DIFAL_VICMSUFREMET", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFREMET", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOT_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOT_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_TIPO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TIPO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_TIPO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TIPO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PRO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRO_CODIGO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PRO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PRO_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DESCRICAO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DESCRICAO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DESCRICAO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DESCRICAO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_QTDE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_QTDE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_QTDE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_QTDE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_VALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_VALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_VALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_VALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_TOTAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TOTAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_TOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PERCDESC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PERCDESC", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PERCDESC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 4, "NOP_PERCDESC", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_CANCELADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CANCELADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_CANCELADO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CANCELADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CFO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CFO_CODIGO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CFO_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CFO_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIIOF", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIIOF", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIIOF", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIIOF", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IIDESPADUAN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IIDESPADUAN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IIDESPADUAN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IIDESPADUAN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSCST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSCST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSCST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_SUBTOTAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_SUBTOTAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_SUBTOTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_SUBTOTAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTMVA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTMVA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTMVA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTMVA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_ICMSSTVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_ICMSSTVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_ICMSSTVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_ICMSSTVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISCST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISCST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISCST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_PISVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_PISVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_PISVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_PISVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSCST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSCST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSCST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSCST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_COFINSVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_COFINSVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_COFINSVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_COFINSVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_CSOSN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CSOSN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_CSOSN", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_CSOSN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPIBASE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPIBASE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPIBASE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIBASE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPIALIQ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPIALIQ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPIALIQ", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIALIQ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPIVALOR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPIVALOR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPIVALOR", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_IPIVALOR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_AVULSO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_AVULSO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_AVULSO", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_AVULSO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FIL_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIL_CODIGO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FIL_CODIGO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FIL_CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DATA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DATA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DATA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DATA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_IPICST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPICST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_IPICST", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_IPICST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_TOTIMPOSTO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_TOTIMPOSTO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_TOTIMPOSTO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_TOTIMPOSTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VBCUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VBCUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VBCUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VBCUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PFCPUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PFCPUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PFCPUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PICMSUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PICMSUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PICMSINTER", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PICMSINTER", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PICMSINTER", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_PICMSINTERPART", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_PICMSINTERPART", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_PICMSINTERPART", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_PICMSINTERPART", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VFCPUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VFCPUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VFCPUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VFCPUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VICMSUFDEST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VICMSUFDEST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VICMSUFDEST", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFDEST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOP_DIFAL_VICMSUFREMET", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOP_DIFAL_VICMSUFREMET", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOP_DIFAL_VICMSUFREMET", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 15, 2, "NOP_DIFAL_VICMSUFREMET", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Aplicativo.Properties.Settings.Default.Ducaun;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT NOT_CODIGO, NOP_CODIGO, NOP_TIPO, PRO_CODIGO, NOP_DESCRICAO, NOP_QTDE, NOP_VALOR, NOP_TOTAL, NOP_ICMSBASE, NOP_ICMSALIQ, NOP_ICMSVALOR, NOP_PERCDESC, NOP_CANCELADO, CFO_CODIGO, NOP_IIBASE, NOP_IIVALOR, NOP_IIIOF, NOP_IIDESPADUAN, NOP_ICMSCST, NOP_SUBTOTAL, NOP_ICMSSTBASE, NOP_ICMSSTALIQ, NOP_ICMSSTMVA, NOP_ICMSSTVALOR, NOP_PISCST, NOP_PISBASE, NOP_PISALIQ, NOP_PISVALOR, NOP_COFINSCST, NOP_COFINSBASE, NOP_COFINSALIQ, NOP_COFINSVALOR, NOP_CSOSN, NOP_IPIBASE, NOP_IPIALIQ, NOP_IPIVALOR, NOP_AVULSO, FIL_CODIGO, NOP_DATA, NOP_IPICST, NOP_TOTIMPOSTO, NOP_DIFAL_VBCUFDEST, NOP_DIFAL_PFCPUFDEST, NOP_DIFAL_PICMSUFDEST, NOP_DIFAL_PICMSINTER, NOP_DIFAL_PICMSINTERPART, NOP_DIFAL_VFCPUFDEST, NOP_DIFAL_VICMSUFDEST, NOP_DIFAL_VICMSUFREMET FROM dbo.NOTAPRODUTO";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet1.NOTAPRODUTODataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet1.NOTAPRODUTODataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet1.NOTAPRODUTODataTable dataTable = new DataSet1.NOTAPRODUTODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1.NOTAPRODUTODataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "NOTAPRODUTO");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_NOT_CODIGO, 
+                    int Original_NOP_CODIGO, 
+                    global::System.Nullable<short> Original_NOP_TIPO, 
+                    global::System.Nullable<int> Original_PRO_CODIGO, 
+                    string Original_NOP_DESCRICAO, 
+                    global::System.Nullable<decimal> Original_NOP_QTDE, 
+                    global::System.Nullable<decimal> Original_NOP_VALOR, 
+                    global::System.Nullable<decimal> Original_NOP_TOTAL, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSBASE, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSVALOR, 
+                    global::System.Nullable<decimal> Original_NOP_PERCDESC, 
+                    global::System.Nullable<short> Original_NOP_CANCELADO, 
+                    global::System.Nullable<int> Original_CFO_CODIGO, 
+                    global::System.Nullable<decimal> Original_NOP_IIBASE, 
+                    global::System.Nullable<decimal> Original_NOP_IIVALOR, 
+                    global::System.Nullable<decimal> Original_NOP_IIIOF, 
+                    global::System.Nullable<decimal> Original_NOP_IIDESPADUAN, 
+                    string Original_NOP_ICMSCST, 
+                    global::System.Nullable<decimal> Original_NOP_SUBTOTAL, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTBASE, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTMVA, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTVALOR, 
+                    string Original_NOP_PISCST, 
+                    global::System.Nullable<decimal> Original_NOP_PISBASE, 
+                    global::System.Nullable<decimal> Original_NOP_PISALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_PISVALOR, 
+                    string Original_NOP_COFINSCST, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSBASE, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSVALOR, 
+                    string Original_NOP_CSOSN, 
+                    global::System.Nullable<decimal> Original_NOP_IPIBASE, 
+                    global::System.Nullable<decimal> Original_NOP_IPIALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_IPIVALOR, 
+                    global::System.Nullable<short> Original_NOP_AVULSO, 
+                    global::System.Nullable<int> Original_FIL_CODIGO, 
+                    global::System.Nullable<global::System.DateTime> Original_NOP_DATA, 
+                    string Original_NOP_IPICST, 
+                    global::System.Nullable<decimal> Original_NOP_TOTIMPOSTO, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VBCUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PFCPUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSINTER, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSINTERPART, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VFCPUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VICMSUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VICMSUFREMET) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_NOT_CODIGO));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_NOP_CODIGO));
+            if ((Original_NOP_TIPO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((short)(Original_NOP_TIPO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PRO_CODIGO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_PRO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DESCRICAO == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_NOP_DESCRICAO));
+            }
+            if ((Original_NOP_QTDE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_NOP_QTDE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_VALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((decimal)(Original_NOP_VALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_TOTAL.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((decimal)(Original_NOP_TOTAL.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSBASE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((decimal)(Original_NOP_ICMSBASE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSALIQ.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((decimal)(Original_NOP_ICMSALIQ.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSVALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((decimal)(Original_NOP_ICMSVALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PERCDESC.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((decimal)(Original_NOP_PERCDESC.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_CANCELADO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((short)(Original_NOP_CANCELADO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CFO_CODIGO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((int)(Original_CFO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIBASE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((decimal)(Original_NOP_IIBASE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIVALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((decimal)(Original_NOP_IIVALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIIOF.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((decimal)(Original_NOP_IIIOF.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIDESPADUAN.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((decimal)(Original_NOP_IIDESPADUAN.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSCST == null)) {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_NOP_ICMSCST));
+            }
+            if ((Original_NOP_SUBTOTAL.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((decimal)(Original_NOP_SUBTOTAL.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTBASE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((decimal)(Original_NOP_ICMSSTBASE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTALIQ.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((decimal)(Original_NOP_ICMSSTALIQ.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTMVA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((decimal)(Original_NOP_ICMSSTMVA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTVALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((decimal)(Original_NOP_ICMSSTVALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PISCST == null)) {
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((string)(Original_NOP_PISCST));
+            }
+            if ((Original_NOP_PISBASE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[49].Value = ((decimal)(Original_NOP_PISBASE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PISALIQ.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[51].Value = ((decimal)(Original_NOP_PISALIQ.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PISVALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[53].Value = ((decimal)(Original_NOP_PISVALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_COFINSCST == null)) {
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[55].Value = ((string)(Original_NOP_COFINSCST));
+            }
+            if ((Original_NOP_COFINSBASE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[57].Value = ((decimal)(Original_NOP_COFINSBASE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_COFINSALIQ.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[59].Value = ((decimal)(Original_NOP_COFINSALIQ.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_COFINSVALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[61].Value = ((decimal)(Original_NOP_COFINSVALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[61].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_CSOSN == null)) {
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[63].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[63].Value = ((string)(Original_NOP_CSOSN));
+            }
+            if ((Original_NOP_IPIBASE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[64].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[65].Value = ((decimal)(Original_NOP_IPIBASE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[64].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[65].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IPIALIQ.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[67].Value = ((decimal)(Original_NOP_IPIALIQ.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[66].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[67].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IPIVALOR.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[69].Value = ((decimal)(Original_NOP_IPIVALOR.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[68].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[69].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_AVULSO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[70].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[71].Value = ((short)(Original_NOP_AVULSO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[70].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[71].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FIL_CODIGO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[72].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[73].Value = ((int)(Original_FIL_CODIGO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[72].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[73].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DATA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[74].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[75].Value = ((System.DateTime)(Original_NOP_DATA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[74].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[75].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IPICST == null)) {
+                this.Adapter.DeleteCommand.Parameters[76].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[77].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[76].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[77].Value = ((string)(Original_NOP_IPICST));
+            }
+            if ((Original_NOP_TOTIMPOSTO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[78].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[79].Value = ((decimal)(Original_NOP_TOTIMPOSTO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[78].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[79].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VBCUFDEST.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[80].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[81].Value = ((decimal)(Original_NOP_DIFAL_VBCUFDEST.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[80].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[81].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PFCPUFDEST.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[82].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[83].Value = ((decimal)(Original_NOP_DIFAL_PFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[82].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[83].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PICMSUFDEST.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[84].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[85].Value = ((decimal)(Original_NOP_DIFAL_PICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[84].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[85].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PICMSINTER.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[86].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[87].Value = ((decimal)(Original_NOP_DIFAL_PICMSINTER.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[86].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[87].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PICMSINTERPART.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[88].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[89].Value = ((decimal)(Original_NOP_DIFAL_PICMSINTERPART.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[88].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[89].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VFCPUFDEST.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[90].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[91].Value = ((decimal)(Original_NOP_DIFAL_VFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[90].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[91].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VICMSUFDEST.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[92].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[93].Value = ((decimal)(Original_NOP_DIFAL_VICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[92].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[93].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VICMSUFREMET.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[94].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[95].Value = ((decimal)(Original_NOP_DIFAL_VICMSUFREMET.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[94].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[95].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    int NOT_CODIGO, 
+                    int NOP_CODIGO, 
+                    global::System.Nullable<short> NOP_TIPO, 
+                    global::System.Nullable<int> PRO_CODIGO, 
+                    string NOP_DESCRICAO, 
+                    global::System.Nullable<decimal> NOP_QTDE, 
+                    global::System.Nullable<decimal> NOP_VALOR, 
+                    global::System.Nullable<decimal> NOP_TOTAL, 
+                    global::System.Nullable<decimal> NOP_ICMSBASE, 
+                    global::System.Nullable<decimal> NOP_ICMSALIQ, 
+                    global::System.Nullable<decimal> NOP_ICMSVALOR, 
+                    global::System.Nullable<decimal> NOP_PERCDESC, 
+                    global::System.Nullable<short> NOP_CANCELADO, 
+                    global::System.Nullable<int> CFO_CODIGO, 
+                    global::System.Nullable<decimal> NOP_IIBASE, 
+                    global::System.Nullable<decimal> NOP_IIVALOR, 
+                    global::System.Nullable<decimal> NOP_IIIOF, 
+                    global::System.Nullable<decimal> NOP_IIDESPADUAN, 
+                    string NOP_ICMSCST, 
+                    global::System.Nullable<decimal> NOP_SUBTOTAL, 
+                    global::System.Nullable<decimal> NOP_ICMSSTBASE, 
+                    global::System.Nullable<decimal> NOP_ICMSSTALIQ, 
+                    global::System.Nullable<decimal> NOP_ICMSSTMVA, 
+                    global::System.Nullable<decimal> NOP_ICMSSTVALOR, 
+                    string NOP_PISCST, 
+                    global::System.Nullable<decimal> NOP_PISBASE, 
+                    global::System.Nullable<decimal> NOP_PISALIQ, 
+                    global::System.Nullable<decimal> NOP_PISVALOR, 
+                    string NOP_COFINSCST, 
+                    global::System.Nullable<decimal> NOP_COFINSBASE, 
+                    global::System.Nullable<decimal> NOP_COFINSALIQ, 
+                    global::System.Nullable<decimal> NOP_COFINSVALOR, 
+                    string NOP_CSOSN, 
+                    global::System.Nullable<decimal> NOP_IPIBASE, 
+                    global::System.Nullable<decimal> NOP_IPIALIQ, 
+                    global::System.Nullable<decimal> NOP_IPIVALOR, 
+                    global::System.Nullable<short> NOP_AVULSO, 
+                    global::System.Nullable<int> FIL_CODIGO, 
+                    global::System.Nullable<global::System.DateTime> NOP_DATA, 
+                    string NOP_IPICST, 
+                    global::System.Nullable<decimal> NOP_TOTIMPOSTO, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VBCUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PFCPUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSINTER, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSINTERPART, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VFCPUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VICMSUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VICMSUFREMET) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(NOT_CODIGO));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(NOP_CODIGO));
+            if ((NOP_TIPO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((short)(NOP_TIPO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PRO_CODIGO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(PRO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DESCRICAO == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(NOP_DESCRICAO));
+            }
+            if ((NOP_QTDE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(NOP_QTDE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_VALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(NOP_VALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_TOTAL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(NOP_TOTAL.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSBASE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(NOP_ICMSBASE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSALIQ.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(NOP_ICMSALIQ.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSVALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(NOP_ICMSVALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PERCDESC.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((decimal)(NOP_PERCDESC.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_CANCELADO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((short)(NOP_CANCELADO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((CFO_CODIGO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(CFO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIBASE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(NOP_IIBASE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIVALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(NOP_IIVALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIIOF.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(NOP_IIIOF.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIDESPADUAN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(NOP_IIDESPADUAN.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSCST == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(NOP_ICMSCST));
+            }
+            if ((NOP_SUBTOTAL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((decimal)(NOP_SUBTOTAL.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTBASE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(NOP_ICMSSTBASE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTALIQ.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(NOP_ICMSSTALIQ.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTMVA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(NOP_ICMSSTMVA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTVALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(NOP_ICMSSTVALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PISCST == null)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(NOP_PISCST));
+            }
+            if ((NOP_PISBASE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(NOP_PISBASE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PISALIQ.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((decimal)(NOP_PISALIQ.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PISVALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((decimal)(NOP_PISVALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_COFINSCST == null)) {
+                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(NOP_COFINSCST));
+            }
+            if ((NOP_COFINSBASE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(NOP_COFINSBASE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_COFINSALIQ.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[30].Value = ((decimal)(NOP_COFINSALIQ.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_COFINSVALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((decimal)(NOP_COFINSVALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_CSOSN == null)) {
+                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(NOP_CSOSN));
+            }
+            if ((NOP_IPIBASE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(NOP_IPIBASE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IPIALIQ.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[34].Value = ((decimal)(NOP_IPIALIQ.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IPIVALOR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[35].Value = ((decimal)(NOP_IPIVALOR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_AVULSO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[36].Value = ((short)(NOP_AVULSO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((FIL_CODIGO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[37].Value = ((int)(FIL_CODIGO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DATA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[38].Value = ((System.DateTime)(NOP_DATA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IPICST == null)) {
+                this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[39].Value = ((string)(NOP_IPICST));
+            }
+            if ((NOP_TOTIMPOSTO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[40].Value = ((decimal)(NOP_TOTIMPOSTO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VBCUFDEST.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[41].Value = ((decimal)(NOP_DIFAL_VBCUFDEST.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PFCPUFDEST.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[42].Value = ((decimal)(NOP_DIFAL_PFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PICMSUFDEST.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[43].Value = ((decimal)(NOP_DIFAL_PICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PICMSINTER.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[44].Value = ((decimal)(NOP_DIFAL_PICMSINTER.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PICMSINTERPART.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[45].Value = ((decimal)(NOP_DIFAL_PICMSINTERPART.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VFCPUFDEST.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[46].Value = ((decimal)(NOP_DIFAL_VFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VICMSUFDEST.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[47].Value = ((decimal)(NOP_DIFAL_VICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VICMSUFREMET.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[48].Value = ((decimal)(NOP_DIFAL_VICMSUFREMET.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int NOT_CODIGO, 
+                    int NOP_CODIGO, 
+                    global::System.Nullable<short> NOP_TIPO, 
+                    global::System.Nullable<int> PRO_CODIGO, 
+                    string NOP_DESCRICAO, 
+                    global::System.Nullable<decimal> NOP_QTDE, 
+                    global::System.Nullable<decimal> NOP_VALOR, 
+                    global::System.Nullable<decimal> NOP_TOTAL, 
+                    global::System.Nullable<decimal> NOP_ICMSBASE, 
+                    global::System.Nullable<decimal> NOP_ICMSALIQ, 
+                    global::System.Nullable<decimal> NOP_ICMSVALOR, 
+                    global::System.Nullable<decimal> NOP_PERCDESC, 
+                    global::System.Nullable<short> NOP_CANCELADO, 
+                    global::System.Nullable<int> CFO_CODIGO, 
+                    global::System.Nullable<decimal> NOP_IIBASE, 
+                    global::System.Nullable<decimal> NOP_IIVALOR, 
+                    global::System.Nullable<decimal> NOP_IIIOF, 
+                    global::System.Nullable<decimal> NOP_IIDESPADUAN, 
+                    string NOP_ICMSCST, 
+                    global::System.Nullable<decimal> NOP_SUBTOTAL, 
+                    global::System.Nullable<decimal> NOP_ICMSSTBASE, 
+                    global::System.Nullable<decimal> NOP_ICMSSTALIQ, 
+                    global::System.Nullable<decimal> NOP_ICMSSTMVA, 
+                    global::System.Nullable<decimal> NOP_ICMSSTVALOR, 
+                    string NOP_PISCST, 
+                    global::System.Nullable<decimal> NOP_PISBASE, 
+                    global::System.Nullable<decimal> NOP_PISALIQ, 
+                    global::System.Nullable<decimal> NOP_PISVALOR, 
+                    string NOP_COFINSCST, 
+                    global::System.Nullable<decimal> NOP_COFINSBASE, 
+                    global::System.Nullable<decimal> NOP_COFINSALIQ, 
+                    global::System.Nullable<decimal> NOP_COFINSVALOR, 
+                    string NOP_CSOSN, 
+                    global::System.Nullable<decimal> NOP_IPIBASE, 
+                    global::System.Nullable<decimal> NOP_IPIALIQ, 
+                    global::System.Nullable<decimal> NOP_IPIVALOR, 
+                    global::System.Nullable<short> NOP_AVULSO, 
+                    global::System.Nullable<int> FIL_CODIGO, 
+                    global::System.Nullable<global::System.DateTime> NOP_DATA, 
+                    string NOP_IPICST, 
+                    global::System.Nullable<decimal> NOP_TOTIMPOSTO, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VBCUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PFCPUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSINTER, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSINTERPART, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VFCPUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VICMSUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VICMSUFREMET, 
+                    int Original_NOT_CODIGO, 
+                    int Original_NOP_CODIGO, 
+                    global::System.Nullable<short> Original_NOP_TIPO, 
+                    global::System.Nullable<int> Original_PRO_CODIGO, 
+                    string Original_NOP_DESCRICAO, 
+                    global::System.Nullable<decimal> Original_NOP_QTDE, 
+                    global::System.Nullable<decimal> Original_NOP_VALOR, 
+                    global::System.Nullable<decimal> Original_NOP_TOTAL, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSBASE, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSVALOR, 
+                    global::System.Nullable<decimal> Original_NOP_PERCDESC, 
+                    global::System.Nullable<short> Original_NOP_CANCELADO, 
+                    global::System.Nullable<int> Original_CFO_CODIGO, 
+                    global::System.Nullable<decimal> Original_NOP_IIBASE, 
+                    global::System.Nullable<decimal> Original_NOP_IIVALOR, 
+                    global::System.Nullable<decimal> Original_NOP_IIIOF, 
+                    global::System.Nullable<decimal> Original_NOP_IIDESPADUAN, 
+                    string Original_NOP_ICMSCST, 
+                    global::System.Nullable<decimal> Original_NOP_SUBTOTAL, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTBASE, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTMVA, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTVALOR, 
+                    string Original_NOP_PISCST, 
+                    global::System.Nullable<decimal> Original_NOP_PISBASE, 
+                    global::System.Nullable<decimal> Original_NOP_PISALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_PISVALOR, 
+                    string Original_NOP_COFINSCST, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSBASE, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSVALOR, 
+                    string Original_NOP_CSOSN, 
+                    global::System.Nullable<decimal> Original_NOP_IPIBASE, 
+                    global::System.Nullable<decimal> Original_NOP_IPIALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_IPIVALOR, 
+                    global::System.Nullable<short> Original_NOP_AVULSO, 
+                    global::System.Nullable<int> Original_FIL_CODIGO, 
+                    global::System.Nullable<global::System.DateTime> Original_NOP_DATA, 
+                    string Original_NOP_IPICST, 
+                    global::System.Nullable<decimal> Original_NOP_TOTIMPOSTO, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VBCUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PFCPUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSINTER, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSINTERPART, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VFCPUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VICMSUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VICMSUFREMET) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(NOT_CODIGO));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(NOP_CODIGO));
+            if ((NOP_TIPO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((short)(NOP_TIPO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((PRO_CODIGO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(PRO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DESCRICAO == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(NOP_DESCRICAO));
+            }
+            if ((NOP_QTDE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(NOP_QTDE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_VALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(NOP_VALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_TOTAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(NOP_TOTAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(NOP_ICMSBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(NOP_ICMSALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(NOP_ICMSVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PERCDESC.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(NOP_PERCDESC.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_CANCELADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((short)(NOP_CANCELADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((CFO_CODIGO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(CFO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(NOP_IIBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(NOP_IIVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIIOF.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(NOP_IIIOF.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IIDESPADUAN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(NOP_IIDESPADUAN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSCST == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(NOP_ICMSCST));
+            }
+            if ((NOP_SUBTOTAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(NOP_SUBTOTAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(NOP_ICMSSTBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(NOP_ICMSSTALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTMVA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(NOP_ICMSSTMVA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_ICMSSTVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(NOP_ICMSSTVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PISCST == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(NOP_PISCST));
+            }
+            if ((NOP_PISBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(NOP_PISBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PISALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(NOP_PISALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_PISVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(NOP_PISVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_COFINSCST == null)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(NOP_COFINSCST));
+            }
+            if ((NOP_COFINSBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(NOP_COFINSBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_COFINSALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(NOP_COFINSALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_COFINSVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(NOP_COFINSVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_CSOSN == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(NOP_CSOSN));
+            }
+            if ((NOP_IPIBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((decimal)(NOP_IPIBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IPIALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((decimal)(NOP_IPIALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IPIVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((decimal)(NOP_IPIVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_AVULSO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((short)(NOP_AVULSO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((FIL_CODIGO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(FIL_CODIGO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DATA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(NOP_DATA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_IPICST == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(NOP_IPICST));
+            }
+            if ((NOP_TOTIMPOSTO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((decimal)(NOP_TOTIMPOSTO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VBCUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(NOP_DIFAL_VBCUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PFCPUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((decimal)(NOP_DIFAL_PFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PICMSUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(NOP_DIFAL_PICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PICMSINTER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((decimal)(NOP_DIFAL_PICMSINTER.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_PICMSINTERPART.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((decimal)(NOP_DIFAL_PICMSINTERPART.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VFCPUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(NOP_DIFAL_VFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VICMSUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((decimal)(NOP_DIFAL_VICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((NOP_DIFAL_VICMSUFREMET.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(NOP_DIFAL_VICMSUFREMET.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_NOT_CODIGO));
+            this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(Original_NOP_CODIGO));
+            if ((Original_NOP_TIPO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((short)(Original_NOP_TIPO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PRO_CODIGO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_PRO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DESCRICAO == null)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_NOP_DESCRICAO));
+            }
+            if ((Original_NOP_QTDE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(Original_NOP_QTDE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_VALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((decimal)(Original_NOP_VALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_TOTAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((decimal)(Original_NOP_TOTAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((decimal)(Original_NOP_ICMSBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((decimal)(Original_NOP_ICMSALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((decimal)(Original_NOP_ICMSVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PERCDESC.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((decimal)(Original_NOP_PERCDESC.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_CANCELADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((short)(Original_NOP_CANCELADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CFO_CODIGO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((int)(Original_CFO_CODIGO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((decimal)(Original_NOP_IIBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((decimal)(Original_NOP_IIVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIIOF.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((decimal)(Original_NOP_IIIOF.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IIDESPADUAN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[82].Value = ((decimal)(Original_NOP_IIDESPADUAN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSCST == null)) {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[84].Value = ((string)(Original_NOP_ICMSCST));
+            }
+            if ((Original_NOP_SUBTOTAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[86].Value = ((decimal)(Original_NOP_SUBTOTAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[86].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((decimal)(Original_NOP_ICMSSTBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[88].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((decimal)(Original_NOP_ICMSSTALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[90].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTMVA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((decimal)(Original_NOP_ICMSSTMVA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[92].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_ICMSSTVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((decimal)(Original_NOP_ICMSSTVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[94].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PISCST == null)) {
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[96].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((string)(Original_NOP_PISCST));
+            }
+            if ((Original_NOP_PISBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[98].Value = ((decimal)(Original_NOP_PISBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[98].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PISALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((decimal)(Original_NOP_PISALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[100].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_PISVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[102].Value = ((decimal)(Original_NOP_PISVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[102].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_COFINSCST == null)) {
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[104].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[104].Value = ((string)(Original_NOP_COFINSCST));
+            }
+            if ((Original_NOP_COFINSBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[106].Value = ((decimal)(Original_NOP_COFINSBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[106].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_COFINSALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[108].Value = ((decimal)(Original_NOP_COFINSALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[108].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_COFINSVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[110].Value = ((decimal)(Original_NOP_COFINSVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[110].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_CSOSN == null)) {
+                this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[112].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[112].Value = ((string)(Original_NOP_CSOSN));
+            }
+            if ((Original_NOP_IPIBASE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[114].Value = ((decimal)(Original_NOP_IPIBASE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[114].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IPIALIQ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[116].Value = ((decimal)(Original_NOP_IPIALIQ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[116].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IPIVALOR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[118].Value = ((decimal)(Original_NOP_IPIVALOR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[118].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_AVULSO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((short)(Original_NOP_AVULSO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[120].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FIL_CODIGO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[122].Value = ((int)(Original_FIL_CODIGO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[122].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DATA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[124].Value = ((System.DateTime)(Original_NOP_DATA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[124].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_IPICST == null)) {
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[126].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[126].Value = ((string)(Original_NOP_IPICST));
+            }
+            if ((Original_NOP_TOTIMPOSTO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[128].Value = ((decimal)(Original_NOP_TOTIMPOSTO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[128].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VBCUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[130].Value = ((decimal)(Original_NOP_DIFAL_VBCUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[130].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PFCPUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[132].Value = ((decimal)(Original_NOP_DIFAL_PFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[132].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PICMSUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[134].Value = ((decimal)(Original_NOP_DIFAL_PICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[134].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PICMSINTER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[136].Value = ((decimal)(Original_NOP_DIFAL_PICMSINTER.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[136].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_PICMSINTERPART.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[138].Value = ((decimal)(Original_NOP_DIFAL_PICMSINTERPART.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[138].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VFCPUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[140].Value = ((decimal)(Original_NOP_DIFAL_VFCPUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[140].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VICMSUFDEST.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[142].Value = ((decimal)(Original_NOP_DIFAL_VICMSUFDEST.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[142].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NOP_DIFAL_VICMSUFREMET.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[143].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[144].Value = ((decimal)(Original_NOP_DIFAL_VICMSUFREMET.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[143].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[144].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<short> NOP_TIPO, 
+                    global::System.Nullable<int> PRO_CODIGO, 
+                    string NOP_DESCRICAO, 
+                    global::System.Nullable<decimal> NOP_QTDE, 
+                    global::System.Nullable<decimal> NOP_VALOR, 
+                    global::System.Nullable<decimal> NOP_TOTAL, 
+                    global::System.Nullable<decimal> NOP_ICMSBASE, 
+                    global::System.Nullable<decimal> NOP_ICMSALIQ, 
+                    global::System.Nullable<decimal> NOP_ICMSVALOR, 
+                    global::System.Nullable<decimal> NOP_PERCDESC, 
+                    global::System.Nullable<short> NOP_CANCELADO, 
+                    global::System.Nullable<int> CFO_CODIGO, 
+                    global::System.Nullable<decimal> NOP_IIBASE, 
+                    global::System.Nullable<decimal> NOP_IIVALOR, 
+                    global::System.Nullable<decimal> NOP_IIIOF, 
+                    global::System.Nullable<decimal> NOP_IIDESPADUAN, 
+                    string NOP_ICMSCST, 
+                    global::System.Nullable<decimal> NOP_SUBTOTAL, 
+                    global::System.Nullable<decimal> NOP_ICMSSTBASE, 
+                    global::System.Nullable<decimal> NOP_ICMSSTALIQ, 
+                    global::System.Nullable<decimal> NOP_ICMSSTMVA, 
+                    global::System.Nullable<decimal> NOP_ICMSSTVALOR, 
+                    string NOP_PISCST, 
+                    global::System.Nullable<decimal> NOP_PISBASE, 
+                    global::System.Nullable<decimal> NOP_PISALIQ, 
+                    global::System.Nullable<decimal> NOP_PISVALOR, 
+                    string NOP_COFINSCST, 
+                    global::System.Nullable<decimal> NOP_COFINSBASE, 
+                    global::System.Nullable<decimal> NOP_COFINSALIQ, 
+                    global::System.Nullable<decimal> NOP_COFINSVALOR, 
+                    string NOP_CSOSN, 
+                    global::System.Nullable<decimal> NOP_IPIBASE, 
+                    global::System.Nullable<decimal> NOP_IPIALIQ, 
+                    global::System.Nullable<decimal> NOP_IPIVALOR, 
+                    global::System.Nullable<short> NOP_AVULSO, 
+                    global::System.Nullable<int> FIL_CODIGO, 
+                    global::System.Nullable<global::System.DateTime> NOP_DATA, 
+                    string NOP_IPICST, 
+                    global::System.Nullable<decimal> NOP_TOTIMPOSTO, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VBCUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PFCPUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSINTER, 
+                    global::System.Nullable<decimal> NOP_DIFAL_PICMSINTERPART, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VFCPUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VICMSUFDEST, 
+                    global::System.Nullable<decimal> NOP_DIFAL_VICMSUFREMET, 
+                    int Original_NOT_CODIGO, 
+                    int Original_NOP_CODIGO, 
+                    global::System.Nullable<short> Original_NOP_TIPO, 
+                    global::System.Nullable<int> Original_PRO_CODIGO, 
+                    string Original_NOP_DESCRICAO, 
+                    global::System.Nullable<decimal> Original_NOP_QTDE, 
+                    global::System.Nullable<decimal> Original_NOP_VALOR, 
+                    global::System.Nullable<decimal> Original_NOP_TOTAL, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSBASE, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSVALOR, 
+                    global::System.Nullable<decimal> Original_NOP_PERCDESC, 
+                    global::System.Nullable<short> Original_NOP_CANCELADO, 
+                    global::System.Nullable<int> Original_CFO_CODIGO, 
+                    global::System.Nullable<decimal> Original_NOP_IIBASE, 
+                    global::System.Nullable<decimal> Original_NOP_IIVALOR, 
+                    global::System.Nullable<decimal> Original_NOP_IIIOF, 
+                    global::System.Nullable<decimal> Original_NOP_IIDESPADUAN, 
+                    string Original_NOP_ICMSCST, 
+                    global::System.Nullable<decimal> Original_NOP_SUBTOTAL, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTBASE, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTMVA, 
+                    global::System.Nullable<decimal> Original_NOP_ICMSSTVALOR, 
+                    string Original_NOP_PISCST, 
+                    global::System.Nullable<decimal> Original_NOP_PISBASE, 
+                    global::System.Nullable<decimal> Original_NOP_PISALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_PISVALOR, 
+                    string Original_NOP_COFINSCST, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSBASE, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_COFINSVALOR, 
+                    string Original_NOP_CSOSN, 
+                    global::System.Nullable<decimal> Original_NOP_IPIBASE, 
+                    global::System.Nullable<decimal> Original_NOP_IPIALIQ, 
+                    global::System.Nullable<decimal> Original_NOP_IPIVALOR, 
+                    global::System.Nullable<short> Original_NOP_AVULSO, 
+                    global::System.Nullable<int> Original_FIL_CODIGO, 
+                    global::System.Nullable<global::System.DateTime> Original_NOP_DATA, 
+                    string Original_NOP_IPICST, 
+                    global::System.Nullable<decimal> Original_NOP_TOTIMPOSTO, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VBCUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PFCPUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSINTER, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_PICMSINTERPART, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VFCPUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VICMSUFDEST, 
+                    global::System.Nullable<decimal> Original_NOP_DIFAL_VICMSUFREMET) {
+            return this.Update(Original_NOT_CODIGO, Original_NOP_CODIGO, NOP_TIPO, PRO_CODIGO, NOP_DESCRICAO, NOP_QTDE, NOP_VALOR, NOP_TOTAL, NOP_ICMSBASE, NOP_ICMSALIQ, NOP_ICMSVALOR, NOP_PERCDESC, NOP_CANCELADO, CFO_CODIGO, NOP_IIBASE, NOP_IIVALOR, NOP_IIIOF, NOP_IIDESPADUAN, NOP_ICMSCST, NOP_SUBTOTAL, NOP_ICMSSTBASE, NOP_ICMSSTALIQ, NOP_ICMSSTMVA, NOP_ICMSSTVALOR, NOP_PISCST, NOP_PISBASE, NOP_PISALIQ, NOP_PISVALOR, NOP_COFINSCST, NOP_COFINSBASE, NOP_COFINSALIQ, NOP_COFINSVALOR, NOP_CSOSN, NOP_IPIBASE, NOP_IPIALIQ, NOP_IPIVALOR, NOP_AVULSO, FIL_CODIGO, NOP_DATA, NOP_IPICST, NOP_TOTIMPOSTO, NOP_DIFAL_VBCUFDEST, NOP_DIFAL_PFCPUFDEST, NOP_DIFAL_PICMSUFDEST, NOP_DIFAL_PICMSINTER, NOP_DIFAL_PICMSINTERPART, NOP_DIFAL_VFCPUFDEST, NOP_DIFAL_VICMSUFDEST, NOP_DIFAL_VICMSUFREMET, Original_NOT_CODIGO, Original_NOP_CODIGO, Original_NOP_TIPO, Original_PRO_CODIGO, Original_NOP_DESCRICAO, Original_NOP_QTDE, Original_NOP_VALOR, Original_NOP_TOTAL, Original_NOP_ICMSBASE, Original_NOP_ICMSALIQ, Original_NOP_ICMSVALOR, Original_NOP_PERCDESC, Original_NOP_CANCELADO, Original_CFO_CODIGO, Original_NOP_IIBASE, Original_NOP_IIVALOR, Original_NOP_IIIOF, Original_NOP_IIDESPADUAN, Original_NOP_ICMSCST, Original_NOP_SUBTOTAL, Original_NOP_ICMSSTBASE, Original_NOP_ICMSSTALIQ, Original_NOP_ICMSSTMVA, Original_NOP_ICMSSTVALOR, Original_NOP_PISCST, Original_NOP_PISBASE, Original_NOP_PISALIQ, Original_NOP_PISVALOR, Original_NOP_COFINSCST, Original_NOP_COFINSBASE, Original_NOP_COFINSALIQ, Original_NOP_COFINSVALOR, Original_NOP_CSOSN, Original_NOP_IPIBASE, Original_NOP_IPIALIQ, Original_NOP_IPIVALOR, Original_NOP_AVULSO, Original_FIL_CODIGO, Original_NOP_DATA, Original_NOP_IPICST, Original_NOP_TOTIMPOSTO, Original_NOP_DIFAL_VBCUFDEST, Original_NOP_DIFAL_PFCPUFDEST, Original_NOP_DIFAL_PICMSUFDEST, Original_NOP_DIFAL_PICMSINTER, Original_NOP_DIFAL_PICMSINTERPART, Original_NOP_DIFAL_VFCPUFDEST, Original_NOP_DIFAL_VICMSUFDEST, Original_NOP_DIFAL_VICMSUFREMET);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -29283,6 +34117,8 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
         private ESTOQUETableAdapter _eSTOQUETableAdapter;
         
         private filialTableAdapter _filialTableAdapter;
+        
+        private NOTAPRODUTOTableAdapter _nOTAPRODUTOTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -29595,6 +34431,20 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public NOTAPRODUTOTableAdapter NOTAPRODUTOTableAdapter {
+            get {
+                return this._nOTAPRODUTOTableAdapter;
+            }
+            set {
+                this._nOTAPRODUTOTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -29696,6 +34546,10 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                             && (this._filialTableAdapter.Connection != null))) {
                     return this._filialTableAdapter.Connection;
                 }
+                if (((this._nOTAPRODUTOTableAdapter != null) 
+                            && (this._nOTAPRODUTOTableAdapter.Connection != null))) {
+                    return this._nOTAPRODUTOTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -29772,6 +34626,9 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                 if ((this._filialTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._nOTAPRODUTOTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -29837,6 +34694,15 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._eSTOQUETableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ESTOQUE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._eSTOQUETableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.usuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -29873,21 +34739,21 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._iTEMPEDIDOTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ITEMPEDIDO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._iTEMPEDIDOTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._cidadesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.cidades.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._cidadesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._filialTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.filial.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._filialTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29954,21 +34820,21 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._eSTOQUETableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ESTOQUE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._iTEMPEDIDOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ITEMPEDIDO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._eSTOQUETableAdapter.Update(updatedRows));
+                    result = (result + this._iTEMPEDIDOTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._filialTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.filial.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._nOTAPRODUTOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.NOTAPRODUTO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._filialTableAdapter.Update(updatedRows));
+                    result = (result + this._nOTAPRODUTOTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -30030,6 +34896,14 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._eSTOQUETableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ESTOQUE.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._eSTOQUETableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.usuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -30062,19 +34936,19 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._iTEMPEDIDOTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ITEMPEDIDO.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._iTEMPEDIDOTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._cidadesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.cidades.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._cidadesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._filialTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.filial.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._filialTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -30134,19 +35008,19 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._eSTOQUETableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ESTOQUE.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._iTEMPEDIDOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ITEMPEDIDO.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._eSTOQUETableAdapter.Update(addedRows));
+                    result = (result + this._iTEMPEDIDOTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._filialTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.filial.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._nOTAPRODUTOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.NOTAPRODUTO.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._filialTableAdapter.Update(addedRows));
+                    result = (result + this._nOTAPRODUTOTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -30160,19 +35034,19 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._filialTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.filial.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._nOTAPRODUTOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.NOTAPRODUTO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._filialTableAdapter.Update(deletedRows));
+                    result = (result + this._nOTAPRODUTOTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._eSTOQUETableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ESTOQUE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._iTEMPEDIDOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ITEMPEDIDO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._eSTOQUETableAdapter.Update(deletedRows));
+                    result = (result + this._iTEMPEDIDOTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30232,19 +35106,19 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._filialTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.filial.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._filialTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._cidadesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.cidades.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._cidadesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._iTEMPEDIDOTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ITEMPEDIDO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._iTEMPEDIDOTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30277,6 +35151,14 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._usuariosTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._eSTOQUETableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ESTOQUE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._eSTOQUETableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30469,6 +35351,11 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
             }
             if (((this._filialTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._filialTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._nOTAPRODUTOTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._nOTAPRODUTOTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -30693,6 +35580,15 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                         adaptersWithAcceptChangesDuringUpdate.Add(this._filialTableAdapter.Adapter);
                     }
                 }
+                if ((this._nOTAPRODUTOTableAdapter != null)) {
+                    revertConnections.Add(this._nOTAPRODUTOTableAdapter, this._nOTAPRODUTOTableAdapter.Connection);
+                    this._nOTAPRODUTOTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._nOTAPRODUTOTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._nOTAPRODUTOTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._nOTAPRODUTOTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._nOTAPRODUTOTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -30834,6 +35730,10 @@ SELECT FIL_CODIGO, EST_CODIGO, EST_DATA, COM_CODIGO, VEN_CODIGO, PRO_CODIGO, INV
                 if ((this._filialTableAdapter != null)) {
                     this._filialTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._filialTableAdapter]));
                     this._filialTableAdapter.Transaction = null;
+                }
+                if ((this._nOTAPRODUTOTableAdapter != null)) {
+                    this._nOTAPRODUTOTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._nOTAPRODUTOTableAdapter]));
+                    this._nOTAPRODUTOTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -16,7 +16,7 @@ namespace Aplicativo.ClassesEntidades
         [Column("cod_produto")]
         public int ID { get; set; }
 
-        [Column("des-produto")]
+        [Column("des_produto")]
         public string Descricao { get; set; }
 
         [Column("EAN")]
@@ -31,7 +31,7 @@ namespace Aplicativo.ClassesEntidades
         [Column("est_produto")]
         public decimal Estoque { get; set; }
 
-        [Column("des_reduzida")]
+        [Column("desc_reduzida")]
         public string DescricaoReduzida { get; set; }
 
         [Column("Margem")]
@@ -62,19 +62,19 @@ namespace Aplicativo.ClassesEntidades
         public string CstCOFINS { get; set; }
 
         [Column("AliqInter")]
-        public string AliqInter { get; set; }
+        public decimal? AliqInter { get; set; }
 
         [Column("AliqIcms")]
-        public string AliqIcms { get; set; }
+        public decimal? AliqIcms { get; set; }
 
         [Column("AliqIpi")]
-        public string AliqIpi { get; set; }
+        public decimal? AliqIpi { get; set; }
 
         [Column("AliqPis")]
-        public string AliqPis { get; set; }
+        public decimal? AliqPis { get; set; }
 
         [Column("AliqCofins")]
-        public string AliqCofins { get; set; }
+        public decimal? AliqCofins { get; set; }
 
         [Column("Origem")]
         public int OrigemDoProduto { get; set; }
@@ -82,7 +82,16 @@ namespace Aplicativo.ClassesEntidades
         [Column("Situacao")]
         public int Situacao { get; set; }
 
-        [Column("UNMedida")]
+        [Column("UN_Medida")]
         public string UnidadeMedida { get; set; }
+
+        [Column("Icms_aliq_inter")]
+        public decimal IcmsStAliqInter { get; set;}
+
+        [Column("MVA")]
+        public decimal MVA { get; set; }
+        
+        [Column("Icms_StValor")]
+        public decimal IcmsStValor { get; set; }
     }
 }

@@ -36,8 +36,10 @@
             this.txtNomeFornecedor = new System.Windows.Forms.TextBox();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtIbge = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.txtUf = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -143,6 +145,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtDescUnit = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jarbasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendasBindingSource)).BeginInit();
@@ -203,7 +207,7 @@
             // 
             this.txtNomeFornecedor.Location = new System.Drawing.Point(134, 42);
             this.txtNomeFornecedor.Name = "txtNomeFornecedor";
-            this.txtNomeFornecedor.Size = new System.Drawing.Size(293, 20);
+            this.txtNomeFornecedor.Size = new System.Drawing.Size(313, 20);
             this.txtNomeFornecedor.TabIndex = 8;
             // 
             // Column4
@@ -214,8 +218,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtIbge);
-            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.button9);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.txtUf);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.label22);
@@ -246,22 +252,37 @@
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             // 
-            // txtIbge
+            // label26
             // 
-            this.txtIbge.Enabled = false;
-            this.txtIbge.Location = new System.Drawing.Point(428, 68);
-            this.txtIbge.Name = "txtIbge";
-            this.txtIbge.Size = new System.Drawing.Size(75, 20);
-            this.txtIbge.TabIndex = 26;
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(416, 16);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(27, 13);
+            this.label26.TabIndex = 30;
+            this.label26.Text = "Filial";
             // 
-            // label24
+            // button9
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(388, 71);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(32, 13);
-            this.label24.TabIndex = 25;
-            this.label24.Text = "IBGE";
+            this.button9.Location = new System.Drawing.Point(448, 12);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(31, 23);
+            this.button9.TabIndex = 27;
+            this.button9.Text = "...";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(485, 13);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(27, 20);
+            this.textBox3.TabIndex = 28;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(518, 13);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(236, 20);
+            this.textBox5.TabIndex = 29;
             // 
             // txtUf
             // 
@@ -348,7 +369,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(407, 16);
+            this.label14.Location = new System.Drawing.Point(448, 45);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 13);
             this.label14.TabIndex = 14;
@@ -362,9 +383,9 @@
             "COMPLEMENTAR",
             "AJUSTE",
             "DEVOLUÇÃO DE MERCADORIA"});
-            this.comboBox1.Location = new System.Drawing.Point(469, 13);
+            this.comboBox1.Location = new System.Drawing.Point(509, 41);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 21);
+            this.comboBox1.Size = new System.Drawing.Size(245, 21);
             this.comboBox1.TabIndex = 13;
             // 
             // label10
@@ -580,7 +601,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(396, 16);
+            this.label8.Location = new System.Drawing.Point(356, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 18;
@@ -674,7 +695,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(464, 16);
+            this.label6.Location = new System.Drawing.Point(477, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 13;
@@ -739,6 +760,7 @@
             this.btnInsProduto.TabIndex = 16;
             this.btnInsProduto.Text = "+";
             this.btnInsProduto.UseVisualStyleBackColor = true;
+            this.btnInsProduto.Click += new System.EventHandler(this.btnInsProduto_Click);
             // 
             // label11
             // 
@@ -905,16 +927,16 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(399, 33);
+            this.txtQuantidade.Location = new System.Drawing.Point(365, 33);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(59, 20);
+            this.txtQuantidade.Size = new System.Drawing.Size(48, 20);
             this.txtQuantidade.TabIndex = 12;
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(467, 33);
+            this.txtValor.Location = new System.Drawing.Point(485, 33);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(75, 20);
+            this.txtValor.Size = new System.Drawing.Size(57, 20);
             this.txtValor.TabIndex = 13;
             // 
             // btnPProduto
@@ -938,7 +960,7 @@
             // 
             this.txtNomeProduto.Location = new System.Drawing.Point(92, 33);
             this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(301, 20);
+            this.txtNomeProduto.Size = new System.Drawing.Size(266, 20);
             this.txtNomeProduto.TabIndex = 11;
             // 
             // dataGridView1
@@ -1040,6 +1062,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label27);
+            this.groupBox2.Controls.Add(this.txtDescUnit);
             this.groupBox2.Controls.Add(this.txtVenc);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label16);
@@ -1220,6 +1244,22 @@
             this.radioButton5.Text = "Código";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(420, 16);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(53, 13);
+            this.label27.TabIndex = 81;
+            this.label27.Text = "Desconto";
+            // 
+            // txtDescUnit
+            // 
+            this.txtDescUnit.Location = new System.Drawing.Point(419, 33);
+            this.txtDescUnit.Name = "txtDescUnit";
+            this.txtDescUnit.Size = new System.Drawing.Size(57, 20);
+            this.txtDescUnit.TabIndex = 82;
+            // 
             // FormNotaFiscal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1366,8 +1406,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtCodTransp;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox txtIbge;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
@@ -1379,5 +1417,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtDescUnit;
     }
 }

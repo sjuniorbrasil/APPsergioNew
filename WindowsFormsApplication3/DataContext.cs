@@ -19,9 +19,12 @@ namespace Aplicativo
         public virtual DbSet<Produto> Produtos { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Estoque> Estoques { get; set; }
-        public virtual DbSet<PedidoProduto> PedidoProdutos { get; set; }
+        //public virtual DbSet<PedidoProduto> PedidoProdutos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Filial> Filiais { get; set; }
+        public virtual DbSet<MinhaNota> MinhasNotas { get; set; }
+        public virtual DbSet<MinhaNotaProduto> MinhasNotasProdutos { get; set; }
+
 
 
         //pesquisas padrão        

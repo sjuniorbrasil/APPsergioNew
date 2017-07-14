@@ -61,5 +61,9 @@ namespace Aplicativo.ClassesEntidades
         [Column("fil_certificado")]
         public string CertificadoDigital { get; set; }
 
+        [Column("fil_crt")]
+        public string Crt { get; set; }
+
+
     }
 }

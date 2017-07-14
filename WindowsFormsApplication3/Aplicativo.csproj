@@ -112,6 +112,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -158,6 +159,8 @@
     <Compile Include="ClassesEntidades\Cliente.cs" />
     <Compile Include="ClassesEntidades\Estoque.cs" />
     <Compile Include="ClassesEntidades\Filial.cs" />
+    <Compile Include="ClassesEntidades\MinhaNota.cs" />
+    <Compile Include="ClassesEntidades\MinhaNotaProduto.cs" />
     <Compile Include="ClassesEntidades\Pedido.cs" />
     <Compile Include="ClassesEntidades\PedidoProduto.cs" />
     <Compile Include="ClassesEntidades\Produto.cs" />
@@ -618,6 +621,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
