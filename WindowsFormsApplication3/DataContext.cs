@@ -79,6 +79,23 @@ namespace Aplicativo
             return DT;
         }
 
+        public static DataTable CarregaFilial()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = utils.ConexaoDb();
+            con.Open();
+            SqlCommand Cmm = new SqlCommand();
+            Cmm.CommandText = "Select * from filial";
+            Cmm.CommandType = CommandType.Text;
+            Cmm.Connection = con;
+            SqlDataReader DR;
+            DR = Cmm.ExecuteReader();
+            DataTable DT = new DataTable();
+            DT.Load(DR);
+            con.Close();
+            return DT;
+        }
+
         public static DataTable CarregaFornecedores()
         {
             SqlConnection con = new SqlConnection();

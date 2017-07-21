@@ -232,10 +232,10 @@ namespace Aplicativo
                     cmd.Parameters.Add("@origem", SqlDbType.Int).Value = produtos.OrigemDoProduto;
                     cmd.Parameters.Add("@situacao", SqlDbType.Int).Value = produtos.Situacao;
                     cmd.Parameters.Add("@aliqinter", SqlDbType.NVarChar).Value = produtos.AliqInter;
-                    cmd.Parameters.Add("@aliqicms", SqlDbType.NVarChar).Value = produtos.AliqIcms;
-                    cmd.Parameters.Add("@aliqipi", SqlDbType.NVarChar).Value = produtos.AliqIpi;
-                    cmd.Parameters.Add("@aliqpis", SqlDbType.NVarChar).Value = produtos.AliqPis ;
-                    cmd.Parameters.Add("@aliqcofins", SqlDbType.NVarChar).Value = produtos.AliqCofins;
+                    cmd.Parameters.Add("@aliqicms", SqlDbType.Decimal).Value = produtos.AliqIcms;
+                    cmd.Parameters.Add("@aliqipi", SqlDbType.Decimal).Value = produtos.AliqIpi;
+                    cmd.Parameters.Add("@aliqpis", SqlDbType.Decimal).Value = produtos.AliqPis ;
+                    cmd.Parameters.Add("@aliqcofins", SqlDbType.Decimal).Value = produtos.AliqCofins;
                     cmd.Parameters.Add("@csticms", SqlDbType.NVarChar).Value = produtos.CstICMS;
                     cmd.Parameters.Add("@cstipi", SqlDbType.NVarChar).Value = produtos.CstIPI;
                     cmd.Parameters.Add("@cstpis", SqlDbType.NVarChar).Value = produtos.CstPIS;
@@ -262,7 +262,7 @@ namespace Aplicativo
                     }
                     catch (Exception ex)
                     {
-                        u.ApenasNumeros();
+                        u.messageboxErro(ex.ToString());
                     }
                     finally
                     {

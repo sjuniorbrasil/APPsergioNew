@@ -142,7 +142,9 @@ namespace Aplicativo
                 {
                     if (novo)
                     {
-                        string insert = "insert into usuarios(usu_nome, usu_senha, usu_cadpessoa, usu_cadproduto, usu_venda, usu_compra, usu_cadfiscal, usu_cadusuario, usu_relatorios) values(@usu_nome, @usu_senha, @usu_cadpessoa, @usu_cadproduto, @usu_venda, @usu_compra, @usu_cadfiscal, @usu_cadusuario, @usu_relatorios)";
+                        string insert = "insert into usuarios(usu_nome, usu_senha, usu_cadpessoa, usu_cadproduto, usu_venda, usu_compra, usu_cadfiscal,"
+                            + "usu_cadusuario, usu_relatorios) values(@usu_nome, @usu_senha, @usu_cadpessoa, @usu_cadproduto, @usu_venda, @usu_compra,"
+                            + "@usu_cadfiscal, @usu_cadusuario, @usu_relatorios)";
 
                         user.Nome = textBox1.Text;
                         user.Senha = textBox2.Text;
@@ -239,7 +241,9 @@ namespace Aplicativo
                     {
                         if (textBox2.Text != string.Empty)
                         {
-                            string alterar = "update usuarios set usu_senha = @usu_senha, usu_cadpessoa= @usu_cadpessoa, usu_cadproduto = @usu_cadproduto, usu_venda = @usu_venda, usu_compra = @usu_compra, usu_cadfiscal = @usu_cadfiscal, usu_cadusuario = @usu_cadusuario, usu_relatorios = @usu_relatorios";
+                            string alterar = "update usuarios set usu_senha = @usu_senha, usu_cadpessoa= @usu_cadpessoa, usu_cadproduto = @usu_cadproduto,"
+                                + "usu_venda = @usu_venda, usu_compra = @usu_compra, usu_cadfiscal = @usu_cadfiscal, usu_cadusuario = @usu_cadusuario,"
+                                + "usu_relatorios = @usu_relatorios where usu_nome = " + textBox1.Text.Trim();
                             user.Senha = textBox2.Text;
                             if (checkPessoa.Checked)
                             {
@@ -332,7 +336,8 @@ namespace Aplicativo
                         }
                         else
                         {
-                            string alterar = "update usuarios set  usu_cadpessoa= @usu_cadpessoa, usu_cadproduto = @usu_cadproduto, usu_venda = @usu_venda, usu_compra = @usu_compra, usu_cadfiscal = @usu_cadfiscal, usu_cadusuario = @usu_cadusuario, usu_relatorios = @usu_relatorios";
+                            string alterar = "update usuarios set  usu_cadpessoa= @usu_cadpessoa, usu_cadproduto = @usu_cadproduto, usu_venda = @usu_venda,"
+                                + "usu_compra = @usu_compra, usu_cadfiscal = @usu_cadfiscal, usu_cadusuario = @usu_cadusuario, usu_relatorios = @usu_relatorios where udu_nome = " + textBox1.Text.Trim();
 
                             if (checkPessoa.Checked)
                             {

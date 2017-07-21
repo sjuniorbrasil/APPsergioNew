@@ -78,7 +78,7 @@ namespace Aplicativo
             btnNovo.Enabled = false;
             btnSair.Enabled = false;
             btnSalvar.Enabled = true;
-            btnTransmitir.Enabled = false;
+            btnTransmitir.Enabled = true;
             btnInsProduto.Enabled = true;
             btnPProduto.Enabled = true;
             txtSerie.Text = "1";
@@ -151,7 +151,11 @@ namespace Aplicativo
             }
             string vencimento = txtVenc.Text;      
 
-            string updateNota = "update nota set not_dtemissao = @not_dtemissao, not_numero = @not_numero, not_modelo = @not_modelo, not_serie = not_serie, not_finalidade = @not_finalidade, cadastro = @cadastro, cfo_codigo = @cfo_codigo, not_referenciada = @not_referenciada, not_subtotal = @not_subtotal, not_desconto = @not_desconto, not_nfetotal = @not_nfetotal, not_obs = @not_obs, cod_forncedor = @cad_fornecedor, not_vencimento = @not_vencimento, not_cancelada = @not_cancelada, not_inutilizada = @not_inutilizada, not_peso = @not_peso, not_volume = @not_volume, not_marca = @not_marca, not_icmsbase = @not_icmsbase, not_icmsvalor = @not_icmsvalor, not_icmspercentual = @not_icmspercentual, not_icmsstvalor = @not_icmsstvalor   where not_codigo = " + txtControle.Text;
+            string updateNota = "update nota set not_dtemissao = @not_dtemissao, not_numero = @not_numero, not_modelo = @not_modelo, not_serie = not_serie, not_finalidade = @not_finalidade,"
+               + "cadastro = @cadastro, cfo_codigo = @cfo_codigo, not_referenciada = @not_referenciada, not_subtotal = @not_subtotal, not_desconto = @not_desconto, not_nfetotal = @not_nfetotal,"
+               + "not_obs = @not_obs, cod_forncedor = @cad_fornecedor, not_vencimento = @not_vencimento, not_cancelada = @not_cancelada, not_inutilizada = @not_inutilizada, not_peso = @not_peso,"
+               + "not_volume = @not_volume, not_marca = @not_marca, not_icmsbase = @not_icmsbase, not_icmsvalor = @not_icmsvalor, not_icmspercentual = @not_icmspercentual,"
+               + "not_icmsstvalor = @not_icmsstvalor   where not_codigo = " + txtControle.Text;
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = utils.ConexaoDb();
@@ -196,20 +200,20 @@ namespace Aplicativo
                 nota.ide.mod = "55";
                 nota.ide.serie = txtSerie.Text;
                 
-                string ultimoReg = "Select not_codigo From nota where not_codigo = (Select MAX(not_numero) From nota)";               
+                //string ultimoReg = "Select not_codigo From nota where not_codigo = (Select MAX(not_numero) From nota)";               
                 
-                SqlConnection con1 = new SqlConnection();
-                con.ConnectionString = utils.ConexaoDb();
-                SqlCommand cmd2 = new SqlCommand(ultimoReg, con1);
+                //SqlConnection con1 = new SqlConnection();
+                //con.ConnectionString = utils.ConexaoDb();
+                //SqlCommand cmd2 = new SqlCommand(ultimoReg, con1);
                 
-                con.Open();
-                SqlDataReader dR = cmd2.ExecuteReader();
+                //con.Open();
+                //SqlDataReader dR = cmd2.ExecuteReader();
                 
-                if (dR.Read())
-                {
-                    txtNunNota.Text = 1 + dR[0].ToString();
-                }
-                con.Close();
+                //if (dR.Read())
+                //{
+                //    txtNunNota.Text = 1 + dR[0].ToString();
+                //}
+                //con.Close();
                 DataContext db = new DataContext();
                 var pessoa = db.Clientes.Find(Convert.ToInt32(txtcodFornecedor.Text.Trim()));
                 var CidadeEstado = db.Cidades.Find(pessoa.CidadeCodigo);
@@ -228,7 +232,7 @@ namespace Aplicativo
                 nota.ide.finNFe = finalidadeNota;
                 nota.ide.procEmi = "3";// soft utilizado
                 //
-                
+                DataContext.fil_codigo = Convert.ToInt32(textBox3.Text.Trim());
                 var filial = db.Filiais.Find(DataContext.fil_codigo);
                 nota.emit.CNPJ = filial.CpfCnpj;
                 nota.emit.xNome = filial.Razao;
@@ -268,19 +272,19 @@ namespace Aplicativo
                     {
 
                     var notaProduto = new DET();
-                        notaProduto.cProd = row.Cells["Código"].Value.ToString();
+                        notaProduto.cProd = row.Cells["Column1"].Value.ToString();
                         DataView dv = new DataView(DataContext.CarregaProdutos());
                         Produto produto = new Produto();                        
-                        var produtoIncluir = db.Produtos.Find(notaProduto.cProd);
+                        var produtoIncluir = db.Produtos.Find(Convert.ToInt32(notaProduto.cProd));
 
                         notaProduto.cEAN = produtoIncluir.EAN; 
                         notaProduto.xProd = produtoIncluir.Descricao; 
                         notaProduto.NCM = produtoIncluir.NCM; 
                         notaProduto.CFOP = Convert.ToString(produtoIncluir.CFOP); 
                         notaProduto.uCom = produtoIncluir.UnidadeMedida; 
-                        notaProduto.qCom = row.Cells["QUANTIDADE"].Value.ToString(); 
-                        notaProduto.vUnCom = row.Cells["VALOR UN"].Value.ToString(); 
-                        notaProduto.vProd = row.Cells["TOTAL"].Value.ToString(); 
+                        notaProduto.qCom = row.Cells["Column2"].Value.ToString(); 
+                        notaProduto.vUnCom = row.Cells["Column3"].Value.ToString(); 
+                        notaProduto.vProd = row.Cells["Column4"].Value.ToString(); 
                         notaProduto.cEANTrib = produtoIncluir.EAN;
                         notaProduto.uTrib = produtoIncluir.UnidadeMedida;
                         notaProduto.qTrib = notaProduto.qCom;
@@ -425,7 +429,8 @@ namespace Aplicativo
             string recibo;
             string statusNota;
             string dataHoraProtocolo;
-            string updateNota = "update nota set  not_chave = @not_chave, not_protocolo = @not_protocolo, not_recibo = @not_recibo, not_statusnota = @statusnota, not_dthoraprotocolo = @not_dthoraprotocolo   where not_codigo = " + txtControle.Text;
+            string updateNota = "update nota set  not_chave = @not_chave, not_protocolo = @not_protocolo, not_recibo = @not_recibo,"
+                + "not_statusnota = @statusnota, not_dthoraprotocolo = @not_dthoraprotocolo   where not_codigo = " + txtControle.Text;
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = utils.ConexaoDb();
@@ -787,6 +792,41 @@ namespace Aplicativo
             {
                 con.Close();
             }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(DataContext.CarregaFilial());
+            if (radioButton1.Checked)
+            {
+                dv.RowFilter = "fil_codigo =" + textBox1.Text;
+            }
+            if (radioButtonFantasia.Checked)
+            {
+                dv.RowFilter = "fil_razao like'%" + textBox4.Text + "%'";
+            }
+            dataGridView3.DataSource = dv;
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                panel3.Visible = false;
+                DataGridViewRow row = this.dataGridView3.Rows[e.RowIndex];
+                textBox3.Text = row.Cells["fil_codigo"].Value.ToString();
+                textBox5.Text = row.Cells["fil_razao"].Value.ToString();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
         }
     }
 }
