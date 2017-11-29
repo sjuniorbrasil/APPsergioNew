@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Aplicativo.ClassesEntidades;
+using System.Data.Entity;
 
 namespace Aplicativo
 {
@@ -53,7 +54,7 @@ namespace Aplicativo
             u.EnableTxt(this);
             txtCodCopf.Enabled = true;
             novo = true;
-            txtCodCopf.Focus();
+            txtCodCopf.Focus();            
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
@@ -85,115 +86,181 @@ namespace Aplicativo
 
         private void buttonExclui_Click(object sender, EventArgs e)
         {
-            Cfop cfop = new Cfop();
-            cfop.ID = Convert.ToInt32(txtCodCopf.Text);
-
-            DialogResult escolha = MessageBox.Show("Deseja realmente excluir esse registro ?", "Mensagem do Sitema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (escolha == DialogResult.Cancel)
+            if (DataContext.TipoConexao == 2)
             {
+                Cfop cfop = new Cfop();
+                cfop.ID = Convert.ToInt32(txtCodCopf.Text);
 
+                DialogResult escolha = MessageBox.Show("Deseja realmente excluir esse registro ?", "Mensagem do Sitema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (escolha == DialogResult.Cancel)
+                {
+
+                }
+                else
+                {
+                    string excluir = "delete from CFOP where cfo_codigo = " + cfop.ID;
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = utils.ConexaoDb();
+                    SqlCommand cmd = new SqlCommand(excluir, con);
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    try
+                    {
+                        int i = cmd.ExecuteNonQuery();
+                        if (i > 0)
+                        {
+                            u.messageboxSucesso();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        u.messageboxErro(ex.ToString());
+                        throw;
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }                    
+                }
             }
             else
             {
-                string excluir = "delete from CFOP where cfo_codigo = " + cfop.ID;
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = utils.ConexaoDb();
-                SqlCommand cmd = new SqlCommand(excluir, con);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-                try
+                DialogResult escolha = MessageBox.Show("Deseja realmente excluir esse registro ?", "Mensagem do Sitema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (escolha == DialogResult.Cancel)
                 {
-                    int i = cmd.ExecuteNonQuery();
-                    if (i > 0)
-                    {
+
+                }
+                else
+                {
+                    try
+                    {                        
+                        var cfup = db.Cfops.Find(Convert.ToInt32(txtCodCopf.Text.Trim()));
+                        db.Cfops.Remove(cfup);
                         u.messageboxSucesso();
                     }
+                    catch (Exception ex)
+                    {
+                        u.messageboxErro(ex.ToString());
+                        throw;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    u.messageboxErro(ex.ToString());
-                    throw;
-                }
-                finally
-                {
-                    con.Close();
-                }
-                limpa();
             }
+            limpa();
         }
 
         private void buttonSalva_Click(object sender, EventArgs e)
         {
-            Cfop cfop = new Cfop(/*int.Parse(txtCodCopf.Text), txtDescricao.Text*/);
-            cfop.Descricao = txtDescricao.Text;
-            cfop.ID = Convert.ToInt32(txtCodCopf.Text);
-            if (txtCodCopf.Text == string.Empty || txtDescricao.Text == string.Empty)
+            if (DataContext.TipoConexao == 1)
             {
-                txtCodCopf.BackColor = Color.Gold;
-                txtDescricao.BackColor = Color.Gold;
-                u.messageboxCamposObrigatorio();
-            }
-            else
-            {                
-                if (novo)
+                Cfop cfop = new Cfop(/*int.Parse(txtCodCopf.Text), txtDescricao.Text*/);
+                cfop.Descricao = txtDescricao.Text;
+                cfop.ID = Convert.ToInt32(txtCodCopf.Text);
+                if (txtCodCopf.Text == string.Empty || txtDescricao.Text == string.Empty)
                 {
-                    string inserir = "insert into cfop(cfo_codigo, cfo_descricao) values(@cfo_codigo, @cfo_descricao)";
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = utils.ConexaoDb();
-                    SqlCommand cmd = new SqlCommand(inserir, con);
-                    cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop.ID;
-                    cmd.Parameters.Add("@cfo_descricao", SqlDbType.NVarChar).Value = cfop.Descricao;
-                    cmd.CommandType = CommandType.Text;
-                    con.Open();
-                    try
-                    {
-                        int i = cmd.ExecuteNonQuery();
-                        if (i > 0)
-                        {
-                            u.messageboxSucesso();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        u.messageboxErro(ex.ToString());
-                        throw;
-                    }
-                    finally
-                    {
-                        con.Close();
-                    }
+                    txtCodCopf.BackColor = Color.Gold;
+                    txtDescricao.BackColor = Color.Gold;
+                    u.messageboxCamposObrigatorio();
                 }
                 else
                 {
-                    string altera = "update cfop set cfo_descricao = @cfo_descricao where cfo_codigo =" + cfop.ID;
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = utils.ConexaoDb();
-                    SqlCommand cmd = new SqlCommand(altera, con);
-                    cmd.Parameters.Add("@cfo_descricao", SqlDbType.NVarChar).Value = cfop.Descricao;
-                    cmd.CommandType = CommandType.Text;
-                    con.Open();
+                    if (novo)
+                    {
+                        string inserir = "insert into cfop(cfo_codigo, cfo_descricao) values(@cfo_codigo, @cfo_descricao)";
+                        SqlConnection con = new SqlConnection();
+                        con.ConnectionString = utils.ConexaoDb();
+                        SqlCommand cmd = new SqlCommand(inserir, con);
+                        cmd.Parameters.Add("@cfo_codigo", SqlDbType.Int).Value = cfop.ID;
+                        cmd.Parameters.Add("@cfo_descricao", SqlDbType.NVarChar).Value = cfop.Descricao;
+                        cmd.CommandType = CommandType.Text;
+                        con.Open();
+                        try
+                        {
+                            int i = cmd.ExecuteNonQuery();
+                            if (i > 0)
+                            {
+                                u.messageboxSucesso();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            u.messageboxErro(ex.ToString());
+                            //throw new ArgumentException("TESTE"); pode ser configurada para mostrar uma mensagem configurara no debug para o programador
+                            throw;// apenas throw mostra a mensagem padrão sem tratamento
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+                    }
+                    else
+                    {
+                        string altera = "update cfop set cfo_descricao = @cfo_descricao where cfo_codigo =" + cfop.ID;
+                        SqlConnection con = new SqlConnection();
+                        con.ConnectionString = utils.ConexaoDb();
+                        SqlCommand cmd = new SqlCommand(altera, con);
+                        cmd.Parameters.Add("@cfo_descricao", SqlDbType.NVarChar).Value = cfop.Descricao;
+                        cmd.CommandType = CommandType.Text;
+                        con.Open();
+                        try
+                        {
+                            int i = cmd.ExecuteNonQuery();
+                            if (i > 0)
+                            {
+                                u.messageboxSucesso();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            u.messageboxErro(ex.ToString());
+                            throw;
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+                    }
+                    txtCodCopf.BackColor = SystemColors.Window;
+                    txtDescricao.BackColor = SystemColors.Window;
+                    limpa();
+                    u.DisableTxt(this);
+                }
+            }
+            else
+            {
+                if (novo)
+                {
                     try
                     {
-                        int i = cmd.ExecuteNonQuery();
-                        if (i > 0)
-                        {
-                            u.messageboxSucesso();
-                        }
+                        Cfop cfop = new Cfop();
+                        cfop.ID = Convert.ToInt32(txtCodCopf.Text.Trim());
+                        cfop.Descricao = txtDescricao.Text.Trim();
+                        db.Cfops.Add(cfop);
+                        db.SaveChanges();
+                        u.messageboxSucesso();                        
+                    }
+                    catch (Exception ex)
+                    {
+                        u.messageboxErro(ex.ToString());
+                        throw;
+                    }                    
+                }
+                else
+                {
+                    try
+                    {
+                        var cfup = db.Cfops.Find(Convert.ToInt32(txtCodCopf.Text));
+                        cfup.ID = Convert.ToInt32(txtCodCopf.Text.Trim());
+                        cfup.Descricao = txtDescricao.Text.Trim();
+                        db.Entry(cfup).State = EntityState.Modified;
+                        db.SaveChanges();
+                        u.messageboxSucesso();
                     }
                     catch (Exception ex)
                     {
                         u.messageboxErro(ex.ToString());
                         throw;
                     }
-                    finally
-                    {
-                        con.Close();
-                    }
                 }
-                txtCodCopf.BackColor = SystemColors.Window;
-                txtDescricao.BackColor = SystemColors.Window;
-                limpa();
-                u.DisableTxt(this);
             }
         }
 

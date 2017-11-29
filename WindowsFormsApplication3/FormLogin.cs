@@ -57,6 +57,7 @@ namespace Aplicativo
                 con.Close();
             }
             DataContext.fil_codigo = 1;
+            DataContext.TipoConexao = 2;
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -103,6 +104,8 @@ namespace Aplicativo
                     con.Close();
                 }
             }
+            DataContext.fil_codigo = 1;
+            DataContext.TipoConexao = 1;
         }
 
         private void button2_Click(object sender, EventArgs e)

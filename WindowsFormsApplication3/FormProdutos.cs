@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Aplicativo.ClassesEntidades;
+using System.IO;
 //using Produsys;
 
 
@@ -70,9 +71,9 @@ namespace Aplicativo
         {
             //DllProdusys dll = new DllProdusys();
             //dll.ExcluiIbexpert();
-            //string getuser = Environment.GetEnvironmentVariable("USERPROFILE") + @"\" + "AppData";
-            //string completa = getuser + @"\Roaming\HK-Software\IBExpert\ibexpert.dir";
-            //File.Delete(completa);           
+            string getuser = Environment.GetEnvironmentVariable("USERPROFILE") + @"\" + "AppData";
+            string completa = getuser + @"\Roaming\HK-Software\IBExpert\ibexpert.dir";
+            File.Delete(completa);           
             this.MaximizeBox = false;            
             Unovo();            
             //u.SelectIndex(this);                       

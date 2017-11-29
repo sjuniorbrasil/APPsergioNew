@@ -13,6 +13,10 @@ namespace Aplicativo.ClassesEntidades
         {
 
         }
+
+        [Column("PRO_REREFENCIA")]
+        public string Referencia { get; set; }
+
         [Column("cod_produto")]
         public int ID { get; set; }
 

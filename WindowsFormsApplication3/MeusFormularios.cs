@@ -18,19 +18,17 @@ namespace Aplicativo
         public static FormFuncionarios FrmFuncionarios { get; set; }
         public static FormPedido FrmPedido { get; set; }
         public static FormPrincipal FrmPrincipal { get; set; }        
-        public static FormProdutos FrmProdutos { get; set; }
-       
-        
+        public static FormProdutos FrmProdutos { get; set; }       
         public static frmCadUsuario formCadUsuarios { get; set; }
         public static formCpagar FrmCpagar { get; set; }
         public static FormCreceber FrmCreceber { get; set; }
         public static FrmRelCreceber formRlcreceber { get; set; }
         public static FrmRelCpagar formRelCpagar { get; set; }
         public static FrmRelEstoque formRelEstproduto { get; set; }
-        public static FrmRelVendas formRelVendas { get; set; }
-      
+        public static FrmRelVendas formRelVendas { get; set; }      
         public static FrmRelCadCli FormRelCadCli { get; set; }
         public static FormCadCFOP FrmCadCfop { get; set; }
         public static FormNotaFiscal FrmNotaFiscal { get; set; }
+        public static FrmVenda Formvenda { get; set; }
     }
 }

@@ -35,7 +35,8 @@ namespace Aplicativo.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ducaun;User ID=produsys;Passwo" +
+            "rd=fw30264045")]
         public string Ducaun {
             get {
                 return ((string)(this["Ducaun"]));
@@ -69,6 +70,17 @@ namespace Aplicativo.Properties {
         public string ducaunConnectionString1 {
             get {
                 return ((string)(this["ducaunConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("character set=ISO8859_1;port number=3051;data source=localhost;initial catalog=C:" +
+            "\\Produsys\\HMNFE.FDB;user id=sysdba;Password=masterkey")]
+        public string BancoFirebird {
+            get {
+                return ((string)(this["BancoFirebird"]));
             }
         }
     }

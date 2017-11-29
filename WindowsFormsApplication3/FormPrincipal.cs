@@ -307,5 +307,14 @@ namespace Aplicativo
             MeusFormularios.formCadUsuarios.Show();
             MeusFormularios.formCadUsuarios.Focus();
         }
+
+        private void oRDEMDESERVIÇOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MeusFormularios.Formvenda == null)
+                MeusFormularios.Formvenda = new FrmVenda();
+
+            MeusFormularios.Formvenda.Show();
+            MeusFormularios.Formvenda.Focus();
+        }
     }
 }

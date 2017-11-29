@@ -50,6 +50,9 @@ namespace Aplicativo.ClassesEntidades
         [Column("Numero")]
         public string Numero { get; set; }
 
+        
+        public string IE { get; set; }
+
 
 
     }

@@ -212,6 +212,7 @@ namespace Aplicativo
             con.Close();
             return descricao;            
         }      
-        public static int fil_codigo { get; set; }             
+        public static int fil_codigo { get; set; }    
+        public static int TipoConexao { get; set; }         
     }
 }

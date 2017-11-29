@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jarbasDataSet = new Aplicativo.jarbasDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -346,7 +346,7 @@
             this.panelPfunc.Controls.Add(this.txtpfunc);
             this.panelPfunc.Controls.Add(this.radioButton1);
             this.panelPfunc.Controls.Add(this.radioButton2);
-            this.panelPfunc.Location = new System.Drawing.Point(442, 74);
+            this.panelPfunc.Location = new System.Drawing.Point(1036, 9);
             this.panelPfunc.Name = "panelPfunc";
             this.panelPfunc.Size = new System.Drawing.Size(256, 248);
             this.panelPfunc.TabIndex = 69;
@@ -735,7 +735,7 @@
             this.panelPesquisaClientes.Controls.Add(this.btnSaiPesquisa);
             this.panelPesquisaClientes.Controls.Add(this.clientesDataGridView);
             this.panelPesquisaClientes.Controls.Add(this.button6);
-            this.panelPesquisaClientes.Location = new System.Drawing.Point(5, 9);
+            this.panelPesquisaClientes.Location = new System.Drawing.Point(743, 17);
             this.panelPesquisaClientes.Name = "panelPesquisaClientes";
             this.panelPesquisaClientes.Size = new System.Drawing.Size(257, 248);
             this.panelPesquisaClientes.TabIndex = 14;
@@ -795,14 +795,14 @@
             // 
             this.clientesDataGridView.AllowUserToAddRows = false;
             this.clientesDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clientesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clientesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.clientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clientesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.endereco,
@@ -816,14 +816,14 @@
             this.email,
             this.data_nas,
             this.numero});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.clientesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.clientesDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.clientesDataGridView.Location = new System.Drawing.Point(1, 35);
             this.clientesDataGridView.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.clientesDataGridView.Name = "clientesDataGridView";
@@ -1019,7 +1019,7 @@
             this.panelPClie.Controls.Add(this.radioButton3);
             this.panelPClie.Controls.Add(this.radioButtonBarras);
             this.panelPClie.Controls.Add(this.radioButton4);
-            this.panelPClie.Location = new System.Drawing.Point(6, 259);
+            this.panelPClie.Location = new System.Drawing.Point(29, 503);
             this.panelPClie.Name = "panelPClie";
             this.panelPClie.Size = new System.Drawing.Size(672, 210);
             this.panelPClie.TabIndex = 70;
@@ -1184,7 +1184,7 @@
             this.panelPed.Controls.Add(this.txtPesquiPedido);
             this.panelPed.Controls.Add(this.label17);
             this.panelPed.Controls.Add(this.pedidoDataGrid);
-            this.panelPed.Location = new System.Drawing.Point(5, 161);
+            this.panelPed.Location = new System.Drawing.Point(817, 267);
             this.panelPed.Name = "panelPed";
             this.panelPed.Size = new System.Drawing.Size(475, 263);
             this.panelPed.TabIndex = 71;
@@ -1467,13 +1467,13 @@
             // reportViewer1
             // 
             this.reportViewer1.DocumentMapWidth = 8;
-            reportDataSource1.Name = "DataSetNovo";
-            reportDataSource1.Value = this.DataTable1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "DataSetNovo";
+            reportDataSource3.Value = this.DataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Aplicativo.repPedidoCerto.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(5, 2);
+            this.reportViewer1.Location = new System.Drawing.Point(5, 439);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(714, 475);
+            this.reportViewer1.Size = new System.Drawing.Size(79, 38);
             this.reportViewer1.TabIndex = 73;
             this.reportViewer1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.reportViewer1_KeyPress);
             // 
@@ -1506,7 +1506,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 501);
+            this.ClientSize = new System.Drawing.Size(1304, 711);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.fillByimprimeobaguiToolStrip);

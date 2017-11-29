@@ -39,6 +39,7 @@
             this.pROCEDIMENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fUNCIONÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cFOPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uSUÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mOVIMENTAÇÕESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vENDASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eNTRADADEPRODUTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.uSUÁRIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oRDEMDESERVIÇOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -148,10 +149,18 @@
             this.cFOPToolStripMenuItem.Text = "CFOP";
             this.cFOPToolStripMenuItem.Click += new System.EventHandler(this.cFOPToolStripMenuItem_Click);
             // 
+            // uSUÁRIOSToolStripMenuItem
+            // 
+            this.uSUÁRIOSToolStripMenuItem.Name = "uSUÁRIOSToolStripMenuItem";
+            this.uSUÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.uSUÁRIOSToolStripMenuItem.Text = "USUÁRIOS";
+            this.uSUÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.uSUÁRIOSToolStripMenuItem_Click_1);
+            // 
             // mOVIMENTAÇÕESToolStripMenuItem
             // 
             this.mOVIMENTAÇÕESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vENDASToolStripMenuItem,
+            this.oRDEMDESERVIÇOToolStripMenuItem,
             this.eNTRADADEPRODUTOSToolStripMenuItem,
             this.eNTRADADEPRODUTOSToolStripMenuItem1,
             this.toolStripMenuItem2,
@@ -176,7 +185,6 @@
             this.eNTRADADEPRODUTOSToolStripMenuItem.Name = "eNTRADADEPRODUTOSToolStripMenuItem";
             this.eNTRADADEPRODUTOSToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.eNTRADADEPRODUTOSToolStripMenuItem.Text = "-----------------------------";
-            
             // 
             // eNTRADADEPRODUTOSToolStripMenuItem1
             // 
@@ -190,7 +198,6 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
             this.toolStripMenuItem2.Text = "-----------------------------";
-            
             // 
             // aGENDAToolStripMenuItem
             // 
@@ -323,7 +330,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(948, 374);
             this.panel1.TabIndex = 1;
-            
             // 
             // statusStrip1
             // 
@@ -356,12 +362,12 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // uSUÁRIOSToolStripMenuItem
+            // oRDEMDESERVIÇOToolStripMenuItem
             // 
-            this.uSUÁRIOSToolStripMenuItem.Name = "uSUÁRIOSToolStripMenuItem";
-            this.uSUÁRIOSToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.uSUÁRIOSToolStripMenuItem.Text = "USUÁRIOS";
-            this.uSUÁRIOSToolStripMenuItem.Click += new System.EventHandler(this.uSUÁRIOSToolStripMenuItem_Click_1);
+            this.oRDEMDESERVIÇOToolStripMenuItem.Name = "oRDEMDESERVIÇOToolStripMenuItem";
+            this.oRDEMDESERVIÇOToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.oRDEMDESERVIÇOToolStripMenuItem.Text = "ORDEM DE SERVIÇO";
+            this.oRDEMDESERVIÇOToolStripMenuItem.Click += new System.EventHandler(this.oRDEMDESERVIÇOToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -428,5 +434,6 @@
         private System.Windows.Forms.ToolStripMenuItem cFOPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nOTAFISCALELETRÔNICAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uSUÁRIOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oRDEMDESERVIÇOToolStripMenuItem;
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Aplicativo.ClassesEntidades
 {
     [Table("Pedido")]
     public class Pedido
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ped_codigo")]
         public int ID { get; set; }
 

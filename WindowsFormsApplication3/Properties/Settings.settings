@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApplication3.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Aplicativo.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="ESTETICAConnectionString" Type="(Connection string)" Scope="Application">
@@ -9,10 +9,10 @@
     <Setting Name="Ducaun" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045</Value>
+      <Value Profile="(Default)">Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045</Value>
     </Setting>
     <Setting Name="MMARIOConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -37,6 +37,14 @@
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045</Value>
+    </Setting>
+    <Setting Name="BancoFirebird" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;character set=ISO8859_1;port number=3051;data source=localhost;initial catalog=C:\Produsys\HMNFE.FDB;user id=sysdba;Password=masterkey&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;FirebirdSql.Data.FirebirdClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">character set=ISO8859_1;port number=3051;data source=localhost;initial catalog=C:\Produsys\HMNFE.FDB;user id=sysdba;Password=masterkey</Value>
     </Setting>
   </Settings>
 </SettingsFile>

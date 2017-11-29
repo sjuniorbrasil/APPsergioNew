@@ -325,13 +325,13 @@ namespace Aplicativo
                 }
                 catch (Exception)
                 {
-                    Aconexao = "Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
+                    Aconexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
                 }
                             
             }
             else
             {
-                Aconexao = "Data Source=SERVIDOR;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
+                Aconexao = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ducaun;User ID=produsys;Password=fw30264045";
             }
             return Aconexao;
 
